@@ -1,19 +1,65 @@
+import axios from "axios";
 import React from "react";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
+import Model from "./voice_model";
 
 export default function Text_to_Voice() {
   const inputRef = useRef<HTMLInputElement>(null);
+  const [selectedForm, setSelectedForm] = useState<string | null>(null);
+
+  const showForm = (formId: string | null) => {
+    setSelectedForm(formId);
+  };
+
+  const handleCancel = () => {
+    setSelectedForm(null); // Reset the selectedForm state to null
+  };
+  
+  
 
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
   }, []);
+  
 
   return (
     <>
+    
       <div className="flex flex-col items-center bg-white bg-crosses min-h-full flex-1 pl-[18rem] pt-[5rem] pr-[1rem]">
+
         <div className="py-2u 2xl:pb-6u 2xl:pt-3u max-w-screen-2xl w-full">
+    
+        
+
+
+        <div className=" pl-[88%]">
+        {selectedForm !== "form1" ? (
+          <button
+            type="button"
+            value="form1"
+            name="flexRadioDefault"
+            className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+            onClick={() => showForm("form1")}
+            id="flexRadioDefault1"
+          >
+            Generate Image
+          </button>
+        ) : (
+          <div className="flex">
+            <button
+              type="button"
+              className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-8 py-2.5 text-center mr-2 mb-2"
+              onClick={handleCancel}
+            >
+              Cancel
+            </button>
+          </div>
+        )}
+      </div>
+      {selectedForm === ("form1" as unknown) && <Model />}
+
           <div className="-mb-2u">
             <section className="content relative max-w-screen-2xl bg-bottom bg-no-repeat">
               <div className="relative w-full flex flex-col xl:flex-row text-left gap-1u xl:gap-2u">
@@ -95,12 +141,12 @@ export default function Text_to_Voice() {
                           data-testid="tryout-textarea"
                           className="font-serif text-lg bg-transparent h-[10rem] p-0 resize-none w-full outline-none focus:ring-0 ring-0 border-none placeholder:text-gray-200"
                           placeholder="FATS lets you voice any length of text in top quality, all while automatically matching what is being said with how it’s being said. The model works best on longer texts, so type in at least a few sentences."
-                          // rows="5"
-                          // maxLength="333"
-                          // spellcheck="false"
+                        // rows="5"
+                        // maxLength="333"
+                        // spellcheck="false"
                         ></textarea>
-                        
-  
+
+
                         <div className="absolute bottom-4 left-7">
                           <button
                             className="relative cursor-pointer rounded-lg mb-2 text-left focus:outline-none focus-visible:border-gray-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-300 sm:text-sm text-gray-700 text-base flex items-center"
@@ -147,7 +193,7 @@ export default function Text_to_Voice() {
                         <div className="flex flex-row items-center w-full gap-3">
                           <audio
                             id="audio-player"
-                            //   autoPlay="true"
+                          //   autoPlay="true"
                           ></audio>
                           <button
                             type="button"
@@ -230,7 +276,7 @@ export default function Text_to_Voice() {
             </section>
           </div>
           {/* </section> */}
-          
+
           <div className="pb-24 pt-32 sm:pb-32 sm:pt-40 lg:pb-40 lg:pt-52 content">
             <div className="mx-auto max-w-7xl ">
               <div className="sm:text-left mb-12 md:mb-16 lg:mb-20">
