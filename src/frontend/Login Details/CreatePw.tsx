@@ -1,64 +1,93 @@
-import {
-    MDBContainer,
-    MDBRow,
-    MDBCol,
-    MDBCard,
-    MDBCardBody,
-    MDBInput,
-  } from "mdb-react-ui-kit";
-  import "../../assets/frontend/css/login.css";
-  import { Link } from "react-router-dom";
-  
-  function App() {
-    return (
-      <MDBContainer fluid className="p-4">
-        <MDBRow>
-          <MDBCol
-            md="6"
-            className="text-center text-md-start d-flex flex-column justify-content-center"
-          >
-            <h1 className="my-5 display-3 fw-bold ls-tight px-3">
-              The best offer <br />
-              <span className="text-primary">for your business</span>
-            </h1>
-  
-            <p className="px-3" style={{ color: "hsl(217, 10%, 50.8%)" }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
-              itaque accusantium odio, soluta, corrupti aliquam quibusdam tempora
-              at cupiditate quis eum maiores libero veritatis? Dicta facilis sint
-              aliquid ipsum atque?
-            </p>
-          </MDBCol>
-  
-          <MDBCol md="6">
-            <MDBCard className="my-5">
-              <MDBCardBody className="p-5">
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Create New Password"
-                  id="form1"
-                  type="email"
-                />
-                 <MDBInput
-                  wrapperClass="mb-4"
-                  label="Conform Password"
-                  id="form1"
-                  type="email"
-                />
-                  <Link
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "../../frontend/Login Details/login.css";
+
+function App() {
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
+  return (
+    <div className="container-fluid p-4">
+      <div className="row">
+        <div className="col-md-6 text-center text-md-start d-flex flex-column justify-content-center">
+          <h1 className="my-5 display-3 fw-bold ls-tight px-3">
+            The best offer <br />
+            <span className="text-primary">for your business</span>
+          </h1>
+
+          <p className="px-3" style={{ color: "hsl(217, 10%, 50.8%)" }}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
+            itaque accusantium odio, soluta, corrupti aliquam quibusdam tempora
+            at cupiditate quis eum maiores libero veritatis? Dicta facilis sint
+            aliquid ipsum atque?
+          </p>
+        </div>
+
+        <div className="col-md-6">
+          <div className="card my-5">
+            <div className="card-body p-5">
+              <div className="mb-4">
+                <label htmlFor="password" className="form-label"></label>
+                <div className="input-group">
+                  <input
+                    className="form-control"
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Create New Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <button
+                    className="btn btn-outline-secondary"
                     type="button"
-                    to="/login"
-                    className="text-white w-100 mb-4 text-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                    onClick={togglePasswordVisibility}
                   >
-                    Submit
-                  </Link>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
-    );
-  }
-  
-  export default App;
-  
+                    {showPassword ? "Hide" : "Show"}
+                  </button>
+                </div>
+              </div>
+              <div className="mb-4">
+                <label htmlFor="confirmPassword" className="form-label"></label>
+                <div className="input-group">
+                  <input
+                    className="form-control"
+                    id="confirmPassword"
+                    type={showConfirmPassword ? "text" : "password"}
+                    placeholder="Confirm Password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  />
+                  <button
+                    className="btn btn-outline-secondary"
+                    type="button"
+                    onClick={toggleConfirmPasswordVisibility}
+                  >
+                    {showConfirmPassword ? "Hide" : "Show"}
+                  </button>
+                </div>
+              </div>
+              <Link
+                to="/login"
+                className="btn btn-primary w-100 mb-4 text-center"
+              >
+                Submit
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;

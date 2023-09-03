@@ -1,5 +1,7 @@
-import { useEffect } from 'react';
-import WOW from 'wow.js'; 
+// import { useEffect } from 'react';
+// import WOW from 'wow.js'; 
+import img from "../../custom/images/map-marker.png";
+import img1 from "../../custom/images/fables-logo.png";
 
 export default function ContactUs() {
   // useEffect(() => {
@@ -129,7 +131,7 @@ export default function ContactUs() {
               id="map"
               data-lng="31.248848"
               data-lat="29.966324"
-              data-icon="src/custom/images/map-marker.png"
+              data-icon={img}
               data-zom="12" // I assume this was meant to be "data-zoom"
               style={{ width: "100%", height: "420px" }}
             ></div>
@@ -166,7 +168,7 @@ export default function ContactUs() {
                 className="fables-second-border-color border-bottom pb-3 d-block mb-3 mt-minus-13"
               >
                 <img
-                  src="src/custom/images/fables-logo.png"
+                  src={img1}
                   alt="fables template"
                 />
               </a>
