@@ -1,5 +1,18 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 // import WOW from 'wow.js'; // Import the wow.js library
+import img from "../../custom/images/cat-larg1.jpg";
+import img1 from "../../custom/images/cat-larg2.jpg";
+import img2 from "../../custom/images/cat-larg3.jpg";
+import img3 from "../../custom/images/cat-larg4.jpg";
+import img4 from "../../custom/images/cat-larg5.jpg";
+import img5 from "../../custom/images/cat-larg6.jpg";
+import img6 from "../../custom/images/cat-larg7.jpg";
+import img7 from "../../custom/images/cat-larg8.jpg";
+import img8 from "../../custom/images/blog-cat1.jpg";
+import img9 from "../../custom/images/blog-cat2.jpg";
+import img10 from "../../custom/images/blog-cat3.jpg";
+import img11 from "../../custom/images/blog-cat4.jpg";
+import img12 from "../../custom/images/fables-logo.png";
 
 export default function Blog() {
   // useEffect(() => {
@@ -21,7 +34,7 @@ export default function Blog() {
                 <div className="image-container translate-effect-right">
                   <a href="#">
                     <img
-                      src="src/custom/images/cat-larg1.jpg"
+                      src={img}
                       alt="alt image text"
                     />
                   </a>
@@ -67,7 +80,7 @@ export default function Blog() {
                 <div className="image-container translate-effect-right">
                   <a href="#">
                     <img
-                      src="src/custom/images/cat-larg2.jpg"
+                      src={img1}
                       alt="alt image text"
                     />
                   </a>
@@ -114,7 +127,7 @@ export default function Blog() {
                 <div className="image-container translate-effect-right">
                   <a href="#">
                     <img
-                      src="src/custom/images/cat-larg3.jpg"
+                      src={img2}
                       alt="alt image text"
                     />
                   </a>
@@ -161,7 +174,7 @@ export default function Blog() {
                 <div className="image-container translate-effect-right">
                   <a href="#">
                     <img
-                      src="src/custom/images/cat-larg4.jpg"
+                      src={img3}
                       alt="alt image text"
                     />
                   </a>
@@ -208,7 +221,7 @@ export default function Blog() {
                 <div className="image-container translate-effect-right">
                   <a href="#">
                     <img
-                      src="src/custom/images/cat-larg5.jpg"
+                      src={img4}
                       alt="alt image text"
                     />
                   </a>
@@ -255,7 +268,7 @@ export default function Blog() {
                 <div className="image-container translate-effect-right">
                   <a href="#">
                     <img
-                      src="src/custom/images/cat-larg6.jpg"
+                      src={img5}
                       alt="alt image text"
                     />
                   </a>
@@ -302,7 +315,7 @@ export default function Blog() {
                 <div className="image-container translate-effect-right">
                   <a href="#">
                     <img
-                      src="src/custom/images/cat-larg7.jpg"
+                      src={img6}
                       alt="alt image text"
                     />
                   </a>
@@ -349,7 +362,7 @@ export default function Blog() {
                 <div className="image-container translate-effect-right">
                   <a href="#">
                     <img
-                      src="src/custom/images/cat-larg8.jpg"
+                      src={img7}
                       alt="alt image text"
                     />
                   </a>
@@ -449,7 +462,7 @@ export default function Blog() {
                 <div className="col-4">
                   <a href="#">
                     <img
-                      src="src/custom/images/blog-cat1.jpg"
+                      src={img8}
                       alt=""
                       className="img-fluid"
                     />
@@ -471,7 +484,7 @@ export default function Blog() {
                 <div className="col-4">
                   <a href="#">
                     <img
-                      src="src/custom/images/blog-cat2.jpg"
+                      src={img9}
                       alt=""
                       className="img-fluid"
                     />
@@ -493,7 +506,7 @@ export default function Blog() {
                 <div className="col-4">
                   <a href="#">
                     <img
-                      src="src/custom/images/blog-cat3.jpg"
+                      src={img10}
                       alt=""
                       className="img-fluid"
                     />
@@ -515,7 +528,7 @@ export default function Blog() {
                 <div className="col-4">
                   <a href="#">
                     <img
-                      src="src/custom/images/blog-cat4.jpg"
+                      src={img11}
                       alt=""
                       className="img-fluid"
                     />
@@ -602,7 +615,7 @@ export default function Blog() {
                 className="fables-second-border-color border-bottom pb-3 d-block mb-3 mt-minus-13"
               >
                 <img
-                  src="/src/custom/images/fables-logo.png"
+                  src={img12}
                   alt="fables template"
                 />
               </a>
