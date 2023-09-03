@@ -8,20 +8,23 @@ import {
   MDBCheckbox,
 } from "mdb-react-ui-kit";
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect,  } from "react";
 import { Modal } from "antd";
+// import Text from "@/terms & conditions.txt"
+
 
 function App() {
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState("Content of the modal");
+  const history = useNavigate();
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
-    username: "",
-    phone_number: "",
-    email: "",
+    first_name: '',
+    last_name: '',
+    username: '',
+    phone_number: '',
+    email: '',
   });
 
   const showModal = () => {
@@ -43,35 +46,43 @@ function App() {
   };
   // useEffect(() => {
   //   // Load content from a text file using fetch or axios
-  //   fetch()
+  //   fetch(Text)
   //     .then(response => response.text())
   //     .then(text => setModalText(text))
   //     .catch(error => console.error('Error loading text:', error));
   // }, []); // Empty dependency array means this effect runs once, like componentDidMount
 
-  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8000/insert_user/', formData, {
+      const response = await fetch('http://localhost:5000/insert_user', {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+        body: JSON.stringify(formData),
       });
 
-      console.log('User registration successful:', response.data);
-      // You can add a success message or redirection logic here.
+      if (response.ok) {
+        alert('Data inserted successfully!');
+        // You can add redirection or other actions here if needed.
+        history("/verify");
+      } else {
+        alert('Error inserting user data.');
+      }
     } catch (error) {
-      console.error('Error registering user:', error);
-      // You can display an error message to the user.
+      console.error('Error:', error);
     }
   };
 
+
+  
   
   return (
     <MDBContainer fluid className="p-4">
@@ -104,7 +115,7 @@ function App() {
                     name="first_name"
                     placeholder="First Name"
                     value={formData.first_name}
-                    onChange={handleChange}
+                  onChange={handleInputChange}
                   />
                 </MDBCol>
 
@@ -114,7 +125,7 @@ function App() {
                     name="last_name"
                     placeholder="Last Name"
                     value={formData.last_name}
-                    onChange={handleChange}
+                  onChange={handleInputChange}
                   />
                 </MDBCol>
               </MDBRow>
@@ -126,7 +137,7 @@ function App() {
                   name="username"
                   placeholder="Username"
                     value={formData.username}
-                    onChange={handleChange}
+                  onChange={handleInputChange}
                   />
                 </MDBCol>
 
@@ -137,7 +148,7 @@ function App() {
                     placeholder="Phone Number"
                     type="tel"
                     value={formData.phone_number}
-                    onChange={handleChange}
+                  onChange={handleInputChange}
                   />
                 </MDBCol>
               </MDBRow>
@@ -148,7 +159,7 @@ function App() {
                  placeholder="Email"
                  type="email"
                 value={formData.email}
-                onChange={handleChange}
+              onChange={handleInputChange}
               />
               <div className="mb-4">
                 <MDBCheckbox
@@ -178,6 +189,7 @@ function App() {
 
               <button
                   type="submit"
+                  
                   className="text-white text-center w-100 mb-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 >
                   Register
