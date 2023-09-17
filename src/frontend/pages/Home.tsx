@@ -1,25 +1,24 @@
 import "../../components/frontend/assets/css/creative-studio.css";
 import "../../components/frontend/assets/vendors/themify-icons/css/themify-icons.css";
-import Animation from "./animation"
-import img from "../../components/frontend/assets/imgs/about.jpg"
-import img1 from "../../components/frontend/assets/imgs/folio-1.jpg"
-import img2 from "../../components/frontend/assets/imgs/folio-2.jpg"
-import img3 from "../../components/frontend/assets/imgs/folio-3.jpg"
-import img4 from "../../components/frontend/assets/imgs/folio-4.jpg"
-import img5 from "../../components/frontend/assets/imgs/folio-5.jpg"
-import img6 from "../../components/frontend/assets/imgs/folio-6.jpg"
-import img7 from "../../components/frontend/assets/imgs/avatar.jpg"
+import img from "../../components/frontend/assets/imgs/about.jpg";
+import img1 from "../../components/frontend/assets/imgs/folio-1.jpg";
+import img2 from "../../components/frontend/assets/imgs/folio-2.jpg";
+import img3 from "../../components/frontend/assets/imgs/folio-3.jpg";
+import img4 from "../../components/frontend/assets/imgs/folio-4.jpg";
+import img5 from "../../components/frontend/assets/imgs/folio-5.jpg";
+import img6 from "../../components/frontend/assets/imgs/folio-6.jpg";
+import img7 from "../../components/frontend/assets/imgs/avatar.jpg";
 // import img8 from "../../components/frontend/assets/imgs/avatar-1.jpg"
 // import img9 from "../../components/frontend/assets/imgs/avatar-2.jpg"
-import img10 from "../../components/frontend/assets/imgs/avatar-3.jpg"
+import img10 from "../../components/frontend/assets/imgs/avatar-3.jpg";
 // import img11 from "../../components/frontend/assets/imgs/avatar-4.jpg"
 // import img12 from "../../components/frontend/assets/imgs/avatar-5.jpg"
 // import img13 from "../../components/frontend/assets/imgs/avatar-6.jpg"
 // import img14 from "../../components/frontend/assets/imgs/avatar-7.jpg"
-import img15 from "../../components/frontend/assets/imgs/blog-1.jpg"
-import img16 from "../../components/frontend/assets/imgs/blog-2.jpg"
-import img17 from "../../components/frontend/assets/imgs/blog-3.jpg"
-import img18 from "../../components/frontend/assets/imgs/logo.png"
+import img15 from "../../components/frontend/assets/imgs/blog-1.jpg";
+import img16 from "../../components/frontend/assets/imgs/blog-2.jpg";
+import img17 from "../../components/frontend/assets/imgs/blog-3.jpg";
+import img18 from "../../components/frontend/assets/imgs/logo.png";
 
 export default function Home() {
   return (
@@ -33,11 +32,10 @@ export default function Home() {
           <div className="container">
             <a className="navbar-brand" href="#">
               <img
-              className=" "
+                className=" "
                 // src={logo}
                 alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
               />
-           
             </a>
             <button
               className="navbar-toggler"
@@ -101,36 +99,6 @@ export default function Home() {
                     Login
                   </a>
                 </li>
-                {/* <div className="flex items-center md:order-2">
-                  <button
-                    type="button"
-                    className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                    id="user-menu-button"
-                    aria-expanded="false"
-                    data-dropdown-toggle="user-dropdown"
-                    data-dropdown-placement="bottom"
-                  >
-                    <span className="sr-only">Open user menu</span>
-                    <img
-                      className="w-8 h-8 rounded-full"
-                      src="/docs/images/people/profile-picture-3.jpg"
-                      alt="user photo"
-                    />
-                  </button>
-                  <div
-                    className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-                    id="user-dropdown"
-                  >
-                    <div className="px-4 py-3">
-                      <span className="block text-sm text-gray-900 dark:text-white">
-                        Bonnie Green
-                      </span>
-                      <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
-                        name@flowbite.com
-                      </span>
-                    </div>
-                  </div>
-                </div> */}
               </ul>
             </div>
           </div>
@@ -138,8 +106,9 @@ export default function Home() {
 
         <header className="header">
           <div className="overlay">
-            <Animation/>
-            <div className="buttons text-center">
+            <h1 className="title font-italic pt-[5%]">FATS</h1>
+            <h1 className="subtitle font-italic">FUTURE AI TECHNOLOGY'S</h1>
+            <div className="buttons text-center ">
               <a
                 href="#service"
                 className="btn btn-primary rounded w-lg btn-lg my-1"
@@ -859,7 +828,6 @@ export default function Home() {
                 </div>
               </div>
             </div> */}
-            
           </div>
         </section>
 
