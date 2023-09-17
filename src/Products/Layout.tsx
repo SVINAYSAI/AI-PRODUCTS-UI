@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import "../components/frontend/assets/css/style1.css"
 export default function Layout() {
   return (
@@ -29,16 +29,16 @@ export default function Layout() {
                   ></path>
                 </svg>
               </button>
-              <a href="https://flowbite.com" className="flex ml-2 md:mr-24">
+              <Link to="https://flowbite.com" className="flex ml-2 md:mr-24">
                 <img
                   src="https://flowbite.com/docs/images/logo.svg"
                   className="h-8 mr-3"
-                  alt="FlowBite Logo"
+                  alt=""
                 />
                 <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
                   FATS
                 </span>
-              </a>
+              </Link>
             </div>
             <div className="flex items-center">
               <div className="flex items-center ml-3">
@@ -53,7 +53,7 @@ export default function Layout() {
                     <img
                       className="w-8 h-8 rounded-full"
                       src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                      alt="user photo"
+                      alt=""
                     />
                   </button>
                 </div>
@@ -77,40 +77,40 @@ export default function Layout() {
                   </div>
                   <ul className="py-1" role="none">
                     <li>
-                      <a
-                        href="#"
+                      <Link
+                        to="#"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
                       >
                         Dashboard
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
+                      <Link
+                        to="#"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
                       >
                         Settings
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
+                      <Link
+                        to="#"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
                       >
                         Earnings
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
+                      <Link
+                        to="#"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
                       >
                         Sign out
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -134,8 +134,8 @@ export default function Layout() {
                 </div>
               </li>
               <li>
-                <a
-                  href="/products/image"
+                <Link
+                  to="/products/image"
                   className="relative flex flex-row items-center h-11 no-underline focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -157,11 +157,11 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     Image Genration
                   </span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/products/voice"
+                <Link
+                  to="/products/voice"
                   className="relative flex flex-row items-center h-11 no-underline focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -184,11 +184,11 @@ export default function Layout() {
                     Voice Gentaion 
                   </span>
               
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/products/3d"
+                <Link
+                  to="/products/3d"
                   className="relative flex flex-row items-center no-underline h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -210,11 +210,11 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     3D Objects Genration
                   </span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/products/transcripts"
+                <Link
+                  to="/products/transcripts"
                   className="relative flex flex-row items-center no-underline h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -237,12 +237,12 @@ export default function Layout() {
                     Transcripts
                   </span>
                 
-                </a>
+                </Link>
               </li>
              
               <li>
-                <a
-                  href="/products/chart"
+                <Link
+                  to="/products/chart"
                   className="relative flex flex-row no-underline items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -264,11 +264,11 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     Charts Genration
                   </span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/products/music"
+                <Link
+                  to="/products/music"
                   className="relative flex flex-row items-center no-underline h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -291,11 +291,11 @@ export default function Layout() {
                     Music Genration
                   </span>
                  
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="relative flex flex-row items-center no-underline h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -318,7 +318,7 @@ export default function Layout() {
                     AI Avatar Genration
                   </span>
                  
-                </a>
+                </Link>
               </li>
               <li className="px-5">
                 <div className="flex flex-row items-center h-8">
@@ -328,8 +328,8 @@ export default function Layout() {
                 </div>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="relative flex flex-row items-center no-underline h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -351,11 +351,11 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     Profile
                   </span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="relative flex flex-row items-center no-underline h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -383,11 +383,11 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     Settings
                   </span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="relative flex flex-row items-center no-underline h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -409,7 +409,7 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     Logout
                   </span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

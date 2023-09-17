@@ -19,7 +19,7 @@ import img15 from "../../components/frontend/assets/imgs/blog-1.jpg";
 import img16 from "../../components/frontend/assets/imgs/blog-2.jpg";
 import img17 from "../../components/frontend/assets/imgs/blog-3.jpg";
 import logo from "../../components/fats-logo/svg/logo-no-background.svg";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -1131,6 +1131,7 @@ export default function Home() {
           </div>
         </section>
       </body>
+      <Outlet />
     </>
   );
 }

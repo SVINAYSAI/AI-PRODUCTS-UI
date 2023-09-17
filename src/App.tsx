@@ -8,9 +8,6 @@ import React from "react";
 const App = () => {
   const ProductsRoute = lazy(() => import("./routes/ProductsRoute"));
   const FrontendRoute = lazy(() => import("./routes/FrontendRoute"));
-  const AboutRoute = lazy(() => import("./routes/AboutRoute"));
-  const BlogRoute = lazy(() => import("./routes/BlogRoute"));
-  const ContactUsRoute = lazy(() => import("./routes/ContactUsRoute"));
   const ApiRoute = lazy(() => import("./routes/ApiRoute"));
   const ServicesRoute = lazy(() => import("./routes/ServicesRoutes"));
   return (
@@ -18,9 +15,6 @@ const App = () => {
       <Routes>
         <Route path="/*" element={<FrontendRoute />} />
         <Route path="products/*" element={<ProductsRoute />} />
-        <Route path="about/*" element={<AboutRoute />} /> 
-        <Route path="blog/*" element={<BlogRoute />} />
-        <Route path="contactus/*" element={<ContactUsRoute />} />
         <Route path="api/*" element={<ApiRoute />} />
         <Route path="ser/*" element={<ServicesRoute />} />
       </Routes>

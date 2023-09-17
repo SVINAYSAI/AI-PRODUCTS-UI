@@ -2,6 +2,20 @@
 // import WOW from 'wow.js'; 
 import img from "../../custom/images/map-marker.png";
 import img1 from "../../custom/images/fables-logo.png";
+import "../../vendor/animate.css-master/animate.min.css";
+import "../../vendor/fontawesome/css/fontawesome-all.min.css";
+import "../../vendor/bootstrap/css/bootstrap-4-navbar.css";
+import "../../vendor/bootstrap/css/bootstrap.min.css";
+import "../../vendor/portfolio-filter-gallery/portfolio-filter-gallery.css";
+import "../../vendor/fancybox-master/jquery.fancybox.min.css";
+import "../../vendor/range-slider/range-slider.css";
+import "../../vendor/OffCanvasMenuEffects/css/menu_sideslide.css";
+import "../../vendor/owlcarousel/owl.carousel.min.css";
+import "../../vendor/owlcarousel/owl.theme.default.min.css";
+import "../../custom/css/custom-responsive.css";
+import "../../custom/css/custom.css";
+import "../../custom/css/fables-icons.css";
+import { Link } from "react-router-dom";
 
 export default function ContactUs() {
   // useEffect(() => {
@@ -52,24 +66,24 @@ export default function ContactUs() {
                 </h2>
                 <ul className="nav fables-contact-social-links">
                   <li>
-                    <a href="#" target="_blank">
+                    <Link to="#" target="_blank">
                       <i className="fab fa-facebook-f fables-forth-text-color fa-fw"></i>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" target="_blank">
+                    <Link to="#" target="_blank">
                       <i className="fab fa-instagram fables-forth-text-color  fa-fw"></i>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" target="_blank">
+                    <Link to="#" target="_blank">
                       <i className="fab fa-twitter fables-forth-text-color    fa-fw"></i>
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" target="_blank">
+                    <Link to="#" target="_blank">
                       <i className="fab fa-linkedin fables-forth-text-color   fa-fw"></i>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -163,15 +177,15 @@ export default function ContactUs() {
               </form>
             </div>
             <div className="col-12 col-lg-4 mb-4 mb-lg-0">
-              <a
-                href="#"
+              <Link
+                to="#"
                 className="fables-second-border-color border-bottom pb-3 d-block mb-3 mt-minus-13"
               >
                 <img
                   src={img1}
                   alt="fables template"
                 />
-              </a>
+              </Link>
               <p className="font-15 fables-third-text-color">
                 {`
     It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
@@ -219,22 +233,22 @@ export default function ContactUs() {
               </h2>
               <ul className="nav fables-footer-links">
                 <li>
-                  <a href="about1.html">About Us</a>
+                  <Link to="about1.html">About Us</Link>
                 </li>
                 <li>
-                  <a href="contactus1.html">Contact Us</a>
+                  <Link to="contactus1.html">Contact Us</Link>
                 </li>
                 <li>
-                  <a href="gallery.html">Gallery</a>
+                  <Link to="gallery.html">Gallery</Link>
                 </li>
                 <li>
-                  <a href="team.html">Team</a>
+                  <Link to="team.html">Team</Link>
                 </li>
                 <li>
-                  <a href="blog.html">Blog</a>
+                  <Link to="blog.html">Blog</Link>
                 </li>
                 <li>
-                  <a href="testimonials.html">Testimonials</a>
+                  <Link to="testimonials.html">Testimonials</Link>
                 </li>
               </ul>
             </div>
@@ -244,34 +258,34 @@ export default function ContactUs() {
       <div className="copyright fables-main-background-color mt-0 border-0 white-color">
         <ul className="nav fables-footer-social-links just-center fables-light-footer-links">
           <li>
-            <a href="#" target="_blank">
+            <Link to="#" target="_blank">
               <i className="fab fa-google-plus-square"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="_blank">
+            <Link to="#" target="_blank">
               <i className="fab fa-facebook"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="_blank">
+            <Link to="#" target="_blank">
               <i className="fab fa-instagram"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="_blank">
+            <Link to="#" target="_blank">
               <i className="fab fa-pinterest-square"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="_blank">
+            <Link to="#" target="_blank">
               <i className="fab fa-twitter-square"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="_blank">
+            <Link to="#" target="_blank">
               <i className="fab fa-linkedin"></i>
-            </a>
+            </Link>
           </li>
         </ul>
         <p className="mb-0">Copyright © Fables 2018. All rights reserved.</p>

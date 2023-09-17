@@ -1,5 +1,6 @@
 // import { useEffect } from 'react';
 // import WOW from 'wow.js'; // Import the wow.js library
+import { Link, Outlet } from "react-router-dom";
 import img from "../../custom/images/cat-larg1.jpg";
 import img1 from "../../custom/images/cat-larg2.jpg";
 import img2 from "../../custom/images/cat-larg3.jpg";
@@ -13,6 +14,16 @@ import img9 from "../../custom/images/blog-cat2.jpg";
 import img10 from "../../custom/images/blog-cat3.jpg";
 import img11 from "../../custom/images/blog-cat4.jpg";
 import img12 from "../../custom/images/fables-logo.png";
+import "../../vendor/animate.css-master/animate.min.css";
+import "../../vendor/fontawesome/css/fontawesome-all.min.css";
+import "../../vendor/bootstrap/css/bootstrap-4-navbar.css";
+import "../../vendor/bootstrap/css/bootstrap.min.css";
+import "../../vendor/OffCanvasMenuEffects/css/menu_sideslide.css";
+import "../../vendor/owlcarousel/owl.carousel.min.css";
+import "../../vendor/owlcarousel/owl.theme.default.min.css";
+import "../../custom/css/custom-responsive.css";
+import "../../custom/css/custom.css";
+import "../../custom/css/fables-icons.css";
 
 export default function Blog() {
   // useEffect(() => {
@@ -32,31 +43,31 @@ export default function Blog() {
                 data-wow-delay=".3s"
               >
                 <div className="image-container translate-effect-right">
-                  <a href="#">
+                  <Link to="">
                     <img
                       src={img}
-                      alt="alt image text"
+                      alt=""
                     />
-                  </a>
+                  </Link>
                 </div>
                 <h2 className="mt-3 mb-2 font-18 semi-font">
-                  <a
-                    href="#"
+                  <Link 
+                    to=""
                     className="fables-main-text-color fables-second-hover-color"
                   >
                     Getting to Another Level of Design
-                  </a>
+                  </Link>
                 </h2>
                 <div className="fables-forth-text-color font-14 mb-2">
                   <span className="fables-icondata fables-second-text-color mr-1"></span>
                   <span className="mr-3"> 09 November, 2018 </span>
                   <span className="fables-iconcomment fables-second-text-color mr-1"></span>
-                  <a
-                    href=""
+                  <Link 
+                    to=""
                     className="fables-forth-text-color fables-second-hover-color position-relative z-index"
                   >
                     2
-                  </a>
+                  </Link>
                 </div>
                 <p className="fables-forth-text-color font-14 mb-2">
                   When you need your company to have a new website or if you
@@ -66,44 +77,44 @@ export default function Blog() {
                   you venture on updating your old webpage with a new look and
                   functionality.
                 </p>
-                <a
-                  href=""
+                <Link 
+                  to=""
                   className="btn btn-link fables-main-text-color fables-second-hover-color fables-cat-blog-btn "
                 >
                   Read More
-                </a>
+                </Link>
               </div>
               <div
                 className="col-12 col-sm-6 mb-4 wow fadeIn"
                 data-wow-delay=".6s"
               >
                 <div className="image-container translate-effect-right">
-                  <a href="#">
+                  <Link to="">
                     <img
                       src={img1}
-                      alt="alt image text"
+                      alt=""
                     />
-                  </a>
+                  </Link>
                 </div>
 
                 <h2 className="mt-3 mb-2 font-18 semi-font">
-                  <a
-                    href="#"
+                  <Link 
+                    to=""
                     className="fables-main-text-color fables-second-hover-color"
                   >
                     Getting to Another Level of Design
-                  </a>
+                  </Link>
                 </h2>
                 <div className="fables-forth-text-color font-14 mb-2">
                   <span className="fables-icondata fables-second-text-color mr-1"></span>
                   <span className="mr-3"> 09 November, 2018 </span>
                   <span className="fables-iconcomment fables-second-text-color mr-1"></span>
-                  <a
-                    href=""
+                  <Link 
+                    to=""
                     className="fables-forth-text-color fables-second-hover-color position-relative z-index"
                   >
                     2
-                  </a>
+                  </Link>
                 </div>
                 <p className="fables-forth-text-color font-14 mb-2">
                   When you need your company to have a new website or if you
@@ -113,44 +124,44 @@ export default function Blog() {
                   you venture on updating your old webpage with a new look and
                   functionality.
                 </p>
-                <a
-                  href=""
+                <Link 
+                  to=""
                   className="btn btn-link fables-main-text-color fables-second-hover-color fables-cat-blog-btn "
                 >
                   Read More
-                </a>
+                </Link>
               </div>
               <div
                 className="col-12 col-sm-6 mb-4 wow fadeIn"
                 data-wow-delay=".9s"
               >
                 <div className="image-container translate-effect-right">
-                  <a href="#">
+                  <Link to="">
                     <img
                       src={img2}
-                      alt="alt image text"
+                      alt=""
                     />
-                  </a>
+                  </Link>
                 </div>
 
                 <h2 className="mt-3 mb-2 font-18 semi-font">
-                  <a
-                    href="#"
+                  <Link 
+                    to=""
                     className="fables-main-text-color fables-second-hover-color"
                   >
                     Getting to Another Level of Design
-                  </a>
+                  </Link>
                 </h2>
                 <div className="fables-forth-text-color font-14 mb-2">
                   <span className="fables-icondata fables-second-text-color mr-1"></span>
                   <span className="mr-3"> 09 November, 2018 </span>
                   <span className="fables-iconcomment fables-second-text-color mr-1"></span>
-                  <a
-                    href=""
+                  <Link 
+                    to=""
                     className="fables-forth-text-color fables-second-hover-color position-relative z-index"
                   >
                     2
-                  </a>
+                  </Link>
                 </div>
                 <p className="fables-forth-text-color font-14 mb-2">
                   When you need your company to have a new website or if you
@@ -160,44 +171,44 @@ export default function Blog() {
                   you venture on updating your old webpage with a new look and
                   functionality.
                 </p>
-                <a
-                  href=""
+                <Link 
+                  to=""
                   className="btn btn-link fables-main-text-color fables-second-hover-color fables-cat-blog-btn "
                 >
                   Read More
-                </a>
+                </Link>
               </div>
               <div
                 className="col-12 col-sm-6 mb-4 wow fadeIn"
                 data-wow-delay="1.2s"
               >
                 <div className="image-container translate-effect-right">
-                  <a href="#">
+                  <Link to="">
                     <img
                       src={img3}
-                      alt="alt image text"
+                      alt=""
                     />
-                  </a>
+                  </Link>
                 </div>
 
                 <h2 className="mt-3 mb-2 font-18 semi-font">
-                  <a
-                    href="#"
+                  <Link 
+                    to=""
                     className="fables-main-text-color fables-second-hover-color"
                   >
                     Getting to Another Level of Design
-                  </a>
+                  </Link>
                 </h2>
                 <div className="fables-forth-text-color font-14 mb-2">
                   <span className="fables-icondata fables-second-text-color mr-1"></span>
                   <span className="mr-3"> 09 November, 2018 </span>
                   <span className="fables-iconcomment fables-second-text-color mr-1"></span>
-                  <a
-                    href=""
+                  <Link 
+                    to=""
                     className="fables-forth-text-color fables-second-hover-color position-relative z-index"
                   >
                     2
-                  </a>
+                  </Link>
                 </div>
                 <p className="fables-forth-text-color font-14 mb-2">
                   When you need your company to have a new website or if you
@@ -207,44 +218,44 @@ export default function Blog() {
                   you venture on updating your old webpage with a new look and
                   functionality.
                 </p>
-                <a
-                  href=""
+                <Link 
+                  to=""
                   className="btn btn-link fables-main-text-color fables-second-hover-color fables-cat-blog-btn "
                 >
                   Read More
-                </a>
+                </Link>
               </div>
               <div
                 className="col-12 col-sm-6 mb-4 wow fadeIn"
                 data-wow-delay="1.5s"
               >
                 <div className="image-container translate-effect-right">
-                  <a href="#">
+                  <Link to="">
                     <img
                       src={img4}
-                      alt="alt image text"
+                      alt=""
                     />
-                  </a>
+                  </Link>
                 </div>
 
                 <h2 className="mt-3 mb-2 font-18 semi-font">
-                  <a
-                    href="#"
+                  <Link 
+                    to=""
                     className="fables-main-text-color fables-second-hover-color"
                   >
                     Getting to Another Level of Design
-                  </a>
+                  </Link>
                 </h2>
                 <div className="fables-forth-text-color font-14 mb-2">
                   <span className="fables-icondata fables-second-text-color mr-1"></span>
                   <span className="mr-3"> 09 November, 2018 </span>
                   <span className="fables-iconcomment fables-second-text-color mr-1"></span>
-                  <a
-                    href=""
+                  <Link 
+                    to=""
                     className="fables-forth-text-color fables-second-hover-color position-relative z-index"
                   >
                     2
-                  </a>
+                  </Link>
                 </div>
                 <p className="fables-forth-text-color font-14 mb-2">
                   When you need your company to have a new website or if you
@@ -254,44 +265,44 @@ export default function Blog() {
                   you venture on updating your old webpage with a new look and
                   functionality.
                 </p>
-                <a
-                  href=""
+                <Link 
+                  to=""
                   className="btn btn-link fables-main-text-color fables-second-hover-color fables-cat-blog-btn "
                 >
                   Read More
-                </a>
+                </Link>
               </div>
               <div
                 className="col-12 col-sm-6 mb-4 wow fadeIn"
                 data-wow-delay="1.8s"
               >
                 <div className="image-container translate-effect-right">
-                  <a href="#">
+                  <Link to="">
                     <img
                       src={img5}
-                      alt="alt image text"
+                      alt=""
                     />
-                  </a>
+                  </Link>
                 </div>
 
                 <h2 className="mt-3 mb-2 font-18 semi-font">
-                  <a
-                    href="#"
+                  <Link 
+                    to=""
                     className="fables-main-text-color fables-second-hover-color"
                   >
                     Getting to Another Level of Design
-                  </a>
+                  </Link>
                 </h2>
                 <div className="fables-forth-text-color font-14 mb-2">
                   <span className="fables-icondata fables-second-text-color mr-1"></span>
                   <span className="mr-3"> 09 November, 2018 </span>
                   <span className="fables-iconcomment fables-second-text-color mr-1"></span>
-                  <a
-                    href=""
+                  <Link 
+                    to=""
                     className="fables-forth-text-color fables-second-hover-color position-relative z-index"
                   >
                     2
-                  </a>
+                  </Link>
                 </div>
                 <p className="fables-forth-text-color font-14 mb-2">
                   When you need your company to have a new website or if you
@@ -301,44 +312,44 @@ export default function Blog() {
                   you venture on updating your old webpage with a new look and
                   functionality.
                 </p>
-                <a
-                  href=""
+                <Link 
+                  to=""
                   className="btn btn-link fables-main-text-color fables-second-hover-color fables-cat-blog-btn "
                 >
                   Read More
-                </a>
+                </Link>
               </div>
               <div
                 className="col-12 col-sm-6 mb-4 wow fadeIn"
                 data-wow-delay="2.1s"
               >
                 <div className="image-container translate-effect-right">
-                  <a href="#">
+                  <Link to="">
                     <img
                       src={img6}
-                      alt="alt image text"
+                      alt=""
                     />
-                  </a>
+                  </Link>
                 </div>
 
                 <h2 className="mt-3 mb-2 font-18 semi-font">
-                  <a
-                    href="#"
+                  <Link 
+                    to=""
                     className="fables-main-text-color fables-second-hover-color"
                   >
                     Getting to Another Level of Design
-                  </a>
+                  </Link>
                 </h2>
                 <div className="fables-forth-text-color font-14 mb-2">
                   <span className="fables-icondata fables-second-text-color mr-1"></span>
                   <span className="mr-3"> 09 November, 2018 </span>
                   <span className="fables-iconcomment fables-second-text-color mr-1"></span>
-                  <a
-                    href=""
+                  <Link 
+                    to=""
                     className="fables-forth-text-color fables-second-hover-color position-relative z-index"
                   >
                     2
-                  </a>
+                  </Link>
                 </div>
                 <p className="fables-forth-text-color font-14 mb-2">
                   When you need your company to have a new website or if you
@@ -348,44 +359,44 @@ export default function Blog() {
                   you venture on updating your old webpage with a new look and
                   functionality.
                 </p>
-                <a
-                  href=""
+                <Link 
+                  to=""
                   className="btn btn-link fables-main-text-color fables-second-hover-color fables-cat-blog-btn "
                 >
                   Read More
-                </a>
+                </Link>
               </div>
               <div
                 className="col-12 col-sm-6 mb-4 wow fadeIn"
                 data-wow-delay="2.4s"
               >
                 <div className="image-container translate-effect-right">
-                  <a href="#">
+                  <Link to="">
                     <img
                       src={img7}
-                      alt="alt image text"
+                      alt=""
                     />
-                  </a>
+                  </Link>
                 </div>
 
                 <h2 className="mt-3 mb-2 font-18 semi-font">
-                  <a
-                    href="#"
+                  <Link 
+                    to=""
                     className="fables-main-text-color fables-second-hover-color"
                   >
                     Getting to Another Level of Design
-                  </a>
+                  </Link>
                 </h2>
                 <div className="fables-forth-text-color font-14 mb-2">
                   <span className="fables-icondata fables-second-text-color mr-1"></span>
                   <span className="mr-3"> 09 November, 2018 </span>
                   <span className="fables-iconcomment fables-second-text-color mr-1"></span>
-                  <a
-                    href=""
+                  <Link 
+                    to=""
                     className="fables-forth-text-color fables-second-hover-color position-relative z-index"
                   >
                     2
-                  </a>
+                  </Link>
                 </div>
                 <p className="fables-forth-text-color font-14 mb-2">
                   When you need your company to have a new website or if you
@@ -395,12 +406,12 @@ export default function Blog() {
                   you venture on updating your old webpage with a new look and
                   functionality.
                 </p>
-                <a
-                  href=""
+                <Link 
+                  to=""
                   className="btn btn-link fables-main-text-color fables-second-hover-color fables-cat-blog-btn "
                 >
                   Read More
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -434,22 +445,22 @@ export default function Blog() {
               </h2>
               <ul className="nav fables-blog-cat-list fables-forth-text-color fables-second-hover-color-link">
                 <li>
-                  <a href="">Economy</a>
+                  <Link to="">Economy</Link>
                 </li>
                 <li>
-                  <a href="">Insights</a>
+                  <Link to="">Insights</Link>
                 </li>
                 <li>
-                  <a href="">Investing Strategy</a>
+                  <Link to="">Investing Strategy</Link>
                 </li>
                 <li>
-                  <a href="">Market</a>
+                  <Link to="">Market</Link>
                 </li>
                 <li>
-                  <a href="">Politics Money</a>
+                  <Link to="">Politics Money</Link>
                 </li>
                 <li>
-                  <a href="">Retirement</a>
+                  <Link to="">Retirement</Link>
                 </li>
               </ul>
               {/* <hr> */}
@@ -460,21 +471,21 @@ export default function Blog() {
               </h2>
               <div className="row mb-4">
                 <div className="col-4">
-                  <a href="#">
+                  <Link to="">
                     <img
                       src={img8}
                       alt=""
                       className="img-fluid"
                     />
-                  </a>
+                  </Link>
                 </div>
                 <div className="col-8 pl-0">
-                  <a
-                    href="#"
+                  <Link 
+                    to=""
                     className="fables-main-text-color bold-font fables-second-hover-color blog-smaller-head"
                   >
                     Getting to Another Level of Design
-                  </a>
+                  </Link>
                   <p className="fables-forth-text-color fables-blog-date-cat font-14 mt-1">
                     09 November, 2018
                   </p>
@@ -482,21 +493,21 @@ export default function Blog() {
               </div>
               <div className="row mb-4">
                 <div className="col-4">
-                  <a href="#">
+                  <Link to="">
                     <img
                       src={img9}
                       alt=""
                       className="img-fluid"
                     />
-                  </a>
+                  </Link>
                 </div>
                 <div className="col-8 pl-0">
-                  <a
-                    href="#"
+                  <Link 
+                    to=""
                     className="fables-main-text-color bold-font fables-second-hover-color blog-smaller-head"
                   >
                     Getting to Another Level of Design
-                  </a>
+                  </Link>
                   <p className="fables-forth-text-color fables-blog-date-cat font-14 mt-1">
                     09 November, 2018
                   </p>
@@ -504,21 +515,21 @@ export default function Blog() {
               </div>
               <div className="row mb-4">
                 <div className="col-4">
-                  <a href="#">
+                  <Link to="">
                     <img
                       src={img10}
                       alt=""
                       className="img-fluid"
                     />
-                  </a>
+                  </Link>
                 </div>
                 <div className="col-8 pl-0">
-                  <a
-                    href="#"
+                  <Link 
+                    to=""
                     className="fables-main-text-color bold-font fables-second-hover-color blog-smaller-head"
                   >
                     Getting to Another Level of Design
-                  </a>
+                  </Link>
                   <p className="fables-forth-text-color fables-blog-date-cat font-14 mt-1">
                     09 November, 2018
                   </p>
@@ -526,34 +537,34 @@ export default function Blog() {
               </div>
               <div className="row mb-4">
                 <div className="col-4">
-                  <a href="#">
+                  <Link to="">
                     <img
                       src={img11}
                       alt=""
                       className="img-fluid"
                     />
-                  </a>
+                  </Link>
                 </div>
                 <div className="col-8 pl-0">
-                  <a
-                    href="#"
+                  <Link 
+                    to=""
                     className="fables-main-text-color bold-font fables-second-hover-color blog-smaller-head"
                   >
                     Getting to Another Level of Design
-                  </a>
+                  </Link>
                   <p className="fables-forth-text-color fables-blog-date-cat font-14 mt-1">
                     09 November, 2018
                   </p>
                 </div>
               </div>
               <div className="text-right">
-                <a
-                  href="#"
+                <Link 
+                  to=""
                   className="btn fables-second-text-color underline fables-main-text-color font-14"
                 >
                   {" "}
                   More
-                </a>
+                </Link>
               </div>
               {/* <hr> */}
             </div>
@@ -563,22 +574,22 @@ export default function Blog() {
               </h2>
               <ul className="nav fables-blog-cat-list fables-forth-text-color fables-second-hover-color-link fables-blog-cat-tags">
                 <li>
-                  <a href="">Accountant</a>
+                  <Link to="">Accountant</Link>
                 </li>
                 <li>
-                  <a href="">Online Services </a>
+                  <Link to="">Online Services </Link>
                 </li>
                 <li>
-                  <a href="">Accountant</a>
+                  <Link to="">Accountant</Link>
                 </li>
                 <li>
-                  <a href="">Accountant</a>
+                  <Link to="">Accountant</Link>
                 </li>
                 <li>
-                  <a href="">Accountant</a>
+                  <Link to="">Accountant</Link>
                 </li>
                 <li>
-                  <a href="">Online Services </a>
+                  <Link to="">Online Services </Link>
                 </li>
               </ul>
             </div>
@@ -610,15 +621,15 @@ export default function Blog() {
               </form>
             </div>
             <div className="col-12 col-lg-4 mb-4 mb-lg-0">
-              <a
-                href="#"
+              <Link 
+                to=""
                 className="fables-second-border-color border-bottom pb-3 d-block mb-3 mt-minus-13"
               >
                 <img
                   src={img12}
                   alt="fables template"
                 />
-              </a>
+              </Link>
               <p className="font-15 fables-third-text-color">
                 {`
     It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
@@ -666,22 +677,22 @@ export default function Blog() {
               </h2>
               <ul className="nav fables-footer-links">
                 <li>
-                  <a href="about1.html">About Us</a>
+                  <Link to="about1.html">About Us</Link>
                 </li>
                 <li>
-                  <a href="contactus1.html">Contact Us</a>
+                  <Link to="contactus1.html">Contact Us</Link>
                 </li>
                 <li>
-                  <a href="gallery.html">Gallery</a>
+                  <Link to="gallery.html">Gallery</Link>
                 </li>
                 <li>
-                  <a href="team.html">Team</a>
+                  <Link to="team.html">Team</Link>
                 </li>
                 <li>
-                  <a href="blog.html">Blog</a>
+                  <Link to="blog.html">Blog</Link>
                 </li>
                 <li>
-                  <a href="testimonials.html">Testimonials</a>
+                  <Link to="testimonials.html">Testimonials</Link>
                 </li>
               </ul>
             </div>
@@ -691,38 +702,39 @@ export default function Blog() {
       <div className="copyright fables-main-background-color mt-0 border-0 white-color">
         <ul className="nav fables-footer-social-links just-center fables-light-footer-links">
           <li>
-            <a href="#" target="_blank">
+            <Link to="" target="_blank">
               <i className="fab fa-google-plus-square"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="_blank">
+            <Link to="" target="_blank">
               <i className="fab fa-facebook"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="_blank">
+            <Link to="" target="_blank">
               <i className="fab fa-instagram"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="_blank">
+            <Link to="" target="_blank">
               <i className="fab fa-pinterest-square"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="_blank">
+            <Link to="" target="_blank">
               <i className="fab fa-twitter-square"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="_blank">
+            <Link to="" target="_blank">
               <i className="fab fa-linkedin"></i>
-            </a>
+            </Link>
           </li>
         </ul>
         <p className="mb-0">Copyright © Fables 2018. All rights reserved.</p>
       </div>
+      <Outlet />
     </>
   );
 }

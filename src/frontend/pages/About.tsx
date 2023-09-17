@@ -1,5 +1,5 @@
-
 import { useEffect, useState } from "react";
+import { Link, Outlet } from "react-router-dom";
 import img from "../../custom/images/hp_innovacion2.jpg";
 import img1 from "../../custom/images/IMG_8573-1078.jpg";
 import img2 from "../../custom/images/img2.jpg";
@@ -15,11 +15,22 @@ import img11 from "../../custom/images/partner2-1.jpg";
 import img12 from "../../custom/images/fables-logo.png";
 import img13 from "../../custom/images/mission-img.jpg";
 import img14 from "../../custom/images/vision-img.jpg";
-import { Link } from "react-router-dom";
+import "../../vendor/animate.css-master/animate.min.css";
+import "../../vendor/fontawesome/css/fontawesome-all.min.css";
+import "../../vendor/bootstrap/css/bootstrap-4-navbar.css";
+import "../../vendor/bootstrap/css/bootstrap.min.css";
+import "../../vendor/portfolio-filter-gallery/portfolio-filter-gallery.css";
+import "../../vendor/fancybox-master/jquery.fancybox.min.css";
+import "../../vendor/range-slider/range-slider.css";
+import "../../vendor/OffCanvasMenuEffects/css/menu_sideslide.css";
+import "../../vendor/owlcarousel/owl.carousel.min.css";
+import "../../vendor/owlcarousel/owl.theme.default.min.css";
+import "../../custom/css/custom-responsive.css";
+import "../../custom/css/custom.css";
+import "../../custom/css/fables-icons.css";
 // import WOW from "wow.js";
 
 export default function About() {
-
   const [satisfiedClients, setSatisfiedClients] = useState(0);
   const [companyMembers, setCompanyMembers] = useState(0);
   const [awwardsWin, setAwwardsWin] = useState(0);
@@ -129,21 +140,13 @@ export default function About() {
             className="col-12 col-sm-6 p-sm-0 mb-3 mb-md-0 image-container translate-effect-right wow fadeInLeft"
             data-wow-durationn="2.5s"
           >
-            <img
-              src={img}
-              alt="Fables Template"
-              className="img-fluid"
-            />
+            <img src={img} alt="Fables Template" className="img-fluid" />
           </div>
           <div
             className="col-12 col-sm-6 p-sm-0 image-container translate-effect-right wow fadeInRight"
             data-wow-durationn="2.5s"
           >
-            <img
-              src={img1}
-              alt="Fables Template"
-              className="img-fluid"
-            />
+            <img src={img1} alt="Fables Template" className="img-fluid" />
           </div>
         </div>
       </div>
@@ -619,7 +622,6 @@ export default function About() {
       <div
         className="bg-rules mb-4 mb-lg-0 py-3 py-lg-0"
         style={{ backgroundImage: `url(${img13})` }}
-
       >
         <div className="container-fluid">
           <div className="row overflow-hidden">
@@ -641,7 +643,8 @@ export default function About() {
     It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text. and a search for 'lorem ipsum' will uncover.
     `}
                 </p>
-                <Link to=""
+                <Link
+                  to=""
                   className="btn fables-second-border-color white-color fables-btn-rouned fables-hover-btn-color font-19 px-5 py-2 position-relative z-index wow fadeInRight"
                   data-wow-duration="2s"
                 >
@@ -655,7 +658,6 @@ export default function About() {
       <div
         className="bg-rules mb-4 py-3 py-lg-0"
         style={{ backgroundImage: `url(${img14})` }}
-
       >
         <div className="container-fluid">
           <div className="row overflow-hidden">
@@ -677,7 +679,8 @@ export default function About() {
     It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text. and a search for 'lorem ipsum' will uncover.
     `}
                 </p>
-                <Link   to=""
+                <Link
+                  to=""
                   className="btn fables-second-border-color fables-second-text-color fables-btn-rouned fables-hover-btn-color font-19 px-5 py-2 position-relative z-index wow fadeInLeft"
                   data-wow-duration="2s"
                 >
@@ -846,11 +849,7 @@ export default function About() {
               data-wow-delay=".3s"
             >
               <div className="card fables-team-block fables-team-data-hover fables-second-border-color">
-                <img
-                  className="img-fluid"
-                  src={img6}
-                  alt=""
-                />
+                <img className="img-fluid" src={img6} alt="" />
                 <div className="card-body">
                   <h5>
                     <Link
@@ -886,11 +885,7 @@ export default function About() {
               data-wow-delay=".3s"
             >
               <div className="card fables-team-block fables-team-data-hover fables-second-border-color">
-                <img
-                  className="img-fluid"
-                  src={img7}
-                  alt=""
-                />
+                <img className="img-fluid" src={img7} alt="" />
                 <div className="card-body">
                   <h5>
                     <Link
@@ -926,11 +921,7 @@ export default function About() {
               data-wow-delay=".3s"
             >
               <div className="card fables-team-block fables-team-data-hover fables-second-border-color">
-                <img
-                  className="img-fluid"
-                  src={img8}
-                  alt=""
-                />
+                <img className="img-fluid" src={img8} alt="" />
                 <div className="card-body">
                   <h5>
                     <Link
@@ -966,11 +957,7 @@ export default function About() {
               data-wow-delay=".3s"
             >
               <div className="card fables-team-block fables-team-data-hover fables-second-border-color">
-                <img
-                  className="img-fluid"
-                  src={img9}
-                  alt=""
-                />
+                <img className="img-fluid" src={img9} alt="" />
                 <div className="card-body">
                   <h5>
                     <Link
@@ -1099,10 +1086,7 @@ export default function About() {
                 to="#"
                 className="fables-second-border-color border-bottom pb-3 d-block mb-3 mt-minus-13"
               >
-                <img
-                  src={img12}
-                  alt="fables template"
-                />
+                <img src={img12} alt="fables template" />
               </Link>
               <p className="font-15 fables-third-text-color">
                 {`
@@ -1210,6 +1194,8 @@ export default function About() {
       </div>
 
       {/* <!-- /End Footer 2 Background Image --> */}
+
+      <Outlet />
     </>
   );
 }

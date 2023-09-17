@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { useState } from "react";
+import "../assets/frontend/css/style1.css"
 
 export default function Layout() {
   const [isOpen, setIsOpen] = useState(false);
@@ -89,6 +90,7 @@ export default function Layout() {
           </div>
         </div>
       </nav>
+      <Outlet />
     </>
   );
 }

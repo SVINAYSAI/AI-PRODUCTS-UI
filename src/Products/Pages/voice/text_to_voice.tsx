@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useRef, useEffect, useState } from "react";
 import Model from "./voice_model";
+import { Link } from "react-router-dom";
 
 export default function Text_to_Voice() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -1249,7 +1250,7 @@ export default function Text_to_Voice() {
                 // ref="/safety"
                 className="relative shadow-md hover:shadow-lg isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-40 sm:pt-28 lg:pt-40"
               >
-                <a href="/safety">
+                <Link to="/safety">
                   <img
                     src="../assets/images/research_pic1.png"
                     alt=""
@@ -1268,13 +1269,13 @@ export default function Text_to_Voice() {
                     Voice Cloning Guide: How to use our technology safely and
                     follow best practice.
                   </span>
-                </a>
+                </Link>
               </article>
               <article
                 // ref="/blog/eleven-multilingual-v1/"
                 className="relative shadow-md hover:shadow-lg isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-40 sm:pt-28 lg:pt-40"
               >
-                <a href="/blog/eleven-multilingual-v1/">
+                <Link to="/blog/eleven-multilingual-v1/">
                   <img
                     src="../assets/images/research_pic2.png"
                     alt=""
@@ -1292,13 +1293,14 @@ export default function Text_to_Voice() {
                   <span className="font-serif text-base block font-normal text-gray-500">
                     Our most advanced speech synthesis model yet.
                   </span>
-                </a>
+                </Link>
               </article>
+              
               <article
                 // ref="/ai-speech-classifier"
                 className="relative shadow-md hover:shadow-lg isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-40 sm:pt-28 lg:pt-40"
               >
-                <a href="/ai-speech-classifier">
+                <Link to="/ai-speech-classifier">
                   <img
                     src="../assets/images/research_pic3.png"
                     alt=""
@@ -1316,7 +1318,7 @@ export default function Text_to_Voice() {
                   <span className="font-serif text-base block font-normal text-gray-500">
                     Elevating safety standards for AI-generated audio content.
                   </span>
-                </a>
+                </Link>
               </article>
             </div>
           </div>
