@@ -1,8 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
-// import Loader from './components/Loaders/Loader'
 import Loader from "./components/Loaders/Loader";
-import React from "react";
 
 
 const App = () => {
@@ -16,7 +14,7 @@ const App = () => {
         <Route path="/*" element={<FrontendRoute />} />
         <Route path="products/*" element={<ProductsRoute />} />
         <Route path="api/*" element={<ApiRoute />} />
-        <Route path="ser/*" element={<ServicesRoute />} />
+        <Route path="services/*" element={<ServicesRoute />} />
       </Routes>
     </Suspense>
   );
