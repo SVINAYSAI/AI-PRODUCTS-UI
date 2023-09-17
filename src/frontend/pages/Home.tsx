@@ -15,133 +15,22 @@ import img10 from "../../components/frontend/assets/imgs/avatar-3.jpg";
 // import img12 from "../../components/frontend/assets/imgs/avatar-5.jpg"
 // import img13 from "../../components/frontend/assets/imgs/avatar-6.jpg"
 // import img14 from "../../components/frontend/assets/imgs/avatar-7.jpg"
-
 import img15 from "../../components/frontend/assets/imgs/blog-1.jpg";
 import img16 from "../../components/frontend/assets/imgs/blog-2.jpg";
 import img17 from "../../components/frontend/assets/imgs/blog-3.jpg";
 import logo from "../../components/fats-logo/svg/logo-no-background.svg";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
-
 
 export default function Home() {
-  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-        <nav
-          className="navbar custom-navbar navbar-expand-lg navbar-dark"
-          data-spy="affix"
-          data-offset-top="20"
-        >
-
-          <div className="container mx-auto py-3">
-            <div className="flex items-center justify-between">
-              <button
-                className="text-white lg:hidden"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                <svg
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="menu w-6 h-6"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M2 4a1 1 0 011-1h14a1 1 0 110 2H3a1 1 0 01-1-1zm0 6a1 1 0 011-1h14a1 1 0 110 2H3a1 1 0 01-1-1zm1 5a1 1 0 100 2h14a1 1 0 100-2H3z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              </button>
-            </div>
-            <div className={`${isOpen ? "block" : "hidden"} lg:flex`}>
-              <ul className="lg:flex lg:items-center lg:justify-between w-full text-lg font-semibold text-white lg:text-sm lg:mx-auto">
-                <li className="lg:mx-4 my-2 lg:my-0">
-                  <Link
-                    to="#"
-                    className="block py-1 px-4 rounded "
-                  >
-
-                    Home
-                  </Link>
-                </li>
-
-                <li className="lg:mx-4 my-2 lg:my-0">
-                  <Link
-                    to="/about"
-                    className="block py-1 px-4 rounded "
-                  >
-
-                    About
-                  </Link>
-                </li>
-
-                <li className="lg:mx-4 my-2 lg:my-0">
-                  <Link
-                    className="block py-1 px-4 rounded "
-                    to="/products"
-                  >
-
-                    Products
-                  </Link>
-                </li>
-
-                <li className="lg:mx-4 my-2 lg:my-0">
-                  <Link className="block py-1 px-4 rounded "
-                     to="/ser/services">
-
-                    Services
-                  </Link>
-                </li>
-
-                <li className="lg:mx-4 my-2 lg:my-0">
-                  <Link className="block py-1 px-4 rounded "
-                     to="/pricing">
-
-                    Pricing
-                  </Link>
-                </li>
-
-                <li className="lg:mx-4 my-2 lg:my-0">
-                  <Link className="block py-1 px-4 rounded "
-                     to="/contactus">
-
-                    Contact Us
-                  </Link>
-                </li>
-
-                <li className="lg:mx-4 my-2 lg:my-0">
-                  <Link className="block py-1 px-2 rounded "
-                     to="/blog">
-
-                    Blog
-                  </Link>
-                </li>
-
-                <li className="lg:mx-4 my-2 lg:my-0">
-                  <Link className="block py-1 px-4 rounded "
-                     to="/api">
-
-                    API
-                  </Link>
-                </li>
-
-                <li className="lg:mx-4 my-2 lg:my-0">
-                  <Link className="block py-1 px-4 rounded " 
-                     to="/login">
-
-                    Login
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-
         <header className="header">
           <div className="overlay">
             <h1 className="title font-italic pt-[5%]">FATS</h1>
-            <h1 className="subtitle font-italic pt-4">FUTURE AI TECHNOLOGY'S</h1>
+            <h1 className="subtitle font-italic pt-4">
+              FUTURE AI TECHNOLOGY'S
+            </h1>
             <div className="buttons text-center pt-4 pb-4">
               <Link
                 to="#service"
@@ -399,8 +288,7 @@ export default function Home() {
                   <div className="overlay">
                     <div className="overlay-infos">
                       <h5>Project Title</h5>
-                      
-                  
+
                       <Link to="">
                         <i className="ti-zoom-in"></i>
                       </Link>

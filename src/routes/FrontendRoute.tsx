@@ -7,21 +7,19 @@ import "../assets/frontend/css/style1.css"
 // import Test from '@/frontend/pages/test'
 import Home from '../frontend/pages/Home'
 import Pricing from '../frontend/pages/Pricing'
-
 import Test from '../frontend/pages/test'
-
 import Login from '../frontend/Login Details/Login'
 import Register from '../frontend/Login Details/Register'
 import Forgot from '../frontend/Login Details/Forgot'
 import Verify from "../frontend/Login Details/Verification"
 import CreatePw from '../frontend/Login Details/CreatePw'
-import React from 'react'
+import Layout from '../frontend/Layout'
 
 const FrontendRoute = () => {
   return (
     <Routes>
-        <Route path="/" element={<Home/>}>
-        </Route> 
+        <Route path="/" element={<Layout/>}>
+        <Route index element={<Home />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -29,6 +27,7 @@ const FrontendRoute = () => {
         <Route path="/verify" element={<Verify />} />
         <Route path="/createpw" element={<CreatePw />} />
         <Route path="/test" element={<Test />} />
+        </Route>
     </Routes>
   )
 }
