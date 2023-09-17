@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Apitest from "../APIs/test"
 import Api from "../APIs/Layout";
-import React from "react";
 
 
 const ApiRoute = () => {

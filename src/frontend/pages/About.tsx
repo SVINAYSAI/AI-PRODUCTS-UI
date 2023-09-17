@@ -15,6 +15,7 @@ import img11 from "../../custom/images/partner2-1.jpg";
 import img12 from "../../custom/images/fables-logo.png";
 import img13 from "../../custom/images/mission-img.jpg";
 import img14 from "../../custom/images/vision-img.jpg";
+import { Link } from "react-router-dom";
 // import WOW from "wow.js";
 
 export default function About() {
@@ -640,13 +641,12 @@ export default function About() {
     It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text. and a search for 'lorem ipsum' will uncover.
     `}
                 </p>
-                <a
-                  href=""
+                <Link to=""
                   className="btn fables-second-border-color white-color fables-btn-rouned fables-hover-btn-color font-19 px-5 py-2 position-relative z-index wow fadeInRight"
                   data-wow-duration="2s"
                 >
                   <span>Contact Us</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -677,13 +677,12 @@ export default function About() {
     It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text. and a search for 'lorem ipsum' will uncover.
     `}
                 </p>
-                <a
-                  href=""
+                <Link   to=""
                   className="btn fables-second-border-color fables-second-text-color fables-btn-rouned fables-hover-btn-color font-19 px-5 py-2 position-relative z-index wow fadeInLeft"
                   data-wow-duration="2s"
                 >
                   <span>Contact Us</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -850,33 +849,33 @@ export default function About() {
                 <img
                   className="img-fluid"
                   src={img6}
-                  alt="Card image cap"
+                  alt=""
                 />
                 <div className="card-body">
                   <h5>
-                    <a
-                      href="#"
+                    <Link
+                      to="#"
                       className="team-name white-color white-color-hover"
                     >
                       JOHN MARTIN
-                    </a>
+                    </Link>
                   </h5>
                   <p className="fables-team-pos mt-2 mb-3 italic">Programmer</p>
                   <ul className="nav fables-team-social-links">
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="#" target="_blank">
                         <span className="fables-iconlinkedin-icon fables-second-text-color fables-fifth-border-color fables-team-social-icon"></span>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="#" target="_blank">
                         <span className="fables-icontwitter-icon fables-second-text-color fables-fifth-border-color fables-team-social-icon"></span>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="#" target="_blank">
                         <span className="fables-iconinstagram-icon fables-second-text-color fables-fifth-border-color fables-team-social-icon"></span>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -890,33 +889,33 @@ export default function About() {
                 <img
                   className="img-fluid"
                   src={img7}
-                  alt="Card image cap"
+                  alt=""
                 />
                 <div className="card-body">
                   <h5>
-                    <a
-                      href="#"
+                    <Link
+                      to="#"
                       className="team-name white-color white-color-hover"
                     >
                       JOHN MARTIN
-                    </a>
+                    </Link>
                   </h5>
                   <p className="fables-team-pos mt-2 mb-3 italic">Programmer</p>
                   <ul className="nav fables-team-social-links">
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="#" target="_blank">
                         <span className="fables-iconlinkedin-icon fables-second-text-color fables-fifth-border-color fables-team-social-icon"></span>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="#" target="_blank">
                         <span className="fables-icontwitter-icon fables-second-text-color fables-fifth-border-color fables-team-social-icon"></span>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="#" target="_blank">
                         <span className="fables-iconinstagram-icon fables-second-text-color fables-fifth-border-color fables-team-social-icon"></span>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -930,33 +929,33 @@ export default function About() {
                 <img
                   className="img-fluid"
                   src={img8}
-                  alt="Card image cap"
+                  alt=""
                 />
                 <div className="card-body">
                   <h5>
-                    <a
-                      href="#"
+                    <Link
+                      to="#"
                       className="team-name white-color white-color-hover"
                     >
                       JOHN MARTIN
-                    </a>
+                    </Link>
                   </h5>
                   <p className="fables-team-pos mt-2 mb-3 italic">Programmer</p>
                   <ul className="nav fables-team-social-links">
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="#" target="_blank">
                         <span className="fables-iconlinkedin-icon fables-second-text-color fables-fifth-border-color fables-team-social-icon"></span>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="#" target="_blank">
                         <span className="fables-icontwitter-icon fables-second-text-color fables-fifth-border-color fables-team-social-icon"></span>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="#" target="_blank">
                         <span className="fables-iconinstagram-icon fables-second-text-color fables-fifth-border-color fables-team-social-icon"></span>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -970,33 +969,33 @@ export default function About() {
                 <img
                   className="img-fluid"
                   src={img9}
-                  alt="Card image cap"
+                  alt=""
                 />
                 <div className="card-body">
                   <h5>
-                    <a
-                      href="#"
+                    <Link
+                      to="#"
                       className="team-name white-color white-color-hover"
                     >
                       JOHN MARTIN
-                    </a>
+                    </Link>
                   </h5>
                   <p className="fables-team-pos mt-2 mb-3 italic">Programmer</p>
                   <ul className="nav fables-team-social-links">
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="#" target="_blank">
                         <span className="fables-iconlinkedin-icon fables-second-text-color fables-fifth-border-color fables-team-social-icon"></span>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="#" target="_blank">
                         <span className="fables-icontwitter-icon fables-second-text-color fables-fifth-border-color fables-team-social-icon"></span>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" target="_blank">
+                      <Link to="#" target="_blank">
                         <span className="fables-iconinstagram-icon fables-second-text-color fables-fifth-border-color fables-team-social-icon"></span>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -1096,15 +1095,15 @@ export default function About() {
               </form>
             </div>
             <div className="col-12 col-lg-4 mb-4 mb-lg-0">
-              <a
-                href="#"
+              <Link
+                to="#"
                 className="fables-second-border-color border-bottom pb-3 d-block mb-3 mt-minus-13"
               >
                 <img
                   src={img12}
                   alt="fables template"
                 />
-              </a>
+              </Link>
               <p className="font-15 fables-third-text-color">
                 {`
     It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
@@ -1152,22 +1151,22 @@ export default function About() {
               </h2>
               <ul className="nav fables-footer-links">
                 <li>
-                  <a href="about1.html">About Us</a>
+                  <Link to="about1.html">About Us</Link>
                 </li>
                 <li>
-                  <a href="contactus1.html">Contact Us</a>
+                  <Link to="contactus1.html">Contact Us</Link>
                 </li>
                 <li>
-                  <a href="gallery.html">Gallery</a>
+                  <Link to="gallery.html">Gallery</Link>
                 </li>
                 <li>
-                  <a href="team.html">Team</a>
+                  <Link to="team.html">Team</Link>
                 </li>
                 <li>
-                  <a href="blog.html">Blog</a>
+                  <Link to="blog.html">Blog</Link>
                 </li>
                 <li>
-                  <a href="testimonials.html">Testimonials</a>
+                  <Link to="testimonials.html">Testimonials</Link>
                 </li>
               </ul>
             </div>
@@ -1177,34 +1176,34 @@ export default function About() {
       <div className="copyright fables-main-background-color mt-0 border-0 white-color">
         <ul className="nav fables-footer-social-links just-center fables-light-footer-links">
           <li>
-            <a href="#" target="_blank">
+            <Link to="#" target="_blank">
               <i className="fab fa-google-plus-square"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="_blank">
+            <Link to="#" target="_blank">
               <i className="fab fa-facebook"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="_blank">
+            <Link to="#" target="_blank">
               <i className="fab fa-instagram"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="_blank">
+            <Link to="#" target="_blank">
               <i className="fab fa-pinterest-square"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="_blank">
+            <Link to="#" target="_blank">
               <i className="fab fa-twitter-square"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" target="_blank">
+            <Link to="#" target="_blank">
               <i className="fab fa-linkedin"></i>
-            </a>
+            </Link>
           </li>
         </ul>
         <p className="mb-0">Copyright © Fables 2018. All rights reserved.</p>

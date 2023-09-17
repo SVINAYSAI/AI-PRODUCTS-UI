@@ -19,7 +19,7 @@ const App = () => {
     }, 1000); // Change letter every 1 second
 
     return () => clearInterval(interval);
-  }, [activeIndex]);
+  }, [activeIndex, letters.length]);
 
   const renderAnimatedText = () => {
     switch (letters[activeIndex]) {

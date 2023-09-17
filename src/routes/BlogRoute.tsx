@@ -10,7 +10,6 @@ import "../vendor/owlcarousel/owl.theme.default.min.css";
 import "../custom/css/custom-responsive.css";
 import "../custom/css/custom.css";
 import "../custom/css/fables-icons.css";
-import React from "react";
 
 const BlogRoute = () => {
   return (

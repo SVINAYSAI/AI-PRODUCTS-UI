@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
-import "../../assets/frontend/css/style1.css"
-
+import { useEffect, useState } from "react";
+import "../../assets/frontend/css/style1.css";
 
 const Animation = () => {
-  const letters = ['F', 'A', 'T', 'S'];
+  const letters = ["F", "A", "T", "S"];
   const [activeIndex, setActiveIndex] = useState(0);
   const [showFullName, setShowFullName] = useState(false);
 
@@ -18,19 +17,19 @@ const Animation = () => {
     }, 1000); // Change letter every 1 second
 
     return () => clearInterval(interval);
-  }, [activeIndex]);
+  }, [activeIndex, letters.length]);
 
   const renderAnimatedText = () => {
     switch (letters[activeIndex]) {
-      case 'F':
-        return 'FUTURE';
-      case 'A':
-        return 'AI';
-      case 'T':
-      case 'S':
-        return 'TECHNOLOGY\'S';
+      case "F":
+        return "FUTURE";
+      case "A":
+        return "AI";
+      case "T":
+      case "S":
+        return "TECHNOLOGY'S";
       default:
-        return '';
+        return "";
     }
   };
 
@@ -38,16 +37,18 @@ const Animation = () => {
     <div className="containers1">
       <div className="letters">
         {letters.map((letter, index) => (
-          <span 
+          <span
             key={index}
-            className={`letter ${activeIndex === index ? 'active' : ''}title pt-[5%]`}
+            className={`letter ${
+              activeIndex === index ? "active" : ""
+            }title pt-[5%]`}
           >
             {letter}
           </span>
         ))}
       </div>
       <div className="text-below">
-        {showFullName ? 'FUTURE AI TECHNOLOGY\'S' : renderAnimatedText()}
+        {showFullName ? "FUTURE AI TECHNOLOGY'S" : renderAnimatedText()}
       </div>
     </div>
   );

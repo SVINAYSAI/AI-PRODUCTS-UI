@@ -13,7 +13,6 @@ import "../custom/css/custom.css";
 import "../custom/css/custom-responsive.css";
 import "../custom/css/fables-icons.css";
 import { Routes, Route } from "react-router-dom";
-import React from "react";
 
 const AboutRoute = () => {
   return (
