@@ -11511,7 +11511,7 @@ p {
   display: block;
   width: 30px;
   font-size: 30px;
-  color: #ff214f;
+  color: #3bc1ff;
   margin: 4px 20px 0 0;
 }
 
@@ -11547,14 +11547,13 @@ pre .code {
 }
 
 .custom-navbar {
-  min-height: 70px;
   position: absolute;
   top: 30px;
   left: 0;
   right: 0;
   margin: auto;
   width: 95%;
-  max-width: 1050px;
+  max-width: 1168px;
   border: 1px solid rgba(234, 240, 252, 0.15);
   border-radius: 0.2rem;
   z-index: 9999;
@@ -11644,11 +11643,11 @@ pre .code {
 }
 
 .custom-navbar.affix .nav-link {
-  color: #495057 !important;
+  color: #f57d7d !important;
 }
 
 .custom-navbar.affix .nav-link.active {
-  color: #ff214f !important;
+  color: #f57d7d !important;
 }
 
 @-webkit-keyframes affix {

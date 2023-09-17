@@ -19,8 +19,10 @@ import img15 from "../../components/frontend/assets/imgs/blog-1.jpg";
 import img16 from "../../components/frontend/assets/imgs/blog-2.jpg";
 import img17 from "../../components/frontend/assets/imgs/blog-3.jpg";
 import img18 from "../../components/frontend/assets/imgs/logo.png";
+import React, { useState } from "react";
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
@@ -29,73 +31,84 @@ export default function Home() {
           data-spy="affix"
           data-offset-top="20"
         >
-          <div className="container">
-            <a className="navbar-brand" href="#">
-              <img
-                className=" "
-                // src={logo}
-                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
-              />
-            </a>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span>rtree</span>
-            </button>
-
-            <div
-              className="navbar-collapse visible"
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
+          <div className="container mx-auto py-3">
+            <div className="flex items-center justify-between">
+              <button
+                className="text-white lg:hidden"
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="menu w-6 h-6"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M2 4a1 1 0 011-1h14a1 1 0 110 2H3a1 1 0 01-1-1zm0 6a1 1 0 011-1h14a1 1 0 110 2H3a1 1 0 01-1-1zm1 5a1 1 0 100 2h14a1 1 0 100-2H3z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div className={`${isOpen ? "block" : "hidden"} lg:flex`}>
+              <ul className="lg:flex lg:items-center lg:justify-between w-full text-lg font-semibold text-white lg:text-sm lg:mx-auto">
+                <li className="lg:mx-4 my-2 lg:my-0">
+                  <a
+                    href="#"
+                    className="block py-1 px-4 rounded "
+                  >
                     Home
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/about">
+                <li className="lg:mx-4 my-2 lg:my-0">
+                  <a
+                    href="/about"
+                    className="block py-1 px-4 rounded "
+                  >
                     About
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/products">
+                <li className="lg:mx-4 my-2 lg:my-0">
+                  <a
+                    className="block py-1 px-4 rounded "
+                    href="/products"
+                  >
                     Products
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/ser/services">
+                <li className="lg:mx-4 my-2 lg:my-0">
+                  <a className="block py-1 px-4 rounded "
+                     href="/ser/services">
                     Services
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/pricing">
+                <li className="lg:mx-4 my-2 lg:my-0">
+                  <a className="block py-1 px-4 rounded "
+                     href="/pricing">
                     Pricing
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/contactus">
+                <li className="lg:mx-4 my-2 lg:my-0">
+                  <a className="block py-1 px-4 rounded "
+                     href="/contactus">
                     Contact Us
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/blog">
+                <li className="lg:mx-4 my-2 lg:my-0">
+                  <a className="block py-1 px-2 rounded "
+                     href="/blog">
                     Blog
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/api">
+                <li className="lg:mx-4 my-2 lg:my-0">
+                  <a className="block py-1 px-4 rounded "
+                     href="/api">
                     API
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/login">
+                <li className="lg:mx-4 my-2 lg:my-0">
+                  <a className="block py-1 px-4 rounded " 
+                     href="/login">
                     Login
                   </a>
                 </li>
@@ -166,7 +179,7 @@ export default function Home() {
                 />
               </div>
               <div className="col-md-7 col-lg-8">
-                <h6 className="section-title">We Create</h6>
+                <h6 className="section-subtitle mb-0">We Create</h6>
                 <h6 className="section-title mb-3">Awesome Work</h6>
                 <p>
                   We specialize in AI product development for automation,
@@ -191,10 +204,9 @@ export default function Home() {
           </div>
         </section>
 
-
         <section className="container w-[90%] text-center shadow-md">
-          <div className="container w-[70%] ">
-            <h6 className="container text-center">We See</h6>
+          <div className="container w-[70%]">
+            <h6 className="section-subtitle">We See</h6>
             <h6 className="section-title mb-6">What Other Don't See.</h6>
             <div className="widget mb-4">
               <div className="widget-item">
@@ -219,7 +231,7 @@ export default function Home() {
 
         <section id="service">
           <div className="container">
-            <h6 className="section-title text-center">Makes Happen</h6>
+            <h6 className="section-subtitle text-center">Makes Happen</h6>
             <h5 className="section-title text-center mb-6">Our Service</h5>
             <div className="row">
               <div className="col-sm-4 col-md-3">
@@ -354,7 +366,7 @@ export default function Home() {
 
         <section id="portfolio">
           <div className="container text-center">
-            <h6 className="section-title">Our Awesome Works</h6>
+            <h6 className="section-subtitle">Our Awesome Works</h6>
             <h6 className="section-title mb-5">Our Portfolio</h6>
             <div className="row">
               <div className="col-sm-4">
@@ -471,7 +483,7 @@ export default function Home() {
 
         <section id="team">
           <div className="container">
-            <h6 className="section-title text-center">Meet With</h6>
+            <h6 className="section-subtitle text-center">Meet With</h6>
             <h6 className="section-title mb-5 text-center">Our Team</h6>
             {/* <div className="row">
               <div className="col-sm-6 col-md-4">
@@ -832,7 +844,7 @@ export default function Home() {
 
         <section className="has-bg-img bg-img-2">
           <div className="container text-center">
-            <h6 className="section-title">We Are Awesome</h6>
+            <h6 className="section-subtitle">We Are Awesome</h6>
             <h6 className="section-title mb-6">Some Fun Fucts</h6>
             <div className="widget-2">
               <div className="widget-item">
@@ -861,7 +873,7 @@ export default function Home() {
 
         <section id="testimonial">
           <div className="container">
-            <h6 className="section-title text-center">Testimonial</h6>
+            <h6 className="section-subtitle text-center">Testimonial</h6>
             <h6 className="section-title text-center mb-6">
               What Our Clients Says
             </h6>
@@ -945,7 +957,7 @@ export default function Home() {
 
         <section id="blog">
           <div className="container">
-            <h6 className="section-title text-center">News Feeds</h6>
+            <h6 className="section-subtitle text-center">News Feeds</h6>
             <h6 className="section-title mb-6 text-center">Our Blog</h6>
 
             <div className="row">
@@ -1038,7 +1050,7 @@ export default function Home() {
           <div className="container">
             <div className="contact-card">
               <div className="infos">
-                <h6 className="section-title">Get Here</h6>
+                <h6 className="section-subtitle">Get Here</h6>
                 <h6 className="section-title mb-4">Contact Us</h6>
 
                 <div className="item">
@@ -1071,7 +1083,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="form">
-                <h6 className="section-title">Available 24/7</h6>
+                <h6 className="section-subtitle">Available 24/7</h6>
                 <h6 className="section-title mb-4">Get In Touch</h6>
                 <form>
                   <div className="form-group">
@@ -1103,7 +1115,7 @@ export default function Home() {
                   </div>
                   <button
                     type="submit"
-                    className="btn btn-primary btn-block btn-lg mt-3"
+                    className="text-white bg-blue-400 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 w-full"
                   >
                     Send Message
                   </button>
