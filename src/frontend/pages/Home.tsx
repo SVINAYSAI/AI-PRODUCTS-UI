@@ -125,35 +125,33 @@ export default function Home() {
           </div>
         </header>
 
-        <div className=" pt-[8.5rem]">
-          <div className="box text-center">
-            <div className="box-item">
-              <i className="ti-vector"></i>
-              <h6 className="box-title">AI development</h6>
-              <p>
-                AI development involves creating algorithms that enable machines
-                to perform tasks requiring human-like intelligence, such as
-                learning and problem-solving.
-              </p>
-            </div>
-            <div className="box-item">
-              <i className="ti-filter"></i>
-              <h6 className="box-title">Web Development</h6>
-              <p>
-                Web development encompasses designing, building, and maintaining
-                websites, involving various technologies like HTML, CSS,
-                JavaScript, and backend frameworks for functionality .
-              </p>
-            </div>
-            <div className="box-item">
-              <i className="ti-mobile"></i>
-              <h6 className="box-title">App Design</h6>
-              <p>
-                App design is crafting user interfaces for mobile or desktop
-                applications, focusing on aesthetics, usability, and user
-                experience to enhance engagement.
-              </p>
-            </div>
+        <div className="box text-center">
+          <div className="box-item">
+            <i className="ti-vector"></i>
+            <h6 className="box-title">AI development</h6>
+            <p>
+              AI development involves creating algorithms that enable machines
+              to perform tasks requiring human-like intelligence, such as
+              learning and problem-solving.
+            </p>
+          </div>
+          <div className="box-item">
+            <i className="ti-filter"></i>
+            <h6 className="box-title">Web Development</h6>
+            <p>
+              Web development encompasses designing, building, and maintaining
+              websites, involving various technologies like HTML, CSS,
+              JavaScript, and backend frameworks for functionality .
+            </p>
+          </div>
+          <div className="box-item">
+            <i className="ti-mobile"></i>
+            <h6 className="box-title">App Design</h6>
+            <p>
+              App design is crafting user interfaces for mobile or desktop
+              applications, focusing on aesthetics, usability, and user
+              experience to enhance engagement.
+            </p>
           </div>
         </div>
 
