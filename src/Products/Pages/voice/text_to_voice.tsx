@@ -1,5 +1,4 @@
-import axios from "axios";
-import React from "react";
+
 import { useRef, useEffect, useState } from "react";
 import Model from "./voice_model";
 import { Link } from "react-router-dom";

@@ -194,7 +194,7 @@ export default function About() {
                 <h3 className="font-14 semi-font fables-forth-text-color">
                   COMPANY MEMBERS
                 </h3>
-              </div>
+              </div> 
             </div>
             <div className="col-6 col-md-3">
               <div className="fables-counter">

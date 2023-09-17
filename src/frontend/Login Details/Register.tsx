@@ -7,9 +7,9 @@ import {
   MDBInput,
   MDBCheckbox,
 } from "mdb-react-ui-kit";
-import axios from 'axios';
+// import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect,  } from "react";
+import { useState  } from "react";
 import { Modal } from "antd";
 // import Text from "@/terms & conditions.txt"
 
@@ -72,7 +72,7 @@ function App() {
       if (response.ok) {
         alert('Data inserted successfully!');
         // You can add redirection or other actions here if needed.
-        history("/verify");
+        history("");
       } else {
         alert('Error inserting user data.');
       }
