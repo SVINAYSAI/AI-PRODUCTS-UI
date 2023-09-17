@@ -15,10 +15,12 @@ import img10 from "../../components/frontend/assets/imgs/avatar-3.jpg";
 // import img12 from "../../components/frontend/assets/imgs/avatar-5.jpg"
 // import img13 from "../../components/frontend/assets/imgs/avatar-6.jpg"
 // import img14 from "../../components/frontend/assets/imgs/avatar-7.jpg"
+
 import img15 from "../../components/frontend/assets/imgs/blog-1.jpg";
 import img16 from "../../components/frontend/assets/imgs/blog-2.jpg";
 import img17 from "../../components/frontend/assets/imgs/blog-3.jpg";
-import img18 from "../../components/frontend/assets/imgs/logo.png";
+import logo from "../../components/fats-logo/svg/logo-no-background.svg";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -30,13 +32,13 @@ export default function Home() {
           data-offset-top="20"
         >
           <div className="container">
-            <a className="navbar-brand" href="#">
+            {/* <Link className="navbar-brand" to="#">
               <img
                 className=" "
-                // src={logo}
+                src={logo}
                 alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
               />
-            </a>
+            </Link> */}
             <button
               className="navbar-toggler"
               type="button"
@@ -55,49 +57,49 @@ export default function Home() {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <Link className="nav-link active" aria-current="page" to="#">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/about">
+                  <Link className="nav-link" to="/about">
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/products">
+                  <Link className="nav-link" to="/products">
                     Products
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/ser/services">
+                  <Link className="nav-link" to="/ser/services">
                     Services
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/pricing">
+                  <Link className="nav-link" to="/pricing">
                     Pricing
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/contactus">
+                  <Link className="nav-link" to="/contactus">
                     Contact Us
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/blog">
+                  <Link className="nav-link" to="/blog">
                     Blog
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/api">
+                  <Link className="nav-link" to="/api">
                     API
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/login">
+                  <Link className="nav-link" to="/login">
                     Login
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -107,25 +109,25 @@ export default function Home() {
         <header className="header">
           <div className="overlay">
             <h1 className="title font-italic pt-[5%]">FATS</h1>
-            <h1 className="subtitle font-italic">FUTURE AI TECHNOLOGY'S</h1>
-            <div className="buttons text-center ">
-              <a
-                href="#service"
+            <h1 className="subtitle font-italic pt-4">FUTURE AI TECHNOLOGY'S</h1>
+            <div className="buttons text-center pt-4 pb-4">
+              <Link
+                to="#service"
                 className="btn btn-primary rounded w-lg btn-lg my-1"
               >
                 Our Service
-              </a>
-              <a
-                href="#contact"
+              </Link>
+              <Link
+                to="#contact"
                 className="btn btn-outline-light rounded w-lg btn-lg my-1"
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
         </header>
 
-        <div className="box text-center shadow-lg">
+        <div className="box text-center shadow-lg ">
           <div className="box-item">
             <i className="ti-vector"></i>
             <h6 className="box-title">AI development</h6>
@@ -366,12 +368,14 @@ export default function Home() {
                   <div className="overlay">
                     <div className="overlay-infos">
                       <h5>Project Title</h5>
-                      <a href="javascript:void(0)">
+                      
+                  
+                      <Link to="">
                         <i className="ti-zoom-in"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-link"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -383,12 +387,12 @@ export default function Home() {
                   <div className="overlay">
                     <div className="overlay-infos">
                       <h5>Project Title</h5>
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-zoom-in"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-link"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -402,12 +406,12 @@ export default function Home() {
                   <div className="overlay">
                     <div className="overlay-infos">
                       <h5>Project Title</h5>
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-zoom-in"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-link"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -419,12 +423,12 @@ export default function Home() {
                   <div className="overlay">
                     <div className="overlay-infos">
                       <h5>Project Title</h5>
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-zoom-in"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-link"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -438,12 +442,12 @@ export default function Home() {
                   <div className="overlay">
                     <div className="overlay-infos">
                       <h5>Project Title</h5>
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-zoom-in"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-link"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -455,12 +459,12 @@ export default function Home() {
                   <div className="overlay">
                     <div className="overlay-infos">
                       <h5>Project Title</h5>
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-zoom-in"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-link"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -490,18 +494,18 @@ export default function Home() {
                       Magni quos esse tenetur illo qui, nostrum.
                     </p>
                     <div className="socials">
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-facebook"></i>{" "}
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-github"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-dropbox"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-twitter"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -522,18 +526,18 @@ export default function Home() {
                       Magni quos esse tenetur illo qui, nostrum.
                     </p>
                     <div className="socials">
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-facebook"></i>{" "}
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-github"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-dropbox"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-twitter"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -554,18 +558,18 @@ export default function Home() {
                       Magni quos esse tenetur illo qui, nostrum.
                     </p>
                     <div className="socials">
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-facebook"></i>{" "}
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-github"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-dropbox"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-twitter"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -586,18 +590,18 @@ export default function Home() {
                       Magni quos esse tenetur illo qui, nostrum.
                     </p>
                     <div className="socials">
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-facebook"></i>{" "}
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-github"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-dropbox"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-twitter"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -618,18 +622,18 @@ export default function Home() {
                       Magni quos esse tenetur illo qui, nostrum.
                     </p>
                     <div className="socials">
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-facebook"></i>{" "}
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-github"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-dropbox"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-twitter"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -650,18 +654,18 @@ export default function Home() {
                       Magni quos esse tenetur illo qui, nostrum.
                     </p>
                     <div className="socials">
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-facebook"></i>{" "}
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-github"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-dropbox"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-twitter"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -682,18 +686,18 @@ export default function Home() {
                       Magni quos esse tenetur illo qui, nostrum.
                     </p>
                     <div className="socials">
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-facebook"></i>{" "}
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-github"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-dropbox"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-twitter"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -714,18 +718,18 @@ export default function Home() {
                       Magni quos esse tenetur illo qui, nostrum.
                     </p>
                     <div className="socials">
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-facebook"></i>{" "}
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-github"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-dropbox"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-twitter"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -746,18 +750,18 @@ export default function Home() {
                       Magni quos esse tenetur illo qui, nostrum.
                     </p>
                     <div className="socials">
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-facebook"></i>{" "}
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-github"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-dropbox"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-twitter"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -778,18 +782,18 @@ export default function Home() {
                       Magni quos esse tenetur illo qui, nostrum.
                     </p>
                     <div className="socials">
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-facebook"></i>{" "}
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-github"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-dropbox"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-twitter"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -810,18 +814,18 @@ export default function Home() {
                       Magni quos esse tenetur illo qui, nostrum.
                     </p>
                     <div className="socials">
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-facebook"></i>{" "}
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-github"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-dropbox"></i>
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-twitter"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -932,13 +936,13 @@ export default function Home() {
             role="document"
           >
             <div className="modal-content">
-              <iframe
+              {/* <iframe
                 width="100%"
                 height="475"
                 src="https://www.youtube.com/embed/TP4THzsAa3M"
                 frameBorder="0"
                 allowFullScreen
-              ></iframe>
+              ></iframe> */}
             </div>
           </div>
         </div>
@@ -957,12 +961,12 @@ export default function Home() {
                   />
                   <div className="card-body">
                     <div className="details mb-3">
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-comments"></i> 123
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-eye"></i> 123
-                      </a>
+                      </Link>
                     </div>
                     <h5 className="card-title">Possimus aliquam veniam</h5>
                     <p>
@@ -970,9 +974,9 @@ export default function Home() {
                       Repudiandae laudantium dolor nisi obcaecati, non
                       laboriosam asperiores doloremque tempora repellendus iure!
                     </p>
-                    <a href="javascript:void(0)" className="d-block mt-3">
+                    <Link to="" className="d-block mt-3">
                       Read More...
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -984,12 +988,12 @@ export default function Home() {
                   />
                   <div className="card-body">
                     <div className="details mb-3">
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-comments"></i> 434
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-eye"></i> 987
-                      </a>
+                      </Link>
                     </div>
                     <h5 className="card-title">Repudiandae laudantium</h5>
                     <p>
@@ -997,9 +1001,9 @@ export default function Home() {
                       Repudiandae laudantium dolor nisi obcaecati, non
                       laboriosam asperiores doloremque tempora repellendus iure!
                     </p>
-                    <a href="javascript:void(0)" className="d-block mt-3">
+                    <Link to="" className="d-block mt-3">
                       Read More...
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -1011,12 +1015,12 @@ export default function Home() {
                   />
                   <div className="card-body">
                     <div className="details mb-3">
-                      <a href="javascript:void(0)">
+                      <Link to="">
                         <i className="ti-comments"></i> 164
-                      </a>
-                      <a href="javascript:void(0)">
+                      </Link>
+                      <Link to="">
                         <i className="ti-eye"></i> 425
-                      </a>
+                      </Link>
                     </div>
                     <h5 className="card-title">Laboriosam asperiores</h5>
                     <p>
@@ -1024,9 +1028,9 @@ export default function Home() {
                       Repudiandae laudantium dolor nisi obcaecati, non
                       laboriosam asperiores doloremque tempora repellendus iure!
                     </p>
-                    <a href="javascript:void(0)" className="d-block mt-3">
+                    <Link to="" className="d-block mt-3">
                       Read More...
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -1122,13 +1126,13 @@ export default function Home() {
                     <h6 className="font-weight-bold">ABOUT US</h6>
                   </li>
                   <li className="list-body">
-                    <a href="#" className="logo">
+                    <Link to="#" className="logo">
                       <img
-                        src={img18}
+                        src={logo}
                         alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                       />
                       <h6>Creative Studio</h6>
-                    </a>
+                    </Link>
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                       Beatae nobis fugit maxime deleniti minus optio accusamus,
@@ -1138,12 +1142,12 @@ export default function Home() {
                       Copyright{" "}
                       <script>document.write(new Date().getFullYear())</script>{" "}
                       &copy;{" "}
-                      <a
+                      <Link
                         className="d-inline text-primary"
-                        href="http://www.devcrud.com"
+                        to="http://www.devcrud.com"
                       >
                         DevCRUD
-                      </a>
+                      </Link>
                     </p>
                   </li>
                 </ul>
@@ -1154,16 +1158,16 @@ export default function Home() {
                   <li className="list-body">
                     <div className="row">
                       <div className="col">
-                        <a href="#about">About</a>
-                        <a href="#service">Service</a>
-                        <a href="#portfolio">Portfolio</a>
-                        <a href="#testmonail">Testimonial</a>
+                        <Link to="#about">About</Link>
+                        <Link to="#service">Service</Link>
+                        <Link to="#portfolio">Portfolio</Link>
+                        <Link to="#testmonail">Testimonial</Link>
                       </div>
                       <div className="col">
-                        <a href="#team">Team</a>
-                        <a href="#blog">Blog</a>
-                        <a href="#">Faq</a>
-                        <a href="#">Privacy Policy</a>
+                        <Link to="#team">Team</Link>
+                        <Link to="#blog">Blog</Link>
+                        <Link to="#">Faq</Link>
+                        <Link to="#">Privacy Policy</Link>
                       </div>
                     </div>
                   </li>
@@ -1182,24 +1186,24 @@ export default function Home() {
                       <i className="ti-email"></i> info@website.com
                     </p>
                     <div className="social-links">
-                      <a href="javascript:void(0)" className="link">
+                      <Link to="" className="link">
                         <i className="ti-facebook"></i>
-                      </a>
-                      <a href="javascript:void(0)" className="link">
+                      </Link>
+                      <Link to="" className="link">
                         <i className="ti-twitter-alt"></i>
-                      </a>
-                      <a href="javascript:void(0)" className="link">
+                      </Link>
+                      <Link to="" className="link">
                         <i className="ti-google"></i>
-                      </a>
-                      <a href="javascript:void(0)" className="link">
+                      </Link>
+                      <Link to="" className="link">
                         <i className="ti-pinterest-alt"></i>
-                      </a>
-                      <a href="javascript:void(0)" className="link">
+                      </Link>
+                      <Link to="" className="link">
                         <i className="ti-instagram"></i>
-                      </a>
-                      <a href="javascript:void(0)" className="link">
+                      </Link>
+                      <Link to="" className="link">
                         <i className="ti-rss"></i>
-                      </a>
+                      </Link>
                     </div>
                   </li>
                 </ul>

@@ -11615,9 +11615,9 @@ pre .code {
   color: #fff !important;
 }
 
-.custom-navbar .nav-link.active {
+/* .custom-navbar .nav-link.active {
   color: #ff214f !important;
-}
+} */
 
 .custom-navbar.affix {
   position: fixed;
@@ -11647,9 +11647,9 @@ pre .code {
   color: #495057 !important;
 }
 
-.custom-navbar.affix .nav-link.active {
+/* .custom-navbar.affix .nav-link.active {
   color: #ff214f !important;
-}
+} */
 
 @-webkit-keyframes affix {
   from {
