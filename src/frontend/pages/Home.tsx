@@ -168,7 +168,7 @@ export default function Home() {
                 />
               </div>
               <div className="col-md-7 col-lg-8">
-                <h6 className="section-subtitle mb-0">We Create</h6>
+                <h6 className="section-title">We Create</h6>
                 <h6 className="section-title mb-3">Awesome Work</h6>
                 <p>
                   We specialize in AI product development for automation,
@@ -195,7 +195,7 @@ export default function Home() {
 
         <section className="has-bg-img py-md">
           <div className="container text-center">
-            <h6 className="section-subtitle">We See</h6>
+            <h6 className="section-title">We See</h6>
             <h6 className="section-title mb-6">What Other Don't See.</h6>
             <div className="widget mb-4">
               <div className="widget-item">
@@ -220,7 +220,7 @@ export default function Home() {
 
         <section id="service">
           <div className="container">
-            <h6 className="section-subtitle text-center">Makes Happen</h6>
+            <h6 className="section-title text-center">Makes Happen</h6>
             <h5 className="section-title text-center mb-6">Our Service</h5>
             <div className="row">
               <div className="col-sm-4 col-md-3">
@@ -355,7 +355,7 @@ export default function Home() {
 
         <section id="portfolio">
           <div className="container text-center">
-            <h6 className="section-subtitle">Our Awesome Works</h6>
+            <h6 className="section-title">Our Awesome Works</h6>
             <h6 className="section-title mb-5">Our Portfolio</h6>
             <div className="row">
               <div className="col-sm-4">
@@ -472,7 +472,7 @@ export default function Home() {
 
         <section id="team">
           <div className="container">
-            <h6 className="section-subtitle text-center">Meet With</h6>
+            <h6 className="section-title text-center">Meet With</h6>
             <h6 className="section-title mb-5 text-center">Our Team</h6>
             {/* <div className="row">
               <div className="col-sm-6 col-md-4">
@@ -833,7 +833,7 @@ export default function Home() {
 
         <section className="has-bg-img bg-img-2">
           <div className="container text-center">
-            <h6 className="section-subtitle">We Are Awesome</h6>
+            <h6 className="section-title">We Are Awesome</h6>
             <h6 className="section-title mb-6">Some Fun Fucts</h6>
             <div className="widget-2">
               <div className="widget-item">
@@ -862,7 +862,7 @@ export default function Home() {
 
         <section id="testimonial">
           <div className="container">
-            <h6 className="section-subtitle text-center">Testimonial</h6>
+            <h6 className="section-title text-center">Testimonial</h6>
             <h6 className="section-title text-center mb-6">
               What Our Clients Says
             </h6>
@@ -946,7 +946,7 @@ export default function Home() {
 
         <section id="blog">
           <div className="container">
-            <h6 className="section-subtitle text-center">News Feeds</h6>
+            <h6 className="section-title text-center">News Feeds</h6>
             <h6 className="section-title mb-6 text-center">Our Blog</h6>
 
             <div className="row">
@@ -1039,7 +1039,7 @@ export default function Home() {
           <div className="container">
             <div className="contact-card">
               <div className="infos">
-                <h6 className="section-subtitle">Get Here</h6>
+                <h6 className="section-title">Get Here</h6>
                 <h6 className="section-title mb-4">Contact Us</h6>
 
                 <div className="item">
@@ -1072,7 +1072,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="form">
-                <h6 className="section-subtitle">Available 24/7</h6>
+                <h6 className="section-title">Available 24/7</h6>
                 <h6 className="section-title mb-4">Get In Touch</h6>
                 <form>
                   <div className="form-group">
