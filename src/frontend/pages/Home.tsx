@@ -125,7 +125,7 @@ export default function Home() {
           </div>
         </header>
 
-        <div className="box text-center">
+        <div className="box text-center shadow-lg">
           <div className="box-item">
             <i className="ti-vector"></i>
             <h6 className="box-title">AI development</h6>
@@ -191,8 +191,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="has-bg-img py-md">
-          <div className="container text-center">
+        <section className="container w-[90%] text-center shadow-md">
+          <div className="container w-[70%] ">
             <h6 className="section-subtitle">We See</h6>
             <h6 className="section-title mb-6">What Other Don't See.</h6>
             <div className="widget mb-4">
