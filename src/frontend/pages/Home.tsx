@@ -887,11 +887,9 @@ export default function Home() {
                         <i className="ti-eye"></i> 123
                       </Link>
                     </div>
-                    <h5 className="card-title">Possimus aliquam veniam</h5>
+                    <h5 className="card-title">Ai products</h5>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Repudiandae laudantium dolor nisi obcaecati, non
-                      laboriosam asperiores doloremque tempora repellendus iure!
+                    Leveraging AI, we offer innovative solutions like converting text to images, videos, charts, and speech. Additionally, we create personalized AI avatars and music compositions, all generated directly from textual input.
                     </p>
                     <Link to="" className="d-block mt-3">
                       Read More...

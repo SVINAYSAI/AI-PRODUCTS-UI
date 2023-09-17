@@ -1,6 +1,7 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, NavLink,useLocation } from "react-router-dom";
 import { useState } from "react";
 import "../assets/frontend/css/style1.css"
+import logo from "../components/fats-logo/svg/logo-no-background.svg"
 
 export default function Layout() {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,11 +9,9 @@ export default function Layout() {
   return (
     <>
       <nav
-        className="navbar custom-navbar navbar-expand-lg navbar-dark"
-        data-spy="affix"
-        data-offset-top="20"
+        className="navbar "
       >
-        <div className="container mx-auto py-3">
+        <div className="container mx-auto ">
           <div className="flex items-center justify-between">
             <button
               className="text-white lg:hidden"
@@ -33,6 +32,9 @@ export default function Layout() {
           </div>
           <div className={`${isOpen ? "block" : "hidden"} lg:flex`}>
             <ul className="lg:flex lg:items-center lg:justify-between w-full text-lg font-semibold text-white lg:text-sm lg:mx-auto">
+              <li className="  w-24">
+                <img className=" w-[5rem]" src={logo} alt="logo"></img>
+              </li>
               <li className="lg:mx-4 my-2 lg:my-0">
                 <Link to="#" className="block py-1 px-4 rounded ">
                   Home
