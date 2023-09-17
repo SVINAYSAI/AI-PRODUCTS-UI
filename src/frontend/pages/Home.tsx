@@ -15,9 +15,9 @@ import img10 from "../../components/frontend/assets/imgs/avatar-3.jpg";
 // import img12 from "../../components/frontend/assets/imgs/avatar-5.jpg"
 // import img13 from "../../components/frontend/assets/imgs/avatar-6.jpg"
 // import img14 from "../../components/frontend/assets/imgs/avatar-7.jpg"
-import img15 from "../../components/frontend/assets/imgs/blog-1.jpg";
-import img16 from "../../components/frontend/assets/imgs/blog-2.jpg";
-import img17 from "../../components/frontend/assets/imgs/blog-3.jpg";
+import img15 from "../../components/frontend/assets/imgs/artificial-intelligence-AI.jpg";
+import img16 from "../../components/frontend/assets/imgs/vr.jpg";
+import img17 from "../../components/frontend/assets/imgs/ar.jpg";
 import logo from "../../components/fats-logo/svg/logo-no-background.svg";
 import { Link, Outlet } from "react-router-dom";
 
@@ -152,8 +152,7 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">AI Products</h6>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Debitis amet saepe et!
+                    We transform text into images, videos, charts, speech, avatars, and music.
                     </p>
                   </div>
                 </div>
@@ -166,8 +165,7 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">IOT Based on Chat-GPT</h6>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Debitis amet saepe et!
+                    IoT integrated with Chat-GPT for smart, conversational device control.
                     </p>
                   </div>
                 </div>
@@ -180,8 +178,7 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">Virtual Reality</h6>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Debitis amet saepe et!
+                    Developing VR-based app for 3D modeling on multiple platforms.
                     </p>
                   </div>
                 </div>
@@ -194,8 +191,7 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">Augmented Reality</h6>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Debitis amet saepe et!
+                    Leading in AR, creating AI-enhanced software for interactive user experiences.
                     </p>
                   </div>
                 </div>
@@ -208,8 +204,7 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">AI in Pharma</h6>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Debitis amet saepe et!
+                    AI revolutionizes Pharma with drug discovery, personalized treatment, and analytics.
                     </p>
                   </div>
                 </div>
@@ -222,8 +217,7 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">Education</h6>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Debitis amet saepe et!
+                    Enhancing learning through technology, personalized curricula, and innovative teaching methods.
                     </p>
                   </div>
                 </div>
@@ -236,8 +230,7 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">Telecommunication</h6>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Debitis amet saepe et!
+                    Expanding global connectivity through advanced networks and innovative telecom services.
                     </p>
                   </div>
                 </div>
@@ -250,8 +243,7 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">Movies</h6>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Debitis amet saepe et!
+                    Crafting compelling stories through visual artistry and innovative filmmaking techniques.
                     </p>
                   </div>
                 </div>
@@ -264,8 +256,7 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">Marketing Chatbots</h6>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Debitis amet saepe et!
+                    Automating customer engagement and sales through intelligent marketing chatbots.
                     </p>
                   </div>
                 </div>
@@ -799,9 +790,7 @@ export default function Home() {
                   </div>
                   <div className="body">
                     <p className="subtitle">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Eaque doloribus autem aperiam earum nostrum omnis
-                      blanditiis corporis perspiciatis adipisci nihil.
+                    Outstanding AI solutions for text conversion, VR, and AR. Exceptional cross-platform compatibility. Transforms user experience with intelligent, interactive functionalities. Highly recommend!
                     </p>
                     <h6 className="title">Richard Reb</h6>
                   </div>
@@ -817,9 +806,7 @@ export default function Home() {
                   </div>
                   <div className="body">
                     <p className="subtitle">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Eaque doloribus autem aperiam earum nostrum omnis
-                      blanditiis corporis perspiciatis adipisci nihil.
+                    Impressed by the AI-driven services in text-to-media, Virtual and Augmented Reality. The cross-platform functionality is seamless. An innovative approach that elevates user experience. Highly recommended.
                     </p>
                     <h6 className="title">John Doe</h6>
                   </div>
@@ -889,7 +876,7 @@ export default function Home() {
                     </div>
                     <h5 className="card-title">Ai products</h5>
                     <p>
-                    Leveraging AI, we offer innovative solutions like converting text to images, videos, charts, and speech. Additionally, we create personalized AI avatars and music compositions, all generated directly from textual input.
+                      Leveraging AI, we offer innovative solutions like converting text to images, videos, charts, and speech. Additionally, we create personalized AI avatars and music compositions, all generated directly from textual input.
                     </p>
                     <Link to="" className="d-block mt-3">
                       Read More...
@@ -912,11 +899,9 @@ export default function Home() {
                         <i className="ti-eye"></i> 987
                       </Link>
                     </div>
-                    <h5 className="card-title">Repudiandae laudantium</h5>
+                    <h5 className="card-title">Virtual Reality</h5>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Repudiandae laudantium dolor nisi obcaecati, non
-                      laboriosam asperiores doloremque tempora repellendus iure!
+                      We are revolutionizing Virtual Reality by automating the gaming process with AI. Our cross-platform app is compatible with VR, Windows, Linux, and Mac, offering seamless, intelligent experiences for gamers.
                     </p>
                     <Link to="" className="d-block mt-3">
                       Read More...
@@ -939,11 +924,9 @@ export default function Home() {
                         <i className="ti-eye"></i> 425
                       </Link>
                     </div>
-                    <h5 className="card-title">Laboriosam asperiores</h5>
+                    <h5 className="card-title">Augmented Reality</h5>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Repudiandae laudantium dolor nisi obcaecati, non
-                      laboriosam asperiores doloremque tempora repellendus iure!
+                      We are at the forefront of Augmented Reality, developing AI-powered software that enriches user experience. Our app seamlessly integrates with AR platforms to deliver intelligent, interactive functionalities.
                     </p>
                     <Link to="" className="d-block mt-3">
                       Read More...
@@ -1048,12 +1031,10 @@ export default function Home() {
                         src={logo}
                         alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                       />
-                      <h6>Creative Studio</h6>
+                      <h6>FATS</h6>
                     </Link>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Beatae nobis fugit maxime deleniti minus optio accusamus,
-                      quam maiores explicabo sunt.
+                    We offer AI-driven solutions in text conversion, Virtual Reality, and Augmented Reality, providing seamless, intelligent experiences across multiple platforms for a wide range of applications.
                     </p>
                     <p className="mt-3">
                       Copyright{" "}
@@ -1100,7 +1081,7 @@ export default function Home() {
                       AB Country
                     </p>
                     <p>
-                      <i className="ti-email"></i> info@website.com
+                      <i className="ti-email"></i> info@aifats.com
                     </p>
                     <div className="social-links">
                       <Link to="" className="link">
