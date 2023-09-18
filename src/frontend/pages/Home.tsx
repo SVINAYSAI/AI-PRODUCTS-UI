@@ -152,7 +152,8 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">AI Products</h6>
                     <p>
-                    We transform text into images, videos, charts, speech, avatars, and music.
+                      We transform text into images, videos, charts, speech,
+                      avatars, and music.
                     </p>
                   </div>
                 </div>
@@ -165,7 +166,8 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">IOT Based on Chat-GPT</h6>
                     <p>
-                    IoT integrated with Chat-GPT for smart, conversational device control.
+                      IoT integrated with Chat-GPT for smart, conversational
+                      device control.
                     </p>
                   </div>
                 </div>
@@ -178,7 +180,8 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">Virtual Reality</h6>
                     <p>
-                    Developing VR-based app for 3D modeling on multiple platforms.
+                      Developing VR-based app for 3D modeling on multiple
+                      platforms.
                     </p>
                   </div>
                 </div>
@@ -191,7 +194,8 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">Augmented Reality</h6>
                     <p>
-                    Leading in AR, creating AI-enhanced software for interactive user experiences.
+                      Leading in AR, creating AI-enhanced software for
+                      interactive user experiences.
                     </p>
                   </div>
                 </div>
@@ -204,7 +208,9 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">AI in Pharma</h6>
                     <p>
+
                     AI streamlines Pharma: improving drug discovery, diagnostics, and personalized therapiess
+
                     </p>
                   </div>
                 </div>
@@ -217,7 +223,8 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">Education</h6>
                     <p>
-                    Enhancing learning through technology, personalized curricula, and innovative teaching methods.
+                      Enhancing learning through technology, personalized
+                      curricula, and innovative teaching methods.
                     </p>
                   </div>
                 </div>
@@ -230,7 +237,8 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">Telecommunication</h6>
                     <p>
-                    Expanding global connectivity through advanced networks and innovative telecom services.
+                      Expanding global connectivity through advanced networks
+                      and innovative telecom services.
                     </p>
                   </div>
                 </div>
@@ -243,7 +251,8 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">Movies</h6>
                     <p>
-                    Crafting compelling stories through visual artistry and innovative filmmaking techniques.
+                      Crafting compelling stories through visual artistry and
+                      innovative filmmaking techniques.
                     </p>
                   </div>
                 </div>
@@ -256,7 +265,8 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">Marketing Chatbots</h6>
                     <p>
-                    Automating customer engagement and sales through intelligent marketing chatbots.
+                      Automating customer engagement and sales through
+                      intelligent marketing chatbots.
                     </p>
                   </div>
                 </div>
@@ -790,7 +800,10 @@ export default function Home() {
                   </div>
                   <div className="body">
                     <p className="subtitle">
-                    Outstanding AI solutions for text conversion, VR, and AR. Exceptional cross-platform compatibility. Transforms user experience with intelligent, interactive functionalities. Highly recommend!
+                      Outstanding AI solutions for text conversion, VR, and AR.
+                      Exceptional cross-platform compatibility. Transforms user
+                      experience with intelligent, interactive functionalities.
+                      Highly recommend!
                     </p>
                     <h6 className="title">Richard Reb</h6>
                   </div>
@@ -806,7 +819,10 @@ export default function Home() {
                   </div>
                   <div className="body">
                     <p className="subtitle">
-                    Impressed by the AI-driven services in text-to-media, Virtual and Augmented Reality. The cross-platform functionality is seamless. An innovative approach that elevates user experience. Highly recommended.
+                      Impressed by the AI-driven services in text-to-media,
+                      Virtual and Augmented Reality. The cross-platform
+                      functionality is seamless. An innovative approach that
+                      elevates user experience. Highly recommended.
                     </p>
                     <h6 className="title">John Doe</h6>
                   </div>
@@ -858,8 +874,8 @@ export default function Home() {
             <h6 className="section-subtitle text-center">News Feeds</h6>
             <h6 className="section-title mb-6 text-center">Our Blog</h6>
 
-            <div className="row">
-              <div className="col-md-4">
+            <div className="flex flex-wrap -mx-4">
+              <div className="w-full md:w-1/3 px-4 mb-4">
                 <div className="card blog-post my-4 my-sm-5 my-md-0">
                   <img
                     src={img15}
@@ -876,7 +892,10 @@ export default function Home() {
                     </div>
                     <h5 className="card-title">Ai products</h5>
                     <p>
-                      Leveraging AI, we offer innovative solutions like converting text to images, videos, charts, and speech. Additionally, we create personalized AI avatars and music compositions, all generated directly from textual input.
+                      Leveraging AI, we offer innovative solutions like
+                      converting text to images, videos, charts, and speech.
+                      Additionally, we create personalized AI avatars and music
+                      compositions, all generated directly from textual input.
                     </p>
                     <Link to="" className="d-block mt-3">
                       Read More...
@@ -884,7 +903,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="col-md-4">
+              <div className="w-full md:w-1/3 px-4 mb-4">
                 <div className="card blog-post my-4 my-sm-5 my-md-0">
                   <img
                     src={img16}
@@ -901,7 +920,10 @@ export default function Home() {
                     </div>
                     <h5 className="card-title">Virtual Reality</h5>
                     <p>
-                      We are revolutionizing Virtual Reality by automating the gaming process with AI. Our cross-platform app is compatible with VR, Windows, Linux, and Mac, offering seamless, intelligent experiences for gamers.
+                      We are revolutionizing Virtual Reality by automating the
+                      gaming process with AI. Our cross-platform app is
+                      compatible with VR, Windows, Linux, and Mac, offering
+                      seamless, intelligent experiences for gamers.
                     </p>
                     <Link to="" className="d-block mt-3">
                       Read More...
@@ -909,7 +931,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="col-md-4">
+              <div className="w-full md:w-1/3 px-4 mb-4">
                 <div className="card blog-post my-4 my-sm-5 my-md-0">
                   <img
                     src={img17}
@@ -926,7 +948,10 @@ export default function Home() {
                     </div>
                     <h5 className="card-title">Augmented Reality</h5>
                     <p>
-                      We are at the forefront of Augmented Reality, developing AI-powered software that enriches user experience. Our app seamlessly integrates with AR platforms to deliver intelligent, interactive functionalities.
+                      We are at the forefront of Augmented Reality, developing
+                      AI-powered software that enriches user experience. Our app
+                      seamlessly integrates with AR platforms to deliver
+                      intelligent, interactive functionalities.
                     </p>
                     <Link to="" className="d-block mt-3">
                       Read More...
@@ -1034,7 +1059,10 @@ export default function Home() {
                       <h6>FATS</h6>
                     </Link>
                     <p>
-                    We offer AI-driven solutions in text conversion, Virtual Reality, and Augmented Reality, providing seamless, intelligent experiences across multiple platforms for a wide range of applications.
+                      We offer AI-driven solutions in text conversion, Virtual
+                      Reality, and Augmented Reality, providing seamless,
+                      intelligent experiences across multiple platforms for a
+                      wide range of applications.
                     </p>
                     <p className="mt-3">
                       Copyright{" "}
