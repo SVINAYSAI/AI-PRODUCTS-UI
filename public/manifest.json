@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "FATS",
+  "name": "FUTURE AI TECHNOLOGYS",
   "icons": [
     {
       "src": "../src/components/fats-logo/svg/logo-no-background.svg",
@@ -9,12 +9,12 @@
     },
     {
       "src": "../src/components/fats-logo/svg/logo-no-background.svg",
-      "type": "image/png",
+      "type": "image/svg",
       "sizes": "192x192"
     },
     {
       "src": "../src/components/fats-logo/svg/logo-no-background.svg",
-      "type": "image/png",
+      "type": "image/svg",
       "sizes": "512x512"
     }
   ],

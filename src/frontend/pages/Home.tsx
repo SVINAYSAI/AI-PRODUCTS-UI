@@ -208,9 +208,8 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">AI in Pharma</h6>
                     <p>
-
-                    AI streamlines Pharma: improving drug discovery, diagnostics, and personalized therapiess
-
+                      AI streamlines Pharma: improving drug discovery,
+                      diagnostics, and personalized therapiess
                     </p>
                   </div>
                 </div>
@@ -1064,15 +1063,16 @@ export default function Home() {
                       intelligent experiences across multiple platforms for a
                       wide range of applications.
                     </p>
-                    <p className="mt-3">
+                    <p className="mt-3 font-italic">
                       Copyright{" "}
                       <script>document.write(new Date().getFullYear())</script>{" "}
-                      &copy;{" "}
+                      &copy;{"2023"}
                       <Link
-                        className="d-inline text-primary"
-                        to="http://www.devcrud.com"
+                        className="d-inline text-black font-italic font-bold"
+                        to=""
                       >
-                        DevCRUD
+                        {" "}
+                        FATS
                       </Link>
                     </p>
                   </li>

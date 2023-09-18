@@ -1,7 +1,7 @@
 // import { useEffect } from 'react';
 // import WOW from 'wow.js'; 
 import img from "../../custom/images/map-marker.png";
-import img1 from "../../custom/images/fables-logo.png";
+import logo from "../../components/fats-logo/svg/logo-no-background.svg";
 import "../../vendor/animate.css-master/animate.min.css";
 import "../../vendor/fontawesome/css/fontawesome-all.min.css";
 import "../../vendor/bootstrap/css/bootstrap-4-navbar.css";
@@ -155,141 +155,101 @@ export default function ContactUs() {
       {/* <!-- /End page content --> */}
 
       {/* <!-- Start Footer 2 Background Image  --> */}
-      <div className="fables-footer-image fables-after-overlay white-color py-4 py-lg-5 bg-rules">
-        <div className="container">
-          <div className="row">
-            <div className="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mb-5 text-center ">
-              <h2 className="font-30 semi-font mb-5">Newsletter</h2>
-              <form className="form-inline position-relative">
-                <div className="form-group fables-subscribe-formgroup">
-                  <input
-                    type="email"
-                    className="form-control fables-subscribe-input fables-btn-rouned"
-                    placeholder="Your Email"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="btn fables-second-background-color fables-btn-rouned fables-subscribe-btn"
-                >
-                  Subscribe
-                </button>
-              </form>
-            </div>
-            <div className="col-12 col-lg-4 mb-4 mb-lg-0">
-              <Link
-                to="#"
-                className="fables-second-border-color border-bottom pb-3 d-block mb-3 mt-minus-13"
-              >
-                <img
-                  src={img1}
-                  alt="fables template"
-                />
-              </Link>
-              <p className="font-15 fables-third-text-color">
-                {`
-    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
-
-    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-    `}
-              </p>
-            </div>
-
-            <div className="col-12 col-sm-6 col-lg-4">
-              <h2 className="font-20 semi-font fables-second-border-color border-bottom pb-3">
-                Contact us
-              </h2>
-              <div className="my-3">
-                <h4 className="font-16 semi-font">
-                  <span className="fables-iconmap-icon fables-second-text-color pr-2 font-20 mt-1 d-inline-block"></span>{" "}
-                  Address Information
-                </h4>
-                <p className="font-14 fables-fifth-text-color mt-2 ml-4">
-                  level13, 2Elizabeth St, Melbourne, Victor 2000
-                </p>
+      <section className="has-bg-img py-0">
+          <div className="container">
+            <div className="footer">
+              <div className="footer-lists">
+                <ul className="list">
+                  <li className="list-head">
+                    <h6 className="font-weight-bold">ABOUT US</h6>
+                  </li>
+                  <li className="list-body">
+                    <Link to="#" className="logo">
+                      <img
+                        src={logo}
+                        alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
+                      />
+                      <h6>FATS</h6>
+                    </Link>
+                    <p>
+                      We offer AI-driven solutions in text conversion, Virtual
+                      Reality, and Augmented Reality, providing seamless,
+                      intelligent experiences across multiple platforms for a
+                      wide range of applications.
+                    </p>
+                    <p className="mt-3 font-italic">
+                      Copyright{" "}
+                      <script>document.write(new Date().getFullYear())</script>{" "}
+                      &copy;{"2023"}
+                      <Link
+                        className="d-inline text-black font-italic font-bold"
+                        to=""
+                      >
+                        {" "}FATS
+                      </Link>
+                    </p>
+                  </li>
+                </ul>
+                <ul className="list">
+                  <li className="list-head">
+                    <h6 className="font-weight-bold">USEFUL LINKS</h6>
+                  </li>
+                  <li className="list-body">
+                    <div className="row">
+                      <div className="col">
+                        <Link to="#about">About</Link>
+                        <Link to="#service">Service</Link>
+                        <Link to="#portfolio">Portfolio</Link>
+                        <Link to="#testmonail">Testimonial</Link>
+                      </div>
+                      <div className="col">
+                        <Link to="#team">Team</Link>
+                        <Link to="#blog">Blog</Link>
+                        <Link to="#">Faq</Link>
+                        <Link to="#">Privacy Policy</Link>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <ul className="list">
+                  <li className="list-head">
+                    <h6 className="font-weight-bold">CONTACT INFO</h6>
+                  </li>
+                  <li className="list-body">
+                    <p>Contact us and we'll get back to you within 24 hours.</p>
+                    <p>
+                      <i className="ti-location-pin"></i> 12345 Fake ST NoWhere
+                      AB Country
+                    </p>
+                    <p>
+                      <i className="ti-email"></i> info@aifats.com
+                    </p>
+                    <div className="social-links">
+                      <Link to="" className="link">
+                        <i className="ti-facebook"></i>
+                      </Link>
+                      <Link to="" className="link">
+                        <i className="ti-twitter-alt"></i>
+                      </Link>
+                      <Link to="" className="link">
+                        <i className="ti-google"></i>
+                      </Link>
+                      <Link to="" className="link">
+                        <i className="ti-pinterest-alt"></i>
+                      </Link>
+                      <Link to="" className="link">
+                        <i className="ti-instagram"></i>
+                      </Link>
+                      <Link to="" className="link">
+                        <i className="ti-rss"></i>
+                      </Link>
+                    </div>
+                  </li>
+                </ul>
               </div>
-              <div className="my-3">
-                <h4 className="font-16 semi-font">
-                  <span className="fables-iconphone fables-second-text-color pr-2 font-20 mt-1 d-inline-block"></span>{" "}
-                  Call Now{" "}
-                </h4>
-                <p className="font-14 fables-fifth-text-color mt-2 ml-4">
-                  +333 111 111 000
-                </p>
-              </div>
-              <div className="my-3">
-                <h4 className="font-16 semi-font">
-                  <span className="fables-iconemail fables-second-text-color pr-2 font-20 mt-1 d-inline-block"></span>{" "}
-                  Mail{" "}
-                </h4>
-                <p className="font-14 fables-fifth-text-color mt-2 ml-4">
-                  adminsupport@website.com
-                </p>
-              </div>
-            </div>
-            <div className="col-12 col-sm-6 col-lg-4">
-              <h2 className="font-20 semi-font fables-second-border-color border-bottom pb-3 mb-3">
-                EXPLORE OUR SITE
-              </h2>
-              <ul className="nav fables-footer-links">
-                <li>
-                  <Link to="about1.html">About Us</Link>
-                </li>
-                <li>
-                  <Link to="contactus1.html">Contact Us</Link>
-                </li>
-                <li>
-                  <Link to="gallery.html">Gallery</Link>
-                </li>
-                <li>
-                  <Link to="team.html">Team</Link>
-                </li>
-                <li>
-                  <Link to="blog.html">Blog</Link>
-                </li>
-                <li>
-                  <Link to="testimonials.html">Testimonials</Link>
-                </li>
-              </ul>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="copyright fables-main-background-color mt-0 border-0 white-color">
-        <ul className="nav fables-footer-social-links just-center fables-light-footer-links">
-          <li>
-            <Link to="#" target="_blank">
-              <i className="fab fa-google-plus-square"></i>
-            </Link>
-          </li>
-          <li>
-            <Link to="#" target="_blank">
-              <i className="fab fa-facebook"></i>
-            </Link>
-          </li>
-          <li>
-            <Link to="#" target="_blank">
-              <i className="fab fa-instagram"></i>
-            </Link>
-          </li>
-          <li>
-            <Link to="#" target="_blank">
-              <i className="fab fa-pinterest-square"></i>
-            </Link>
-          </li>
-          <li>
-            <Link to="#" target="_blank">
-              <i className="fab fa-twitter-square"></i>
-            </Link>
-          </li>
-          <li>
-            <Link to="#" target="_blank">
-              <i className="fab fa-linkedin"></i>
-            </Link>
-          </li>
-        </ul>
-        <p className="mb-0">Copyright © Fables 2018. All rights reserved.</p>
-      </div>
+        </section>
 
       {/* <!-- /End Footer 2 Background Image --> */}
     </>

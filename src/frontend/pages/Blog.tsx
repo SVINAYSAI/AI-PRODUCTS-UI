@@ -13,7 +13,7 @@ import img8 from "../../custom/images/blog-cat1.jpg";
 import img9 from "../../custom/images/blog-cat2.jpg";
 import img10 from "../../custom/images/blog-cat3.jpg";
 import img11 from "../../custom/images/blog-cat4.jpg";
-import img12 from "../../custom/images/fables-logo.png";
+import logo from "../../components/fats-logo/svg/logo-no-background.svg";
 import "../../vendor/animate.css-master/animate.min.css";
 import "../../vendor/fontawesome/css/fontawesome-all.min.css";
 import "../../vendor/bootstrap/css/bootstrap-4-navbar.css";
@@ -44,14 +44,11 @@ export default function Blog() {
               >
                 <div className="image-container translate-effect-right">
                   <Link to="">
-                    <img
-                      src={img}
-                      alt=""
-                    />
+                    <img src={img} alt="" />
                   </Link>
                 </div>
                 <h2 className="mt-3 mb-2 font-18 semi-font">
-                  <Link 
+                  <Link
                     to=""
                     className="fables-main-text-color fables-second-hover-color"
                   >
@@ -62,7 +59,7 @@ export default function Blog() {
                   <span className="fables-icondata fables-second-text-color mr-1"></span>
                   <span className="mr-3"> 09 November, 2018 </span>
                   <span className="fables-iconcomment fables-second-text-color mr-1"></span>
-                  <Link 
+                  <Link
                     to=""
                     className="fables-forth-text-color fables-second-hover-color position-relative z-index"
                   >
@@ -77,7 +74,7 @@ export default function Blog() {
                   you venture on updating your old webpage with a new look and
                   functionality.
                 </p>
-                <Link 
+                <Link
                   to=""
                   className="btn btn-link fables-main-text-color fables-second-hover-color fables-cat-blog-btn "
                 >
@@ -90,15 +87,12 @@ export default function Blog() {
               >
                 <div className="image-container translate-effect-right">
                   <Link to="">
-                    <img
-                      src={img1}
-                      alt=""
-                    />
+                    <img src={img1} alt="" />
                   </Link>
                 </div>
 
                 <h2 className="mt-3 mb-2 font-18 semi-font">
-                  <Link 
+                  <Link
                     to=""
                     className="fables-main-text-color fables-second-hover-color"
                   >
@@ -109,7 +103,7 @@ export default function Blog() {
                   <span className="fables-icondata fables-second-text-color mr-1"></span>
                   <span className="mr-3"> 09 November, 2018 </span>
                   <span className="fables-iconcomment fables-second-text-color mr-1"></span>
-                  <Link 
+                  <Link
                     to=""
                     className="fables-forth-text-color fables-second-hover-color position-relative z-index"
                   >
@@ -124,7 +118,7 @@ export default function Blog() {
                   you venture on updating your old webpage with a new look and
                   functionality.
                 </p>
-                <Link 
+                <Link
                   to=""
                   className="btn btn-link fables-main-text-color fables-second-hover-color fables-cat-blog-btn "
                 >
@@ -137,15 +131,12 @@ export default function Blog() {
               >
                 <div className="image-container translate-effect-right">
                   <Link to="">
-                    <img
-                      src={img2}
-                      alt=""
-                    />
+                    <img src={img2} alt="" />
                   </Link>
                 </div>
 
                 <h2 className="mt-3 mb-2 font-18 semi-font">
-                  <Link 
+                  <Link
                     to=""
                     className="fables-main-text-color fables-second-hover-color"
                   >
@@ -156,7 +147,7 @@ export default function Blog() {
                   <span className="fables-icondata fables-second-text-color mr-1"></span>
                   <span className="mr-3"> 09 November, 2018 </span>
                   <span className="fables-iconcomment fables-second-text-color mr-1"></span>
-                  <Link 
+                  <Link
                     to=""
                     className="fables-forth-text-color fables-second-hover-color position-relative z-index"
                   >
@@ -171,7 +162,7 @@ export default function Blog() {
                   you venture on updating your old webpage with a new look and
                   functionality.
                 </p>
-                <Link 
+                <Link
                   to=""
                   className="btn btn-link fables-main-text-color fables-second-hover-color fables-cat-blog-btn "
                 >
@@ -184,15 +175,12 @@ export default function Blog() {
               >
                 <div className="image-container translate-effect-right">
                   <Link to="">
-                    <img
-                      src={img3}
-                      alt=""
-                    />
+                    <img src={img3} alt="" />
                   </Link>
                 </div>
 
                 <h2 className="mt-3 mb-2 font-18 semi-font">
-                  <Link 
+                  <Link
                     to=""
                     className="fables-main-text-color fables-second-hover-color"
                   >
@@ -203,7 +191,7 @@ export default function Blog() {
                   <span className="fables-icondata fables-second-text-color mr-1"></span>
                   <span className="mr-3"> 09 November, 2018 </span>
                   <span className="fables-iconcomment fables-second-text-color mr-1"></span>
-                  <Link 
+                  <Link
                     to=""
                     className="fables-forth-text-color fables-second-hover-color position-relative z-index"
                   >
@@ -218,7 +206,7 @@ export default function Blog() {
                   you venture on updating your old webpage with a new look and
                   functionality.
                 </p>
-                <Link 
+                <Link
                   to=""
                   className="btn btn-link fables-main-text-color fables-second-hover-color fables-cat-blog-btn "
                 >
@@ -231,15 +219,12 @@ export default function Blog() {
               >
                 <div className="image-container translate-effect-right">
                   <Link to="">
-                    <img
-                      src={img4}
-                      alt=""
-                    />
+                    <img src={img4} alt="" />
                   </Link>
                 </div>
 
                 <h2 className="mt-3 mb-2 font-18 semi-font">
-                  <Link 
+                  <Link
                     to=""
                     className="fables-main-text-color fables-second-hover-color"
                   >
@@ -250,7 +235,7 @@ export default function Blog() {
                   <span className="fables-icondata fables-second-text-color mr-1"></span>
                   <span className="mr-3"> 09 November, 2018 </span>
                   <span className="fables-iconcomment fables-second-text-color mr-1"></span>
-                  <Link 
+                  <Link
                     to=""
                     className="fables-forth-text-color fables-second-hover-color position-relative z-index"
                   >
@@ -265,7 +250,7 @@ export default function Blog() {
                   you venture on updating your old webpage with a new look and
                   functionality.
                 </p>
-                <Link 
+                <Link
                   to=""
                   className="btn btn-link fables-main-text-color fables-second-hover-color fables-cat-blog-btn "
                 >
@@ -278,15 +263,12 @@ export default function Blog() {
               >
                 <div className="image-container translate-effect-right">
                   <Link to="">
-                    <img
-                      src={img5}
-                      alt=""
-                    />
+                    <img src={img5} alt="" />
                   </Link>
                 </div>
 
                 <h2 className="mt-3 mb-2 font-18 semi-font">
-                  <Link 
+                  <Link
                     to=""
                     className="fables-main-text-color fables-second-hover-color"
                   >
@@ -297,7 +279,7 @@ export default function Blog() {
                   <span className="fables-icondata fables-second-text-color mr-1"></span>
                   <span className="mr-3"> 09 November, 2018 </span>
                   <span className="fables-iconcomment fables-second-text-color mr-1"></span>
-                  <Link 
+                  <Link
                     to=""
                     className="fables-forth-text-color fables-second-hover-color position-relative z-index"
                   >
@@ -312,7 +294,7 @@ export default function Blog() {
                   you venture on updating your old webpage with a new look and
                   functionality.
                 </p>
-                <Link 
+                <Link
                   to=""
                   className="btn btn-link fables-main-text-color fables-second-hover-color fables-cat-blog-btn "
                 >
@@ -325,15 +307,12 @@ export default function Blog() {
               >
                 <div className="image-container translate-effect-right">
                   <Link to="">
-                    <img
-                      src={img6}
-                      alt=""
-                    />
+                    <img src={img6} alt="" />
                   </Link>
                 </div>
 
                 <h2 className="mt-3 mb-2 font-18 semi-font">
-                  <Link 
+                  <Link
                     to=""
                     className="fables-main-text-color fables-second-hover-color"
                   >
@@ -344,7 +323,7 @@ export default function Blog() {
                   <span className="fables-icondata fables-second-text-color mr-1"></span>
                   <span className="mr-3"> 09 November, 2018 </span>
                   <span className="fables-iconcomment fables-second-text-color mr-1"></span>
-                  <Link 
+                  <Link
                     to=""
                     className="fables-forth-text-color fables-second-hover-color position-relative z-index"
                   >
@@ -359,7 +338,7 @@ export default function Blog() {
                   you venture on updating your old webpage with a new look and
                   functionality.
                 </p>
-                <Link 
+                <Link
                   to=""
                   className="btn btn-link fables-main-text-color fables-second-hover-color fables-cat-blog-btn "
                 >
@@ -372,15 +351,12 @@ export default function Blog() {
               >
                 <div className="image-container translate-effect-right">
                   <Link to="">
-                    <img
-                      src={img7}
-                      alt=""
-                    />
+                    <img src={img7} alt="" />
                   </Link>
                 </div>
 
                 <h2 className="mt-3 mb-2 font-18 semi-font">
-                  <Link 
+                  <Link
                     to=""
                     className="fables-main-text-color fables-second-hover-color"
                   >
@@ -391,7 +367,7 @@ export default function Blog() {
                   <span className="fables-icondata fables-second-text-color mr-1"></span>
                   <span className="mr-3"> 09 November, 2018 </span>
                   <span className="fables-iconcomment fables-second-text-color mr-1"></span>
-                  <Link 
+                  <Link
                     to=""
                     className="fables-forth-text-color fables-second-hover-color position-relative z-index"
                   >
@@ -406,7 +382,7 @@ export default function Blog() {
                   you venture on updating your old webpage with a new look and
                   functionality.
                 </p>
-                <Link 
+                <Link
                   to=""
                   className="btn btn-link fables-main-text-color fables-second-hover-color fables-cat-blog-btn "
                 >
@@ -472,15 +448,11 @@ export default function Blog() {
               <div className="row mb-4">
                 <div className="col-4">
                   <Link to="">
-                    <img
-                      src={img8}
-                      alt=""
-                      className="img-fluid"
-                    />
+                    <img src={img8} alt="" className="img-fluid" />
                   </Link>
                 </div>
                 <div className="col-8 pl-0">
-                  <Link 
+                  <Link
                     to=""
                     className="fables-main-text-color bold-font fables-second-hover-color blog-smaller-head"
                   >
@@ -494,15 +466,11 @@ export default function Blog() {
               <div className="row mb-4">
                 <div className="col-4">
                   <Link to="">
-                    <img
-                      src={img9}
-                      alt=""
-                      className="img-fluid"
-                    />
+                    <img src={img9} alt="" className="img-fluid" />
                   </Link>
                 </div>
                 <div className="col-8 pl-0">
-                  <Link 
+                  <Link
                     to=""
                     className="fables-main-text-color bold-font fables-second-hover-color blog-smaller-head"
                   >
@@ -516,15 +484,11 @@ export default function Blog() {
               <div className="row mb-4">
                 <div className="col-4">
                   <Link to="">
-                    <img
-                      src={img10}
-                      alt=""
-                      className="img-fluid"
-                    />
+                    <img src={img10} alt="" className="img-fluid" />
                   </Link>
                 </div>
                 <div className="col-8 pl-0">
-                  <Link 
+                  <Link
                     to=""
                     className="fables-main-text-color bold-font fables-second-hover-color blog-smaller-head"
                   >
@@ -538,15 +502,11 @@ export default function Blog() {
               <div className="row mb-4">
                 <div className="col-4">
                   <Link to="">
-                    <img
-                      src={img11}
-                      alt=""
-                      className="img-fluid"
-                    />
+                    <img src={img11} alt="" className="img-fluid" />
                   </Link>
                 </div>
                 <div className="col-8 pl-0">
-                  <Link 
+                  <Link
                     to=""
                     className="fables-main-text-color bold-font fables-second-hover-color blog-smaller-head"
                   >
@@ -558,7 +518,7 @@ export default function Blog() {
                 </div>
               </div>
               <div className="text-right">
-                <Link 
+                <Link
                   to=""
                   className="btn fables-second-text-color underline fables-main-text-color font-14"
                 >
@@ -599,141 +559,102 @@ export default function Blog() {
       {/* <!-- /End page content --> */}
 
       {/* <!-- Start Footer 2 Background Image  --> */}
-      <div className="fables-footer-image fables-after-overlay white-color py-4 py-lg-5 bg-rules">
+      <section className="has-bg-img py-0">
         <div className="container">
-          <div className="row">
-            <div className="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mb-5 text-center ">
-              <h2 className="font-30 semi-font mb-5">Newsletter</h2>
-              <form className="form-inline position-relative">
-                <div className="form-group fables-subscribe-formgroup">
-                  <input
-                    type="email"
-                    className="form-control fables-subscribe-input fables-btn-rouned"
-                    placeholder="Your Email"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="btn fables-second-background-color fables-btn-rouned fables-subscribe-btn"
-                >
-                  Subscribe
-                </button>
-              </form>
-            </div>
-            <div className="col-12 col-lg-4 mb-4 mb-lg-0">
-              <Link 
-                to=""
-                className="fables-second-border-color border-bottom pb-3 d-block mb-3 mt-minus-13"
-              >
-                <img
-                  src={img12}
-                  alt="fables template"
-                />
-              </Link>
-              <p className="font-15 fables-third-text-color">
-                {`
-    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
-
-    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-    `}
-              </p>
-            </div>
-
-            <div className="col-12 col-sm-6 col-lg-4">
-              <h2 className="font-20 semi-font fables-second-border-color border-bottom pb-3">
-                Contact us
-              </h2>
-              <div className="my-3">
-                <h4 className="font-16 semi-font">
-                  <span className="fables-iconmap-icon fables-second-text-color pr-2 font-20 mt-1 d-inline-block"></span>{" "}
-                  Address Information
-                </h4>
-                <p className="font-14 fables-fifth-text-color mt-2 ml-4">
-                  level13, 2Elizabeth St, Melbourne, Victor 2000
-                </p>
-              </div>
-              <div className="my-3">
-                <h4 className="font-16 semi-font">
-                  <span className="fables-iconphone fables-second-text-color pr-2 font-20 mt-1 d-inline-block"></span>{" "}
-                  Call Now{" "}
-                </h4>
-                <p className="font-14 fables-fifth-text-color mt-2 ml-4">
-                  +333 111 111 000
-                </p>
-              </div>
-              <div className="my-3">
-                <h4 className="font-16 semi-font">
-                  <span className="fables-iconemail fables-second-text-color pr-2 font-20 mt-1 d-inline-block"></span>{" "}
-                  Mail{" "}
-                </h4>
-                <p className="font-14 fables-fifth-text-color mt-2 ml-4">
-                  adminsupport@website.com
-                </p>
-              </div>
-            </div>
-            <div className="col-12 col-sm-6 col-lg-4">
-              <h2 className="font-20 semi-font fables-second-border-color border-bottom pb-3 mb-3">
-                EXPLORE OUR SITE
-              </h2>
-              <ul className="nav fables-footer-links">
-                <li>
-                  <Link to="about1.html">About Us</Link>
+          <div className="footer">
+            <div className="footer-lists">
+              <ul className="list">
+                <li className="list-head">
+                  <h6 className="font-weight-bold">ABOUT US</h6>
                 </li>
-                <li>
-                  <Link to="contactus1.html">Contact Us</Link>
+                <li className="list-body">
+                  <Link to="#" className="logo">
+                    <img
+                      src={logo}
+                      alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
+                    />
+                    <h6>FATS</h6>
+                  </Link>
+                  <p>
+                    We offer AI-driven solutions in text conversion, Virtual
+                    Reality, and Augmented Reality, providing seamless,
+                    intelligent experiences across multiple platforms for a wide
+                    range of applications.
+                  </p>
+                  <p className="mt-3 font-italic">
+                    Copyright{" "}
+                    <script>document.write(new Date().getFullYear())</script>{" "}
+                    &copy;{"2023"}
+                    <Link
+                      className="d-inline text-black font-italic font-bold"
+                      to=""
+                    >
+                      {" "}
+                      FATS
+                    </Link>
+                  </p>
                 </li>
-                <li>
-                  <Link to="gallery.html">Gallery</Link>
+              </ul>
+              <ul className="list">
+                <li className="list-head">
+                  <h6 className="font-weight-bold">USEFUL LINKS</h6>
                 </li>
-                <li>
-                  <Link to="team.html">Team</Link>
+                <li className="list-body">
+                  <div className="row">
+                    <div className="col">
+                      <Link to="#about">About</Link>
+                      <Link to="#service">Service</Link>
+                      <Link to="#portfolio">Portfolio</Link>
+                      <Link to="#testmonail">Testimonial</Link>
+                    </div>
+                    <div className="col">
+                      <Link to="#team">Team</Link>
+                      <Link to="#blog">Blog</Link>
+                      <Link to="#">Faq</Link>
+                      <Link to="#">Privacy Policy</Link>
+                    </div>
+                  </div>
                 </li>
-                <li>
-                  <Link to="blog.html">Blog</Link>
+              </ul>
+              <ul className="list">
+                <li className="list-head">
+                  <h6 className="font-weight-bold">CONTACT INFO</h6>
                 </li>
-                <li>
-                  <Link to="testimonials.html">Testimonials</Link>
+                <li className="list-body">
+                  <p>Contact us and we'll get back to you within 24 hours.</p>
+                  <p>
+                    <i className="ti-location-pin"></i> 12345 Fake ST NoWhere AB
+                    Country
+                  </p>
+                  <p>
+                    <i className="ti-email"></i> info@aifats.com
+                  </p>
+                  <div className="social-links">
+                    <Link to="" className="link">
+                      <i className="ti-facebook"></i>
+                    </Link>
+                    <Link to="" className="link">
+                      <i className="ti-twitter-alt"></i>
+                    </Link>
+                    <Link to="" className="link">
+                      <i className="ti-google"></i>
+                    </Link>
+                    <Link to="" className="link">
+                      <i className="ti-pinterest-alt"></i>
+                    </Link>
+                    <Link to="" className="link">
+                      <i className="ti-instagram"></i>
+                    </Link>
+                    <Link to="" className="link">
+                      <i className="ti-rss"></i>
+                    </Link>
+                  </div>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-      </div>
-      <div className="copyright fables-main-background-color mt-0 border-0 white-color">
-        <ul className="nav fables-footer-social-links just-center fables-light-footer-links">
-          <li>
-            <Link to="" target="_blank">
-              <i className="fab fa-google-plus-square"></i>
-            </Link>
-          </li>
-          <li>
-            <Link to="" target="_blank">
-              <i className="fab fa-facebook"></i>
-            </Link>
-          </li>
-          <li>
-            <Link to="" target="_blank">
-              <i className="fab fa-instagram"></i>
-            </Link>
-          </li>
-          <li>
-            <Link to="" target="_blank">
-              <i className="fab fa-pinterest-square"></i>
-            </Link>
-          </li>
-          <li>
-            <Link to="" target="_blank">
-              <i className="fab fa-twitter-square"></i>
-            </Link>
-          </li>
-          <li>
-            <Link to="" target="_blank">
-              <i className="fab fa-linkedin"></i>
-            </Link>
-          </li>
-        </ul>
-        <p className="mb-0">Copyright © Fables 2018. All rights reserved.</p>
-      </div>
+      </section>
       <Outlet />
     </>
   );

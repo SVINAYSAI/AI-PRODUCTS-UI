@@ -1,4 +1,5 @@
 import "../../assets/frontend/css/style2.css";
+import logo from "../../components/fats-logo/svg/logo-no-background.svg";
 import { Link, Outlet } from "react-router-dom";
 export default function Pricing() {
   return (
@@ -15,7 +16,6 @@ export default function Pricing() {
             </p>
           </div>
           <div className="space-y-8 lg:grid lg:grid-cols-4 sm:gap-6 xl:gap-2 lg:space-y-0">
-
             <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
               <h3 className="mb-4 text-2xl font-semibold text-gray-900">
                 FREE
@@ -1011,7 +1011,6 @@ export default function Pricing() {
                 Get started
               </Link>
             </div>
-
           </div>
 
           <div className="pt-6">
@@ -1283,6 +1282,103 @@ export default function Pricing() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="has-bg-img py-0">
+        <div className="container">
+          <div className="footer">
+            <div className="footer-lists">
+              <ul className="list">
+                <li className="list-head">
+                  <h6 className="font-weight-bold">ABOUT US</h6>
+                </li>
+                <li className="list-body">
+                  <Link to="#" className="logo">
+                    <img
+                      src={logo}
+                      alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
+                    />
+                    <h6>FATS</h6>
+                  </Link>
+                  <p>
+                    We offer AI-driven solutions in text conversion, Virtual
+                    Reality, and Augmented Reality, providing seamless,
+                    intelligent experiences across multiple platforms for a wide
+                    range of applications.
+                  </p>
+                  <p className="mt-3 font-italic">
+                    Copyright{" "}
+                    <script>document.write(new Date().getFullYear())</script>{" "}
+                    &copy;{"2023"}
+                    <Link
+                      className="d-inline text-black font-italic font-bold"
+                      to=""
+                    >
+                      {" "}
+                      FATS
+                    </Link>
+                  </p>
+                </li>
+              </ul>
+              <ul className="list">
+                <li className="list-head">
+                  <h6 className="font-weight-bold">USEFUL LINKS</h6>
+                </li>
+                <li className="list-body">
+                  <div className="row">
+                    <div className="col">
+                      <Link to="#about">About</Link>
+                      <Link to="#service">Service</Link>
+                      <Link to="#portfolio">Portfolio</Link>
+                      <Link to="#testmonail">Testimonial</Link>
+                    </div>
+                    <div className="col">
+                      <Link to="#team">Team</Link>
+                      <Link to="#blog">Blog</Link>
+                      <Link to="#">Faq</Link>
+                      <Link to="#">Privacy Policy</Link>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <ul className="list">
+                <li className="list-head">
+                  <h6 className="font-weight-bold">CONTACT INFO</h6>
+                </li>
+                <li className="list-body">
+                  <p>Contact us and we'll get back to you within 24 hours.</p>
+                  <p>
+                    <i className="ti-location-pin"></i> 12345 Fake ST NoWhere AB
+                    Country
+                  </p>
+                  <p>
+                    <i className="ti-email"></i> info@aifats.com
+                  </p>
+                  <div className="social-links">
+                    <Link to="" className="link">
+                      <i className="ti-facebook"></i>
+                    </Link>
+                    <Link to="" className="link">
+                      <i className="ti-twitter-alt"></i>
+                    </Link>
+                    <Link to="" className="link">
+                      <i className="ti-google"></i>
+                    </Link>
+                    <Link to="" className="link">
+                      <i className="ti-pinterest-alt"></i>
+                    </Link>
+                    <Link to="" className="link">
+                      <i className="ti-instagram"></i>
+                    </Link>
+                    <Link to="" className="link">
+                      <i className="ti-rss"></i>
+                    </Link>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
