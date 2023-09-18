@@ -1,30 +1,40 @@
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "../../frontend/Login Details/login.css";
 
 function App() {
-  const [open, setOpen] = useState(false);
-  const [confirmLoading, setConfirmLoading] = useState(false);
-  const [modalText, setModalText] = useState("Content of the modal");
+  const [, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const showModal = () => {
     setOpen(true);
   };
 
-  const handleOk = () => {
-    setModalText("The modal will be closed after two seconds");
-    setConfirmLoading(true);
-    setTimeout(() => {
-      setOpen(false);
-      setConfirmLoading(false);
-    }, 2000); // Close modal after 2 seconds
-  };
 
-  const handleCancel = () => {
-    console.log("Clicked cancel button");
-    setOpen(false);
+
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/auth/login', {
+        email,
+        password
+      });
+  
+      if (response.data.status === "success") {
+        console.log("Login successful");
+        navigate("/");  // Navigate to the "/" page
+      } else {
+        console.log("Login failed: ", response.data.message);
+        alert("Check your password or email");  // Display an error message
+      }
+    } catch (error) {
+      console.log("An error occurred: ", error);
+      alert("An error occurred. Please try again.");  // Display a generic error message
+    }
   };
+  
 
   return (
     <div className="container-fluid p-4">
@@ -50,11 +60,15 @@ function App() {
                 className="form-control mb-4"
                 placeholder="Email"
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 className="form-control mb-2"
                 placeholder="Password"
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <Link
                 to="/forgot"
@@ -75,12 +89,12 @@ function App() {
               </div>
 
               <div className="grid gap-x-8 gap-y-4 grid-cols-2">
-                <Link
-                  to=""
+              <button
                   className="btn btn-primary w-100 mb-4 text-center"
+                  onClick={handleLogin}
                 >
                   Sign in
-                </Link>
+                </button>
                 <Link
                   to="/register"
                   className="btn btn-primary w-100 mb-4 text-center"

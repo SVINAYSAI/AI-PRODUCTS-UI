@@ -204,7 +204,7 @@ export default function Home() {
                     </h2>
                     <h6 className="card-title">AI in Pharma</h6>
                     <p>
-                    AI revolutionizes Pharma with drug discovery, personalized treatment, and analytics.
+                    AI streamlines Pharma: improving drug discovery, diagnostics, and personalized therapiess
                     </p>
                   </div>
                 </div>

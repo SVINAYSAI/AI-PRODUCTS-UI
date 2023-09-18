@@ -9,7 +9,7 @@ import {
 } from "mdb-react-ui-kit";
 // import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
-import { useState  } from "react";
+import { useState } from "react";
 import { Modal } from "antd";
 // import Text from "@/terms & conditions.txt"
 
@@ -25,6 +25,7 @@ function App() {
     username: '',
     phone_number: '',
     email: '',
+    password: '',
   });
 
   const showModal = () => {
@@ -52,7 +53,7 @@ function App() {
   //     .catch(error => console.error('Error loading text:', error));
   // }, []); // Empty dependency array means this effect runs once, like componentDidMount
 
-   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -61,7 +62,7 @@ function App() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/insert_user', {
+      const response = await fetch('http://localhost:5000/api/insert_user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +73,7 @@ function App() {
       if (response.ok) {
         alert('Data inserted successfully!');
         // You can add redirection or other actions here if needed.
-        history("");
+        history("/login");
       } else {
         alert('Error inserting user data.');
       }
@@ -82,8 +83,8 @@ function App() {
   };
 
 
-  
-  
+
+
   return (
     <MDBContainer fluid className="p-4">
       <MDBRow>
@@ -103,83 +104,91 @@ function App() {
             aliquid ipsum atque?
           </p>
         </MDBCol>
-      
+
         <MDBCol md="6">
           <MDBCard className="my-5">
             <MDBCardBody className="p-5">
-            <form onSubmit={handleSubmit}>
-              <MDBRow>
-                <MDBCol col="6">
-                  <MDBInput
-                    className="form-control"
-                    name="first_name"
-                    placeholder="First Name"
-                    value={formData.first_name}
-                  onChange={handleInputChange}
-                  />
-                </MDBCol>
+              <form onSubmit={handleSubmit}>
+                <MDBRow>
+                  <MDBCol col="6">
+                    <MDBInput
+                      className="form-control"
+                      name="first_name"
+                      placeholder="First Name"
+                      value={formData.first_name}
+                      onChange={handleInputChange}
+                    />
+                  </MDBCol>
 
-                <MDBCol col="6">
-                  <MDBInput
-                    className="form-control"
-                    name="last_name"
-                    placeholder="Last Name"
-                    value={formData.last_name}
-                  onChange={handleInputChange}
-                  />
-                </MDBCol>
-              </MDBRow>
+                  <MDBCol col="6">
+                    <MDBInput
+                      className="form-control"
+                      name="last_name"
+                      placeholder="Last Name"
+                      value={formData.last_name}
+                      onChange={handleInputChange}
+                    />
+                  </MDBCol>
+                </MDBRow>
 
-              <MDBRow>
-                <MDBCol col="6">
-                  <MDBInput
+                <MDBRow>
+                  <MDBCol col="6">
+                    <MDBInput
+                      className="form-control"
+                      name="username"
+                      placeholder="Username"
+                      value={formData.username}
+                      onChange={handleInputChange}
+                    />
+                  </MDBCol>
+
+                  <MDBCol col="6">
+                    <MDBInput
+                      className="form-control"
+                      name="phone_number"
+                      placeholder="Phone Number"
+                      type="tel"
+                      value={formData.phone_number}
+                      onChange={handleInputChange}
+                    />
+                  </MDBCol>
+                </MDBRow>
+
+                <MDBInput
                   className="form-control"
-                  name="username"
-                  placeholder="Username"
-                    value={formData.username}
+                  name="email"
+                  placeholder="Email"
+                  type="email"
+                  value={formData.email}
                   onChange={handleInputChange}
-                  />
-                </MDBCol>
-
-                <MDBCol col="6">
-                  <MDBInput
-                    className="form-control"
-                    name="phone_number"
-                    placeholder="Phone Number"
-                    type="tel"
-                    value={formData.phone_number}
-                  onChange={handleInputChange}
-                  />
-                </MDBCol>
-              </MDBRow>
-
-              <MDBInput
-                 className="form-control"
-                 name="email"
-                 placeholder="Email"
-                 type="email"
-                value={formData.email}
-              onChange={handleInputChange}
-              />
-              <div className="mb-4">
-                <MDBCheckbox
-                  onClick={showModal}
-                  name="flexCheck"
-                  value=""
-                  id="flexCheckDefault"
-                  label="check this box to continue"
                 />
-                <Modal
-                  title="Terms & Conditions"
-                  open={open}
-                  onOk={handleOk}
-                  confirmLoading={confirmLoading}
-                  onCancel={handleCancel}
-                >
-                  <p>{modalText}</p>
-                </Modal>
-              </div>
-              {/* <Link
+                <MDBInput
+                  className="form-control"
+                  name="password"
+                  placeholder="password"
+                  type="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                />
+                <div className="mb-4">
+                  <MDBCheckbox
+                    onClick={showModal}
+                    name="flexCheck"
+                    value=""
+                    id="flexCheckDefault"
+                    label="check this box to continue"
+                  />
+                  <Modal
+                    title="Terms & Conditions"
+                    open={open}
+                    onOk={handleOk}
+                    confirmLoading={confirmLoading}
+                    onCancel={handleCancel}
+                  >
+                    <p>{modalText}</p>
+                  </Modal>
+                </div>
+                {/* <Link
                 type="button"
                 to="/verify"
                 className="text-white text-center w-100 mb-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
@@ -187,15 +196,15 @@ function App() {
                 Register
               </Link> */}
 
-              <button
+                <button
                   type="submit"
-                  
+
                   className="text-white text-center w-100 mb-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 >
                   Register
                 </button>
               </form>
-             
+
               <div className="text-center">
                 <p>or sign up with:</p>
                 <div className=" container">
