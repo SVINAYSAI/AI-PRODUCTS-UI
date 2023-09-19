@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import "../Components/CSS/Tailwind.css"
 // import Apitest from "../APIs/test"
 import Api from "../APIs/Layout";
 

@@ -1,5 +1,4 @@
 import CodeBox from "./CodeBox";
-import "../components/frontend/assets/css/style1.css";
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import logo from "../Components/fats-logo/svg/logo-no-background.svg";
