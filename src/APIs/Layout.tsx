@@ -1,6 +1,7 @@
 import CodeBox from "./CodeBox";
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+import "../Components/CSS/Tailwind.css";
 import logo from "../Components/fats-logo/svg/logo-no-background.svg";
 
 function Layout() {
