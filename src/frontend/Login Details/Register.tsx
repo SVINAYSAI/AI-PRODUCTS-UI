@@ -62,7 +62,7 @@ function App() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/insert_user', {
+      const response = await fetch('http://api.aifats.com/api/insert_user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
