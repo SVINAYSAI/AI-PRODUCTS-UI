@@ -2,8 +2,7 @@ import CodeBox from "./CodeBox";
 import "../components/frontend/assets/css/style1.css";
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import logo from "../components/fats-logo/svg/logo-no-background.svg";
-import "../components/frontend/assets/css/style1.css";
+import logo from "../Components/fats-logo/svg/logo-no-background.svg";
 
 function Layout() {
   // State to manage whether the menu is open or closed

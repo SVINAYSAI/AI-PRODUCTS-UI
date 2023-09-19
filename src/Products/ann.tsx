@@ -1,6 +1,5 @@
 
 import React from 'react';
-import '../components/frontend/assets/css/style.css'
 
 
 import { useEffect } from 'react';

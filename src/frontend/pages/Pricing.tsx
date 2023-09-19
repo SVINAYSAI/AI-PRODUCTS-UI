@@ -1,5 +1,5 @@
-import "../../assets/frontend/css/style2.css";
-import logo from "../../components/fats-logo/svg/logo-no-background.svg";
+
+import logo from "../../Components/fats-logo/svg/logo-no-background.svg";
 import { Link, Outlet } from "react-router-dom";
 export default function Pricing() {
   return (
@@ -7,7 +7,7 @@ export default function Pricing() {
       <section className="bg-white dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
           <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-slate-950">
+            <h2 className="mb-4 text-4xl tracking-tight font-bold text-slate-950">
               Designed for business teams like yours
             </h2>
             <p className="mb-5 font-light text-slate-950 sm:text-xl ">

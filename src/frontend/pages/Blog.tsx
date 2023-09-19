@@ -1,36 +1,19 @@
-// import { useEffect } from 'react';
-// import WOW from 'wow.js'; // Import the wow.js library
-import { Link, Outlet } from "react-router-dom";
-import img from "../../custom/images/cat-larg1.jpg";
-import img1 from "../../custom/images/cat-larg2.jpg";
-import img2 from "../../custom/images/cat-larg3.jpg";
-import img3 from "../../custom/images/cat-larg4.jpg";
-import img4 from "../../custom/images/cat-larg5.jpg";
-import img5 from "../../custom/images/cat-larg6.jpg";
-import img6 from "../../custom/images/cat-larg7.jpg";
-import img7 from "../../custom/images/cat-larg8.jpg";
-import img8 from "../../custom/images/blog-cat1.jpg";
-import img9 from "../../custom/images/blog-cat2.jpg";
-import img10 from "../../custom/images/blog-cat3.jpg";
-import img11 from "../../custom/images/blog-cat4.jpg";
-import logo from "../../components/fats-logo/svg/logo-no-background.svg";
-import "../../vendor/animate.css-master/animate.min.css";
-import "../../vendor/fontawesome/css/fontawesome-all.min.css";
-import "../../vendor/bootstrap/css/bootstrap-4-navbar.css";
-import "../../vendor/bootstrap/css/bootstrap.min.css";
-import "../../vendor/OffCanvasMenuEffects/css/menu_sideslide.css";
-import "../../vendor/owlcarousel/owl.carousel.min.css";
-import "../../vendor/owlcarousel/owl.theme.default.min.css";
-import "../../custom/css/custom-responsive.css";
-import "../../custom/css/custom.css";
-import "../../custom/css/fables-icons.css";
+import { Link } from "react-router-dom";
+import img from "../../Components/assets/imgs/artificial-intelligence-AI.jpg";
+import img1 from "../../Components/assets/imgs/cat-larg2.jpg";
+import img2 from "../../Components/assets/imgs/cat-larg3.jpg";
+import img3 from "../../Components/assets/imgs/cat-larg4.jpg";
+import img4 from "../../Components/assets/imgs/cat-larg5.jpg";
+import img5 from "../../Components/assets/imgs/cat-larg6.jpg";
+import img6 from "../../Components/assets/imgs/cat-larg7.jpg";
+import img7 from "../../Components/assets/imgs/cat-larg8.jpg";
+import img8 from "../../Components/assets/imgs/blog-cat1.jpg";
+import img9 from "../../Components/assets/imgs/blog-cat2.jpg";
+import img10 from "../../Components/assets/imgs/blog-cat3.jpg";
+import img11 from "../../Components/assets/imgs/blog-cat4.jpg";
+import Footer from "../Home/Footer";
 
 export default function Blog() {
-  // useEffect(() => {
-  //   const wow = new WOW(); // Initialize wow.js
-  //   wow.init();
-  // }, []); // Run this effect only once, when the component mounts
-
   return (
     <>
       {/* <!-- Start page content -->   */}
@@ -38,53 +21,30 @@ export default function Blog() {
         <div className="row my-4 my-lg-5">
           <div className="col-12 col-lg-8">
             <div className="row">
-              <div
-                className="col-12 col-sm-6 mb-4 wow fadeIn"
-                data-wow-delay=".3s"
-              >
+              <div className="col-12 col-sm-6 mb-4 wow fadeIn">
                 <div className="image-container translate-effect-right">
                   <Link to="">
                     <img src={img} alt="" />
                   </Link>
                 </div>
-                <h2 className="mt-3 mb-2 font-18 semi-font">
-                  <Link
-                    to=""
-                    className="fables-main-text-color fables-second-hover-color"
-                  >
-                    Getting to Another Level of Design
-                  </Link>
+                <h2 className="mt-3 mb-2">
+                  <Link to="">AI Products</Link>
                 </h2>
-                <div className="fables-forth-text-color font-14 mb-2">
-                  <span className="fables-icondata fables-second-text-color mr-1"></span>
+                <div className="">
                   <span className="mr-3"> 09 November, 2018 </span>
-                  <span className="fables-iconcomment fables-second-text-color mr-1"></span>
-                  <Link
-                    to=""
-                    className="fables-forth-text-color fables-second-hover-color position-relative z-index"
-                  >
+                  <Link to="" className="">
                     2
                   </Link>
                 </div>
-                <p className="fables-forth-text-color font-14 mb-2">
-                  When you need your company to have a new website or if you
-                  venture on updating your old webpage with a new look and
-                  functionality. the choices are versatile Assuming that you
-                  will goWhen you need your company to have a new website or if
-                  you venture on updating your old webpage with a new look and
-                  functionality.
+                <p className="">
+                  Leveraging AI, we offer innovative solutions like converting
+                  text to images, videos, charts, and speech. Additionally, we
+                  create personalized AI avatars and music compositions, all
+                  generated directly from textual input.
                 </p>
-                <Link
-                  to=""
-                  className="btn btn-link fables-main-text-color fables-second-hover-color fables-cat-blog-btn "
-                >
-                  Read More
-                </Link>
+                <Link to="">Read More</Link>
               </div>
-              <div
-                className="col-12 col-sm-6 mb-4 wow fadeIn"
-                data-wow-delay=".6s"
-              >
+              <div className="col-12 col-sm-6 mb-4 wow fadeIn">
                 <div className="image-container translate-effect-right">
                   <Link to="">
                     <img src={img1} alt="" />
@@ -392,7 +352,7 @@ export default function Blog() {
             </div>
           </div>
           <div className="col-12 col-lg-4">
-            <div className="fables-blog-search">
+            {/* <div className="fables-blog-search">
               <form>
                 <div className="row">
                   <div className="col-12 col-sm-9 col-md-8 mb-3 mb-md-0">
@@ -414,7 +374,7 @@ export default function Blog() {
                   </div>
                 </div>
               </form>
-            </div>
+            </div> */}
             <div className="mt-4">
               <h2 className="position-relative font-23 semi-font fables-blog-category-head fables-main-text-color fables-second-before pl-3 mb-4">
                 Categories
@@ -559,103 +519,7 @@ export default function Blog() {
       {/* <!-- /End page content --> */}
 
       {/* <!-- Start Footer 2 Background Image  --> */}
-      <section className="has-bg-img py-0">
-        <div className="container">
-          <div className="footer">
-            <div className="footer-lists">
-              <ul className="list">
-                <li className="list-head">
-                  <h6 className="font-weight-bold">ABOUT US</h6>
-                </li>
-                <li className="list-body">
-                  <Link to="#" className="logo">
-                    <img
-                      src={logo}
-                      alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
-                    />
-                    <h6>FATS</h6>
-                  </Link>
-                  <p>
-                    We offer AI-driven solutions in text conversion, Virtual
-                    Reality, and Augmented Reality, providing seamless,
-                    intelligent experiences across multiple platforms for a wide
-                    range of applications.
-                  </p>
-                  <p className="mt-3 font-italic">
-                    Copyright{" "}
-                    <script>document.write(new Date().getFullYear())</script>{" "}
-                    &copy;{"2023"}
-                    <Link
-                      className="d-inline text-black font-italic font-bold"
-                      to=""
-                    >
-                      {" "}
-                      FATS
-                    </Link>
-                  </p>
-                </li>
-              </ul>
-              <ul className="list">
-                <li className="list-head">
-                  <h6 className="font-weight-bold">USEFUL LINKS</h6>
-                </li>
-                <li className="list-body">
-                  <div className="row">
-                    <div className="col">
-                      <Link to="#about">About</Link>
-                      <Link to="#service">Service</Link>
-                      <Link to="#portfolio">Portfolio</Link>
-                      <Link to="#testmonail">Testimonial</Link>
-                    </div>
-                    <div className="col">
-                      <Link to="#team">Team</Link>
-                      <Link to="#blog">Blog</Link>
-                      <Link to="#">Faq</Link>
-                      <Link to="#">Privacy Policy</Link>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-              <ul className="list">
-                <li className="list-head">
-                  <h6 className="font-weight-bold">CONTACT INFO</h6>
-                </li>
-                <li className="list-body">
-                  <p>Contact us and we'll get back to you within 24 hours.</p>
-                  <p>
-                    <i className="ti-location-pin"></i> 12345 Fake ST NoWhere AB
-                    Country
-                  </p>
-                  <p>
-                    <i className="ti-email"></i> info@aifats.com
-                  </p>
-                  <div className="social-links">
-                    <Link to="" className="link">
-                      <i className="ti-facebook"></i>
-                    </Link>
-                    <Link to="" className="link">
-                      <i className="ti-twitter-alt"></i>
-                    </Link>
-                    <Link to="" className="link">
-                      <i className="ti-google"></i>
-                    </Link>
-                    <Link to="" className="link">
-                      <i className="ti-pinterest-alt"></i>
-                    </Link>
-                    <Link to="" className="link">
-                      <i className="ti-instagram"></i>
-                    </Link>
-                    <Link to="" className="link">
-                      <i className="ti-rss"></i>
-                    </Link>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      <Outlet />
+      <Footer />
     </>
   );
 }

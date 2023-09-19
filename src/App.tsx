@@ -1,22 +1,27 @@
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
-import Loader from "./components/Loaders/Loader";
-
+import Loader from "./Components/Loaders/Loader";
+// import FrontendRoute from "./routes/FrontendRoute";
+// import ServicesRoute from "./routes/ServicesRoutes";
+// import ProductsRoute from "./routes/ProductsRoute";
 
 const App = () => {
-  const ProductsRoute = lazy(() => import("./routes/ProductsRoute"));
   const FrontendRoute = lazy(() => import("./routes/FrontendRoute"));
-  const ApiRoute = lazy(() => import("./routes/ApiRoute"));
   const ServicesRoute = lazy(() => import("./routes/ServicesRoutes"));
+  const ProductsRoute = lazy(() => import("./routes/ProductsRoute"));
+  const APIsRoute = lazy(() => import("./routes/ApiRoute"));
   return (
-    <Suspense fallback={<Loader/>}>
-      <Routes>
-        <Route path="/*" element={<FrontendRoute />} />
-        <Route path="products/*" element={<ProductsRoute />} />
-        <Route path="api/*" element={<ApiRoute />} />
-        <Route path="services/*" element={<ServicesRoute />} />
-      </Routes>
-    </Suspense>
+    <Suspense fallback={<Loader />}>
+      <Router>
+        <Routes>
+          <Route path="/*" element={<FrontendRoute />} />
+          <Route path="/services*" element={<ServicesRoute />} />
+          <Route path="/products*" element={<ProductsRoute />} />
+          <Route path="/products*" element={<APIsRoute />} />
+        </Routes>
+      </Router>
+     </Suspense>
   );
 };
+
 export default App;

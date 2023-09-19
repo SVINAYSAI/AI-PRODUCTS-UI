@@ -44,3 +44,12 @@
 // }
 
 // export default Mermaid;
+
+
+
+export default function Dashboard(){
+    return(
+        <>
+        </>
+    );
+};

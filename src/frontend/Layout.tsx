@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, Outlet } from "react-router-dom";
-import logo from "../components/fats-logo/svg/logo-no-background.svg";
-import "../components/frontend/assets/css/style1.css";
+import logo from "../Components/fats-logo/svg/logo-no-background.svg";
 
 export default function Layout() {
   // State to manage whether the menu is open or closed
@@ -55,7 +54,7 @@ export default function Layout() {
           <div
             className={`${
               isOpen ? 'block' : 'hidden'
-            } items-center justify-between w-full md:flex md:w-auto md:order-1`}
+            } items-center justify-between w-full md:flex md:w-auto md:order-1 pt-[1%]`}
             id="navbar-sticky"
           >
             <ul className="flex flex-col md:p-0 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">

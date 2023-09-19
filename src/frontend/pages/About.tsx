@@ -1,34 +1,17 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
-import img from "../../custom/images/hp_innovacion2.jpg";
-import img1 from "../../custom/images/IMG_8573-1078.jpg";
-import img2 from "../../custom/images/img2.jpg";
-import img3 from "../../custom/images/history-img.jpg";
-import img4 from "../../custom/images/img3.jpg";
-import img5 from "../../custom/images/testimonial-img.png";
-import img6 from "../../custom/images/team1-1.jpg";
-import img7 from "../../custom/images/team1-2.jpg";
-import img8 from "../../custom/images/team1-3.jpg";
-import img9 from "../../custom/images/team1-4.jpg";
-import img10 from "../../custom/images/partner1.jpg";
-import img11 from "../../custom/images/partner2-1.jpg";
-import logo from "../../components/fats-logo/svg/logo-no-background.svg";
-import img13 from "../../custom/images/mission-img.jpg";
-import img14 from "../../custom/images/vision-img.jpg";
-import "../../vendor/animate.css-master/animate.min.css";
-import "../../vendor/fontawesome/css/fontawesome-all.min.css";
-import "../../vendor/bootstrap/css/bootstrap-4-navbar.css";
-import "../../vendor/bootstrap/css/bootstrap.min.css";
-import "../../vendor/portfolio-filter-gallery/portfolio-filter-gallery.css";
-import "../../vendor/fancybox-master/jquery.fancybox.min.css";
-import "../../vendor/range-slider/range-slider.css";
-import "../../vendor/OffCanvasMenuEffects/css/menu_sideslide.css";
-import "../../vendor/owlcarousel/owl.carousel.min.css";
-import "../../vendor/owlcarousel/owl.theme.default.min.css";
-import "../../custom/css/custom-responsive.css";
-import "../../custom/css/custom.css";
-import "../../custom/css/fables-icons.css";
-// import WOW from "wow.js";
+import { Link } from "react-router-dom";
+import img from "../../Components/assets/imgs/hp_innovacion2.jpg";
+import img1 from "../../Components/assets/imgs/IMG_8573-1078.jpg";
+import img5 from "../../Components/assets/imgs/testimonial-img.png";
+import img6 from "../../Components/assets/imgs/team1-1.jpg";
+import img7 from "../../Components/assets/imgs/team1-2.jpg";
+import img8 from "../../Components/assets/imgs/team1-3.jpg";
+import img9 from "../../Components/assets/imgs/team1-4.jpg";
+import img10 from "../../Components/assets/imgs/partner1.jpg";
+import img11 from "../../Components/assets/imgs/partner2-1.jpg";
+import img13 from "../../Components/assets/imgs/mission-img.jpg";
+import img14 from "../../Components/assets/imgs/vision-img.jpg";
+import Footer from "../Home/Footer";
 
 export default function About() {
   const [satisfiedClients, setSatisfiedClients] = useState(0);
@@ -85,16 +68,13 @@ export default function About() {
               data-wow-delay=".3s"
             >
               <div className="fables-about-icon-style">
-                <span className="fables-iconmobileApp-icon fables-second-text-color fa-3x"></span>
-                <h2 className="fables-second-text-color fables-about-icon-head mt-3 mb-2 font-18 semi-font">
-                  Mobile Apps{" "}
-                </h2>
-                <span className="fables-title-border fables-second-background-color"></span>
-                <div className="fables-forth-text-color mt-3 font-14">
-                  We understand the importance of approaching each work
-                  integrally and believe in the power of simple and easy
-                  communication.
-                </div>
+                <i className="ti-vector"></i>
+                <h6 className="box-title">AI development</h6>
+                <p>
+                  AI development involves creating algorithms that enable
+                  machines to perform tasks requiring human-like intelligence,
+                  such as learning and problem-solving.
+                </p>
               </div>
             </div>
             <div
@@ -102,16 +82,14 @@ export default function About() {
               data-wow-delay=".6s"
             >
               <div className="fables-about-icon-style">
-                <span className="fables-icondevelopment-icon fables-second-text-color fa-3x"></span>
-                <h2 className="fables-second-text-color fables-about-icon-head mt-3 mb-2 font-18 semi-font">
-                  Development
-                </h2>
-                <span className="fables-title-border fables-second-background-color"></span>
-                <div className="fables-forth-text-color mt-3 font-14">
-                  We understand the importance of approaching each work
-                  integrally and believe in the power of simple and easy
-                  communication.
-                </div>
+                <i className="ti-filter"></i>
+                <h6 className="box-title">Web Development</h6>
+                <p>
+                  Web development encompasses designing, building, and
+                  maintaining websites, involving various technologies like
+                  HTML, CSS, JavaScript, and backend frameworks for
+                  functionality .
+                </p>
               </div>
             </div>
             <div
@@ -119,21 +97,19 @@ export default function About() {
               data-wow-delay=".9s"
             >
               <div className="fables-about-icon-style">
-                <span className="fables-iconwebDesign-icon fables-second-text-color fa-3x"></span>
-                <h2 className="fables-second-text-color fables-about-icon-head mt-3 mb-2 font-18 semi-font">
-                  Web Design{" "}
-                </h2>
-                <span className="fables-title-border fables-second-background-color"></span>
-                <div className="fables-forth-text-color mt-3 font-14">
-                  We understand the importance of approaching each work
-                  integrally and believe in the power of simple and easy
-                  communication.
-                </div>
+                <i className="ti-mobile"></i>
+                <h6 className="box-title">App Design</h6>
+                <p>
+                  App design is crafting user interfaces for mobile or desktop
+                  applications, focusing on aesthetics, usability, and user
+                  experience to enhance engagement.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <div className="container-fluid">
         <div className="row overflow-hidden">
           <div
@@ -150,14 +126,12 @@ export default function About() {
           </div>
         </div>
       </div>
+
       <div className="fables-counter-no-background my-4 my-md-5 overflow-hidden">
         <div className="container">
           <div className="fables-about-head-style">
             <div className="row wow fadeInDown" data-wow-delay=".5s">
               <div className="col-12 text-center">
-                <h3 className="fables-about-top-head fables-forth-text-color font-15 semi-font d-inline-block bg-white position-relative">
-                  <span className="mx-4">About us</span>
-                </h3>
                 <h2 className="fables-second-text-color mt-3 font-30 font-weight-bold text-center">
                   Our business experties Provide you the great value
                 </h2>
@@ -175,444 +149,23 @@ export default function About() {
             </div>
           </div>
 
-          <div className="row wow fadeIn" data-wow-delay=".0s">
-            <div className="col-6 col-md-3">
-              <div className="fables-counter">
-                <h2 className="fables-counter-value font-40 font-weight-bold mb-3 fables-forth-text-color">
-                  {satisfiedClients}
-                </h2>
-                <h3 className="font-14 semi-font fables-forth-text-color">
-                  SATISFIED CLIENTS
-                </h3>
-              </div>
+          <div className="container flex pl-[13%]">
+            <div className="col-6 col-md-3 items-center">
+              <h2 className="font-weight-bold">{satisfiedClients}</h2>
+              <span className="">SATISFIED CLIENTS</span>
             </div>
             <div className="col-6 col-md-3">
-              <div className="fables-counter">
-                <h2 className="fables-counter-value font-40 font-weight-bold mb-3 fables-forth-text-color">
-                  {companyMembers}
-                </h2>
-                <h3 className="font-14 semi-font fables-forth-text-color">
-                  COMPANY MEMBERS
-                </h3>
-              </div>
+              <h2 className="font-weight-bold">{companyMembers}</h2>
+              <span className="">COMPANY MEMBERS</span>
+            </div>
+            <div className="col-6 col-md-3">
+              <h2 className="font-weight-bold ">{awwardsWin}</h2>
+              <span className="">AWWARDS WIN</span>
             </div>
             <div className="col-6 col-md-3">
               <div className="fables-counter">
-                <h2 className="fables-counter-value font-40 font-weight-bold mb-3 fables-forth-text-color">
-                  {awwardsWin}
-                </h2>
-                <h3 className="font-14 semi-font fables-forth-text-color">
-                  AWWARDS WIN
-                </h3>
-              </div>
-            </div>
-            <div className="col-6 col-md-3">
-              <div className="fables-counter">
-                <h2 className="fables-counter-value font-40 font-weight-bold mb-3 fables-forth-text-color">
-                  {yearsExperience}
-                </h2>
-                <h3 className="font-14 semi-font fables-forth-text-color">
-                  YEARS EXPIRIENCE
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="fables-history-section mb-4 mb-md-5">
-        <div className="container">
-          <div className="fables-about-head-style">
-            <div className="row wow fadeInDown" data-wow-delay=".5s">
-              <div className="col-12 text-center">
-                <h3 className="fables-about-top-head fables-forth-text-color font-15 semi-font d-inline-block bg-white position-relative">
-                  <span className="mx-4">About us</span>
-                </h3>
-                <h2 className="fables-second-text-color mt-3 font-30 font-weight-bold text-center">
-                  Company History
-                </h2>
-                <div className="col-12 col-md-10 offset-md-1">
-                  <p className="fables-forth-text-color mt-3 mb-4 mb-md-5">
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of a page when looking at
-                    its layout. The point of using Lorem Ipsum is that it has a
-                    more-or-less normal distribution of letters, as opposed to
-                    using 'Content here, content here', making it look like
-                    readable English. Many.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="fables-history-carousel">
-            <div id="sync2" className="owl-carousel owl-theme">
-              <div className="item">
-                <h1>2010</h1>
-              </div>
-              <div className="item">
-                <h1>2012</h1>
-              </div>
-              <div className="item">
-                <h1>2014</h1>
-              </div>
-              <div className="item">
-                <h1>2016</h1>
-              </div>
-              <div className="item">
-                <h1>2018</h1>
-              </div>
-              <div className="item">
-                <h1>2020</h1>
-              </div>
-            </div>
-            <div id="sync1" className="owl-carousel owl-theme">
-              <div className="item">
-                <div className="row">
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img2}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2010
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img3}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2010
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img4}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2010
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="item">
-                <div className="row">
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img3}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2012
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img4}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2012
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img4}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2012
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="item">
-                <div className="row">
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img3}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2012
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img4}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2012
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img4}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2012
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="item">
-                <div className="row">
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img3}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2012
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img4}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2012
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img4}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2012
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="item">
-                <div className="row">
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img3}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2012
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img4}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2012
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img4}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2012
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="item">
-                <div className="row">
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img3}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2012
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img4}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2012
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 col-sm-4 mb-4 mb-md-0">
-                    <div className="card">
-                      <img
-                        className="card-img-top rounded-0 w-100"
-                        src={img4}
-                        alt="Fables Template"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title fables-second-text-color">
-                          2012
-                        </h5>
-                        <p className="card-text fables-forth-text-color d-sm-none d-md-block font-15">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <h2 className="font-weight-bold">{yearsExperience}</h2>
+                <span className="">YEARS EXPIRIENCE</span>
               </div>
             </div>
           </div>
@@ -655,6 +208,7 @@ export default function About() {
           </div>
         </div>
       </div>
+
       <div
         className="bg-rules mb-4 py-3 py-lg-0"
         style={{ backgroundImage: `url(${img14})` }}
@@ -709,6 +263,7 @@ export default function About() {
             </p>
           </div>
         </div>
+
         <div className="row">
           <div className="col-12 col-sm-6 wow fadeInDown" data-wow-delay=".3s">
             <div className="fables-testimonial-block border fables-third-text-color py-4 px-6 mb-4 rounded position-relative">
@@ -842,7 +397,7 @@ export default function About() {
               </p>
             </div>
           </div>
-
+ {/* team */}
           <div className="row">
             <div
               className="col-6 col-md-3 mb-4 mb-lg-0 wow fadeInDown"
@@ -990,64 +545,66 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="fables-partner-carousel owl-carousel owl-theme fables-carousel-border mt-0 mb-4 my-md-5 carousel-items-6 dots-0">
-          <div className="item wow fadeInUp" data-wow-delay="0.3s">
+
+
+        <div className="container flex">
+          <div className="">
             <img
               src={img10}
               alt="Fables Template"
               className="fables-partner-carousel-img fables-third-border-color"
             />
           </div>
-          <div className="item wow fadeInUp" data-wow-delay="0.6s">
+          <div className="">
             <img
               src={img11}
               alt="Fables Template"
               className="fables-partner-carousel-img fables-third-border-color"
             />
           </div>
-          <div>
+          <div className="">
             <img
               src={img10}
               alt="Fables Template"
               className="fables-partner-carousel-img fables-third-border-color"
             />
           </div>
-          <div>
+          <div className="">
             <img
               src={img10}
               alt="Fables Template"
               className="fables-partner-carousel-img fables-third-border-color"
             />
           </div>
-          <div>
+          <div className="">
             <img
               src={img10}
               alt="Fables Template"
               className="fables-partner-carousel-img fables-third-border-color"
             />
           </div>
-          <div>
+          <div className="">
             <img
               src={img10}
               alt="Fables Template"
               className="fables-partner-carousel-img fables-third-border-color"
             />
           </div>
-          <div>
+          <div className="">
             <img
               src={img10}
               alt="Fables Template"
               className="fables-partner-carousel-img fables-third-border-color"
             />
           </div>
-          <div>
+          <div className="">
             <img
               src={img10}
               alt="Fables Template"
               className="fables-partner-carousel-img fables-third-border-color"
             />
           </div>
-          <div>
+          <div className="">
             <img
               src={img10}
               alt="Fables Template"
@@ -1058,108 +615,7 @@ export default function About() {
       </div>
 
       {/* <!-- /End page content --> */}
-
-      {/* <!-- Start Footer 2 Background Image  --> */}
-      <section className="has-bg-img py-0">
-        <div className="container">
-          <div className="footer">
-            <div className="footer-lists">
-              <ul className="list">
-                <li className="list-head">
-                  <h6 className="font-weight-bold">ABOUT US</h6>
-                </li>
-                <li className="list-body">
-                  <Link to="#" className="logo">
-                    <img
-                      src={logo}
-                      alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
-                    />
-                    <h6>FATS</h6>
-                  </Link>
-                  <p>
-                    We offer AI-driven solutions in text conversion, Virtual
-                    Reality, and Augmented Reality, providing seamless,
-                    intelligent experiences across multiple platforms for a wide
-                    range of applications.
-                  </p>
-                  <p className="mt-3 font-italic">
-                    Copyright{" "}
-                    <script>document.write(new Date().getFullYear())</script>{" "}
-                    &copy;{"2023"}
-                    <Link
-                      className="d-inline text-black font-italic font-bold"
-                      to=""
-                    >
-                      {" "}
-                      FATS
-                    </Link>
-                  </p>
-                </li>
-              </ul>
-              <ul className="list">
-                <li className="list-head">
-                  <h6 className="font-weight-bold">USEFUL LINKS</h6>
-                </li>
-                <li className="list-body">
-                  <div className="row">
-                    <div className="col">
-                      <Link to="#about">About</Link>
-                      <Link to="#service">Service</Link>
-                      <Link to="#portfolio">Portfolio</Link>
-                      <Link to="#testmonail">Testimonial</Link>
-                    </div>
-                    <div className="col">
-                      <Link to="#team">Team</Link>
-                      <Link to="#blog">Blog</Link>
-                      <Link to="#">Faq</Link>
-                      <Link to="#">Privacy Policy</Link>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-              <ul className="list">
-                <li className="list-head">
-                  <h6 className="font-weight-bold">CONTACT INFO</h6>
-                </li>
-                <li className="list-body">
-                  <p>Contact us and we'll get back to you within 24 hours.</p>
-                  <p>
-                    <i className="ti-location-pin"></i> 12345 Fake ST NoWhere AB
-                    Country
-                  </p>
-                  <p>
-                    <i className="ti-email"></i> info@aifats.com
-                  </p>
-                  <div className="social-links">
-                    <Link to="" className="link">
-                      <i className="ti-facebook"></i>
-                    </Link>
-                    <Link to="" className="link">
-                      <i className="ti-twitter-alt"></i>
-                    </Link>
-                    <Link to="" className="link">
-                      <i className="ti-google"></i>
-                    </Link>
-                    <Link to="" className="link">
-                      <i className="ti-pinterest-alt"></i>
-                    </Link>
-                    <Link to="" className="link">
-                      <i className="ti-instagram"></i>
-                    </Link>
-                    <Link to="" className="link">
-                      <i className="ti-rss"></i>
-                    </Link>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* <!-- /End Footer 2 Background Image --> */}
-
-      <Outlet />
+      <Footer />
     </>
   );
 }

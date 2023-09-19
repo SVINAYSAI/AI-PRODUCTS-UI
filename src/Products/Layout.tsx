@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import "../components/frontend/assets/css/style1.css"
+import img from "../Components/fats-logo/svg/logo-no-background.svg"
 export default function Layout() {
   return (
     <>
@@ -29,9 +29,9 @@ export default function Layout() {
                   ></path>
                 </svg>
               </button>
-              <Link to="https://flowbite.com" className="flex ml-2 md:mr-24">
+              <Link to="https://aifats.com" className="flex ml-2 md:mr-24">
                 <img
-                  src="https://flowbite.com/docs/images/logo.svg"
+                  src={img}
                   className="h-8 mr-3"
                   alt=""
                 />

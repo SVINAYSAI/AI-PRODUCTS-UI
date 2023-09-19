@@ -70,3 +70,12 @@
 // };
 
 // export default Chart;
+
+
+
+export default function Dashboard(){
+    return(
+        <>
+        </>
+    );
+};
