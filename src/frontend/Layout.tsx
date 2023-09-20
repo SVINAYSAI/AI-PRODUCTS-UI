@@ -18,18 +18,18 @@ export default function Layout() {
           <Link to="/" className="flex items-center">
             <img className="w-[5rem]" src={logo} alt="logo"></img>
           </Link>
-          <div className="flex md:order-2 rounded-lg">
+          <div className="flex md:order-2">
             <Link
               to="/login"
               type="button"
-              className="text-white shadow-md bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white rounded-full shadow-md bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Get started
             </Link>
             <button
               onClick={toggleMenu}
               type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-md md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               aria-controls="navbar-sticky"
               aria-expanded={isOpen ? 'true' : 'false'}
             >
@@ -57,7 +57,7 @@ export default function Layout() {
             } items-center justify-between w-full md:flex md:w-auto md:order-1 pt-[1%]`}
             id="navbar-sticky"
           >
-            <ul className="flex flex-col md:p-0 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="flex flex-col md:p-0 font-medium border border-gray-100 rounded-md shadow-md bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
                 <Link
                   to="/"
