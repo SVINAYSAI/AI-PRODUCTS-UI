@@ -157,7 +157,12 @@ export default function Login() {
           className="w-full md:w-1/2"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
         >
-          {/* ... Your left side content ... */}
+            <h1 className="fables-second-text-color mt-3 font-30 font-weight-bold text-center text-white pt-[10%]">
+              Provide you the great Services
+            </h1>
+            <h3 className="fables-second-text-color mt-3 font-30 font-weight-bold text-center text-white pt-[10%]">
+              Log-in to our website for limitless creativity. 
+            </h3>
         </div>
       </div>
     </div>
