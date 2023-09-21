@@ -8,6 +8,7 @@ import Awesome from "../Home/Awesome";
 import OurBlog from "../Home/OurBlog";
 import ContactUs from "../Home/ContactUs";
 import Footer from "../Home/Footer";
+import Chatbot from "../chatbot/chatbot"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Awesome />
         <OurBlog />
         <ContactUs />
+        <Chatbot/>
       </main>
       <Footer />
     </>
