@@ -44,7 +44,7 @@ export default function Chatbot1(): JSX.Element {
 
   return (
     <div className="App">
-      <h1>COVID-19-Chatbot</h1>
+      {/* <h1>COVID-19-Chatbot</h1>
       <h2>Start chatting with the COVID-19-Chatbot!</h2>
       <div className="app-chatbot-container">
         {showBot && (
@@ -59,9 +59,8 @@ export default function Chatbot1(): JSX.Element {
       >
         <div>Bot</div>
         <svg viewBox="0 0 640 512" className="app-chatbot-button-icon">
-          {/* Add SVG path */}
         </svg>
-      </button>
+      </button> */}
     </div>
   );
 }
