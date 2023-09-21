@@ -7226,9 +7226,9 @@ button.bg-dark:focus {
   background-color: transparent !important;
 }
 
-.border {
+/* .border {
   border: 2px solid #eaf0fc !important;
-}
+} */
 
 .border-top {
   border-top: 1px solid #eaf0fc !important;
@@ -11548,13 +11548,13 @@ pre .code {
 
 .custom-navbar {
   position: absolute;
-  top: 30px;
+  /* top: 30px; */
   left: 0;
   right: 0;
   margin: auto;
   width: 95%;
-  max-width: 1168px;
-  border: 1px solid rgba(234, 240, 252, 0.15);
+  /* max-width: 1168px; */
+  /* border: 1px solid rgba(234, 240, 252, 0.15); */
   border-radius: 0.2rem;
   z-index: 9999;
   -webkit-transition: all, 0.33s;

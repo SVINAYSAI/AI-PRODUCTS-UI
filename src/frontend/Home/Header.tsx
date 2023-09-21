@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ContactUs from "../User data/test";
 
 export default function Header() {
   return (
@@ -11,18 +12,28 @@ export default function Header() {
               FUTURE AI TECHNOLOGY'S
             </h1>
             <div className="buttons text-center pt-4 pb-4">
-              <Link
-                to="#service"
+              <button
+               onClick={() => {
+                const contactUsSection = document.getElementById("service");
+                if (contactUsSection) {
+                  contactUsSection.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
                 className="btn btn-primary rounded w-lg btn-lg my-1"
               >
                 Our Service
-              </Link>
-              <Link
-                to="#contact"
+              </button>
+              <button
+                onClick={() => {
+                  const contactUsSection = document.getElementById("contact");
+                  if (contactUsSection) {
+                    contactUsSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
                 className="btn btn-outline-light rounded w-lg btn-lg my-1"
               >
                 Contact Us
-              </Link>
+              </button>
             </div>
           </div>
         </header>

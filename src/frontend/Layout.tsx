@@ -1,10 +1,14 @@
 import { useState } from 'react';
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import logo from "../Components/fats-logo/svg/logo-no-background.svg";
 
 export default function Layout() {
   // State to manage whether the menu is open or closed
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const isHomePage = location.pathname === "/"; // Check if the current route is "/"
+
 
   // Function to toggle the menu state
   const toggleMenu = () => {
@@ -13,7 +17,9 @@ export default function Layout() {
 
   return (
     <>
-      <nav className="bg-white dark:bg-gray-900 w-full top-0 border-b border-gray-200 dark:border-gray-600">
+    <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+      <nav className={`navbar ${isHomePage ? "custom-navbar navbar-expand-lg navbar-dark" : "bg-white dark:bg-gray-900"}`} data-spy="affix" data-offset-top="20">
+      <div className="gap-6">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
           <Link to="/" className="flex items-center">
             <img className="w-[5rem]" src={logo} alt="logo"></img>
@@ -57,11 +63,11 @@ export default function Layout() {
             } items-center justify-between w-full md:flex md:w-auto md:order-1 pt-[1%]`}
             id="navbar-sticky"
           >
-            <ul className="flex flex-col md:p-0 font-medium border border-gray-100 rounded-md shadow-md bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="flex flex-col md:p-0 font-medium border  rounded-md shadow-md  md:flex-row md:space-x-8 md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
                 <Link
                   to="/"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isHomePage ? "text-white" : "text-gray-900"}`}
                   aria-current="page"
                 >
                   Home
@@ -70,63 +76,65 @@ export default function Layout() {
               <li>
                 <Link
                   to="/about"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
+                  className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isHomePage ? "text-white" : "text-gray-900"}`}
+                  >
                   About
                 </Link>
               </li>
               <li>
                 <Link
                   to="/products"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
+                  className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isHomePage ? "text-white" : "text-gray-900"}`}
+                  >
                   Products
                 </Link>
               </li>
               <li>
                 <Link
                   to="/services"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
+                  className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isHomePage ? "text-white" : "text-gray-900"}`}
+                  >
                   Services
                 </Link>
               </li>
               <li>
                 <Link
                   to="/api"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
+                  className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isHomePage ? "text-white" : "text-gray-900"}`}
+                  >
                   API
                 </Link>
               </li>
               <li>
                 <Link
                   to="/blog"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
+                  className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isHomePage ? "text-white" : "text-gray-900"}`}
+                  >
                   Blogs
                 </Link>
               </li>
               <li>
                 <Link
                   to="/pricing"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
+                  className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isHomePage ? "text-white" : "text-gray-900"}`}
+                  >
                   Pricing
                 </Link>
               </li>
               <li>
                 <Link
                   to="/contactus"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
+                  className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isHomePage ? "text-white" : "text-gray-900"}`}
+                  >
                   Contact US
                 </Link>
               </li>
             </ul>
           </div>
         </div>
+        </div>
       </nav>
+      </body>
       <Outlet />
     </>
   );
