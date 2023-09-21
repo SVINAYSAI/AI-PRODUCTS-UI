@@ -580,7 +580,7 @@ pre code {
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1140px;
+    max-width: 1278px;
   }
 }
 
@@ -11674,7 +11674,7 @@ pre .code {
 }
 
 .footer {
-  padding: 85px 0 70px 0;
+  padding: 55px 0 33px 0;
 }
 
 .footer .logo {

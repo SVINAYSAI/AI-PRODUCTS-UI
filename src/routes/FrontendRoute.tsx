@@ -7,6 +7,7 @@ import About from "../frontend/pages/About";
 import Blog from "../frontend/pages/Blog";
 import ContactUs from "../frontend/pages/ContactUs";
 import Pricing from "../frontend/pages/Pricing";
+// import Chatbot1 from "../frontend/chatbot/chatbot";
 
 const FrontendRoute = () => {
   return (
@@ -18,6 +19,7 @@ const FrontendRoute = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/contactUS" element={<ContactUs />} />
         <Route path="/pricing" element={<Pricing />} />
+        {/* <Route path="/chatbot" element={<Chatbot1 />} /> */}
       </Route>
     </Routes>
   );

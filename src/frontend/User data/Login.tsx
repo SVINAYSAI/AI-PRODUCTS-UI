@@ -18,9 +18,9 @@ export default function Login() {
           style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
         >
           <div className="flex flex-col items-center justify-center mx-auto md:h-screen lg:py-0">
-            <div className="w-full rounded-md dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            <div className="w-full bg-gray-50  rounded-md dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 opacity-80">
               <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                <h1 className="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl ">
+                <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl ">
                   Sign in to your account
                 </h1>
                 <div className="flex flex-col sm:flex-row sm:space-x-2">
@@ -68,7 +68,7 @@ export default function Login() {
 
                 <div className="flex items-center justify-center space-x-4">
                   <div className="w-full h-0.5 bg-neutral-100 opacity-100 dark:opacity-50"></div>
-                  <div className="text-sm font-medium text-white dark:text-gray-400">
+                  <div className="text-sm font-medium text-black dark:text-gray-400">
                     or
                   </div>
                   <div className="w-full h-0.5 bg-neutral-100 opacity-100 dark:opacity-50"></div>
@@ -86,7 +86,7 @@ export default function Login() {
                       type="email"
                       name="email"
                       id="email"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="name@company.com"
                     />
                   </div>
@@ -118,7 +118,7 @@ export default function Login() {
                       <div className="ml-3 text-sm">
                         <label
                           htmlFor="remember"
-                          className="text-white dark:text-gray-300"
+                          className="text-black dark:text-gray-300"
                         >
                           Remember me
                         </label>
@@ -137,7 +137,7 @@ export default function Login() {
                   >
                     Sign in
                   </button>
-                  <p className="text-sm font-light text-white dark:text-gray-400">
+                  <p className="text-sm font-light text-black dark:text-gray-400">
                     Don’t have an account yet?{" "}
                     <Link
                       to=""
@@ -157,12 +157,15 @@ export default function Login() {
           className="w-full md:w-1/2"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
         >
+          <div className=" pt-28">
             <h1 className="fables-second-text-color mt-3 font-30 font-weight-bold text-center text-white pt-[10%]">
               Provide you the great Services
             </h1>
+            </div>
             <h3 className="fables-second-text-color mt-3 font-30 font-weight-bold text-center text-white pt-[10%]">
               Log-in to our website for limitless creativity. 
             </h3>
+           
         </div>
       </div>
     </div>
