@@ -21,7 +21,7 @@ const App = () => {
           <Route path="/services*" element={<ServicesRoute />} />
           <Route path="/products*" element={<ProductsRoute />} />
           <Route path="/api*" element={<APIsRoute />} />
-          <Route path="/login*" element={<UserDataRoute />} />
+          <Route path="/log*" element={<UserDataRoute />} />
           <Route path="/testt*" element={<Test />} />
         </Routes>
       </Router>

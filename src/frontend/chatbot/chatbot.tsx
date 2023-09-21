@@ -30,6 +30,7 @@ const Chatbot: React.FC = () => {
   };
 
   return (
+
     <div>
       {/* Chatbot icon */}
       <div
@@ -71,6 +72,7 @@ const Chatbot: React.FC = () => {
           </button>
         </div>
       </div>
+
     </div>
   );
 };

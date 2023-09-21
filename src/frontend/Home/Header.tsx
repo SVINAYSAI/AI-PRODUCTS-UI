@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import ContactUs from "../User data/test";
 
 export default function Header() {
   return (
