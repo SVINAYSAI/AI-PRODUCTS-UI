@@ -34,7 +34,7 @@ export default function Layout() {
               <Link
                 to="/log/sign-in"
                 type="button"
-                className="text-white rounded-full shadow-md bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="text-white rounded-md shadow-md bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Get started
               </Link>
@@ -66,11 +66,11 @@ export default function Layout() {
             <div
               className={`${
                 isOpen ? "block" : "hidden"
-              } items-center justify-between w-full md:flex md:w-auto md:order-1 pt-[1%] pl-[17px]`}
+              } items-center justify-between w-full md:flex md:w-auto md:order-1 pl-[17px]`}
               id="navbar-sticky"
             >
-              <ul className="flex flex-col md:p-0 font-medium border  rounded-md shadow-md  md:flex-row md:space-x-8 md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li>
+              <div className="flex flex-col md:p-0 font-medium border  rounded-md shadow-md  md:flex-row md:space-x-8 md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <div>
                   <Link
                     to="/"
                     className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
@@ -80,8 +80,8 @@ export default function Layout() {
                   >
                     Home
                   </Link>
-                </li>
-                <li>
+                </div>
+                <div>
                   <Link
                     to="/about"
                     className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
@@ -90,8 +90,8 @@ export default function Layout() {
                   >
                     About
                   </Link>
-                </li>
-                <li>
+                </div>
+                <div>
                   <Link
                     to="/products"
                     className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
@@ -100,8 +100,8 @@ export default function Layout() {
                   >
                     Products
                   </Link>
-                </li>
-                <li>
+                </div>
+                <div>
                   <Link
                     to="/services"
                     className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
@@ -110,8 +110,8 @@ export default function Layout() {
                   >
                     Services
                   </Link>
-                </li>
-                <li>
+                </div>
+                <div>
                   <Link
                     to="/api"
                     className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
@@ -120,8 +120,8 @@ export default function Layout() {
                   >
                     API
                   </Link>
-                </li>
-                <li>
+                </div>
+                <div>
                   <Link
                     to="/blog"
                     className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
@@ -130,8 +130,8 @@ export default function Layout() {
                   >
                     Blogs
                   </Link>
-                </li>
-                <li>
+                </div>
+                <div>
                   <Link
                     to="/pricing"
                     className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
@@ -140,8 +140,8 @@ export default function Layout() {
                   >
                     Pricing
                   </Link>
-                </li>
-                <li>
+                </div>
+                <div>
                   <Link
                     to="/contactus"
                     className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
@@ -150,8 +150,8 @@ export default function Layout() {
                   >
                     Contact US
                   </Link>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
           </div>
         </nav>

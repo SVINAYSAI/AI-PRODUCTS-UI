@@ -1,11 +1,12 @@
 
-import logo from "../../Components/fats-logo/svg/logo-no-background.svg";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Footer from "../Home/Footer";
 export default function Pricing() {
   return (
     <>
       <section className="bg-white dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+
           <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
             <h2 className="mb-4 text-4xl tracking-tight font-bold text-slate-950">
               Designed for business teams like yours
@@ -15,8 +16,9 @@ export default function Pricing() {
               and capital can unlock long-term value and drive economic growth.
             </p>
           </div>
+
           <div className="space-y-8 lg:grid lg:grid-cols-4 sm:gap-6 xl:gap-2 lg:space-y-0">
-            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-md border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
               <h3 className="mb-4 text-2xl font-semibold text-gray-900">
                 FREE
               </h3>
@@ -187,13 +189,13 @@ export default function Pricing() {
               </ul>
               <Link
                 to=""
-                className="text-white bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+                className="text-white bg-blue-700 font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2"
               >
                 Free
               </Link>
             </div>
 
-            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-md border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
               <h3 className="mb-4 text-2xl font-semibold text-gray-900">
                 Company
               </h3>
@@ -363,13 +365,13 @@ export default function Pricing() {
               </ul>
               <Link
                 to=""
-                className="text-white bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+                className="text-white bg-blue-700 font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2"
               >
                 Get started
               </Link>
             </div>
 
-            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-md border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
               <h3 className="mb-4 text-2xl font-semibold text-gray-900">
                 Enterprise
               </h3>
@@ -540,14 +542,14 @@ export default function Pricing() {
               </ul>
               <Link
                 to=""
-                className="text-white bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+                className="text-white bg-blue-700 font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2"
               >
                 Get started
               </Link>
               <div className="relative">
                 <div
                   id="dropdownMenu"
-                  className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute top-full left-0 mt-1"
+                  className="z-10 hidden bg-white divide-y divide-gray-100 rounded-md shadow w-44 dark:bg-gray-700 absolute top-full left-0 mt-1"
                 >
                   <div className=" pt-4">
                     <div
@@ -555,7 +557,7 @@ export default function Pricing() {
                       className="w-full overflow-x-auto"
                     >
                       <div className="overflow-hidden min-w-max">
-                        <div className="grid grid-cols-4 p-4 text-sm font-medium text-black border border-black rounded-lg">
+                        <div className="grid grid-cols-4 p-4 text-sm font-medium text-black border border-black rounded-md ">
                           <div className="flex items-center">
                             Tailwind CSS code
                           </div>
@@ -806,7 +808,7 @@ export default function Pricing() {
                           <div>
                             <Link
                               to=""
-                              className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
+                              className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-md text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
                             >
                               Buy now
                             </Link>
@@ -814,7 +816,7 @@ export default function Pricing() {
                           <div>
                             <Link
                               to=""
-                              className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
+                              className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-md text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
                             >
                               Buy now
                             </Link>
@@ -822,7 +824,7 @@ export default function Pricing() {
                           <div>
                             <Link
                               to=""
-                              className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
+                              className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-md text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
                             >
                               Buy now
                             </Link>
@@ -835,7 +837,7 @@ export default function Pricing() {
               </div>
             </div>
 
-            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-md border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
               <h3 className="mb-4 text-2xl font-semibold text-gray-900">
                 Super pack
               </h3>
@@ -1006,7 +1008,7 @@ export default function Pricing() {
               </ul>
               <Link
                 to=""
-                className="text-white bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+                className="text-white bg-blue-700 font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2"
               >
                 Get started
               </Link>
@@ -1082,7 +1084,7 @@ export default function Pricing() {
                     </svg>
                   </div>
                 </div>
-                <div className="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                <div className="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 border-black gap-x-16 dark:border-gray-700">
                   <div className="text-gray-500 dark:text-gray-400">
                     Application UI (
                     <Link to="" className="text-blue-600 hover:underline">
@@ -1142,7 +1144,7 @@ export default function Pricing() {
                     </svg>
                   </div>
                 </div>
-                <div className="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                <div className="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 border-black gap-x-16 dark:border-gray-700">
                   <div className="text-gray-500 dark:text-gray-400">
                     Marketing UI pre-order
                   </div>
@@ -1259,7 +1261,7 @@ export default function Pricing() {
                   <div>
                     <Link
                       to=""
-                      className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
+                      className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-md text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
                     >
                       Buy now
                     </Link>
@@ -1267,7 +1269,7 @@ export default function Pricing() {
                   <div>
                     <Link
                       to=""
-                      className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
+                      className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-md text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
                     >
                       Buy now
                     </Link>
@@ -1275,7 +1277,7 @@ export default function Pricing() {
                   <div>
                     <Link
                       to=""
-                      className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
+                      className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-md text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
                     >
                       Buy now
                     </Link>
@@ -1284,106 +1286,11 @@ export default function Pricing() {
               </div>
             </div>
           </div>
+          
         </div>
       </section>
 
-      <section className="has-bg-img py-0">
-        <div className="container">
-          <div className="footer">
-            <div className="footer-lists">
-              <ul className="list">
-                <li className="list-head">
-                  <h6 className="font-weight-bold">ABOUT US</h6>
-                </li>
-                <li className="list-body">
-                  <Link to="#" className="logo">
-                    <img
-                      src={logo}
-                      alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
-                    />
-                    <h6>FATS</h6>
-                  </Link>
-                  <p>
-                    We offer AI-driven solutions in text conversion, Virtual
-                    Reality, and Augmented Reality, providing seamless,
-                    intelligent experiences across multiple platforms for a wide
-                    range of applications.
-                  </p>
-                  <p className="mt-3 font-italic">
-                    Copyright{" "}
-                    <script>document.write(new Date().getFullYear())</script>{" "}
-                    &copy;{"2023"}
-                    <Link
-                      className="d-inline text-black font-italic font-bold"
-                      to=""
-                    >
-                      {" "}
-                      FATS
-                    </Link>
-                  </p>
-                </li>
-              </ul>
-              <ul className="list">
-                <li className="list-head">
-                  <h6 className="font-weight-bold">USEFUL LINKS</h6>
-                </li>
-                <li className="list-body">
-                  <div className="row">
-                    <div className="col">
-                      <Link to="#about">About</Link>
-                      <Link to="#service">Service</Link>
-                      <Link to="#portfolio">Portfolio</Link>
-                      <Link to="#testmonail">Testimonial</Link>
-                    </div>
-                    <div className="col">
-                      <Link to="#team">Team</Link>
-                      <Link to="#blog">Blog</Link>
-                      <Link to="#">Faq</Link>
-                      <Link to="#">Privacy Policy</Link>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-              <ul className="list">
-                <li className="list-head">
-                  <h6 className="font-weight-bold">CONTACT INFO</h6>
-                </li>
-                <li className="list-body">
-                  <p>Contact us and we'll get back to you within 24 hours.</p>
-                  <p>
-                    <i className="ti-location-pin"></i> 12345 Fake ST NoWhere AB
-                    Country
-                  </p>
-                  <p>
-                    <i className="ti-email"></i> info@aifats.com
-                  </p>
-                  <div className="social-links">
-                    <Link to="" className="link">
-                      <i className="ti-facebook"></i>
-                    </Link>
-                    <Link to="" className="link">
-                      <i className="ti-twitter-alt"></i>
-                    </Link>
-                    <Link to="" className="link">
-                      <i className="ti-google"></i>
-                    </Link>
-                    <Link to="" className="link">
-                      <i className="ti-pinterest-alt"></i>
-                    </Link>
-                    <Link to="" className="link">
-                      <i className="ti-instagram"></i>
-                    </Link>
-                    <Link to="" className="link">
-                      <i className="ti-rss"></i>
-                    </Link>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      <Outlet />
+      <Footer />
     </>
   );
 }

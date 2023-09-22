@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import img from "../Components/fats-logo/svg/logo-no-background.svg"
+import img from "../Components/fats-logo/svg/logo-no-background.svg";
 export default function Layout() {
   return (
     <>
@@ -12,7 +12,7 @@ export default function Layout() {
                 data-drawer-toggle="logo-sidebar"
                 aria-controls="logo-sidebar"
                 type="button"
-                className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                className="inline-flex items-center p-2 text-sm text-gray-500 rounded-md sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               >
                 <span className="sr-only">Open sidebar</span>
                 <svg
@@ -30,11 +30,7 @@ export default function Layout() {
                 </svg>
               </button>
               <Link to="https://aifats.com" className="flex ml-2 md:mr-24">
-                <img
-                  src={img}
-                  className="h-8 mr-3"
-                  alt=""
-                />
+                <img src={img} className="h-8 mr-3" alt="" />
                 <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
                   FATS
                 </span>
@@ -122,8 +118,7 @@ export default function Layout() {
 
       <div className=" flex flex-col flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800">
         <div className="fixed flex flex-col top-0 left-0 w-64 bg-white h-full border-r">
-          <div className="flex items-center justify-center h-14 border-b">
-          </div>
+          <div className="flex items-center justify-center h-14 border-b"></div>
           <div className="overflow-y-auto overflow-x-hidden flex-grow">
             <ul className="flex flex-col py-4 space-y-1 p-1">
               <li className="px-5">
@@ -181,9 +176,8 @@ export default function Layout() {
                     </svg>
                   </span>
                   <span className="ml-2 text-sm tracking-wide truncate">
-                    Voice Gentaion 
+                    Voice Gentaion
                   </span>
-              
                 </Link>
               </li>
               <li>
@@ -236,10 +230,9 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     Transcripts
                   </span>
-                
                 </Link>
               </li>
-             
+
               <li>
                 <Link
                   to="/products/chart"
@@ -290,7 +283,6 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     Music Genration
                   </span>
-                 
                 </Link>
               </li>
               <li>
@@ -317,7 +309,6 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     AI Avatar Genration
                   </span>
-                 
                 </Link>
               </li>
               <li className="px-5">
