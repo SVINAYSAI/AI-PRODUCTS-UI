@@ -1,24 +1,24 @@
 import { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import React from 'react';
 
 export default function Model() {
   const [prompt, setPrompt] = useState('');
   const [processedImage, setProcessedImage] = useState(null);
 
-  const handleGenerateImage = async () => {
-    try {
-      const response = await axios.post('/api/image_generation/process_image', {
-        prompt: prompt,
-      });
+  // const handleGenerateImage = async () => {
+  //   try {
+  //     const response = await axios.post('/api/image_generation/process_image', {
+  //       prompt: prompt,
+  //     });
 
-      if (response.data && response.data.image) {
-        setProcessedImage(response.data.image);
-      }
-    } catch (error) {
-      console.error('Error generating image:', error);
-    }
-  };
+  //     if (response.data && response.data.image) {
+  //       setProcessedImage(response.data.image);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error generating image:', error);
+  //   }
+  // };
 
   return (
     <>
@@ -84,7 +84,7 @@ export default function Model() {
                 type="button"
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 mr-0 mb-4 mt-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 id="component-9"
-                onClick={handleGenerateImage}
+                // onClick={handleGenerateImage}
               >
                 Generate image
               </button>

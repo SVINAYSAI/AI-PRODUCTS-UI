@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
+import GoogleLogin from 'react-google-login';
 import img from "../../Components/assets/imgs/christmas.jpg";
 
 const Register: React.FC = () => {

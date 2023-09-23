@@ -1,34 +1,34 @@
 import { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import React from "react";
 export default function Model() {
   const [prompts, setPrompts] = useState("");
   const [duration, setDuration] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/api/music_gen/generate_music",
-        {
-          prompts: prompts.split("\n"),
-          duration: parseInt(duration),
-        }
-      );
-      const url = window.URL.createObjectURL(new Blob([response.data]));
-      const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", "generated_audio.wav");
-      document.body.appendChild(link);
-      link.click();
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.error("Axios Error:", error.response?.data || error.message);
-      } else {
-        console.error("Error:", error);
-      }
-    }
-  };
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.post(
+  //       "http://localhost:5000/api/music_gen/generate_music",
+  //       {
+  //         prompts: prompts.split("\n"),
+  //         duration: parseInt(duration),
+  //       }
+  //     );
+  //     const url = window.URL.createObjectURL(new Blob([response.data]));
+  //     const link = document.createElement("a");
+  //     link.href = url;
+  //     link.setAttribute("download", "generated_audio.wav");
+  //     document.body.appendChild(link);
+  //     link.click();
+  //   } catch (error) {
+  //     if (axios.isAxiosError(error)) {
+  //       console.error("Axios Error:", error.response?.data || error.message);
+  //     } else {
+  //       console.error("Error:", error);
+  //     }
+  //   }
+  // };
   
   return (
     <>
@@ -41,7 +41,7 @@ export default function Model() {
             id="component-3"
             className="gr-block gr-box relative w-full overflow-hidden border rounded-md gr-padded"
           >
-            <form onSubmit={handleSubmit}>
+            {/* <form onSubmit={handleSubmit}> */}
             <div
               className="flex row w-full flex-wrap gap-4 gr-compact items-stretch"
               id="prompt-container"
@@ -105,7 +105,7 @@ export default function Model() {
                 Generate Music
               </button>
             </div>
-            </form>
+            {/* </form> */}
           </div>
           <div className="">
             <div
