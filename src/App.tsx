@@ -6,7 +6,7 @@ import FrontendRoute from "./routes/FrontendRoute";
 import ServicesRoute from "./routes/ServicesRoutes";
 import APIsRoute from "./routes/ApiRoute";
 import ProductsRoute from "./routes/ProductsRoute";
-import Test from "./frontend/User data/test";
+import Test from "./frontend/pages/test";
 
 const App = () => {
   // const FrontendRoute = lazy(() => import("./routes/FrontendRoute"));
