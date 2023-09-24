@@ -46,20 +46,20 @@ const Register: React.FC = () => {
                     type="button"
                     className="text-white rounded-md bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium text-sm px-3 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
                   > */}
-    <div className=" w-96">
-                    <GoogleLogin 
-                      onSuccess={(credentialResponse) => {
-                        if (credentialResponse.credential) {
-                          var decoded = jwt_decode(credentialResponse.credential);
-                          console.log(decoded);
-                        } else {
-                          console.error('Credential is undefined');
-                        }
-                      }}
-                      onError={() => {
-                        console.log('Login Failed');
-                      }}
-                    />
+                    <div className=" w-96">
+                      <GoogleLogin
+                        onSuccess={(credentialResponse) => {
+                          if (credentialResponse.credential) {
+                            var decoded = jwt_decode(credentialResponse.credential);
+                            console.log(decoded);
+                          } else {
+                            console.error('Credential is undefined');
+                          }
+                        }}
+                        onError={() => {
+                          console.log('Login Failed');
+                        }}
+                      />
                     </div>
 
                     {/* </Link> */}
