@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import GoogleLogin from 'react-google-login';
+import { GoogleLogin, GoogleOAuthProvider, useGoogleOneTapLogin } from '@react-oauth/google';
 import img from "../../Components/assets/imgs/christmas.jpg";
+import jwt_decode from "jwt-decode";
 
 const Register: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -39,27 +40,31 @@ const Register: React.FC = () => {
                   Sign up Your account
                 </h1>
                 <div className="flex flex-col sm:flex-row sm:space-x-2">
-                  <Link
+                  <GoogleOAuthProvider clientId="536585599787-4a44c9aq46ifgsm66mfriea6uuvnuft2.apps.googleusercontent.com">
+                    {/* <Link
                     to=""
                     type="button"
                     className="text-white rounded-md bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium text-sm px-3 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
-                  >
-                    <svg
-                      className="w-4 h-4 mr-2"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 18 19"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    Log in with Google
-                  </Link>
-                  <Link
+                  > */}
+    <div className=" w-96">
+                    <GoogleLogin 
+                      onSuccess={(credentialResponse) => {
+                        if (credentialResponse.credential) {
+                          var decoded = jwt_decode(credentialResponse.credential);
+                          console.log(decoded);
+                        } else {
+                          console.error('Credential is undefined');
+                        }
+                      }}
+                      onError={() => {
+                        console.log('Login Failed');
+                      }}
+                    />
+                    </div>
+
+                    {/* </Link> */}
+                  </GoogleOAuthProvider>
+                  {/* <Link
                     to=""
                     type="button"
                     className="text-white rounded-md bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium text-sm px-3 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2"
@@ -78,7 +83,7 @@ const Register: React.FC = () => {
                       />
                     </svg>
                     Sign in with Github
-                  </Link>
+                  </Link> */}
                 </div>
 
                 <div className="flex items-center justify-center space-x-4">
@@ -212,40 +217,40 @@ const Register: React.FC = () => {
                         className="absolute top-[40px] right-0 pr-2 flex items-center"
                       >
                         {showPassword ? (
-                         <svg
-                         xmlns="http://www.w3.org/2000/svg"
-                         className="w-4 h-4 text-gray-800 dark:text-white"
-                         aria-hidden="true"
-                         fill="none"
-                         viewBox="0 0 20 14"
-                       >
-                         <g
-                           stroke="currentColor"
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                           stroke-width="2"
-                         >
-                           <path d="M10 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                           <path d="M10 13c4.97 0 9-2.686 9-6s-4.03-6-9-6-9 2.686-9 6 4.03 6 9 6Z" />
-                         </g>
-                       </svg>
-                     ) : (
-                       <svg
-                         xmlns="http://www.w3.org/2000/svg"
-                         className="w-4 h-4 text-gray-800 dark:text-white"
-                         aria-hidden="true"
-                         fill="none"
-                         viewBox="0 0 20 18"
-                       >
-                         <path
-                           stroke="currentColor"
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                           stroke-width="2"
-                           d="M1.933 10.909A4.357 4.357 0 0 1 1 9c0-1 4-6 9-6m7.6 3.8A5.068 5.068 0 0 1 19 9c0 1-3 6-9 6-.314 0-.62-.014-.918-.04M2 17 18 1m-5 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                         />
-                       </svg>
-                     )}
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-4 h-4 text-gray-800 dark:text-white"
+                            aria-hidden="true"
+                            fill="none"
+                            viewBox="0 0 20 14"
+                          >
+                            <g
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                            >
+                              <path d="M10 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                              <path d="M10 13c4.97 0 9-2.686 9-6s-4.03-6-9-6-9 2.686-9 6 4.03 6 9 6Z" />
+                            </g>
+                          </svg>
+                        ) : (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-4 h-4 text-gray-800 dark:text-white"
+                            aria-hidden="true"
+                            fill="none"
+                            viewBox="0 0 20 18"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M1.933 10.909A4.357 4.357 0 0 1 1 9c0-1 4-6 9-6m7.6 3.8A5.068 5.068 0 0 1 19 9c0 1-3 6-9 6-.314 0-.62-.014-.918-.04M2 17 18 1m-5 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                            />
+                          </svg>
+                        )}
                       </button>
                     </label>
                   </div>
@@ -276,40 +281,40 @@ const Register: React.FC = () => {
                         className="absolute top-[40px] right-0 pr-2 flex items-center"
                       >
                         {showConfirmPassword ? (
-                         <svg
-                         xmlns="http://www.w3.org/2000/svg"
-                         className="w-4 h-4 text-gray-800 dark:text-white"
-                         aria-hidden="true"
-                         fill="none"
-                         viewBox="0 0 20 14"
-                       >
-                         <g
-                           stroke="currentColor"
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                           stroke-width="2"
-                         >
-                           <path d="M10 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                           <path d="M10 13c4.97 0 9-2.686 9-6s-4.03-6-9-6-9 2.686-9 6 4.03 6 9 6Z" />
-                         </g>
-                       </svg>
-                     ) : (
-                       <svg
-                         xmlns="http://www.w3.org/2000/svg"
-                         className="w-4 h-4 text-gray-800 dark:text-white"
-                         aria-hidden="true"
-                         fill="none"
-                         viewBox="0 0 20 18"
-                       >
-                         <path
-                           stroke="currentColor"
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                           stroke-width="2"
-                           d="M1.933 10.909A4.357 4.357 0 0 1 1 9c0-1 4-6 9-6m7.6 3.8A5.068 5.068 0 0 1 19 9c0 1-3 6-9 6-.314 0-.62-.014-.918-.04M2 17 18 1m-5 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                         />
-                       </svg>
-                     )}
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-4 h-4 text-gray-800 dark:text-white"
+                            aria-hidden="true"
+                            fill="none"
+                            viewBox="0 0 20 14"
+                          >
+                            <g
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                            >
+                              <path d="M10 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                              <path d="M10 13c4.97 0 9-2.686 9-6s-4.03-6-9-6-9 2.686-9 6 4.03 6 9 6Z" />
+                            </g>
+                          </svg>
+                        ) : (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-4 h-4 text-gray-800 dark:text-white"
+                            aria-hidden="true"
+                            fill="none"
+                            viewBox="0 0 20 18"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M1.933 10.909A4.357 4.357 0 0 1 1 9c0-1 4-6 9-6m7.6 3.8A5.068 5.068 0 0 1 19 9c0 1-3 6-9 6-.314 0-.62-.014-.918-.04M2 17 18 1m-5 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                            />
+                          </svg>
+                        )}
                       </button>
                     </label>
                   </div>

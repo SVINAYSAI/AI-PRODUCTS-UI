@@ -6,7 +6,7 @@ interface MermaidProps {
   chart: string;
 }
 
-class Mermaid extends Component<MermaidProps> {
+ class Mermaid extends Component<MermaidProps> {
   private chartContainerRef: RefObject<HTMLDivElement>;
 
   constructor(props: MermaidProps) {
