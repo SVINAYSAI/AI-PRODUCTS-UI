@@ -10,12 +10,16 @@ import TexttoVoice from "../Products/Pages/voice/text_to_voice";
 import Transcripts from "../Products/Pages/Transcripts/Layout"
 import Ann from "../Products/ann";
 import Test from "../Products/Pages/Transcripts/test";
+import Dashboard from "../Products/Dashboard";
+import UserSettings from "../Products/UserSettings";
 
 const Product = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />} >
-         <Route path="/image" element={<TexttoImage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/settings" element={<UserSettings />} />
+          <Route path="/image" element={<TexttoImage />} />
           <Route path="/voice" element={<TexttoVoice/>} />
           <Route path="/chart" element={<Texttochart/>} />
           <Route path="/3d" element={<Textto3d/>} />
