@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import { GoogleLogin, GoogleOAuthProvider, useGoogleOneTapLogin } from '@react-oauth/google';
+import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import img from "../../Components/assets/imgs/christmas.jpg";
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
@@ -41,30 +41,31 @@ const Register: React.FC = () => {
                   Sign up Your account
                 </h1>
                 <div className="flex flex-col sm:flex-row sm:space-x-2">
-                  <GoogleOAuthProvider clientId="536585599787-4a44c9aq46ifgsm66mfriea6uuvnuft2.apps.googleusercontent.com">  
+                  <GoogleOAuthProvider clientId="536585599787-4a44c9aq46ifgsm66mfriea6uuvnuft2.apps.googleusercontent.com">
                     <div className=" w-96">
                       <GoogleLogin
-                       onSuccess={(credentialResponse) => {
-                        if (credentialResponse.credential) {
+                        onSuccess={(credentialResponse) => {
+                          if (credentialResponse.credential) {
                             var decoded = jwt_decode(credentialResponse.credential);
                             console.log(decoded);
-                    
+
                             // Send the decoded data to the server
                             axios.post('http://localhost:5000/save_user_data', decoded)
-                                .then(response => {
-                                    console.log(response.data.message);
-                                })
-                                .catch(error => {
-                                    console.error('Error saving data:', error.message);
-                                });
-                        } else {
+                              .then(response => {
+                                console.log(response.data.message);
+                              })
+                              .catch(error => {
+                                console.error('Error saving data:', error.message);
+                              });
+                          } else {
                             console.error('Credential is undefined');
-                        }
-                    }}
+                          }
+                        }}
                       />
                     </div>
-                  </GoogleOAuthProvider>  
+                  </GoogleOAuthProvider>
                 </div>
+
 
                 <div className="flex items-center justify-center space-x-4">
                   <div className="w-full h-0.5 bg-black"></div>
@@ -75,9 +76,7 @@ const Register: React.FC = () => {
                 </div>
 
                 <form className="space-y-4 md:space-y-6" action="">
-
                   <div className="grid grid-cols-2 gap-2">
-
                     <div>
                       <label
                         htmlFor="firstname"
@@ -109,7 +108,6 @@ const Register: React.FC = () => {
                         placeholder=""
                       />
                     </div>
-
                   </div>
 
                   <div>
@@ -327,7 +325,6 @@ const Register: React.FC = () => {
                   >
                     Sign up
                   </Link>
-
                 </form>
               </div>
             </div>
