@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { GoogleLogin, GoogleOAuthProvider, useGoogleOneTapLogin } from '@react-oauth/google';
 import img from "../../Components/assets/imgs/christmas.jpg";
 import jwt_decode from "jwt-decode";
+import axios from 'axios';
 
 const Register: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -40,50 +41,29 @@ const Register: React.FC = () => {
                   Sign up Your account
                 </h1>
                 <div className="flex flex-col sm:flex-row sm:space-x-2">
-                  <GoogleOAuthProvider clientId="536585599787-4a44c9aq46ifgsm66mfriea6uuvnuft2.apps.googleusercontent.com">
-                    {/* <Link
-                    to=""
-                    type="button"
-                    className="text-white rounded-md bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium text-sm px-3 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
-                  > */}
+                  <GoogleOAuthProvider clientId="536585599787-4a44c9aq46ifgsm66mfriea6uuvnuft2.apps.googleusercontent.com">  
                     <div className=" w-96">
                       <GoogleLogin
-                        onSuccess={(credentialResponse) => {
-                          if (credentialResponse.credential) {
+                       onSuccess={(credentialResponse) => {
+                        if (credentialResponse.credential) {
                             var decoded = jwt_decode(credentialResponse.credential);
                             console.log(decoded);
-                          } else {
+                    
+                            // Send the decoded data to the server
+                            axios.post('http://localhost:5000/save_user_data', decoded)
+                                .then(response => {
+                                    console.log(response.data.message);
+                                })
+                                .catch(error => {
+                                    console.error('Error saving data:', error.message);
+                                });
+                        } else {
                             console.error('Credential is undefined');
-                          }
-                        }}
-                        onError={() => {
-                          console.log('Login Failed');
-                        }}
+                        }
+                    }}
                       />
                     </div>
-
-                    {/* </Link> */}
-                  </GoogleOAuthProvider>
-                  {/* <Link
-                    to=""
-                    type="button"
-                    className="text-white rounded-md bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium text-sm px-3 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2"
-                  >
-                    <svg
-                      className="w-4 h-4 mr-2"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    Sign in with Github
-                  </Link> */}
+                  </GoogleOAuthProvider>  
                 </div>
 
                 <div className="flex items-center justify-center space-x-4">
@@ -226,9 +206,9 @@ const Register: React.FC = () => {
                           >
                             <g
                               stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
                             >
                               <path d="M10 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                               <path d="M10 13c4.97 0 9-2.686 9-6s-4.03-6-9-6-9 2.686-9 6 4.03 6 9 6Z" />
@@ -244,9 +224,9 @@ const Register: React.FC = () => {
                           >
                             <path
                               stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
                               d="M1.933 10.909A4.357 4.357 0 0 1 1 9c0-1 4-6 9-6m7.6 3.8A5.068 5.068 0 0 1 19 9c0 1-3 6-9 6-.314 0-.62-.014-.918-.04M2 17 18 1m-5 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                             />
                           </svg>
@@ -290,9 +270,9 @@ const Register: React.FC = () => {
                           >
                             <g
                               stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
                             >
                               <path d="M10 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                               <path d="M10 13c4.97 0 9-2.686 9-6s-4.03-6-9-6-9 2.686-9 6 4.03 6 9 6Z" />
@@ -308,9 +288,9 @@ const Register: React.FC = () => {
                           >
                             <path
                               stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
                               d="M1.933 10.909A4.357 4.357 0 0 1 1 9c0-1 4-6 9-6m7.6 3.8A5.068 5.068 0 0 1 19 9c0 1-3 6-9 6-.314 0-.62-.014-.918-.04M2 17 18 1m-5 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                             />
                           </svg>
