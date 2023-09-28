@@ -110,6 +110,7 @@ export default function Awesome() {
           >
             <div className="modal-content">
               <iframe
+                title="fats"
                 width="100%"
                 height="475"
                 src="https://www.youtube.com/watch?v=FG5-O_fuNhE"

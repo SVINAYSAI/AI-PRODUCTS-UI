@@ -1,15 +1,56 @@
-import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useCookies } from 'react-cookie';
+import React, { useState } from 'react';
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import img from "../../Components/assets/imgs/christmas.jpg";
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
+// import EmailSender from "./EmailSender"
 
 const Register: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [cookies, setCookie, removeCookie] = useCookies(['user']);
+  const navigate = useNavigate();
+  const [navigateToOtp, setNavigateToOtp] = useState(false);
+
+  // useEffect(() => {
+  //   if (navigateToOtp) {
+  //     navigate('/log/otp');
+  //   }
+  // }, [navigateToOtp, navigate]);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const formData = {
+      firstname: (event.target as any).firstname.value,
+      lastname: (event.target as any).lastname.value,
+      username: (event.target as any).username.value,
+      email: (event.target as any).email.value,
+      password: (event.target as any).password.value,
+      // ... other form data
+    };
+
+    try {
+      const response = await axios.post('http://localhost:5000/save_user_data', formData);
+      console.log(response.data.message);
+
+      setCookie('user', response.data.user, { path: '/' });
+      // If the submission is successful, redirect to /log/otp
+      navigate('/log/otp');
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error('Error saving data:', error.message);
+      } else {
+        console.error('An unknown error occurred:', error);
+      }
+    }
+  };
+
+
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -18,6 +59,49 @@ const Register: React.FC = () => {
   const toggleConfirmPasswordVisibility = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
+
+  const generateRandomPassword = (length: number = 8): string => {
+    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let password = "";
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * charset.length);
+      password += charset[randomIndex];
+    }
+    return password;
+  };
+
+  const handleGoogleLoginSuccess = (credentialResponse: any) => {
+    if (credentialResponse.credential) {
+      const decoded = jwt_decode(credentialResponse.credential) as Record<string, unknown>;
+      console.log(decoded);
+
+      // Generate a random password
+      const randomPassword = generateRandomPassword();
+      console.log("Generated Password:", randomPassword);
+
+      // Send the decoded data and the random password to the server
+      axios.post('http://localhost:5000/save_user_data', { ...decoded, password: randomPassword })
+        .then(response => {
+          console.log(response.data.message);
+          // If the submission is successful, navigate to /log/otp
+          if (response.data.success) {  // Assuming the backend sends a success field in the response
+            navigate('/log/otp');
+          }
+        })
+        .catch(error => {
+          if (error instanceof Error) {
+            console.error('Error saving data:', error.message);
+          } else {
+            console.error('An unknown error occurred:', error);
+          }
+        });
+    } else {
+      console.error('Credential is undefined');
+    }
+  };
+
+
+
 
   return (
     <div
@@ -44,29 +128,13 @@ const Register: React.FC = () => {
                   <GoogleOAuthProvider clientId="536585599787-4a44c9aq46ifgsm66mfriea6uuvnuft2.apps.googleusercontent.com">
                     <div className=" w-96">
                       <GoogleLogin
-                        onSuccess={(credentialResponse) => {
-                          if (credentialResponse.credential) {
-                            var decoded = jwt_decode(credentialResponse.credential);
-                            console.log(decoded);
-
-                            // Send the decoded data to the server
-                            axios.post('http://localhost:5000/save_user_data', decoded)
-                              .then(response => {
-                                console.log(response.data.message);
-                              })
-                              .catch(error => {
-                                console.error('Error saving data:', error.message);
-                              });
-                          } else {
-                            console.error('Credential is undefined');
-                          }
-                        }}
+                        onSuccess={handleGoogleLoginSuccess}
                       />
                     </div>
                   </GoogleOAuthProvider>
                 </div>
 
-
+      {/* <EmailSender/> */}
                 <div className="flex items-center justify-center space-x-4">
                   <div className="w-full h-0.5 bg-black"></div>
                   <div className="text-sm font-medium text-black dark:text-gray-400">
@@ -75,7 +143,7 @@ const Register: React.FC = () => {
                   <div className="w-full h-0.5 bg-black"></div>
                 </div>
 
-                <form className="space-y-4 md:space-y-6" action="">
+                <form className="space-y-4 md:space-y-6" action="" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-2 gap-2">
                     <div>
                       <label
@@ -317,14 +385,10 @@ const Register: React.FC = () => {
                       </div>
                     </div>
                   </div>
-
-                  <Link
-                    to="/log/otp"
-                    type="submit"
+                  <button type="submit"
                     className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                  >
-                    Sign up
-                  </Link>
+
+                  >Sign up</button>
                 </form>
               </div>
             </div>
@@ -350,3 +414,7 @@ const Register: React.FC = () => {
   );
 };
 export default Register;
+function useEffect(arg0: () => void, arg1: (boolean | import("react-router-dom").NavigateFunction)[]) {
+  throw new Error("Function not implemented.");
+}
+

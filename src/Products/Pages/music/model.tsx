@@ -145,6 +145,7 @@ export default function Model() {
                   </div>
                 </div>
                 <iframe
+                title="fats"
                   style={{
                     display: "block",
                     position: "absolute",
