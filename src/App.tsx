@@ -7,6 +7,7 @@ import ServicesRoute from "./routes/ServicesRoutes";
 import APIsRoute from "./routes/ApiRoute";
 import ProductsRoute from "./routes/ProductsRoute";
 import Test from "./frontend/pages/test";
+import Ske from "./Products/Pages/3d_object/Sketchfab-Categoires";
 
 const App = () => {
   // const FrontendRoute = lazy(() => import("./routes/FrontendRoute"));
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/api*" element={<APIsRoute />} />
           <Route path="/log*" element={<UserDataRoute />} />
           <Route path="/testt*" element={<Test />} />
+          <Route path="/ske*" element={<Ske />} />
         </Routes>
       </Router>
     //  </Suspense>
