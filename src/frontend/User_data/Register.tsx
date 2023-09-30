@@ -113,7 +113,7 @@ const Register: React.FC = () => {
         backgroundPosition: "center",
       }}
     >
-     
+
       <div className="flex flex-col-reverse md:flex-row">
         {/* Right side login container */}
         <div
