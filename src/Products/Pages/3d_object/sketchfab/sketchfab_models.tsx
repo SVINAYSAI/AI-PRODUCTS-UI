@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const SketchfabSearch: React.FC = () => {
-  const [data, setData] = useState<{ next: string; first_thumbnail_images: { url: string }[] } | null>(null);
+  const [data, setData] = useState<{ next: string; thumbnail_images: { url: string }[] } | null>(null);
 
   useEffect(() => {
     fetch('http://localhost:5000/get_sketchfab_data')
@@ -17,7 +17,7 @@ const SketchfabSearch: React.FC = () => {
         <div>
           <p className="mb-2">Next URL: {data.next}</p>
           <ul>
-            {data.first_thumbnail_images.map((image, index) => (
+            {data.thumbnail_images.map((image, index) => (
               <li key={index} className="mb-1">
                 <div className="grid grid-cols-4 gap-4">
                   {image ? (
