@@ -17,18 +17,16 @@ const SketchfabSearch: React.FC = () => {
       {data ? (
         <div>
           <p className="mb-2">Next URL: {data.next}</p>
-          <ul>
+          <div className="grid grid-cols-4 gap-4 rounded-md">
             {data.uid.map((uid, index) => (
-              <li key={index} className="mb-1">
-                <div className="grid grid-cols-4 gap-4">
-                <a href={uid} target="_blank" rel="noopener noreferrer" className="text-blue-500">
+              <div key={index} className="mb-1 rounded-md">
+                <a href={uid} target="_blank" rel="noopener noreferrer" className="text-blue-500 rounded-md">
                 <SketchfabViewer modelUid={uid} />
                   {/* {uid} */}
                 </a>
-                </div>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       ) : (
         <p>Loading...</p>
