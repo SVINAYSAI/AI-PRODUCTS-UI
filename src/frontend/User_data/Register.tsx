@@ -5,7 +5,6 @@ import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import img from "../../Components/assets/imgs/christmas.jpg";
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
-import App from "./k";
 // import EmailSender from "./EmailSender"
 
 const Register: React.FC = () => {
@@ -113,7 +112,6 @@ const Register: React.FC = () => {
         backgroundPosition: "center",
       }}
     >
-      <App/>
       <div className="flex flex-col-reverse md:flex-row">
         {/* Right side login container */}
         <div
