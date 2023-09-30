@@ -1,18 +1,42 @@
 import React, { useState, useEffect } from "react";
+import "../../../../Components/CSS/sketchfab.css"
 
 const SketchfabSearch: React.FC = () => {
-  const [data, setData] = useState<{
-    next: string;
-    thumbnail_images: { url: string }[];
-  } | null>(null);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/get_sketchfab_data")
-      .then((response) => response.json())
-      .then((data) => setData(data))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
-
+    const [data, setData] = useState<{
+        next: string;
+        thumbnail_images: { url: string }[];
+      } | null>(null);
+      
+      const [searchQuery, setSearchQuery] = useState('house');
+      const [triggerFetch, setTriggerFetch] = useState(true);
+      const [loading, setLoading] = useState(false);  // New loading state
+    
+      useEffect(() => {
+        if (triggerFetch) {
+          setLoading(true);  // Set loading to true when fetching data
+          fetch(`http://localhost:5000/get_sketchfab_data?q=${searchQuery}`)
+            .then((response) => response.json())
+            .then((data) => {
+              setData(data);
+              setLoading(false);  // Set loading to false when data is received
+            })
+            .catch((error) => {
+              console.error("Error fetching data:", error);
+              setLoading(false);  // Set loading to false if an error occurs
+            });
+          setTriggerFetch(false);
+        }
+      }, [searchQuery, triggerFetch]);
+    
+      const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchQuery(event.target.value);
+      };
+    
+      const handleSearchSubmit = () => {
+        setTriggerFetch(true);
+      };
+    
+    
   return (
     <>
       {/* <div className="relative pt-[5%] w-[80%] bg-gray-50 lg:ml-64 dark:bg-gray-900"> */}
@@ -39,44 +63,55 @@ const SketchfabSearch: React.FC = () => {
                   </svg>
                 </div>
                 <input
-                  type="search"
-                  id="default-search"
-                  className="block w-full pl-10 p-[2%] text-sm text-gray-900 border border-gray-300 rounded-l-md bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Search..."
-                />
-                <button
-                  type="submit"
-                  className="text-white bottom-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-r-md text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                >
-                  Search
-                </button>
+              type="search"
+              id="default-search"
+              value={searchQuery}  // Controlled input value
+              onChange={handleSearchChange}  // New event handler for input changes
+              className="block w-full pl-10 p-[2%] text-sm text-gray-900 border border-gray-300 rounded-l-md bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Search..."
+            />
+             <button
+        type="button"
+        onClick={handleSearchSubmit}
+        className="text-white bottom-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-r-md text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        {loading ? (  // Show rotating icon if loading, otherwise show "Search" text
+          <div className="loading-icon"></div>
+        ) : (
+          'Search'
+        )}
+      </button>
               </div>
             </div>
           </div>
-          {data ? (
-            <div>
-              <p className="mb-2">Next URL: {data.next}</p>
-              <div className="grid grid-cols-4 gap-4">
-                {data.thumbnail_images.map((image, index) => (
-                  <div key={index} className="mb-1">
-                    {image ? (
-                      <a
-                        href={image.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-500"
-                      >
-                        <img src={image.url} alt={`Thumbnail ${index}`} />
-                      </a>
-                    ) : (
-                      <p>No image available</p>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          ) : (
-            <p>Loading...</p>
+          {loading ? (
+                    <div className="loading-icon-container">
+                        <div className="loading-icon"></div>
+                    </div>
+                ) : data ? (
+                    <div>
+                        <p className="mb-2">Next URL: {data.next}</p>
+                        <div className="grid grid-cols-4 gap-4">
+                            {data.thumbnail_images.map((image, index) => (
+                                <div key={index} className="mb-1">
+                                    {image ? (
+                                        <a
+                                            href={image.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-blue-500"
+                                        >
+                                            <img src={image.url} alt={`Thumbnail ${index}`} />
+                                        </a>
+                                    ) : (
+                                        <p>No image available</p>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                ) : (
+                    <p>Loading...</p>
           )}
         </div>
       {/* </div> */}
