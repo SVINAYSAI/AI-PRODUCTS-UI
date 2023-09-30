@@ -1,8 +1,7 @@
 import { useState, 
   // FormEvent 
 } from "react";
-import D3_model from "./3d_model";
-import React from "react";
+import D3model from "./3d_model";
 export default function Text_to_3d() {
   const [selectedForm, setSelectedForm] = useState<number | null>(null);
 
@@ -27,7 +26,7 @@ export default function Text_to_3d() {
           Gnerate 3D Object
         </button>
       </div>
-      {selectedForm === ("form1" as unknown) && <D3_model />}
+      {selectedForm === ("form1" as unknown) && <D3model />}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-10">
         <div className="grid gap-4"></div>
 

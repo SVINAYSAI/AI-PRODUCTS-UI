@@ -106,6 +106,7 @@ export default function d3_model() {
                   </div>
                 </div>
                 <iframe
+                title="fats"
                   style={{
                     display: "block",
                     position: "absolute",

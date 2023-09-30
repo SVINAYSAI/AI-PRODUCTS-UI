@@ -1,8 +1,7 @@
 import { useState, 
   // FormEvent
  } from "react";
-import Chart_model from "./chart_model";
-import React from "react";
+import Chartmodel from "./chart_model";
 export default function Text_to_chart() {
   const [selectedForm, setSelectedForm] = useState<number | null>(null);
 
@@ -27,7 +26,7 @@ export default function Text_to_chart() {
           Gnerate Chart
         </button>
       </div>
-      {selectedForm === ("form1" as unknown) && <Chart_model />}
+      {selectedForm === ("form1" as unknown) && <Chartmodel />}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-10">
         <div className="grid gap-4"></div>
 

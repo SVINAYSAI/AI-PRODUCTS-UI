@@ -1,10 +1,9 @@
 import { useState } from 'react';
 // import axios from 'axios';
-import React from 'react';
 
 export default function Model() {
   const [prompt, setPrompt] = useState('');
-  const [processedImage, setProcessedImage] = useState(null);
+  const [processedImage] = useState(null);
 
   // const handleGenerateImage = async () => {
   //   try {
