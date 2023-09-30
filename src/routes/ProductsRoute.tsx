@@ -13,6 +13,7 @@ import Test from "../Products/Pages/Transcripts/test";
 import Dashboard from "../Products/Dashboard";
 import UserSettings from "../Products/UserSettings";
 import Ske from "../Products/Pages/3d_object/Sketchfab-Categoires";
+import SketchfabSearch from "../Products/Pages/3d_object/sketchfab/sketchfab_models";
 
 const Product = () => {
   return (
@@ -30,6 +31,7 @@ const Product = () => {
           <Route path="/transcripts" element={<Transcripts />} />
           <Route path="/test" element={<Test />} />
           <Route path="/cat" element={<Ske />} />
+          <Route path="/sketch*" element={<SketchfabSearch />} />
         </Route>
     </Routes>
   );
