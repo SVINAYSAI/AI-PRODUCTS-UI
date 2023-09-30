@@ -5,7 +5,7 @@ import Register from "../frontend/User_data/Register";
 import Forgot from "../frontend/User_data/Forgot";
 import NewPassword from "../frontend/User_data/NewPassword";
 import OTP from "../frontend/User_data/OTP";
-
+import "../Components/CSS/style.css"
 
 const ApiRoute = () => {
     return (

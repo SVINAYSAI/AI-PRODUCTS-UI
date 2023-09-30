@@ -8,7 +8,8 @@ import Blog from "../frontend/pages/Blog";
 import ContactUs from "../frontend/pages/ContactUs";
 import Pricing from "../frontend/pages/Pricing";
 import Chatbot1 from "../frontend/chatbot/chatbot";
-import Test1 from "../frontend/User_data/q"
+// import Test1 from "../frontend/User_data/q"
+
 
 const FrontendRoute = () => {
   return (
