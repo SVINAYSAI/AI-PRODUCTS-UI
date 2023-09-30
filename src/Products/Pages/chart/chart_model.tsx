@@ -25,6 +25,7 @@ export default function Chart_model() {
 
   useEffect(() => {
     generateDiagram();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const generateDiagram = () => {
