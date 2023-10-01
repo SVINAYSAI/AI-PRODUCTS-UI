@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../../../Components/CSS/sketchfab.css";
+import "../../../../components/CSS/sketchfab.css";
 import ModelViewerModal from "./k"; // Import the modal component
 
 const SketchfabSearch: React.FC = () => {

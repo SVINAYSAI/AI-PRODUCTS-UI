@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import img from "../../Components/assets/imgs/christmas.jpg";
+import img from "../../components/assets/imgs/christmas.jpg";
 
 const NewPassword: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);

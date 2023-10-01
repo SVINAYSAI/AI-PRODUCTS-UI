@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import "../Components/CSS/Tailwind.css"
+import "../components/CSS/Tailwind.css"
 import Login from "../frontend/User_data/Login";
 import Register from "../frontend/User_data/Register";
 import Forgot from "../frontend/User_data/Forgot";
 import NewPassword from "../frontend/User_data/NewPassword";
 import OTP from "../frontend/User_data/OTP";
-import "../Components/CSS/sketchfab.css"
+import "../components/CSS/sketchfab.css"
 
 const ApiRoute = () => {
     return (

@@ -1,6 +1,6 @@
 import Header from "../Home/Header";
-import "../../Components/assets/css/creative-studio.css";
-import "../../Components/assets/vendors/themify-icons/css/themify-icons.css";
+import "../../components/assets/css/creative-studio.css";
+import "../../components/assets/vendors/themify-icons/css/themify-icons.css";
 import WeCreate from "../Home/WeCreate";
 import OurServices from "../Home/OurServices";
 import OurTeam from "../Home/OurTeam";

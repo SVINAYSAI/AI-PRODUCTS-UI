@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import img from "../Components/fats-logo/svg/logo-no-background.svg";
+import img from "../components/fats-logo/svg/logo-no-background.svg";
 export default function Layout() {
   return (
     <>
