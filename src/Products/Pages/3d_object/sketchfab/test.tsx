@@ -1,39 +1,34 @@
 import React, { useState, useEffect } from "react";
 import "../../../../Components/CSS/sketchfab.css";
-import ModelViewerModal from "./k"; // Import the modal component
 
 const SketchfabSearch: React.FC = () => {
   const [data, setData] = useState<{
     next: string;
     thumbnail_images: { url: string }[];
-    models: { name: string; viewerUrl: string; uid: string }[];
   } | null>(null);
 
   const [searchQuery, setSearchQuery] = useState("house");
   const [triggerFetch, setTriggerFetch] = useState(true);
-  const [loading, setLoading] = useState(false);
-  const [count, setCount] = useState(24);
-  const [cursor, setCursor] = useState(24);
-  const [nextClickCount, setNextClickCount] = useState(0);
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedModelUid, setSelectedModelUid] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false); // New loading state
+  const [count, setCount] = useState(24); // New state for count
+  const [cursor, setCursor] = useState(24); // New state for cursor
+  const [nextClickCount, setNextClickCount] = useState(0); // New state to track the number of "Next" button clicks
 
   useEffect(() => {
     if (triggerFetch) {
-      console.log("Triggering fetch with:", { searchQuery, count, cursor });
+      console.log("Triggering fetch with:", { searchQuery, count, cursor }); // Log the values being used
       const url = `http://localhost:5000/get_next_sketchfab_data?q=${searchQuery}&count=${count}&cursor=${cursor}`;
-      console.log("URL:", url);
-      setLoading(true);
+      console.log("URL:", url); // Log the URL being used
+      setLoading(true); // Set loading to true when fetching data
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
           setData(data);
-          setLoading(false);
+          setLoading(false); // Set loading to false when data is received
         })
         .catch((error) => {
           console.error("Error fetching data:", error);
-          setLoading(false);
+          setLoading(false); // Set loading to false if an error occurs
         });
       setTriggerFetch(false);
     }
@@ -44,39 +39,34 @@ const SketchfabSearch: React.FC = () => {
   };
 
   const handleSearchSubmit = () => {
-    setCount(24);
-    setCursor(0);
-    setTriggerFetch(true);
+    setCount(24); // Reset count to initial value
+    setCursor(0); // Reset cursor to initial value
+    setTriggerFetch(true); // Trigger a new fetch
   };
 
   const handleNextClick = () => {
-    setNextClickCount((prev) => prev + 1);
-    setCount((prev) => prev + 24);
+    setNextClickCount((prev) => prev + 1); // Increment the nextClickCount
+    setCount((prev) => prev + 24); // Always increment count by 24
     if (nextClickCount >= 0) {
-      setCursor((prev) => prev + 24);
+      setCursor((prev) => prev + 24); // Increment cursor by 24 if nextClickCount is 1 or more
     }
-    setTriggerFetch(true);
+    setTriggerFetch(true); // Trigger a new fetch
   };
 
   const handleBackClick = () => {
-    setCount((prev) => (prev - 24 >= 24 ? prev - 24 : prev));
+    setCount((prev) => (prev - 24 >= 24 ? prev - 24 : prev)); // Decrement count by 24 if result is >= 24
 
     if (nextClickCount > 1) {
-      setCursor((prev) => prev - 24);
+      setCursor((prev) => prev - 24); // Decrement cursor by 24 if nextClickCount > 1
     } else {
-      setCursor(0);
+      setCursor(0); // Reset cursor to 0 if nextClickCount is 1 or less
     }
 
     if (nextClickCount > 0) {
-      setNextClickCount((prev) => prev - 1);
+      setNextClickCount((prev) => prev - 1); // Decrement nextClickCount if it's > 0
     }
 
-    setTriggerFetch(true);
-  };
-
-  const handleThumbnailClick = (modelUid: string) => {
-    setSelectedModelUid(modelUid);
-    setIsModalOpen(true);
+    setTriggerFetch(true); // Trigger a new fetch
   };
 
   return (
@@ -107,8 +97,8 @@ const SketchfabSearch: React.FC = () => {
                 <input
                   type="search"
                   id="default-search"
-                  value={searchQuery}
-                  onChange={handleSearchChange}
+                  value={searchQuery} // Controlled input value
+                  onChange={handleSearchChange} // New event handler for input changes
                   className="block w-full pl-10 p-[2%] text-sm text-gray-900 border border-gray-300 rounded-l-md bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Search..."
                 />
@@ -134,23 +124,15 @@ const SketchfabSearch: React.FC = () => {
               <p className="mb-2">Next URL: {data.next}</p>
               <div className="grid grid-cols-4 gap-4">
                 {data.thumbnail_images.map((image, index) => (
-                  <div
-                    key={index}
-                    className="mb-1"
-                    onClick={() =>
-                      handleThumbnailClick(data.models[index].uid)
-                    }
-                  >
+                  <div key={index} className="mb-1">
                     {image ? (
                       <a
+                        href={image.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-500"
                       >
                         <img src={image.url} alt={`Thumbnail ${index}`} />
-                        <p className="text-center text-sm mt-1">
-                          {data.models[index].name}
-                        </p>
                       </a>
                     ) : (
                       <p>No image available</p>
@@ -182,14 +164,6 @@ const SketchfabSearch: React.FC = () => {
           </div>
         </div>
       </div>
-      {/* Modal for model viewer */}
-      {isModalOpen && selectedModelUid && (
-        <ModelViewerModal
-          isOpen={isModalOpen}
-          onRequestClose={() => setIsModalOpen(false)}
-          modelUid={selectedModelUid}
-        />
-      )}
     </>
   );
 };

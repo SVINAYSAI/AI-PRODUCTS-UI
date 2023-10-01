@@ -9,6 +9,7 @@ import ProductsRoute from "./routes/ProductsRoute";
 import Test from "./frontend/pages/test";
 import Ske from "./Products/Pages/3d_object/Sketchfab-Categoires";
 import SketchfabSearch from "./Products/Pages/3d_object/sketchfab/sketchfab_models";
+import SketchfabSearch1 from "./Products/Pages/3d_object/sketchfab/test";
 // import Show from "./frontend/User_data/k";
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/testt*" element={<Test />} />
           <Route path="/ske*" element={<Ske />} />
           <Route path="/sketch*" element={<SketchfabSearch />} />
+          <Route path="/sketch1*" element={<SketchfabSearch1 />} />
           {/* <Route path="/show*" element={<Show />} /> */}
         </Routes>
       </Router>
