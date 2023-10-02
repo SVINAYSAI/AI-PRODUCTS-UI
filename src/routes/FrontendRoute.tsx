@@ -15,6 +15,7 @@ import Register from '../frontend/Login Details/Register'
 import Forgot from '../frontend/Login Details/Forgot'
 import Verify from "../frontend/Login Details/Verification"
 import CreatePw from '../frontend/Login Details/CreatePw'
+import App from '../frontend/Login Details/test'
 import React from 'react'
 
 const FrontendRoute = () => {
@@ -29,6 +30,7 @@ const FrontendRoute = () => {
         <Route path="/verify" element={<Verify />} />
         <Route path="/createpw" element={<CreatePw />} />
         <Route path="/test" element={<Test />} />
+        <Route path="/test1" element={<App />} />
     </Routes>
   )
 }
