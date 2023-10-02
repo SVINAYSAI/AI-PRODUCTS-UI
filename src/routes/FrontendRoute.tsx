@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import "../components/CSS/Tailwind.css";
+import "../Components/CSS/Tailwind.css";
 import Layout from "../frontend/Layout";
 import Home from "../frontend/pages/Home";
 import OurTeam from "../frontend/Home/OurTeam";

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import img from "../../components/assets/imgs/artificial-intelligence-AI.jpg";
-import img1 from "../../components/assets/imgs/cat-larg2.jpg";
+import img from "../../Components/assets/imgs/artificial-intelligence-AI.jpg";
+import img1 from "../../Components/assets/imgs/cat-larg2.jpg";
 import Footer from "../Home/Footer";
 
 const Blog = () => {

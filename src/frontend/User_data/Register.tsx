@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from 'react-cookie';
 import React, { useState } from 'react';
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
-import img from "../../components/assets/imgs/christmas.jpg";
+import img from "../../Components/assets/imgs/christmas.jpg";
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
 

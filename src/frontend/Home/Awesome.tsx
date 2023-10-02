@@ -1,5 +1,5 @@
-import img1 from "../../components/assets/imgs/avatar.jpg";
-import img2 from "../../components/assets/imgs/avatar-3.jpg";
+import img1 from "../../Components/assets/imgs/avatar.jpg";
+import img2 from "../../Components/assets/imgs/avatar-3.jpg";
 
 export default function Awesome() {
   return (

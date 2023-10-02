@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Layout from "../Products/Layout";
-import "../components/CSS/Tailwind.css";
+import "../Components/CSS/Tailwind.css";
 import Textto3d from "../Products/Pages/3d_object/Text_to_3d";
 import Texttochart from "../Products/Pages/chart/Text_to_chart";
 import Chart from "../Products/Pages/chart/chart";

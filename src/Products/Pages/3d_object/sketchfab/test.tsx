@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../../../components/CSS/sketchfab.css";
+import "../../../../Components/CSS/sketchfab.css";
 
 const SketchfabSearch: React.FC = () => {
   const [data, setData] = useState<{

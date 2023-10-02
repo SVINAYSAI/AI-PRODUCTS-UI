@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import img1 from "../../components/assets/imgs/artificial-intelligence-AI.jpg";
-import img2 from "../../components/assets/imgs/vr.jpg";
-import img3 from "../../components/assets/imgs/ar.jpg";
+import img1 from "../../Components/assets/imgs/artificial-intelligence-AI.jpg";
+import img2 from "../../Components/assets/imgs/vr.jpg";
+import img3 from "../../Components/assets/imgs/ar.jpg";
 
 export default function OurBlog() {
   return (

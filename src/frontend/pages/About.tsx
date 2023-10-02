@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import img from "../../components/assets/imgs/hp_innovacion2.jpg";
-import img1 from "../../components/assets/imgs/IMG_8573-1078.jpg";
-import img5 from "../../components/assets/imgs/testimonial-img.png";
-import img6 from "../../components/assets/imgs/team1-1.jpg";
-import img7 from "../../components/assets/imgs/team1-2.jpg";
-import img8 from "../../components/assets/imgs/team1-3.jpg";
-import img9 from "../../components/assets/imgs/team1-4.jpg";
-import img10 from "../../components/assets/imgs/partner1.jpg";
-import img11 from "../../components/assets/imgs/partner2-1.jpg";
-import img13 from "../../components/assets/imgs/mission-img.jpg";
-import img14 from "../../components/assets/imgs/vision-img.jpg";
+import img from "../../Components/assets/imgs/hp_innovacion2.jpg";
+import img1 from "../../Components/assets/imgs/IMG_8573-1078.jpg";
+import img5 from "../../Components/assets/imgs/testimonial-img.png";
+import img6 from "../../Components/assets/imgs/team1-1.jpg";
+import img7 from "../../Components/assets/imgs/team1-2.jpg";
+import img8 from "../../Components/assets/imgs/team1-3.jpg";
+import img9 from "../../Components/assets/imgs/team1-4.jpg";
+import img10 from "../../Components/assets/imgs/partner1.jpg";
+import img11 from "../../Components/assets/imgs/partner2-1.jpg";
+import img13 from "../../Components/assets/imgs/mission-img.jpg";
+import img14 from "../../Components/assets/imgs/vision-img.jpg";
 import Footer from "../Home/Footer";
 
 export default function About() {

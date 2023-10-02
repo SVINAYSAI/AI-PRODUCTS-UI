@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import img from "../../components/assets/imgs/artificial-intelligence-AI.jpg";
-import img1 from "../../components/assets/imgs/cat-larg1.jpg";
-import img2 from "../../components/assets/imgs/cat-larg3.jpg";
-import img3 from "../../components/assets/imgs/cat-larg4.jpg";
-import img4 from "../../components/assets/imgs/cat-larg5.jpg";
-import img5 from "../../components/assets/imgs/cat-larg6.jpg";
-import img6 from "../../components/assets/imgs/cat-larg7.jpg";
-import img7 from "../../components/assets/imgs/cat-larg8.jpg";
-import img8 from "../../components/assets/imgs/blog-cat1.jpg";
-import img9 from "../../components/assets/imgs/blog-cat2.jpg";
-import img10 from "../../components/assets/imgs/blog-cat3.jpg";
-import img11 from "../../components/assets/imgs/blog-cat4.jpg";
+import img from "../../Components/assets/imgs/artificial-intelligence-AI.jpg";
+import img1 from "../../Components/assets/imgs/cat-larg2.jpg";
+import img2 from "../../Components/assets/imgs/cat-larg3.jpg";
+import img3 from "../../Components/assets/imgs/cat-larg4.jpg";
+import img4 from "../../Components/assets/imgs/cat-larg5.jpg";
+import img5 from "../../Components/assets/imgs/cat-larg6.jpg";
+import img6 from "../../Components/assets/imgs/cat-larg7.jpg";
+import img7 from "../../Components/assets/imgs/cat-larg8.jpg";
+import img8 from "../../Components/assets/imgs/blog-cat1.jpg";
+import img9 from "../../Components/assets/imgs/blog-cat2.jpg";
+import img10 from "../../Components/assets/imgs/blog-cat3.jpg";
+import img11 from "../../Components/assets/imgs/blog-cat4.jpg";
 import Footer from "../Home/Footer";
 
 const Blog = () => {

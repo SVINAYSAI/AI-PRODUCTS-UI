@@ -1,4 +1,4 @@
-import img from "../../components/assets/imgs/about.jpg";
+import img from "../../Components/assets/imgs/about.jpg";
 export default function WeCreate() {
   return (
     <>

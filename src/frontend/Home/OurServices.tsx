@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-import img1 from "../../components/assets/imgs/folio-1.jpg";
-import img2 from "../../components/assets/imgs/folio-2.jpg";
-import img3 from "../../components/assets/imgs/folio-3.jpg";
-import img4 from "../../components/assets/imgs/folio-4.jpg";
-import img5 from "../../components/assets/imgs/folio-5.jpg";
-import img6 from "../../components/assets/imgs/folio-6.jpg";
+import img1 from "../../Components/assets/imgs/folio-1.jpg";
+import img2 from "../../Components/assets/imgs/folio-2.jpg";
+import img3 from "../../Components/assets/imgs/folio-3.jpg";
+import img4 from "../../Components/assets/imgs/folio-4.jpg";
+import img5 from "../../Components/assets/imgs/folio-5.jpg";
+import img6 from "../../Components/assets/imgs/folio-6.jpg";
 
 export default function OurServices() {
   return (

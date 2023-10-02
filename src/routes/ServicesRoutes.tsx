@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import "../components/CSS/Tailwind.css";
+import "../Components/CSS/Tailwind.css";
 import Services from "../Services/pages/Services";
 import Radio from "../Services/pages/Radio";
 import Layout from "../Services/Layout";
