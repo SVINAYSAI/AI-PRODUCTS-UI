@@ -15,9 +15,14 @@ const SketchfabSearch: React.FC = () => {
   const [count, setCount] = useState(24);
   const [cursor, setCursor] = useState(24);
   const [nextClickCount, setNextClickCount] = useState(0);
-
+  const [modelDescription, setModelDescription] = useState<string | null>(null); // Define and initialize the modelDescription state
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedModelUid, setSelectedModelUid] = useState<string | null>(null);
+  const [glbSize, setGlbSize] = useState<number | null>(null);
+  const [gltfSize, setGltfSize] = useState<number | null>(null);
+  const [sourceSize, setSourceSize] = useState<number | null>(null);
+  const [usdzSize, setUsdzSize] = useState<number | null>(null);
+
 
   useEffect(() => {
     if (triggerFetch) {
@@ -75,9 +80,73 @@ const SketchfabSearch: React.FC = () => {
   };
 
   const handleThumbnailClick = (modelUid: string) => {
-    setSelectedModelUid(modelUid);
-    setIsModalOpen(true);
+    fetch(`http://localhost:5000/get_download_info?uid=${modelUid}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP Error ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // Handle the download information (e.g., display size)
+      console.log("Download Info:", data);
+
+      // Ensure that the size values are converted to numbers
+      const glbSize = parseFloat(data.glb.size);
+      const gltfSize = parseFloat(data.gltf.size);
+      const sourceSize = parseFloat(data.source.size);
+      const usdzSize = parseFloat(data.usdz.size);
+
+      // Now, you can use these numeric values to display the download size
+      setGlbSize(glbSize);
+      setGltfSize(gltfSize);
+      setSourceSize(sourceSize);
+      setUsdzSize(usdzSize);
+    })
+    .catch((error) => {
+      console.error("Error fetching download information:", error);
+      // Handle the error, e.g., show an error message to the user
+    });
+
+
+    
+  
+    // Send a request to fetch the model description
+    fetch(`http://localhost:5000/sketchfab/get_model_description?uid=${modelUid}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP Error ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        const description = data.description || "No description available"; // Provide a default if description is missing
+        setModelDescription(description);
+        setSelectedModelUid(modelUid);
+        setIsModalOpen(true);
+      })
+      .catch((error) => {
+        console.error("Error fetching model description:", error);
+        // Handle the error, e.g., show an error message to the user
+      });
   };
+  
+  function formatSize(sizeInBytes: number | null): string {
+    if (sizeInBytes === null) {
+      return 'N/A';
+    }
+  
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    const i = Math.floor(Math.log(sizeInBytes) / Math.log(1024));
+  
+    if (i === 0) {
+      return `${sizeInBytes} ${sizes[i]}`;
+    }
+  
+    return `${(sizeInBytes / (1024 ** i)).toFixed(2)} ${sizes[i]}`;
+  }
+  
+  
 
   return (
     <>
@@ -188,6 +257,11 @@ const SketchfabSearch: React.FC = () => {
           isOpen={isModalOpen}
           onRequestClose={() => setIsModalOpen(false)}
           modelUid={selectedModelUid}
+          modelDescription={modelDescription}
+          glbSize={glbSize !== null ? formatSize(glbSize) : 'N/A'}
+          gltfSize={gltfSize !== null ? formatSize(gltfSize) : 'N/A'}
+          sourceSize={sourceSize !== null ? formatSize(sourceSize) : 'N/A'}
+          usdzSize={usdzSize !== null ? formatSize(usdzSize) : 'N/A'}
         />
       )}
     </>
