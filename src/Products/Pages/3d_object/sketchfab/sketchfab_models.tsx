@@ -165,7 +165,8 @@ const SketchfabSearch: React.FC = () => {
       <div className="relative pt-[5%] w-[80%] bg-gray-50 lg:ml-64 dark:bg-gray-900">
         <div className="container">
           <div className="grid grid-cols-2 gap-4">
-            <h1 className="text-2xl font-bold mb-4 pt-[3%]">Sketchfab Data</h1>
+            <h1 className="text-2xl font-bold mb-4 pt-[3%]">3D Models</h1>
+
             <div className="" style={{ paddingLeft: "32%" }}>
               <div className="p-[1%] relative flex">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
@@ -202,12 +203,15 @@ const SketchfabSearch: React.FC = () => {
                 </button>
               </div>
             </div>
+
           </div>
+
           {loading ? (
             <div className="loading-icon-container">
               <div className="loading-icon"></div>
             </div>
           ) : data ? (
+            
             <div
               className="container"
               style={{ maxHeight: "425px", overflowY: "auto" }}
