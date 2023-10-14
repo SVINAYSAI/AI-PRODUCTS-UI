@@ -1,5 +1,5 @@
-import { Outlet } from "react-router-dom";
-import "../components/frontend/assets/css/style1.css"
+import { Link, Outlet } from "react-router-dom";
+import img from "../components/fats-logo/svg/logo-no-background.svg";
 export default function Layout() {
   return (
     <>
@@ -12,7 +12,7 @@ export default function Layout() {
                 data-drawer-toggle="logo-sidebar"
                 aria-controls="logo-sidebar"
                 type="button"
-                className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                className="inline-flex items-center p-2 text-sm text-gray-500 rounded-md sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               >
                 <span className="sr-only">Open sidebar</span>
                 <svg
@@ -29,16 +29,12 @@ export default function Layout() {
                   ></path>
                 </svg>
               </button>
-              <a href="https://flowbite.com" className="flex ml-2 md:mr-24">
-                <img
-                  src="https://flowbite.com/docs/images/logo.svg"
-                  className="h-8 mr-3"
-                  alt="FlowBite Logo"
-                />
+              <Link to="https://aifats.com" className="flex ml-2 md:mr-24">
+                <img src={img} className="h-8 mr-3" alt="" />
                 <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
                   FATS
                 </span>
-              </a>
+              </Link>
             </div>
             <div className="flex items-center">
               <div className="flex items-center ml-3">
@@ -53,7 +49,7 @@ export default function Layout() {
                     <img
                       className="w-8 h-8 rounded-full"
                       src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                      alt="user photo"
+                      alt=""
                     />
                   </button>
                 </div>
@@ -77,40 +73,40 @@ export default function Layout() {
                   </div>
                   <ul className="py-1" role="none">
                     <li>
-                      <a
-                        href="#"
+                      <Link
+                        to="#"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
                       >
                         Dashboard
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
+                      <Link
+                        to="#"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
                       >
                         Settings
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
+                      <Link
+                        to="#"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
                       >
                         Earnings
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
+                      <Link
+                        to="#"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
                       >
                         Sign out
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -122,8 +118,7 @@ export default function Layout() {
 
       <div className=" flex flex-col flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800">
         <div className="fixed flex flex-col top-0 left-0 w-64 bg-white h-full border-r">
-          <div className="flex items-center justify-center h-14 border-b">
-          </div>
+          <div className="flex items-center justify-center h-14 border-b"></div>
           <div className="overflow-y-auto overflow-x-hidden flex-grow">
             <ul className="flex flex-col py-4 space-y-1 p-1">
               <li className="px-5">
@@ -134,8 +129,34 @@ export default function Layout() {
                 </div>
               </li>
               <li>
-                <a
-                  href="/products/image"
+                <Link
+                  to="/products/dashboard"
+                  className="relative flex flex-row items-center h-11 no-underline focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+                >
+                  <span className="inline-flex justify-center items-center ml-4">
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                      ></path>
+                    </svg>
+                  </span>
+                  <span className="ml-2 text-sm tracking-wide truncate">
+                    Dash Board
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/products/image"
                   className="relative flex flex-row items-center h-11 no-underline focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -157,11 +178,11 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     Image Genration
                   </span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/products/voice"
+                <Link
+                  to="/products/voice"
                   className="relative flex flex-row items-center h-11 no-underline focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -181,14 +202,13 @@ export default function Layout() {
                     </svg>
                   </span>
                   <span className="ml-2 text-sm tracking-wide truncate">
-                    Voice Gentaion 
+                    Voice Gentaion
                   </span>
-              
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/products/3d"
+                <Link
+                  to="/products/3d"
                   className="relative flex flex-row items-center no-underline h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -210,11 +230,11 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     3D Objects Genration
                   </span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/products/transcripts"
+                <Link
+                  to="/products/transcripts"
                   className="relative flex flex-row items-center no-underline h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -236,13 +256,12 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     Transcripts
                   </span>
-                
-                </a>
+                </Link>
               </li>
-             
+
               <li>
-                <a
-                  href="/products/chart"
+                <Link
+                  to="/products/chart"
                   className="relative flex flex-row no-underline items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -264,11 +283,11 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     Charts Genration
                   </span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/products/music"
+                <Link
+                  to="/products/music"
                   className="relative flex flex-row items-center no-underline h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -290,12 +309,11 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     Music Genration
                   </span>
-                 
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="relative flex flex-row items-center no-underline h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -317,19 +335,37 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     AI Avatar Genration
                   </span>
-                 
-                </a>
-              </li>
-              <li className="px-5">
-                <div className="flex flex-row items-center h-8">
-                  <div className="text-sm font-light tracking-wide text-gray-500">
-                    Settings
-                  </div>
-                </div>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/products/settings"
+                  className="relative flex flex-row items-center no-underline h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+                >
+                  <span className="inline-flex justify-center items-center ml-4">
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                      ></path>
+                    </svg>
+                  </span>
+                  <span className="ml-2 text-sm tracking-wide truncate">
+                    User Settings
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="#"
                   className="relative flex flex-row items-center no-underline h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -351,11 +387,11 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     Profile
                   </span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="relative flex flex-row items-center no-underline h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -383,11 +419,11 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     Settings
                   </span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="relative flex flex-row items-center no-underline h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
@@ -409,7 +445,7 @@ export default function Layout() {
                   <span className="ml-2 text-sm tracking-wide truncate">
                     Logout
                   </span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

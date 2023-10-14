@@ -1,15 +1,15 @@
 import { useState } from "react";
 import Model from "./model";
 // import React from "react";
-import img from "../../../components/frontend/assets/imgs/Picture1.png";
-import img1 from "../../../components/frontend/assets/imgs/Picture2.png";
-import img2 from "../../../components/frontend/assets/imgs/Picture3.png";
-import img3 from "../../../components/frontend/assets/imgs/Picture4.png";
-import img4 from "../../../components/frontend/assets/imgs/Picture5.png";
-import img5 from "../../../components/frontend/assets/imgs/Picture6.png";
-import img6 from "../../../components/frontend/assets/imgs/Picture7.png";
-import img7 from "../../../components/frontend/assets/imgs/Picture8.png";
-import img8 from "../../../components/frontend/assets/imgs/Picture9.png";
+import img from "../../../components/assets/imgs/Picture1.png";
+import img2 from "../../../components/assets/imgs/Picture2.png";
+import img1 from "../../../components/assets/imgs/Picture3.png";
+import img3 from "../../../components/assets/imgs/Picture4.png";
+import img4 from "../../../components/assets/imgs/Picture5.png";
+import img5 from "../../../components/assets/imgs/Picture6.png";
+import img6 from "../../../components/assets/imgs/Picture7.png";
+import img7 from "../../../components/assets/imgs/Picture8.png";
+import img8 from "../../../components/assets/imgs/Picture9.png";
 
 export default function Text_to_Image() {
   const [selectedForm, setSelectedForm] = useState<string | null>(null);
@@ -29,7 +29,7 @@ export default function Text_to_Image() {
             type="button"
             value="form1"
             name="flexRadioDefault"
-            className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+            className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-md text-sm px-4 py-2.5 text-center mr-2 mb-2"
             onClick={() => showForm("form1")}
             id="flexRadioDefault1"
           >
@@ -39,7 +39,7 @@ export default function Text_to_Image() {
           <div className="flex">
             <button
               type="button"
-              className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-8 py-2.5 text-center mr-2 mb-2"
+              className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-md text-sm px-8 py-2.5 text-center mr-2 mb-2"
               onClick={handleCancel}
             >
               Cancel
@@ -55,7 +55,7 @@ export default function Text_to_Image() {
 
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src={img}
               alt=""
             />
@@ -68,7 +68,7 @@ export default function Text_to_Image() {
           </div>
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src={img1}
               alt=""
             />
@@ -79,7 +79,7 @@ export default function Text_to_Image() {
           </div>
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src={img2}
               alt=""
             />
@@ -93,7 +93,7 @@ export default function Text_to_Image() {
         <div className="grid gap-4">
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src={img3}
               alt=""
             />
@@ -105,7 +105,7 @@ export default function Text_to_Image() {
           </div>
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src={img4}
               alt=""
             />
@@ -117,7 +117,7 @@ export default function Text_to_Image() {
           </div>
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src={img5}
               alt=""
             />
@@ -127,7 +127,7 @@ export default function Text_to_Image() {
         <div className="grid gap-4">
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src={img6}
               alt=""
             />
@@ -135,7 +135,7 @@ export default function Text_to_Image() {
           </div>
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src={img7}
               alt=""
             />
@@ -146,7 +146,7 @@ export default function Text_to_Image() {
           </div>
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src={img8}
               alt=""
             />

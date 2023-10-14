@@ -1,47 +1,47 @@
 import { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import React from "react";
 export default function Model() {
   const [prompts, setPrompts] = useState("");
   const [duration, setDuration] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/api/music_gen/generate_music",
-        {
-          prompts: prompts.split("\n"),
-          duration: parseInt(duration),
-        }
-      );
-      const url = window.URL.createObjectURL(new Blob([response.data]));
-      const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", "generated_audio.wav");
-      document.body.appendChild(link);
-      link.click();
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.error("Axios Error:", error.response?.data || error.message);
-      } else {
-        console.error("Error:", error);
-      }
-    }
-  };
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.post(
+  //       "http://localhost:5000/api/music_gen/generate_music",
+  //       {
+  //         prompts: prompts.split("\n"),
+  //         duration: parseInt(duration),
+  //       }
+  //     );
+  //     const url = window.URL.createObjectURL(new Blob([response.data]));
+  //     const link = document.createElement("a");
+  //     link.href = url;
+  //     link.setAttribute("download", "generated_audio.wav");
+  //     document.body.appendChild(link);
+  //     link.click();
+  //   } catch (error) {
+  //     if (axios.isAxiosError(error)) {
+  //       console.error("Axios Error:", error.response?.data || error.message);
+  //     } else {
+  //       console.error("Error:", error);
+  //     }
+  //   }
+  // };
   
   return (
     <>
       <div id="component-2" className="svelte-10ogue4 pl-96 pr-12 ">
         <div
           id="component-3"
-          className="gr-block gr-box relative w-full overflow-hidden border-solid border rounded-lg gr-padded"
+          className="gr-block gr-box relative w-full overflow-hidden border-solid border rounded-md gr-padded"
         >
           <div
             id="component-3"
-            className="gr-block gr-box relative w-full overflow-hidden border rounded-lg gr-padded"
+            className="gr-block gr-box relative w-full overflow-hidden border rounded-md gr-padded"
           >
-            <form onSubmit={handleSubmit}>
+            {/* <form onSubmit={handleSubmit}> */}
             <div
               className="flex row w-full flex-wrap gap-4 gr-compact items-stretch"
               id="prompt-container"
@@ -98,14 +98,14 @@ export default function Model() {
                 </div>
               </div>
               <button
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 mr-0 mb-4 mt-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-5 mr-0 mb-4 mt-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 id="component-9"
                 type="submit"
               >
                 Generate Music
               </button>
             </div>
-            </form>
+            {/* </form> */}
           </div>
           <div className="">
             <div
@@ -145,6 +145,7 @@ export default function Model() {
                   </div>
                 </div>
                 <iframe
+                title="fats"
                   style={{
                     display: "block",
                     position: "absolute",
@@ -187,27 +188,27 @@ export default function Model() {
               Examples
             </div>{" "}
             <div className="gr-samples-gallery">
-              <button className="group rounded-lg">
+              <button className="group rounded-md">
                 <div className="gr-sample-textbox">
                   A high tech solarpunk utopia in the Amazon rainforest
                 </div>{" "}
               </button>
-              <button className="group rounded-lg">
+              <button className="group rounded-md">
                 <div className="gr-sample-textbox">
                   A pikachu fine dining with a view to the Eiffel Tower
                 </div>{" "}
               </button>
-              <button className="group rounded-lg">
+              <button className="group rounded-md">
                 <div className="gr-sample-textbox">
                   A mecha robot in a favela in expressionist style
                 </div>{" "}
               </button>
-              <button className="group rounded-lg">
+              <button className="group rounded-md">
                 <div className="gr-sample-textbox">
                   an insect robot preparing a delicious meal
                 </div>{" "}
               </button>
-              <button className="group rounded-lg">
+              <button className="group rounded-md">
                 <div className="gr-sample-textbox">
                   A small cabin on top of a snowy mountain in the style of
                   Disney, artstation

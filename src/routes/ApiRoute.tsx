@@ -1,14 +1,13 @@
 import { Routes, Route } from "react-router-dom";
-import Apitest from "../APIs/test"
+// import Apitest from "../APIs/test"
 import Api from "../APIs/Layout";
-import React from "react";
 
 
 const ApiRoute = () => {
     return (
       <Routes>
         <Route path="/" element={<Api />}></Route>
-        <Route path="/apitest" element={<Apitest/>}></Route>
+        {/* <Route path="/apitest" element={<Apitest/>}></Route> */}
       </Routes>
     );
   };

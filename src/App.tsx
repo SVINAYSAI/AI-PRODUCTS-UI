@@ -1,30 +1,40 @@
-import { Routes, Route } from "react-router-dom";
-import { Suspense, lazy } from "react";
-// import Loader from './components/Loaders/Loader'
-import Loader from "./components/Loaders/Loader";
-import React from "react";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { Suspense, lazy } from "react";
+// import Loader from "./Components/Loaders/Loader";
+import UserDataRoute from "./routes/UserDataRoute";
+import FrontendRoute from "./routes/FrontendRoute";
+import ServicesRoute from "./routes/ServicesRoutes";
+import APIsRoute from "./routes/ApiRoute";
+import ProductsRoute from "./routes/ProductsRoute";
+import Test from "./frontend/pages/test";
+import Ske from "./Products/Pages/3d_object/Sketchfab-Categoires";
+import SketchfabSearch from "./Products/Pages/3d_object/sketchfab/sketchfab_models";
+import SketchfabSearch1 from "./Products/Pages/3d_object/sketchfab/test";
+// import Show from "./frontend/User_data/k";
 
 const App = () => {
-  const ProductsRoute = lazy(() => import("./routes/ProductsRoute"));
-  const FrontendRoute = lazy(() => import("./routes/FrontendRoute"));
-  const AboutRoute = lazy(() => import("./routes/AboutRoute"));
-  const BlogRoute = lazy(() => import("./routes/BlogRoute"));
-  const ContactUsRoute = lazy(() => import("./routes/ContactUsRoute"));
-  const ApiRoute = lazy(() => import("./routes/ApiRoute"));
-  const ServicesRoute = lazy(() => import("./routes/ServicesRoutes"));
+  // const FrontendRoute = lazy(() => import("./routes/FrontendRoute"));
+  // const ServicesRoute = lazy(() => import("./routes/ServicesRoutes"));
+  // const ProductsRoute = lazy(() => import("./routes/ProductsRoute"));
+  // const APIsRoute = lazy(() => import("./routes/ApiRoute"));
   return (
-    <Suspense fallback={<Loader/>}>
-      <Routes>
-        <Route path="/*" element={<FrontendRoute />} />
-        <Route path="products/*" element={<ProductsRoute />} />
-        <Route path="about/*" element={<AboutRoute />} /> 
-        <Route path="blog/*" element={<BlogRoute />} />
-        <Route path="contactus/*" element={<ContactUsRoute />} />
-        <Route path="api/*" element={<ApiRoute />} />
-        <Route path="ser/*" element={<ServicesRoute />} />
-      </Routes>
-    </Suspense>
+    // <Suspense fallback={<Loader />}>
+      <Router>
+        <Routes>
+          <Route path="/*" element={<FrontendRoute />} />
+          <Route path="/services*" element={<ServicesRoute />} />
+          <Route path="/products*" element={<ProductsRoute />} />
+          <Route path="/api*" element={<APIsRoute />} />
+          <Route path="/log*" element={<UserDataRoute />} />
+          <Route path="/testt*" element={<Test />} />
+          <Route path="/ske*" element={<Ske />} />
+          <Route path="/sketch*" element={<SketchfabSearch />} />
+          <Route path="/sketch1*" element={<SketchfabSearch1 />} />
+          {/* <Route path="/show*" element={<Show />} /> */}
+        </Routes>
+      </Router>
+    //  </Suspense>
   );
 };
+
 export default App;

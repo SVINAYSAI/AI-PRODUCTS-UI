@@ -1,8 +1,7 @@
 import { useState, 
   // FormEvent 
 } from "react";
-import D3_model from "./3d_model";
-import React from "react";
+import D3model from "./3d_model";
 export default function Text_to_3d() {
   const [selectedForm, setSelectedForm] = useState<number | null>(null);
 
@@ -20,21 +19,21 @@ export default function Text_to_3d() {
           type="button"
           value="form1"
           name="flexRadioDefault"
-          className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+          className="text-white bg-gradient-to-br from-purple-600 rounded-md to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium text-sm px-4 py-2.5 text-center mr-2 mb-2"
           onClick={() => showForm("form1" as unknown as number)}
           id="flexRadioDefault1"
         >
           Gnerate 3D Object
         </button>
       </div>
-      {selectedForm === ("form1" as unknown) && <D3_model />}
+      {selectedForm === ("form1" as unknown) && <D3model />}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-10">
         <div className="grid gap-4"></div>
 
         <div className="grid gap-4">
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src="../imgs/Picture1.png"
               alt=""
             />
@@ -47,7 +46,7 @@ export default function Text_to_3d() {
           </div>
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src="../imgs/Picture2.png"
               alt=""
             />
@@ -58,7 +57,7 @@ export default function Text_to_3d() {
           </div>
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src="../imgs/Picture3.png"
               alt=""
             />
@@ -71,7 +70,7 @@ export default function Text_to_3d() {
         <div className="grid gap-4">
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src="../imgs/Picture4.png"
               alt=""
             />
@@ -83,7 +82,7 @@ export default function Text_to_3d() {
           </div>
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src="../imgs/Picture5.png"
               alt=""
             />
@@ -95,7 +94,7 @@ export default function Text_to_3d() {
           </div>
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src="../imgs/Picture6.png"
               alt=""
             />
@@ -105,7 +104,7 @@ export default function Text_to_3d() {
         <div className="grid gap-4">
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src="../imgs/Picture7.png"
               alt=""
             />
@@ -113,7 +112,7 @@ export default function Text_to_3d() {
           </div>
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src="../imgs/Picture8.png"
               alt=""
             />
@@ -124,7 +123,7 @@ export default function Text_to_3d() {
           </div>
           <div>
             <img
-              className="h-auto max-w-full rounded-lg"
+              className="h-auto max-w-full rounded-md"
               src="../imgs/Picture9.png"
               alt=""
             />

@@ -1,35 +1,34 @@
 import { useState } from 'react';
-import axios from 'axios';
-import React from 'react';
+// import axios from 'axios';
 
 export default function Model() {
   const [prompt, setPrompt] = useState('');
-  const [processedImage, setProcessedImage] = useState(null);
+  const [processedImage] = useState(null);
 
-  const handleGenerateImage = async () => {
-    try {
-      const response = await axios.post('/api/image_generation/process_image', {
-        prompt: prompt,
-      });
+  // const handleGenerateImage = async () => {
+  //   try {
+  //     const response = await axios.post('/api/image_generation/process_image', {
+  //       prompt: prompt,
+  //     });
 
-      if (response.data && response.data.image) {
-        setProcessedImage(response.data.image);
-      }
-    } catch (error) {
-      console.error('Error generating image:', error);
-    }
-  };
+  //     if (response.data && response.data.image) {
+  //       setProcessedImage(response.data.image);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error generating image:', error);
+  //   }
+  // };
 
   return (
     <>
       <div id="component-2" className="svelte-10ogue4 pl-[22%] pr-12 ">
         <div
           id="component-3"
-          className="gr-block gr-box relative w-full overflow-hidden border-solid border rounded-lg gr-padded"
+          className="gr-block gr-box relative w-full overflow-hidden border-solid border rounded-md gr-padded"
         >
           <div
             id="component-3"
-            className="gr-block gr-box relative w-full overflow-hidden border rounded-lg gr-padded"
+            className="gr-block gr-box relative w-full overflow-hidden border rounded-md gr-padded"
           >
             <div
               className="flex row w-full flex-wrap gap-4 gr-compact items-stretch"
@@ -82,9 +81,9 @@ export default function Model() {
               </div>
               <button
                 type="button"
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 mr-0 mb-4 mt-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 mr-0 mb-4 mt-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 id="component-9"
-                onClick={handleGenerateImage}
+                // onClick={handleGenerateImage}
               >
                 Generate image
               </button>
@@ -158,27 +157,27 @@ export default function Model() {
               Examples
             </div>{" "}
             <div className="gr-samples-gallery">
-              <button className="group rounded-lg">
+              <button className="group rounded-md">
                 <div className="gr-sample-textbox">
                   A high tech solarpunk utopia in the Amazon rainforest
                 </div>{" "}
               </button>
-              <button className="group rounded-lg">
+              <button className="group rounded-md">
                 <div className="gr-sample-textbox">
                   A pikachu fine dining with a view to the Eiffel Tower
                 </div>{" "}
               </button>
-              <button className="group rounded-lg">
+              <button className="group rounded-md">
                 <div className="gr-sample-textbox">
                   A mecha robot in a favela in expressionist style
                 </div>{" "}
               </button>
-              <button className="group rounded-lg">
+              <button className="group rounded-md">
                 <div className="gr-sample-textbox">
                   an insect robot preparing a delicious meal
                 </div>{" "}
               </button>
-              <button className="group rounded-lg">
+              <button className="group rounded-md">
                 <div className="gr-sample-textbox">
                   A small cabin on top of a snowy mountain in the style of
                   Disney, artstation

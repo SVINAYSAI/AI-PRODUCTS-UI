@@ -6,8 +6,8 @@ import React from "react";
 function Layout() {
   return (
     <>
-      <div className="flex h-screen">
-        {/* Left Navbar content */}
+      {/* <div className="flex h-screen">
+       
         <nav className="fixed top-16 left-0 w-60 h-screen bg-white border border-gray-300"></nav>
 
         <main className="flex-1 overflow-y-auto">
@@ -47,9 +47,9 @@ function Layout() {
                   >
                     <path
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M1 1h15M1 7h15M1 13h15"
                     />
                   </svg>
@@ -99,11 +99,11 @@ function Layout() {
           </nav>
         </main>
 
-        {/* Right Navbar content */}
+     
         <nav className="fixed top-16 right-0 w-[26rem] fle h-screen bg-white border border-gray-300">
         
         </nav>
-      </div>
+      </div> */}
     
     </>
   );

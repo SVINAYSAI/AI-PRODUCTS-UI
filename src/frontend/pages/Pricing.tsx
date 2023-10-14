@@ -1,11 +1,14 @@
-import "../../assets/frontend/css/style2.css";
+
+import { Link } from "react-router-dom";
+import Footer from "../Home/Footer";
 export default function Pricing() {
   return (
     <>
       <section className="bg-white dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+
           <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-slate-950">
+            <h2 className="mb-4 text-4xl tracking-tight font-bold text-slate-950">
               Designed for business teams like yours
             </h2>
             <p className="mb-5 font-light text-slate-950 sm:text-xl ">
@@ -13,9 +16,9 @@ export default function Pricing() {
               and capital can unlock long-term value and drive economic growth.
             </p>
           </div>
-          <div className="space-y-8 lg:grid lg:grid-cols-4 sm:gap-6 xl:gap-2 lg:space-y-0">
 
-            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+          <div className="space-y-8 lg:grid lg:grid-cols-4 sm:gap-6 xl:gap-2 lg:space-y-0">
+            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-md border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
               <h3 className="mb-4 text-2xl font-semibold text-gray-900">
                 FREE
               </h3>
@@ -29,7 +32,7 @@ export default function Pricing() {
                 {/* <span className="text-gray-900 ">/month</span> */}
               </div>
 
-              <ul role="list" className="mb-8 space-y-4 text-left">
+              <ul className="mb-8 space-y-4 text-left">
                 <li className="flex items-center space-x-3">
                   <svg
                     className="flex-shrink-0 w-5 h-5 text-green-500 "
@@ -184,15 +187,15 @@ export default function Pricing() {
                   </span>
                 </li>
               </ul>
-              <a
-                href="#"
-                className="text-white bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+              <Link
+                to=""
+                className="text-white bg-blue-700 font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2"
               >
                 Free
-              </a>
+              </Link>
             </div>
 
-            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-md border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
               <h3 className="mb-4 text-2xl font-semibold text-gray-900">
                 Company
               </h3>
@@ -205,7 +208,7 @@ export default function Pricing() {
                 </span>
               </div>
 
-              <ul role="list" className="mb-8 space-y-4 text-left">
+              <ul className="mb-8 space-y-4 text-left">
                 <li className="flex items-center space-x-3">
                   <svg
                     className="flex-shrink-0 w-5 h-5 text-green-500 "
@@ -360,15 +363,15 @@ export default function Pricing() {
                   </span>
                 </li>
               </ul>
-              <a
-                href="#"
-                className="text-white bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+              <Link
+                to=""
+                className="text-white bg-blue-700 font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2"
               >
                 Get started
-              </a>
+              </Link>
             </div>
 
-            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-md border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
               <h3 className="mb-4 text-2xl font-semibold text-gray-900">
                 Enterprise
               </h3>
@@ -382,7 +385,7 @@ export default function Pricing() {
                 {/* <span className="text-gray-900 ">/month</span> */}
               </div>
 
-              <ul role="list" className="mb-8 space-y-4 text-left">
+              <ul className="mb-8 space-y-4 text-left">
                 <li className="flex items-center space-x-3">
                   <svg
                     className="flex-shrink-0 w-5 h-5 text-green-500 "
@@ -537,16 +540,16 @@ export default function Pricing() {
                   </span>
                 </li>
               </ul>
-              <a
-                href="#"
-                className="text-white bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+              <Link
+                to=""
+                className="text-white bg-blue-700 font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2"
               >
                 Get started
-              </a>
+              </Link>
               <div className="relative">
                 <div
                   id="dropdownMenu"
-                  className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute top-full left-0 mt-1"
+                  className="z-10 hidden bg-white divide-y divide-gray-100 rounded-md shadow w-44 dark:bg-gray-700 absolute top-full left-0 mt-1"
                 >
                   <div className=" pt-4">
                     <div
@@ -554,7 +557,7 @@ export default function Pricing() {
                       className="w-full overflow-x-auto"
                     >
                       <div className="overflow-hidden min-w-max">
-                        <div className="grid grid-cols-4 p-4 text-sm font-medium text-black border border-black rounded-lg">
+                        <div className="grid grid-cols-4 p-4 text-sm font-medium text-black border border-black rounded-md ">
                           <div className="flex items-center">
                             Tailwind CSS code
                           </div>
@@ -565,12 +568,12 @@ export default function Pricing() {
                         <div className="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
                           <div className="text-gray-500 dark:text-gray-400">
                             Basic components (
-                            <a
-                              href="#"
+                            <Link
+                              to=""
                               className="text-blue-600 hover:underline"
                             >
                               view all
-                            </a>
+                            </Link>
                             )
                           </div>
                           <div>
@@ -628,12 +631,12 @@ export default function Pricing() {
                         <div className="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
                           <div className="text-gray-500 dark:text-gray-400">
                             Application UI (
-                            <a
-                              href="#"
+                            <Link
+                              to=""
                               className="text-blue-600 hover:underline"
                             >
                               view demo
-                            </a>
+                            </Link>
                             )
                           </div>
                           <div>
@@ -803,28 +806,28 @@ export default function Pricing() {
                         <div className="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
                           <div className="text-gray-500 dark:text-gray-400"></div>
                           <div>
-                            <a
-                              href="#"
-                              className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
+                            <Link
+                              to=""
+                              className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-md text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
                             >
                               Buy now
-                            </a>
+                            </Link>
                           </div>
                           <div>
-                            <a
-                              href="#"
-                              className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
+                            <Link
+                              to=""
+                              className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-md text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
                             >
                               Buy now
-                            </a>
+                            </Link>
                           </div>
                           <div>
-                            <a
-                              href="#"
-                              className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
+                            <Link
+                              to=""
+                              className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-md text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
                             >
                               Buy now
-                            </a>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -834,7 +837,7 @@ export default function Pricing() {
               </div>
             </div>
 
-            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-md border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
               <h3 className="mb-4 text-2xl font-semibold text-gray-900">
                 Super pack
               </h3>
@@ -848,7 +851,7 @@ export default function Pricing() {
                 <span className="text-gray-900 ">/month</span>
               </div>
 
-              <ul role="list" className="mb-8 space-y-4 text-left">
+              <ul className="mb-8 space-y-4 text-left">
                 <li className="flex items-center space-x-3">
                   <svg
                     className="flex-shrink-0 w-5 h-5 text-green-500 "
@@ -1003,14 +1006,13 @@ export default function Pricing() {
                   </span>
                 </li> */}
               </ul>
-              <a
-                href="#"
-                className="text-white bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+              <Link
+                to=""
+                className="text-white bg-blue-700 font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2"
               >
                 Get started
-              </a>
+              </Link>
             </div>
-
           </div>
 
           <div className="pt-6">
@@ -1025,9 +1027,9 @@ export default function Pricing() {
                 <div className=" border border-black grid grid-cols-4 px-4 py-5 text-sm text-gray-700 border-b gap-x-16 dark:border-gray-700">
                   <div className="text-gray-500 dark:text-gray-400">
                     Basic components (
-                    <a href="#" className="text-blue-600 hover:underline">
+                    <Link to="" className="text-blue-600 hover:underline">
                       view all
-                    </a>
+                    </Link>
                     )
                   </div>
                   <div>
@@ -1082,12 +1084,12 @@ export default function Pricing() {
                     </svg>
                   </div>
                 </div>
-                <div className="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                <div className="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 border-black gap-x-16 dark:border-gray-700">
                   <div className="text-gray-500 dark:text-gray-400">
                     Application UI (
-                    <a href="#" className="text-blue-600 hover:underline">
+                    <Link to="" className="text-blue-600 hover:underline">
                       view demo
-                    </a>
+                    </Link>
                     )
                   </div>
                   <div>
@@ -1142,7 +1144,7 @@ export default function Pricing() {
                     </svg>
                   </div>
                 </div>
-                <div className="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
+                <div className="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 border-black gap-x-16 dark:border-gray-700">
                   <div className="text-gray-500 dark:text-gray-400">
                     Marketing UI pre-order
                   </div>
@@ -1257,35 +1259,38 @@ export default function Pricing() {
                 <div className="grid grid-cols-4 px-4 py-5 text-sm text-gray-700 border-b border-gray-200 gap-x-16 dark:border-gray-700">
                   <div className="text-gray-500 dark:text-gray-400"></div>
                   <div>
-                    <a
-                      href="#"
-                      className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
+                    <Link
+                      to=""
+                      className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-md text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
                     >
                       Buy now
-                    </a>
+                    </Link>
                   </div>
                   <div>
-                    <a
-                      href="#"
-                      className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
+                    <Link
+                      to=""
+                      className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-md text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
                     >
                       Buy now
-                    </a>
+                    </Link>
                   </div>
                   <div>
-                    <a
-                      href="#"
-                      className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
+                    <Link
+                      to=""
+                      className="text-white block w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-md text-sm px-4 py-2.5 text-center dark:focus:ring-blue-900"
                     >
                       Buy now
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          
         </div>
       </section>
+
+      <Footer />
     </>
   );
 }
