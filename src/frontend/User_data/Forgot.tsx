@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import img from "../../Components/assets/imgs/christmas.jpg";
+import img from "../../components/assets/imgs/christmas.jpg";
 
 export default function Forgot() {
   return (

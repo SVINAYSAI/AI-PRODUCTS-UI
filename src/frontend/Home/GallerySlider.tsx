@@ -1,9 +1,9 @@
 
 import { Link } from "react-router-dom";
-import img6 from "../../Components/assets/imgs/team1-1.jpg";
-import img7 from "../../Components/assets/imgs/team1-2.jpg";
-import img8 from "../../Components/assets/imgs/team1-3.jpg";
-import img9 from "../../Components/assets/imgs/team1-4.jpg";
+import img6 from "../../components/assets/imgs/team1-1.jpg";
+import img7 from "../../components/assets/imgs/team1-2.jpg";
+import img8 from "../../components/assets/imgs/team1-3.jpg";
+import img9 from "../../components/assets/imgs/team1-4.jpg";
 
 
 

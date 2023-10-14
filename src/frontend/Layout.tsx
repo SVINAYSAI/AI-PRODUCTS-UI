@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import logo from "../Components/fats-logo/svg/logo-no-background.svg";
+import logo from "../components/fats-logo/svg/logo-no-background.svg";
 
 export default function Layout() {
   // State to manage whether the menu is open or closed

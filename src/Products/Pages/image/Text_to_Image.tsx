@@ -1,15 +1,17 @@
 import { useState } from "react";
 import Model from "./model";
 // import React from "react";
-import img from "../../../Components/assets/imgs/Picture1.png";
-import img2 from "../../../Components/assets/imgs/Picture3.png";
-import img1 from "../../../Components/assets/imgs/Picture2.png";
-import img3 from "../../../Components/assets/imgs/Picture4.png";
-import img4 from "../../../Components/assets/imgs/Picture5.png";
-import img5 from "../../../Components/assets/imgs/Picture6.png";
-import img6 from "../../../Components/assets/imgs/Picture7.png";
-import img7 from "../../../Components/assets/imgs/Picture8.png";
-import img8 from "../../../Components/assets/imgs/Picture9.png";
+
+
+import img from "../../../components/assets/imgs/Picture1.png"
+import img1 from "../../../components/assets/imgs/Picture2.png"
+import img2 from "../../../components/assets/imgs/Picture3.png"
+import img3 from "../../../components/assets/imgs/Picture4.png"
+import img4 from "../../../components/assets/imgs/Picture5.png"
+import img5 from "../../../components/assets/imgs/Picture6.png"
+import img6 from "../../../components/assets/imgs/Picture7.png"
+import img7 from "../../../components/assets/imgs/Picture8.png"
+import img8 from "../../../components/assets/imgs/Picture9.png"
 
 export default function Text_to_Image() {
   const [selectedForm, setSelectedForm] = useState<string | null>(null);
