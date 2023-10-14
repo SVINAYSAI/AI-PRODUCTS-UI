@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
-import { SetStateAction, useState } from "react";
-import Selaction from "./selaction";
+import { useState} from "react";
 import Backgroung from "./background";
+import { useNavigate } from 'react-router-dom';
 
 export default function Services() {
   const [message, setMessage] = useState("");
   const [aspectRatio, setAspectRatio] = useState("");
   const [mediaPath, setMediaPath] = useState<string | null>(null);
+  const navigate = useNavigate();
+  
 
   // Define the minimum and maximum character limits
   const minCharacterLimit = 1;
@@ -32,6 +34,8 @@ export default function Services() {
 
   // Determine if the "Next" button should be disabled
   const isNextButtonDisabled = message.length < minCharacterLimit;
+  const [progress, setProgress] = useState(0);
+
 
   // Tooltip message when hovering over the disabled "Next" button
   const tooltipMessage = "At least one character is required.";
@@ -43,6 +47,7 @@ export default function Services() {
       media_path: mediaPath  // Placeholder for now
     };
     console.log("Sending data to backend:", data);
+    navigate('/services/video_edit', { state: { videoPath: "", progress: progress } });
     try {
       const response = await fetch('http://localhost:5000/story', {
         method: 'POST',
@@ -56,7 +61,8 @@ export default function Services() {
 
       if (response.ok) {
         console.log(result);
-        // Navigate to another page or show a success message
+        // Use React Router's history to navigate
+        // navigate('/services/video_edit', { state: { videoPath: result.video_url, progress: progress } });
       } else {
         console.error("Error:", result.error);
       }
@@ -72,6 +78,8 @@ export default function Services() {
   const handleMediaSelected = (selectedPath: string) => {
     setMediaPath(selectedPath);
 };
+
+
 
   const aspectRatios: string[] = ['4:3', '16:9', '1.85:1', '2.35:1', '2:1', '1:1', '9:16'];
 
@@ -136,3 +144,4 @@ export default function Services() {
     </>
   );
 }
+

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../../../../components/CSS/sketchfab.css";
 import ModelViewerModal from "./k"; // Import the modal component
+import { Link } from "react-router-dom";
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 
 const SketchfabSearch: React.FC = () => {
@@ -230,8 +232,8 @@ const SketchfabSearch: React.FC = () => {
                       <a
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-500"
-                      >
+                        className="text-blue-500" 
+                        >
                         <img src={image.url} alt={`Thumbnail ${index}`} />
                         <p className="text-center text-sm mt-1">
                           {data.models[index].name}

@@ -11,7 +11,7 @@ export default function Backgroung({ onMediaSelected }: BackgroundProps) {
     const [imagePaths, setImagePaths] = useState<string[]>([]);
     const [videoPaths, setVideoPaths] = useState<string[]>([]);
     const [clickedPath, setClickedPath] = useState<string | null>(null);
-    const BASE_DIR = "C:\\Users\\mahesh\\Desktop\\AI-PRODUCTS-UI\\AI-PRODUCTS-UI\\src\\Components\\assets\\background video\\images\\";
+    const BASE_DIR = "C:\\Users\\mahesh\\Desktop\\AI-PRODUCTS-UI\\AI-PRODUCTS-UI\\src\\components\\assets\\background video\\images\\";
 
     useEffect(() => {
         const imgs = loadImagePaths();
@@ -64,7 +64,7 @@ export default function Backgroung({ onMediaSelected }: BackgroundProps) {
                             <div className="w-full">background with images</div>
                         </div>
                         <svg className="w-5 h-5 ml-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            <path stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                         </svg>
                     </label>
                 </li>
@@ -82,7 +82,7 @@ export default function Backgroung({ onMediaSelected }: BackgroundProps) {
                             <div className="w-full">background with video</div>
                         </div>
                         <svg className="w-5 h-5 ml-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            <path stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                         </svg>
                     </label>
                 </li>
