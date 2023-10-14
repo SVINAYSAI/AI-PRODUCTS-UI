@@ -208,7 +208,7 @@ export default function Layout() {
               </li>
               <li>
                 <Link
-                  to="/products/3d"
+                  to="/products/sketch"
                   className="relative flex flex-row items-center no-underline h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
                 >
                   <span className="inline-flex justify-center items-center ml-4">
