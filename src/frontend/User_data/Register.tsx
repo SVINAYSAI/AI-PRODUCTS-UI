@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useCookies } from 'react-cookie';
 import React, { useState } from 'react';
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
@@ -13,9 +13,9 @@ const Register: React.FC = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [cookies, setCookie, removeCookie] = useCookies(['user']);
+  const [, setCookie] = useCookies(['user']);
   const navigate = useNavigate();
-  const [navigateToOtp, setNavigateToOtp] = useState(false);
+  // const [navigateToOtp, setNavigateToOtp] = useState(false);
 
   // useEffect(() => {
   //   if (navigateToOtp) {
@@ -416,7 +416,4 @@ const Register: React.FC = () => {
   );
 };
 export default Register;
-function useEffect(arg0: () => void, arg1: (boolean | import("react-router-dom").NavigateFunction)[]) {
-  throw new Error("Function not implemented.");
-}
 

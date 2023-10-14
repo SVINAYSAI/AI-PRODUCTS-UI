@@ -2,8 +2,8 @@ import CodeBox from "./CodeBox";
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import "../components/CSS/Tailwind.css";
-import logo from "../components/fats-logo/svg/logo-no-background.svg";
 
+import logo from "../components/fats-logo/svg/logo-no-background.svg"
 function Layout() {
   // State to manage whether the menu is open or closed
   const [isOpen, setIsOpen] = useState(false);

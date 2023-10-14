@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../components/fats-logo/svg/logo-no-background.svg";
+import logo from "../../components/fats-logo/svg/logo-no-background.svg"
 
 export default function OurServices() {
   return (

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../../../../components/CSS/sketchfab.css";
 import ModelViewerModal from "./k"; // Import the modal component
+import { Link } from "react-router-dom";
+import { isDisabled } from "@testing-library/user-event/dist/utils";
+
 
 const SketchfabSearch: React.FC = () => {
   const [data, setData] = useState<{
@@ -15,9 +18,19 @@ const SketchfabSearch: React.FC = () => {
   const [count, setCount] = useState(24);
   const [cursor, setCursor] = useState(24);
   const [nextClickCount, setNextClickCount] = useState(0);
-
+  const [modelName, setModelName] = useState<string | null>(null);
+  const [glbUrl, setGlbUrl] = useState<string | null>(null);
+  const [gltfUrl, setGltfUrl] = useState<string | null>(null);
+  const [sourceUrl, setSourceUrl] = useState<string | null>(null);
+  const [usdzUrl, setUsdzUrl] = useState<string | null>(null);
+  const [modelDescription, setModelDescription] = useState<string | null>(null); // Define and initialize the modelDescription state
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedModelUid, setSelectedModelUid] = useState<string | null>(null);
+  const [glbSize, setGlbSize] = useState<number | null>(null);
+  const [gltfSize, setGltfSize] = useState<number | null>(null);
+  const [sourceSize, setSourceSize] = useState<number | null>(null);
+  const [usdzSize, setUsdzSize] = useState<number | null>(null);
+
 
   useEffect(() => {
     if (triggerFetch) {
@@ -75,16 +88,87 @@ const SketchfabSearch: React.FC = () => {
   };
 
   const handleThumbnailClick = (modelUid: string) => {
-    setSelectedModelUid(modelUid);
-    setIsModalOpen(true);
+    fetch(`http://localhost:5000/get_download_info?uid=${modelUid}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP Error ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Handle the download information (e.g., display size)
+        console.log("Download Info:", data);
+
+        setGlbUrl(data.glb.url);
+        setGltfUrl(data.gltf.url);
+        setSourceUrl(data.source.url);
+        setUsdzUrl(data.usdz.url);
+        // Ensure that the size values are converted to numbers
+        const glbSize = parseFloat(data.glb.size);
+        const gltfSize = parseFloat(data.gltf.size);
+        const sourceSize = parseFloat(data.source.size);
+        const usdzSize = parseFloat(data.usdz.size);
+
+        // Now, you can use these numeric values to display the download size
+        setGlbSize(glbSize);
+        setGltfSize(gltfSize);
+        setSourceSize(sourceSize);
+        setUsdzSize(usdzSize);
+      })
+      .catch((error) => {
+        console.error("Error fetching download information:", error);
+        // Handle the error, e.g., show an error message to the user
+      });
+
+
+
+
+    // Send a request to fetch the model description
+    fetch(`http://localhost:5000/sketchfab/get_model_description?uid=${modelUid}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP Error ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        const description = data.description || "No description available"; // Provide a default if description is missing
+        const name = data.name || "no name";
+        setModelDescription(description);
+        setModelName(name);
+        setSelectedModelUid(modelUid);
+        setIsModalOpen(true);
+      })
+      .catch((error) => {
+        console.error("Error fetching model description:", error);
+        // Handle the error, e.g., show an error message to the user
+      });
   };
+
+  function formatSize(sizeInBytes: number | null): string {
+    if (sizeInBytes === null) {
+      return 'N/A';
+    }
+
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    const i = Math.floor(Math.log(sizeInBytes) / Math.log(1024));
+
+    if (i === 0) {
+      return `${sizeInBytes} ${sizes[i]}`;
+    }
+
+    return `${(sizeInBytes / (1024 ** i)).toFixed(2)} ${sizes[i]}`;
+  }
+
+
 
   return (
     <>
       <div className="relative pt-[5%] w-[80%] bg-gray-50 lg:ml-64 dark:bg-gray-900">
         <div className="container">
           <div className="grid grid-cols-2 gap-4">
-            <h1 className="text-2xl font-bold mb-4 pt-[3%]">Sketchfab Data</h1>
+            <h1 className="text-2xl font-bold mb-4 pt-[3%]">3D Models</h1>
+
             <div className="" style={{ paddingLeft: "32%" }}>
               <div className="p-[1%] relative flex">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
@@ -121,12 +205,15 @@ const SketchfabSearch: React.FC = () => {
                 </button>
               </div>
             </div>
+
           </div>
+
           {loading ? (
             <div className="loading-icon-container">
               <div className="loading-icon"></div>
             </div>
           ) : data ? (
+            
             <div
               className="container"
               style={{ maxHeight: "425px", overflowY: "auto" }}
@@ -145,8 +232,8 @@ const SketchfabSearch: React.FC = () => {
                       <a
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-500"
-                      >
+                        className="text-blue-500" 
+                        >
                         <img src={image.url} alt={`Thumbnail ${index}`} />
                         <p className="text-center text-sm mt-1">
                           {data.models[index].name}
@@ -188,6 +275,26 @@ const SketchfabSearch: React.FC = () => {
           isOpen={isModalOpen}
           onRequestClose={() => setIsModalOpen(false)}
           modelUid={selectedModelUid}
+          modelDescription={modelDescription}
+          modelName={modelName}
+          formatDetails={{
+            glb: {
+              size: glbSize !== null ? formatSize(glbSize) : 'N/A',
+              url: glbUrl
+            },
+            gltf: {
+              size: gltfSize !== null ? formatSize(gltfSize) : 'N/A',
+              url: gltfUrl
+            },
+            source: {
+              size: sourceSize !== null ? formatSize(sourceSize) : 'N/A',
+              url: sourceUrl
+            },
+            usdz: {
+              size: usdzSize !== null ? formatSize(usdzSize) : 'N/A',
+              url: usdzUrl
+            },
+          }}
         />
       )}
     </>
