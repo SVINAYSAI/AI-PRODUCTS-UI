@@ -6,7 +6,6 @@ interface BackgroundProps {
   onMediaSelected: (path: string) => void;
 }
 
-
 export default function Background({ onMediaSelected }: BackgroundProps) {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [imagePaths, setImagePaths] = useState<string[]>([]);
@@ -14,10 +13,6 @@ export default function Background({ onMediaSelected }: BackgroundProps) {
   const [clickedPath, setClickedPath] = useState<string | null>(null);
   const BASE_DIR =
     "D:\\MY UI\\NEW\\AI-PRODUCTS-UI\\src\\components\\assets\\background video\\images\\";
-
-    // const BASE_DIR = "C:\\Users\\mahesh\\Desktop\\AI-PRODUCTS-UI\\AI-PRODUCTS-UI\\src\\components\\assets\\background video\\images\\";
-
-
 
   const [selectedMedia, setSelectedMedia] = useState<{
     type: string;
@@ -54,6 +49,7 @@ export default function Background({ onMediaSelected }: BackgroundProps) {
     onMediaSelected(fullPath);
     setSelectedMedia({ type, index });
 };
+
   return (
     <>
       <h3 className="mb-3 mt-5 text-lg font-medium text-gray-900 dark:text-white">
