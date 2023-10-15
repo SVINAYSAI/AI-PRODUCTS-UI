@@ -5,6 +5,7 @@ import Radio from "../Services/pages/Radio";
 import Layout from "../Services/Layout";
 import Accordion from "../Services/pages/accordion";
 import VideoEdit from "../Services/pages/video_edit";
+import Test1 from "../Services/pages/text1";
 
 const ApiRoute = () => {
   return (
@@ -14,6 +15,7 @@ const ApiRoute = () => {
         <Route path="/choose/radio" element={<Radio />} />
         <Route path="/accordion" element={<Accordion/>}/>
         <Route path="/video_edit" element={<VideoEdit/>}/>
+        <Route path="/video_test" element={<Test1/>}/>
       </Route>
     </Routes>
   );

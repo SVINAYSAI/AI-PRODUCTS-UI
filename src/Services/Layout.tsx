@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import logo from "../components/fats-logo/svg/logo-no-background.svg";
+import Navbar from "./pages/navbar";
 
 export default function Layout() {
   // State to manage whether the menu is open or closed
@@ -89,6 +90,7 @@ export default function Layout() {
           </div>
         </div>
       </nav>
+      <Navbar/>
       <Outlet />
     </>
   );
