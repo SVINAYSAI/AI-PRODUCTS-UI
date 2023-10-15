@@ -12,10 +12,17 @@ export default function Background({ onMediaSelected }: BackgroundProps) {
   const [imagePaths, setImagePaths] = useState<string[]>([]);
   const [videoPaths, setVideoPaths] = useState<string[]>([]);
   const [clickedPath, setClickedPath] = useState<string | null>(null);
+<<<<<<< HEAD
   // const BASE_DIR =
   //   "D:\\MY UI\\NEW\\AI-PRODUCTS-UI\\src\\components\\assets\\background video\\images\\";
 
   const BASE_DIR = "C:\\Users\\mahesh\\Desktop\\AI-PRODUCTS-UI\\AI-PRODUCTS-UI\\src\\components\\assets\\background video\\images\\";
+=======
+  const BASE_DIR =
+    "D:\\MY UI\\NEW\\AI-PRODUCTS-UI\\src\\components\\assets\\background video\\images\\";
+
+    // const BASE_DIR = "C:\\Users\\mahesh\\Desktop\\AI-PRODUCTS-UI\\AI-PRODUCTS-UI\\src\\components\\assets\\background video\\images\\";
+>>>>>>> 36f43cb22094ee4221cafad23d73169203d931e9
 
 
 

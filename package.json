@@ -12,10 +12,17 @@
     "@types/node": "^16.18.47",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
+<<<<<<< HEAD
     "antd": "^5.8.6",
     "axios": "^1.5.0",
     "google-auth-library": "^9.1.0",
     "googleapis": "^127.0.0",
+=======
+    "antd": "^5.10.0",
+    "axios": "^1.5.1",
+    "google-auth-library": "^9.0.0",
+    "googleapis": "^126.0.1",
+>>>>>>> 36f43cb22094ee4221cafad23d73169203d931e9
     "jwt-decode": "^3.1.2",
     "mdb-react-ui-kit": "^6.2.0",
     "mermaid": "^10.4.0",
