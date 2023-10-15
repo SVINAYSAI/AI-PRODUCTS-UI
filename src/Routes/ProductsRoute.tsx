@@ -12,6 +12,7 @@ import Texttochart from "../Products/Pages/chart/Text_to_chart";
 import Textto3d from "../Products/Pages/3d_object/Text_to_3d";
 import Transcripts from "../Products/Pages/Transcripts/Layout";
 import Ske from "../Products/Pages/3d_object/Sketchfab-Categoires";
+import Text_to_Voice from "../Products/Pages/voice/text_to_voice";
 
 const Product = () => {
   return (
@@ -23,6 +24,7 @@ const Product = () => {
           <Route path="/chart" element={<Texttochart/>} />
           <Route path="/3d" element={<Textto3d/>} />
           <Route path="/a" element={<Ann/>} />
+          <Route path="/voice" element={<Text_to_Voice/>} />
           <Route path="/chart1" element={<Chart/>} />
           <Route path="/music" element={<Music />} />
           <Route path="/transcripts" element={<Transcripts />} />
