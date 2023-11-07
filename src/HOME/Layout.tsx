@@ -69,7 +69,7 @@ export default function Layout() {
               } items-center justify-between w-full md:flex md:w-auto md:order-1 pl-[17px]`}
               id="navbar-sticky"
             >
-              <div className="flex flex-col md:p-0 font-medium rounded-md border border-b-black md:flex-row md:space-x-8 md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+              <div className="flex flex-col md:p-0 font-medium rounded-md border border-b-black md:flex-row md:space-x-8 md:mt-0 md:border-0">
                 <div>
                   <Link
                     to="/"

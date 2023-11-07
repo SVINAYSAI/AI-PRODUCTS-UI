@@ -14,9 +14,13 @@ export default function OurBlog() {
 
             <div className="flex flex-wrap -mx-4">
               <div className="w-full md:w-1/3 px-4 mb-4">
-                <div className="card blog-post my-4 my-sm-5 my-md-0">
-                  <Link to="/blog">
-                    <img src={img1} alt="" />
+                <div className="card blog-post shadow-md my-4 my-sm-5 my-md-0">
+                  <Link to="/blog" className="shadow-md">
+                    <img
+                      src={img1}
+                      alt=""
+                      style={{ width: "90%", height: "191px" }}
+                    />
                   </Link>
                   <div className="card-body">
                     <div className="details mb-3">
@@ -41,8 +45,8 @@ export default function OurBlog() {
                 </div>
               </div>
               <div className="w-full md:w-1/3 px-4 mb-4">
-                <div className="card blog-post my-4 my-sm-5 my-md-0">
-                  <Link to="/blog">
+                <div className="card blog-post shadow-md my-4 my-sm-5 my-md-0">
+                  <Link to="/blog" className="shadow-md">
                     <img src={img2} alt="" />
                   </Link>
                   <div className="card-body">
@@ -68,8 +72,8 @@ export default function OurBlog() {
                 </div>
               </div>
               <div className="w-full md:w-1/3 px-4 mb-4">
-                <div className="card blog-post my-4 my-sm-5 my-md-0">
-                  <Link to="/blog">
+                <div className="card blog-post shadow-md my-4 my-sm-5 my-md-0">
+                  <Link to="/blog" className="shadow-md">
                     <img src={img3} alt="" />
                   </Link>
                   <div className="card-body">
