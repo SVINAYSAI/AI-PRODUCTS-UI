@@ -4,7 +4,7 @@ import img2 from "../../../components/assets/imgs/avatar-3.jpg";
 export default function Awesome() {
   return (
     <>
-      <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+      <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home" className="pt-[5%]">
         <section className="has-bg-img bg-img-2">
           <div className="container text-center">
             <h6 className="section-subtitle">We Are Awesome</h6>
