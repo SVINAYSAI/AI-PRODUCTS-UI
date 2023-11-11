@@ -7,18 +7,11 @@ interface ImageSliderProps {
 const ImageSlider: React.FC<ImageSliderProps> = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + data.length) % data.length);
-  };
 
   return (
     <div className="relative p-2">
-      <div className="grid grid-cols-4 gap-4">
-        {data.slice(currentIndex, currentIndex + 4).map((item, index) => (
+      <div className=" justify-self-center grid grid-cols-3 gap-4">
+        {data.slice(currentIndex, currentIndex + 3).map((item, index) => (
           <div key={item.id} className="w-full">
             <div className="border border-gray-300 shadow-md rounded-md p-4">
               <img
@@ -32,7 +25,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ data }) => {
           </div>
         ))}
       </div>
-      <div className="absolute pt-[2%] left-0 right-0 flex justify-center">
+      {/* <div className="absolute pt-[2%] left-0 right-0 flex justify-center">
         <div className="grid grid-cols-2 gap-4">
           <button
             onClick={prevSlide}
@@ -47,7 +40,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ data }) => {
             Next
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -74,25 +67,25 @@ const Slider: React.FC = () => {
       desc: "Some beautiful roads cannot be discovered without getting lost.",
       name: "EXPLORE NATURE",
     },
-    {
-      id: 4,
-      imgUrl: "https://i.postimg.cc/NGW3329f/1069239.png",
-      desc: "Some beautiful roads cannot be discovered without getting lost.",
-      name: "EXPLORE NATURE",
-    },
-    {
-      id: 5,
-      imgUrl: "https://i.postimg.cc/6qdkn4bM/pexels-joyston-judah-933054.jpg",
-      desc: "Some beautiful roads cannot be discovered without getting lost.",
-      name: "EXPLORE NATURE",
-    },
-    {
-      id: 6,
-      imgUrl:
-        "https://i.postimg.cc/RVm59Gqy/pexels-roberto-nickson-2559941.jpg",
-      desc: "Some beautiful roads cannot be discovered without getting lost.",
-      name: "EXPLORE NATURE",
-    },
+    // {
+    //   id: 4,
+    //   imgUrl: "https://i.postimg.cc/NGW3329f/1069239.png",
+    //   desc: "Some beautiful roads cannot be discovered without getting lost.",
+    //   name: "EXPLORE NATURE",
+    // },
+    // {
+    //   id: 5,
+    //   imgUrl: "https://i.postimg.cc/6qdkn4bM/pexels-joyston-judah-933054.jpg",
+    //   desc: "Some beautiful roads cannot be discovered without getting lost.",
+    //   name: "EXPLORE NATURE",
+    // },
+    // {
+    //   id: 6,
+    //   imgUrl:
+    //     "https://i.postimg.cc/RVm59Gqy/pexels-roberto-nickson-2559941.jpg",
+    //   desc: "Some beautiful roads cannot be discovered without getting lost.",
+    //   name: "EXPLORE NATURE",
+    // },
   ];
 
   return (
