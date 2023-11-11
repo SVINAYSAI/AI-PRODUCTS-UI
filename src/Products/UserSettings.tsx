@@ -1,15 +1,15 @@
-export default function UserSettings() {
+export default function Dashboard() {
   return (
     <>
       <div
-        className="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900"
+        className="bg-gray-50 lg:ml-64"
         id="main-content"
       >
-        <div className="mb-2 text-xl font-semibold dark:text-white pt-[7%] pl-[2%]">
+        <div className="mb-2 text-xl font-semibold dark:text-black pt-[7%] pl-[2%]">
           User Setting
         </div>
-        <div className="grid grid-cols-2 px-4 pt-6 xl:grid-cols-3 xl:gap-4 dark:bg-gray-900">
-          <div className="w-[85%]">
+        <div className="grid grid-cols-2 px-4 pt-6 xl:grid-cols-2 xl:gap-4">
+          <div className="w-full">
             <div className="p-4 mb-4 bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
               <div className=" justify-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
                 <div className="flex justify-center">
@@ -20,7 +20,7 @@ export default function UserSettings() {
                   />
                 </div>
                 <div>
-                  <h3 className="mb-1 text-xl font-bold text-gray-900 dark:text-white">
+                  <h3 className="mb-1 text-xl font-bold text-gray-900 dark:text-black">
                     Profile picture
                   </h3>
                   <div className="mb-4 text-sm text-gray-500 dark:text-gray-400">
@@ -28,8 +28,8 @@ export default function UserSettings() {
                   </div>
                   <div className="flex items-center space-x-4">
                     <button
-                        type="button"
-                      className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-md bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                      type="button"
+                      className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-black rounded-md bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                     >
                       <svg
                         className="w-4 h-4 mr-2 -ml-1"
@@ -44,7 +44,7 @@ export default function UserSettings() {
                     </button>
                     <button
                       type="button"
-                      className="py-2 px-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                      className="py-2 px-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-black dark:hover:bg-gray-700"
                     >
                       Delete
                     </button>
@@ -54,9 +54,9 @@ export default function UserSettings() {
             </div>
           </div>
 
-          <div className="w-[138%]">
-            <div className="p-4 mb-4 bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-              <h3 className="mb-4 text-xl font-semibold dark:text-white">
+          <div className="w-full">
+            <div className="p-4 mb-4 bg-white border border-black rounded-md shadow-sm 2xl:col-span-2">
+              <h3 className="mb-4 text-xl font-semibold dark:text-black">
                 Password information
               </h3>
               <form action="#">
@@ -64,7 +64,7 @@ export default function UserSettings() {
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       htmlFor="current-password"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                     >
                       Current password
                     </label>
@@ -72,14 +72,14 @@ export default function UserSettings() {
                       type="text"
                       name="current-password"
                       id="current-password"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       placeholder="••••••••"
                     />
                   </div>
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       htmlFor="password"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                     >
                       New password
                     </label>
@@ -88,7 +88,7 @@ export default function UserSettings() {
                       data-popover-placement="bottom"
                       type="password"
                       id="password"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="••••••••"
                     />
                     <div
@@ -107,7 +107,7 @@ export default function UserSettings() {
                       }}
                     >
                       <div className="p-3 space-y-2">
-                        <h3 className="font-semibold text-gray-900 dark:text-white">
+                        <h3 className="font-semibold text-gray-900 dark:text-black">
                           Must have at least 6 characters
                         </h3>
                         <div className="grid grid-cols-4 gap-2">
@@ -181,7 +181,7 @@ export default function UserSettings() {
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       htmlFor="confirm-password"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                     >
                       Confirm password
                     </label>
@@ -189,13 +189,13 @@ export default function UserSettings() {
                       type="text"
                       name="confirm-password"
                       id="confirm-password"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       placeholder="••••••••"
                     />
                   </div>
                   <div className="col-span-6 sm:col-full">
                     <button
-                      className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                      className="text-black bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                       type="submit"
                     >
                       Save all
@@ -207,8 +207,8 @@ export default function UserSettings() {
           </div>
         </div>
 
-        <div className="w-[78%] ml-4 p-4 mb-4 bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-          <h3 className="mb-4 text-xl font-semibold dark:text-white">
+        <div className="ml-4 mr-4 p-4 mb-4 bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+          <h3 className="mb-4 text-xl font-semibold dark:text-black">
             General information
           </h3>
           <form action="#">
@@ -216,7 +216,7 @@ export default function UserSettings() {
               <div className="col-span-6 sm:col-span-3">
                 <label
                   htmlFor="first-name"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                 >
                   First Name
                 </label>
@@ -224,14 +224,14 @@ export default function UserSettings() {
                   type="text"
                   name="first-name"
                   id="first-name"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Bonnie"
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
                 <label
                   htmlFor="last-name"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                 >
                   Last Name
                 </label>
@@ -239,14 +239,14 @@ export default function UserSettings() {
                   type="text"
                   name="last-name"
                   id="last-name"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Green"
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
                 <label
                   htmlFor="country"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                 >
                   Country
                 </label>
@@ -254,14 +254,14 @@ export default function UserSettings() {
                   type="text"
                   name="country"
                   id="country"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="United States"
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
                 <label
                   htmlFor="city"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                 >
                   City
                 </label>
@@ -269,14 +269,14 @@ export default function UserSettings() {
                   type="text"
                   name="city"
                   id="city"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="e.g. San Francisco"
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
                 <label
                   htmlFor="address"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                 >
                   Address
                 </label>
@@ -284,14 +284,14 @@ export default function UserSettings() {
                   type="text"
                   name="address"
                   id="address"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="e.g. California"
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                 >
                   Email
                 </label>
@@ -299,14 +299,14 @@ export default function UserSettings() {
                   type="email"
                   name="email"
                   id="email"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="example@company.com"
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
                 <label
                   htmlFor="phone-number"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                 >
                   Phone Number
                 </label>
@@ -314,14 +314,14 @@ export default function UserSettings() {
                   type="number"
                   name="phone-number"
                   id="phone-number"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="e.g. +(12)3456 789"
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
                 <label
                   htmlFor="birthday"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                 >
                   Birthday
                 </label>
@@ -329,14 +329,14 @@ export default function UserSettings() {
                   type="number"
                   name="birthday"
                   id="birthday"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="15/08/1990"
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
                 <label
                   htmlFor="organization"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                 >
                   Organization
                 </label>
@@ -344,14 +344,14 @@ export default function UserSettings() {
                   type="text"
                   name="organization"
                   id="organization"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Company Name"
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
                 <label
                   htmlFor="role"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                 >
                   Role
                 </label>
@@ -359,14 +359,14 @@ export default function UserSettings() {
                   type="text"
                   name="role"
                   id="role"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="React Developer"
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
                 <label
                   htmlFor="department"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                 >
                   Department
                 </label>
@@ -374,14 +374,14 @@ export default function UserSettings() {
                   type="text"
                   name="department"
                   id="department"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Development"
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
                 <label
                   htmlFor="zip-code"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
                 >
                   Zip/postal code
                 </label>
@@ -389,13 +389,13 @@ export default function UserSettings() {
                   type="number"
                   name="zip-code"
                   id="zip-code"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="123456"
                 />
               </div>
               <div className="col-span-6 sm:col-full">
                 <button
-                  className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  className="text-black bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                   type="submit"
                 >
                   Save all
@@ -407,4 +407,4 @@ export default function UserSettings() {
       </div>
     </>
   );
-}
+};

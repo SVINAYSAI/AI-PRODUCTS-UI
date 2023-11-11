@@ -93,7 +93,7 @@ export default function Layout() {
                 </div>
                 <div>
                   <Link
-                    to="/products"
+                    to="/products/dashboard"
                     className={`block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
                       isHomePage ? "text-white" : "text-gray-900"
                     }`}
