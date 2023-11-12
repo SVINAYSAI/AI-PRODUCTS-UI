@@ -5,6 +5,7 @@ import ServicesRoute from "./Routes/ServicesRoutes";
 import APIsRoute from "./Routes//ApiRoute";
 import UserDataRoute  from "./Routes/UserDataRoute";
 import CompanyRoute from "./Routes/CompanyRoute";
+import Payment from "./Company/Payment";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/api*" element={<APIsRoute />} />
           <Route path="/log*" element={<UserDataRoute />} />
           <Route path="/our_dash@board*" element={<CompanyRoute />} />
+          <Route path="/pay_ment@u*" element={<Payment />} />
         </Routes>
       </Router>
   );
