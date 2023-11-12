@@ -1,13 +1,30 @@
-import { SetStateAction, useState } from 'react';
+// import { SetStateAction, useState } from 'react';
+import { useState, useEffect } from 'react';
+
+interface User {
+  name?: string;
+  username?: string;
+  email: string;
+  rows: string;
+}
 
 export default function CompanyDashboard() {
   // State to manage the user status (active or deactivated)
-  const [userStatus, setUserStatus] = useState('Active'); // Default to 'Active'
+  const [userStatus, setUserStatus] = useState<string>('Active');
+  const [users, setUsers] = useState<User[]>([]);
 
-  // Function to handle status change
-  const handleStatusChange = (event: { target: { value: SetStateAction<string>; }; }) => {
+  const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setUserStatus(event.target.value);
   };
+
+  useEffect(() => {
+    // Fetch user data from the Flask API
+    fetch('http://localhost:5000/api/users')
+      .then((response) => response.json())
+      .then((data: User[]) => setUsers(data))
+      .catch((error) => console.error('Error fetching user data:', error));
+  }, []);
+
 
   return (
     <>
@@ -24,30 +41,70 @@ export default function CompanyDashboard() {
                     Email
                   </th>
                   <th scope="col" className="px-6 py-3">
+                    pricing
+                  </th>
+                  <th scope="col" className="px-6 py-3">
                     Status
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    complaint
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    complaint feedback
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    complaint Status
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    send
                   </th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black"
-                  >
-                    Maha
-                  </th>
-                  <td className="px-6 py-4 dark:text-black">maha@example.com</td>
-                  <td className="px-6 py-4 dark:text-black">
-                    <select
-                      value={userStatus}
-                      onChange={handleStatusChange}
-                      className="bg-white rounded-md py-1"
+                {users.map((user) => (
+                  <tr key={user.username} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black"
                     >
-                      <option value="Active">Active</option>
-                      <option value="Deactivated">Deactivated</option>
-                    </select>
-                  </td>
-                </tr>
+                      {(user.username || user.name)?.trim() || 'Name not available'}
+                    </th>
+                    <td className="px-6 py-4 dark:text-black">{user.email || "email not available"}</td>
+                    <td className="px-6 py-4 dark:text-black">pricing</td>
+
+                    <td className="px-6 py-4 dark:text-black">
+                      <select
+                        value={userStatus}
+                        onChange={handleStatusChange}
+                        className="bg-white rounded-md py-1"
+                      >
+                        <option value="Active">Active</option>
+                        <option value="Deactivated">Deactivated</option>
+                      </select>
+                    </td>
+                    <td className="px-6 py-4 dark:text-black">
+                      <button type="button" className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">preview complaint</button>
+                    </td>
+                    <td className="px-6 py-4 dark:text-black">
+                      <button type="button" className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">feedback complaint</button>
+                    </td>
+                    <td className="px-6 py-4 dark:text-black">
+                      <select
+                        value={userStatus}
+                        onChange={handleStatusChange}
+                        className="bg-white rounded-md py-1"
+                      >
+                        <option value="Active">resolved</option>
+                        <option value="Deactivated">not resolved</option>
+                      </select>
+                    </td>
+                    <td className="px-6 py-4 dark:text-black">
+                      <button type="button" className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                        send
+                      </button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
