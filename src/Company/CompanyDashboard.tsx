@@ -5,6 +5,7 @@ interface User {
   name?: string;
   username?: string;
   email: string;
+  COMPLAINT: string;
   rows: string;
 }
 
@@ -12,6 +13,8 @@ export default function CompanyDashboard() {
   // State to manage the user status (active or deactivated)
   const [userStatus, setUserStatus] = useState<string>('Active');
   const [users, setUsers] = useState<User[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const usersPerPage = 5; // Number of users to display per page
 
   const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setUserStatus(event.target.value);
@@ -25,6 +28,14 @@ export default function CompanyDashboard() {
       .catch((error) => console.error('Error fetching user data:', error));
   }, []);
 
+  const indexOfLastUser = currentPage * usersPerPage;
+  const indexOfFirstUser = indexOfLastUser - usersPerPage;
+  const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
+
+  // Change page
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+  };
 
   return (
     <>
@@ -61,7 +72,7 @@ export default function CompanyDashboard() {
                 </tr>
               </thead>
               <tbody>
-                {users.map((user) => (
+              {currentUsers.map((user) => (
                   <tr key={user.username} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th
                       scope="row"
@@ -83,7 +94,7 @@ export default function CompanyDashboard() {
                       </select>
                     </td>
                     <td className="px-6 py-4 dark:text-black">
-                      <button type="button" className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">preview complaint</button>
+                      <button type="button" className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">preview complaint{user.COMPLAINT || "email not available"}</button>
                     </td>
                     <td className="px-6 py-4 dark:text-black">
                       <button type="button" className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">feedback complaint</button>
@@ -107,6 +118,27 @@ export default function CompanyDashboard() {
                 ))}
               </tbody>
             </table>
+          </div>
+          <div className="mt-4 flex justify-end">
+            <button
+              type="button"
+              className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5"
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+            <span className="mx-4">
+              Page {currentPage} of {Math.ceil(users.length / usersPerPage)}
+            </span>
+            <button
+              type="button"
+              className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5"
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === Math.ceil(users.length / usersPerPage)}
+            >
+              Next
+            </button>
           </div>
         </div>
       </div>

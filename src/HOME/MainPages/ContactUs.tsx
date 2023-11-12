@@ -73,7 +73,7 @@ export default function OurServices() {
                       required
                     />
                   </div>
-                  <div className="form-group">
+                  {/* <div className="form-group">
                     <input
                       type="password"
                       className="form-control form-control-lg"
@@ -81,13 +81,14 @@ export default function OurServices() {
                       placeholder="Password"
                       required
                     />
-                  </div>
+                  </div> */}
                   <div className="form-group">
                     <textarea
                       name="contact-message"
                       id=""
                       className="form-control form-control-lg"
                       placeholder="Message"
+                      required
                     ></textarea>
                   </div>
                   <button
