@@ -18,6 +18,8 @@ export const useCompanyThTableLogic = () => {
   const usersPerPage = 5;
   const [showPreviewPopup, setShowPreviewPopup] = useState<boolean>(false);
   const [showPreviewPopup1, setShowPreviewPopup1] = useState<boolean>(false);
+  const [selectedUser, setSelectedUser] = useState<User | null>(null); // Updated state
+
   const [selectedUserComplaint, setSelectedUserComplaint] = useState<string>("");
   const [selectedUserComplaintfeedback, setSelectedUserComplaintfeedback] = useState<string>("");
 
@@ -50,6 +52,7 @@ export const useCompanyThTableLogic = () => {
       setSelectedUserComplaint("Complaint not available");
     }
     setShowPreviewPopup(true);
+    console.log("Data sent to MongoDB for user:", user);
   };
 
   const handleComplaintfeedbackButtonClick1 = (user: User) => {
@@ -72,6 +75,10 @@ export const useCompanyThTableLogic = () => {
     setShowPreviewPopup(false);
   };
 
+  const handleUserSelection = (user: User) => {
+    setSelectedUser(user);
+  };
+
   return {
     userStatus,
     users,
@@ -81,7 +88,9 @@ export const useCompanyThTableLogic = () => {
     showPreviewPopup1,
     selectedUserComplaint,
     selectedUserComplaintfeedback,
+    selectedUser,
     handleStatusChange,
+    handleUserSelection,
     indexOfLastUser,
     indexOfFirstUser,
     currentUsers,
