@@ -1,0 +1,45 @@
+/* Add this CSS to your existing stylesheet or create a new one */
+
+/* Loading animation */
+@keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Success message */
+  .success-message {
+    color: #27ae60;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* Form button */
+  .form-button {
+    text-align: center;
+  }
+  
+  /* Adjust the styles of the button as needed */
+  .form-button button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .form-button button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+  }
+  

@@ -49,7 +49,7 @@ const Slider: React.FC = () => {
   const data = [
     {
       id: 1,
-      imgUrl: "https://i.postimg.cc/PrMGqZwx/pexels-m-venter-1659437.jpg",
+      imgUrl: "https://photos.google.com/photo/AF1QipMo2gRv4HKqWgopb60ve0nzL__j1TCtDltp9nt0",
       desc: "Some beautiful roads cannot be discovered without getting lost.",
       name: "EXPLORE NATURE",
     },

@@ -9,11 +9,17 @@ interface User {
   complaint: string | { COMPLAINT: string; _id: string; email: string; name: string };
   rows: string;
   textarea: string;
+  userStatus: string;
+}
+
+interface UserWithStatus extends User {
+  userStatus: string;
 }
 
 export const useCompanyThTableLogic = () => {
-  const [userStatus, setUserStatus] = useState<string>("Active");
-  const [users, setUsers] = useState<User[]>([]);
+  // Inside useCompanyThTableLogic
+  const [users, setUsers] = useState<UserWithStatus[]>([]);
+  // const [users, setUsers] = useState<User[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const usersPerPage = 5;
   const [showPreviewPopup, setShowPreviewPopup] = useState<boolean>(false);
@@ -23,9 +29,16 @@ export const useCompanyThTableLogic = () => {
   const [selectedUserComplaint, setSelectedUserComplaint] = useState<string>("");
   const [selectedUserComplaintfeedback, setSelectedUserComplaintfeedback] = useState<string>("");
 
-  const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setUserStatus(event.target.value);
+  const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>, username: string) => {
+    const updatedUsers = users.map((user) => {
+      if (user.username === username) {
+        return { ...user, userStatus: event.target.value };
+      }
+      return user;
+    });
+    setUsers(updatedUsers);
   };
+  
 
   useEffect(() => {
     fetch("http://localhost:5000/api/users")
@@ -80,7 +93,7 @@ export const useCompanyThTableLogic = () => {
   };
 
   return {
-    userStatus,
+    useState,
     users,
     currentPage,
     usersPerPage,

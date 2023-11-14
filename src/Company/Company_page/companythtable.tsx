@@ -13,7 +13,7 @@ interface User {
 
 export default function CompanyThTable() {
   const {
-    userStatus,
+    useState,
     users,
     currentPage,
     usersPerPage,
@@ -80,8 +80,9 @@ export default function CompanyThTable() {
 
                 <td className="px-6 py-4 dark:text-black">
                   <select
-                    value={userStatus}
-                    onChange={handleStatusChange}
+                  value={user.userStatus}
+                  onChange={(e) => user.username && handleStatusChange(e, user.username)}
+                 
                     className="bg-white rounded-md py-1"
                   >
                     <option value="Active">Active</option>
@@ -108,8 +109,9 @@ export default function CompanyThTable() {
                 </td>
                 <td className="px-6 py-4 dark:text-black">
                   <select
-                    value={userStatus}
-                    onChange={handleStatusChange}
+                    value={user.userStatus}
+                    onChange={(e) => user.username && handleStatusChange(e, user.username)}
+                   
                     className="bg-white rounded-md py-1"
                   >
                     <option value="Active">resolved</option>
@@ -129,7 +131,7 @@ export default function CompanyThTable() {
           </tbody>
           {showPreviewPopup && (
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-              <div className="bg-white p-8 rounded-lg">
+              <div className="bg-white p-8 rounded-lg w-[50%]">
                 <h2 className="text-2xl font-bold mb-4">Complaint Preview</h2>
                 <p>{selectedUserComplaint}</p>
                 <button
