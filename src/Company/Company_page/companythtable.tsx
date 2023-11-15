@@ -1,15 +1,6 @@
-import { useState, useEffect } from "react";
+
 import CompanyTextarea from "./company1_pages/textarea";
 import { useCompanyThTableLogic } from "./company1_pages/CompanyThTableLogic";
-interface User {
-  name?: string;
-  username?: string;
-  email: string;
-  COMPLAINT?: string;
-  complaint: string | { COMPLAINT: string; _id: string; email: string; name: string };
-  rows: string;
-  textarea: string,
-}
 
 export default function CompanyThTable() {
   const {
@@ -90,13 +81,13 @@ export default function CompanyThTable() {
                   </select>
                 </td>
                 <td className="px-6 py-4 dark:text-black">
-                  <button
-                    type="button"
-                    onClick={() => handlePreviewButtonClick(user)}
-                    className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                  >
-                    Preview Complaint
-                  </button>
+                <button
+                type="button"
+                onClick={() => handlePreviewButtonClick(user)}
+                className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              >
+                Preview Complaints
+              </button>
                 </td>
                 <td className="px-6 py-4 dark:text-black">
                   <button
@@ -129,20 +120,6 @@ export default function CompanyThTable() {
               </tr>
             ))}
           </tbody>
-          {showPreviewPopup && (
-            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-              <div className="bg-white p-8 rounded-lg w-[50%]">
-                <h2 className="text-2xl font-bold mb-4">Complaint Preview</h2>
-                <p>{selectedUserComplaint}</p>
-                <button
-                  onClick={closePreviewPopup}
-                  className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 mt-4"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          )}
           {showPreviewPopup1 && (
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
               <div className="bg-white p-8 rounded-lg">

@@ -3,6 +3,7 @@ import CompanyLayout from "../Company/CompanyLayout";
 import CompanyDashboard from "../Company/CompanyDashboard";
 import { useEffect, useState } from "react";
 import Companysettings from "../Company/Companysettings";
+import Companyuser from "../Company/Company_page/company1_pages/Companyuser";
 
 export default function CompanyRoute() {
   // const navigate = useNavigate();
@@ -21,6 +22,7 @@ export default function CompanyRoute() {
           <Route path="/dash@board" element={<CompanyDashboard />} />
           {/* <Route path="/log/sign-in" element={<Navigate to="/log/sign-in" />} /> */}
           <Route path="/settings" element={<Companysettings/>}/>
+          <Route path="/companyuser" element={<Companyuser/>}/>
         </Route>
       </Routes>
     </>

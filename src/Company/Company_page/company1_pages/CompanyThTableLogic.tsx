@@ -1,14 +1,18 @@
 // CompanyThTableLogic.tsx
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+interface Complaint {
+  COMPLAINT: string;
+  datetime: string;
+}
 
 interface User {
+  _id: string;
   name?: string;
   username?: string;
   email: string;
-  COMPLAINT?: string;
-  complaint: string | { COMPLAINT: string; _id: string; email: string; name: string };
-  rows: string;
-  textarea: string;
+  complaints?: Record<string, Complaint>;
   userStatus: string;
 }
 
@@ -17,17 +21,16 @@ interface UserWithStatus extends User {
 }
 
 export const useCompanyThTableLogic = () => {
-  // Inside useCompanyThTableLogic
   const [users, setUsers] = useState<UserWithStatus[]>([]);
-  // const [users, setUsers] = useState<User[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const usersPerPage = 5;
   const [showPreviewPopup, setShowPreviewPopup] = useState<boolean>(false);
   const [showPreviewPopup1, setShowPreviewPopup1] = useState<boolean>(false);
-  const [selectedUser, setSelectedUser] = useState<User | null>(null); // Updated state
-
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [selectedUserComplaint, setSelectedUserComplaint] = useState<string>("");
   const [selectedUserComplaintfeedback, setSelectedUserComplaintfeedback] = useState<string>("");
+
+  const navigate = useNavigate();
 
   const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>, username: string) => {
     const updatedUsers = users.map((user) => {
@@ -38,7 +41,6 @@ export const useCompanyThTableLogic = () => {
     });
     setUsers(updatedUsers);
   };
-  
 
   useEffect(() => {
     fetch("http://localhost:5000/api/users")
@@ -57,26 +59,44 @@ export const useCompanyThTableLogic = () => {
 
   const handlePreviewButtonClick = (user: User) => {
     console.log("Clicked on Preview Complaint. User:", user);
-    // Check if the user has a complaint and it's an object
-    if (typeof user.complaint === "object" && user.complaint !== null) {
-      const complaint = user.complaint.COMPLAINT || "Complaint not available";
-      setSelectedUserComplaint(complaint);
-    } else {
-      setSelectedUserComplaint("Complaint not available");
+
+    const complaints: string[] = [];
+
+    // Check if user.complaints is defined before iterating
+    if (user.complaints) {
+      for (const key in user.complaints) {
+        const complaint = user.complaints[key];
+        complaints.push(`${complaint.COMPLAINT} (${complaint.datetime})`);
+      }
     }
-    setShowPreviewPopup(true);
+
+    const formattedComplaints = complaints.length > 0 ? complaints.join(", ") : "No complaints available";
+    setSelectedUserComplaint(formattedComplaints);
+
+    // Use useNavigate to navigate to the desired page
+    navigate("/our_dash@board/companyuser");
+
     console.log("Data sent to MongoDB for user:", user);
   };
-
   const handleComplaintfeedbackButtonClick1 = (user: User) => {
     console.log("Clicked on Preview Complaint. User:", user);
-    // Check if the user has a complaint and it's an object
-    if (typeof user.complaint === "object" && user.complaint !== null) {
-      const complaint = user.complaint.COMPLAINT || "Complaint not available";
-      setSelectedUserComplaintfeedback(complaint);
+
+    // Check if user.complaints is defined
+    if (user.complaints) {
+      const complaintKeys = Object.keys(user.complaints);
+      
+      // Check if there are any complaint keys before accessing the last one
+      if (complaintKeys.length > 0) {
+        const lastComplaintKey = complaintKeys[complaintKeys.length - 1];
+        const lastComplaint = user.complaints[lastComplaintKey];
+        setSelectedUserComplaintfeedback(`${lastComplaint.COMPLAINT} (${lastComplaint.datetime})`);
+      } else {
+        setSelectedUserComplaintfeedback("No complaints available");
+      }
     } else {
-      setSelectedUserComplaintfeedback("Complaint not available");
+      setSelectedUserComplaintfeedback("No complaints available");
     }
+
     setShowPreviewPopup1(true);
   };
 
