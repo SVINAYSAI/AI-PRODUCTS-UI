@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import CompanyLayout from "../Company/CompanyLayout";
 import CompanyDashboard from "../Company/CompanyDashboard";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import Companysettings from "../Company/Companysettings";
 import Companyuser from "../Company/Company_page/company1_pages/Companyuser";
 
