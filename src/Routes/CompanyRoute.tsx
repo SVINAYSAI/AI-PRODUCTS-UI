@@ -3,7 +3,7 @@ import CompanyLayout from "../Company/CompanyLayout";
 import CompanyDashboard from "../Company/CompanyDashboard";
 // import { useEffect, useState } from "react";
 import Companysettings from "../Company/Companysettings";
-import Companyuser from "../Company/Company_page/company1_pages/Companyuser";
+import CompanyUserPreview from "../Company/Company_page/company1_pages/Companyuser";
 
 export default function CompanyRoute() {
   // const navigate = useNavigate();
@@ -15,14 +15,16 @@ export default function CompanyRoute() {
   //     navigate("/log/sign-in");
   //   }
   // }, [navigate, manualRedirect]);
+  const user = {/* actual user data */ };
+  const onComplaintClick = () => {/* actual implementation */ };
   return (
     <>
       <Routes>
         <Route path="/" element={<CompanyLayout />}>
           <Route path="/dash@board" element={<CompanyDashboard />} />
           {/* <Route path="/log/sign-in" element={<Navigate to="/log/sign-in" />} /> */}
-          <Route path="/settings" element={<Companysettings/>}/>
-          <Route path="/companyuser" element={<Companyuser/>}/>
+          <Route path="/settings" element={<Companysettings />} />
+          <Route path="/companyuser" element={<CompanyUserPreview />} />
         </Route>
       </Routes>
     </>

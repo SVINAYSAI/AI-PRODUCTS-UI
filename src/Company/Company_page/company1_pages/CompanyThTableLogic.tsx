@@ -57,27 +57,11 @@ export const useCompanyThTableLogic = () => {
     setCurrentPage(newPage);
   };
 
-  const handlePreviewButtonClick = (user: User) => {
-    console.log("Clicked on Preview Complaint. User:", user);
 
-    const complaints: string[] = [];
 
-    // Check if user.complaints is defined before iterating
-    if (user.complaints) {
-      for (const key in user.complaints) {
-        const complaint = user.complaints[key];
-        complaints.push(`${complaint.COMPLAINT} (${complaint.datetime})`);
-      }
-    }
 
-    const formattedComplaints = complaints.length > 0 ? complaints.join(", ") : "No complaints available";
-    setSelectedUserComplaint(formattedComplaints);
 
-    // Use useNavigate to navigate to the desired page
-    navigate("/our_dash@board/companyuser");
 
-    console.log("Data sent to MongoDB for user:", user);
-  };
   const handleComplaintfeedbackButtonClick1 = (user: User) => {
     console.log("Clicked on Preview Complaint. User:", user);
 
@@ -108,10 +92,11 @@ export const useCompanyThTableLogic = () => {
     setShowPreviewPopup(false);
   };
 
-  const handleUserSelection = (user: User) => {
+  
+
+  const handleUserSelection = (user: User | null) => {
     setSelectedUser(user);
   };
-
   return {
     useState,
     users,
@@ -128,7 +113,7 @@ export const useCompanyThTableLogic = () => {
     indexOfFirstUser,
     currentUsers,
     handlePageChange,
-    handlePreviewButtonClick,
+    
     handleComplaintfeedbackButtonClick1,
     closePreviewPopup1,
     closePreviewPopup,
