@@ -114,12 +114,6 @@ export default function CompanyThTable() {
     setShowPreviewPopup1(false);
   };
 
-  const closePreviewPopup = () => {
-    setShowPreviewPopup(false);
-  };
-
-  
-
   const handleUserSelection = (user: User | null) => {
     setSelectedUser(user);
   };
