@@ -125,7 +125,7 @@ export default function CompanyLayout() {
         </div>
       </nav>
       <div
-        className={`fixed flex flex-col top-0 left-0 w-64 bg-white h-full border-r ${
+        className={`fixed flex flex-col top-0 left-0 w-64 bg-white h-full ${
           isSidebarOpen ? "" : "hidden"
         }`}
       >
