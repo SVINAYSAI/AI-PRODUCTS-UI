@@ -1,8 +1,6 @@
 import CompanyTextarea from "./company1_pages/textarea";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import CompanyUserPreview from "./company1_pages/Companyuser";
-
 
 interface Complaint {
   COMPLAINT: string;
@@ -61,31 +59,36 @@ export default function CompanyThTable() {
   };
 
 
-  const handlePreviewButtonClick = (user: User) => {
-    console.log("Clicked on Preview. User:", user);
-  
-    // Check if user.complaints is defined
-    if (user.complaints) {
-      const complaintKeys = Object.keys(user.complaints);
-  
-      // Check if there are any complaint keys before accessing the last one
-      if (complaintKeys.length > 0) {
-        const lastComplaintKey = complaintKeys[complaintKeys.length - 1];
-        const lastComplaint = user.complaints[lastComplaintKey];
-        setSelectedUserComplaint(`${lastComplaint.COMPLAINT} (${lastComplaint.datetime})`);
-      } else {
-        setSelectedUserComplaint("No complaints available");
-      }
-    } else {
-      setSelectedUserComplaint("No complaints available");
-    }
-  
-    // Set the selected user and show the preview popup
-    handleUserSelection(user);
-    setShowPreviewPopup(true);
-    navigate('/our_dash@board/companyuser');
-  };
+const handlePreviewButtonClick = (user: User) => {
+  const { email, name } = user;
 
+  if (email) {
+    fetch('http://localhost:5000/complaints_bp/get_complaints', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data && typeof data.complaints === 'object') {
+          const complaintsArray = Object.values(data.complaints);
+
+          // Pass user data along with complaints
+          navigate('/our_dash@board/companyuser', { state: { user, complaints: complaintsArray } });
+        } else {
+          console.error('Invalid data format: complaints is not an object', data);
+        }
+      })
+      .catch(error => console.error('Error sending email to backend:', error));
+  } else {
+    console.error('Email not available');
+  }
+};
+
+  
+  
 
 
   const handleComplaintfeedbackButtonClick1 = (user: User) => {
@@ -220,7 +223,6 @@ export default function CompanyThTable() {
               </tr>
             ))}
           </tbody>
-          {showPreview && <CompanyUserPreview />}
           {showPreviewPopup1 && (
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
               <div className="bg-white p-8 rounded-lg">
