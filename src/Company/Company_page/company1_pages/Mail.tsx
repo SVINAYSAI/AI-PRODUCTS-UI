@@ -92,13 +92,8 @@ export default function Mail() {
                   </svg>
                   <span className="sr-only">Attach file</span>
                 </label>
-                <input
-                  type="file"
-                  id="fileInput"
-                  className="hidden"
-                  onChange={handleFileChange}
-                  multiple
-                />
+                
+                <input type="file" id="fileInput" className="hidden" onChange={handleFileChange} multiple />
 
                 <button
                   type="button"
@@ -190,6 +185,7 @@ export default function Mail() {
                   </svg>
                   <span className="sr-only">Add list</span>
                 </button>
+
                 <button
                   type="button"
                   className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
@@ -205,6 +201,7 @@ export default function Mail() {
                   </svg>
                   <span className="sr-only">Settings</span>
                 </button>
+
                 <button
                   type="button"
                   className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
@@ -221,6 +218,7 @@ export default function Mail() {
                   </svg>
                   <span className="sr-only">Timeline</span>
                 </button>
+
                 <button
                   type="button"
                   className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"

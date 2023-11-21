@@ -1,22 +1,43 @@
-import React, { useEffect, useState } from "react";
-import { Cookies } from "react-cookie";
+import React, { useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
 
-export default function Companysettings() {
-  const [cookieValue, setCookieValue] = useState<string | undefined>();
+interface FormData {
+  email: string;
+  name: string;
+  password: string;
+}
+
+const Companysettings: React.FC = () => {
+  const [cookies] = useCookies(['formData']);
+  const [persistedFormData, setPersistedFormData] = useState<FormData | null>(null);
 
   useEffect(() => {
-    const cookies = new Cookies();
-    const buttonClicked = cookies.get("buttonClicked");
-
-    setCookieValue(buttonClicked);
-  }, []);
+    const storedFormData = cookies.formData;
+    if (storedFormData) {
+      setPersistedFormData(storedFormData);
+    }
+  }, [cookies.formData]);
 
   return (
-    <div>
-      <h1>Cookie Reader Page</h1>
-      <p>
-        Cookie value for 'buttonClicked': {cookieValue || 'Not found'}
-      </p>
+    <div className='mt-[10%] ml-[20%]'>
+      <h2>Persisted Form Data</h2>
+      {persistedFormData ? (
+        <ul>
+          <li>
+            <strong>Name:</strong> {persistedFormData.name}
+          </li>
+          <li>
+            <strong>Email:</strong> {persistedFormData.email}
+          </li>
+          <li>
+            <strong>Password:</strong> {persistedFormData.password}
+          </li>
+        </ul>
+      ) : (
+        <p>No form data found.</p>
+      )}
     </div>
   );
-}
+};
+
+export default Companysettings;
