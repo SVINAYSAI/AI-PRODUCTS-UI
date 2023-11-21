@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+textarea {
+  font-family: 'Segoe UI Emoji', sans-serif;
+}

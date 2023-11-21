@@ -213,7 +213,10 @@ export default function CompanyUserPreview() {
                 )}
               </div>
 
-              <section className="mt-6 border rounded-xl bg-gray-50 mb-3" style={{ maxHeight: "50%", maxWidth: "100%" }}>
+              <section
+                className="mt-6 border rounded-xl bg-gray-50 mb-3"
+                style={{ maxHeight: "100%", maxWidth: "100%" }}
+              >
                 <Mail />
               </section>
             </section>
