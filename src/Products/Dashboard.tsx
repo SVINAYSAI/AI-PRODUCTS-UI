@@ -1,39 +1,22 @@
 export default function Dashboard() {
   return (
     <>
-      <div className="bg-gray-50 lg:ml-64" id="main-content">
-        <div className="mb-2 text-xl font-semibold dark:text-black pt-[7%] pl-[2%]">
-          User
-        </div>
-        <div className="grid grid-cols-4 gap-4 px-4 pt-6 xl:grid-cols-4 xl:gap-4">
-          <div
-            className="p-4 mb-4 bg-white border border-b-200 rounded-md shadow-md"
-            style={{ height: "275px", width: "300px" }}
-          >
-            <h3 className="mb-4 text-xl font-semibold dark:text-black">
-              Information
-            </h3>
-          </div>
+      <main className="p-4 md:ml-64 h-auto pt-20 mt-[5%]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+          <div className="border-2 border-gray-300 rounded-md dark:border-gray-600 h-32 md:h-64">
 
-          <div className="p-4 mb-4 bg-white border border-b-200 rounded-md shadow-md">
-            <h3 className="mb-4 text-xl font-semibold dark:text-black">
-              Information
-            </h3>
           </div>
+          <div className="border-2 rounded-md border-gray-300 dark:border-gray-600 h-32 md:h-64">
 
-          <div className="p-4 mb-4 bg-white border border-b-200 rounded-md shadow-md">
-            <h3 className="mb-4 text-xl font-semibold dark:text-black">
-              Information
-            </h3>
           </div>
+          <div className="border-2 rounded-md border-gray-300 dark:border-gray-600 h-32 md:h-64">
 
-          <div className="p-4 mb-4 bg-white border border-b-200 rounded-md shadow-md">
-            <h3 className="mb-4 text-xl font-semibold dark:text-black">
-              Information
-            </h3>
+          </div>
+          <div className="border-2 rounded-md border-gray-300 dark:border-gray-600 h-32 md:h-64">
+            
           </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }

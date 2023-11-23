@@ -8,6 +8,7 @@ export default function Dashboard() {
         <div className="mb-2 text-xl font-semibold dark:text-black pt-[7%] pl-[2%]">
           User Setting
         </div>
+        
         <div className="grid grid-cols-2 px-4 pt-6 xl:grid-cols-2 xl:gap-4">
           <div className="w-full">
             <div className="p-4 mb-4 bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
@@ -29,7 +30,7 @@ export default function Dashboard() {
                   <div className="flex items-center space-x-4">
                     <button
                       type="button"
-                      className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-black rounded-md bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                      className="inline-flex items-center border px-3 py-2 text-sm font-medium text-center text-black rounded-md bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                     >
                       <svg
                         className="w-4 h-4 mr-2 -ml-1"
@@ -55,7 +56,7 @@ export default function Dashboard() {
           </div>
 
           <div className="w-full">
-            <div className="p-4 mb-4 bg-white border border-black rounded-md shadow-sm 2xl:col-span-2">
+            <div className="p-4 mb-4 bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2">
               <h3 className="mb-4 text-xl font-semibold dark:text-black">
                 Password information
               </h3>
@@ -195,7 +196,7 @@ export default function Dashboard() {
                   </div>
                   <div className="col-span-6 sm:col-full">
                     <button
-                      className="text-black bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                      className="text-black border bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                       type="submit"
                     >
                       Save all
@@ -207,7 +208,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="ml-4 mr-4 p-4 mb-4 bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+        <div className="m-4 p-4  bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
           <h3 className="mb-4 text-xl font-semibold dark:text-black">
             General information
           </h3>
@@ -395,7 +396,7 @@ export default function Dashboard() {
               </div>
               <div className="col-span-6 sm:col-full">
                 <button
-                  className="text-black bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  className="text-black border bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                   type="submit"
                 >
                   Save all
