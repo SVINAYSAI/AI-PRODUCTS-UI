@@ -1,19 +1,69 @@
+import React, { useState, useEffect, useRef } from "react";
 import { Link, Outlet } from "react-router-dom";
 import img from "../components/fats-logo/svg/logo-no-background.svg";
-import { useState } from "react";
-import Dashboard from "./Dashboard";
 
 export default function Layout() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const [isDropdownSideNavOpen, setDropdownSideNavOpen] = useState(false);
+  const dropdownSideNavRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
 
+  const toggleDropdownSideNav = () => {
+    setDropdownSideNavOpen(!isDropdownSideNavOpen);
+  };
+
+  const closeDropdownSideNav = (event: MouseEvent) => {
+    // Check if the click is outside the dropdown
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setDropdownSideNavOpen(false);
+    }
+  };
+
+  const closeDropdown = (event: MouseEvent) => {
+    // Check if the click is outside the dropdown
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    // Add event listener when the component mounts
+    document.addEventListener("click", closeDropdown);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.removeEventListener("click", closeDropdown);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Add event listener when the component mounts
+    document.addEventListener("click", closeDropdownSideNav);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.removeEventListener("click", closeDropdownSideNav);
+    };
+  }, []);
+
   return (
     <>
       <div className="antialiased bg-gray-50 dark:bg-gray-900">
-        <nav className="bg-white border-b border-gray-200 px-4 py-3 dark:bg-gray-800 dark:border-gray-700 fixed left-0 right-0 top-0 z-50">
+        <nav
+          ref={dropdownRef}
+          className="bg-white border-b border-gray-200 px-4 py-3 dark:bg-gray-800 dark:border-gray-700 fixed left-0 right-0 top-0 z-50"
+        >
           <div className="flex flex-wrap justify-between items-center">
             <div className="flex justify-start items-center">
               <button
@@ -21,10 +71,11 @@ export default function Layout() {
                 data-drawer-toggle="drawer-navigation"
                 aria-controls="drawer-navigation"
                 className="p-2 mr-2 text-gray-600 rounded-lg cursor-pointer md:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                onClick={toggleDropdownSideNav}
               >
                 <svg
                   aria-hidden="true"
-                  className="w-6 h-6"
+                  className={`w-6 h-6 ${isDropdownSideNavOpen ? "hidden" : ""}`}
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +88,7 @@ export default function Layout() {
                 </svg>
                 <svg
                   aria-hidden="true"
-                  className="hidden w-6 h-6"
+                  className={`w-6 h-6 ${isDropdownSideNavOpen? "" : "hidden"}`}
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -50,6 +101,7 @@ export default function Layout() {
                 </svg>
                 <span className="sr-only">Toggle sidebar</span>
               </button>
+
               <Link to="/" className="flex items-center justify-between mr-4">
                 <img src={img} className="mr-3 h-8" alt="AI FATS Logo" />
                 <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
@@ -214,7 +266,10 @@ export default function Layout() {
         {/* <!-- Sidebar --> */}
 
         <aside
-          className="fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+          ref={dropdownSideNavRef}
+          className={`fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform ${
+            isDropdownSideNavOpen ? "translate-x-0" : "-translate-x-full"
+          } bg-white border-r border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}
           aria-label="Sidenav"
           id="drawer-navigation"
         >
