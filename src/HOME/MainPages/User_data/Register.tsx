@@ -1,12 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useCookies } from 'react-cookie';
-import React, { useState } from 'react';
-import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
+import React, { useEffect, useState } from 'react';
+import { GoogleLogin, GoogleOAuthProvider  } from "@react-oauth/google";
 import img from "../../../components/assets/imgs/christmas.jpg";
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
-
-import EmailSender from "./EmailSender"
 
 const Register: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -15,13 +13,6 @@ const Register: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [, setCookie] = useCookies(['user']);
   const navigate = useNavigate();
-  // const [navigateToOtp, setNavigateToOtp] = useState(false);
-
-  // useEffect(() => {
-  //   if (navigateToOtp) {
-  //     navigate('/log/otp');
-  //   }
-  // }, [navigateToOtp, navigate]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -32,7 +23,6 @@ const Register: React.FC = () => {
       username: (event.target as any).username.value,
       email: (event.target as any).email.value,
       password: (event.target as any).password.value,
-      // ... other form data
     };
 
     try {
@@ -71,37 +61,58 @@ const Register: React.FC = () => {
     return password;
   };
 
-  const handleGoogleLoginSuccess = (credentialResponse: any) => {
-    if (credentialResponse.credential) {
-      const decoded = jwt_decode(credentialResponse.credential) as Record<string, unknown>;
-      console.log(decoded);
-
-      // Generate a random password
-      const randomPassword = generateRandomPassword();
-      console.log("Generated Password:", randomPassword);
-
-      // Send the decoded data and the random password to the server
-      axios.post('http://localhost:5000/save_user_data', { ...decoded, password: randomPassword })
-        .then(response => {
-          console.log(response.data.message);
-          // If the submission is successful, navigate to /log/otp
-          if (response.data.success) {  // Assuming the backend sends a success field in the response
-            navigate('/log/otp');
-          }
-        })
-        .catch(error => {
-          if (error instanceof Error) {
-            console.error('Error saving data:', error.message);
-          } else {
-            console.error('An unknown error occurred:', error);
-          }
+  const handleGoogleLoginSuccess = async (credentialResponse: any) => {
+    try {
+      // Assume credentialResponse is available here
+      if (credentialResponse.credential) {
+        const decoded = jwt_decode(credentialResponse.credential) as Record<string, unknown>;
+        console.log(decoded);
+  
+        // Generate a random password
+        const randomPassword = generateRandomPassword();
+        console.log("Generated Password:", randomPassword);
+  
+        // Send the decoded data and the random password to the server using fetch
+        const response = await fetch('http://localhost:5000/google_login/insert_data', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ ...decoded, password: randomPassword }),
         });
-    } else {
-      console.error('Credential is undefined');
+  
+        const responseData = await response.json();
+  
+        console.log(responseData.message);
+        
+        // Check if the data was inserted successfully
+        if (responseData.message === 'Data inserted successfully') {
+          console.log("Data inserted successfully. Navigating to /log/otp");
+          setCookie('user', responseData.user, { path: '/' });
+          navigate('/log/otp');
+        } else {
+          console.log("Submission not successful.");
+        }
+      } else {
+        console.error('Credential is undefined');
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error('Error saving data:', error.message);
+      } else {
+        console.error('An unknown error occurred:', error);
+      }
     }
   };
+  
 
+//   useEffect(() => {
+//     // Assume credentialResponse is passed as a prop or from state
+//     handleGoogleLoginSuccess(credentialResponse);
+//   }, [credentialResponse]); // Run the effect whenever credentialResponse changes
 
+//   // Your remaining code
+// };
 
 
   return (
@@ -136,7 +147,7 @@ const Register: React.FC = () => {
                   </GoogleOAuthProvider>
                 </div>
 
-      {/* <EmailSender/> */}
+                {/* <EmailSender/> */}
                 <div className="flex items-center justify-center space-x-4">
                   <div className="w-full h-0.5 bg-black"></div>
                   <div className="text-sm font-medium text-black dark:text-gray-400">
@@ -388,7 +399,7 @@ const Register: React.FC = () => {
                     </div>
                   </div>
                   <button type="submit"
-                    className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                    className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
 
                   >Sign up</button>
                 </form>

@@ -15,12 +15,12 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/*" element={<HOME />} />
-          <Route path="/products*" element={<ProductsRoute />} />
-          <Route path="/services*" element={<ServicesRoute />} />
-          <Route path="/api*" element={<APIsRoute />} />
-          <Route path="/log*" element={<UserDataRoute />} />
-          <Route path="/our_dash@board*" element={<CompanyRoute />} />
-          <Route path="/pay_ment@u*" element={<Payment />} />
+          <Route path="/products/*" element={<ProductsRoute />} />
+          <Route path="/services/*" element={<ServicesRoute />} />
+          <Route path="/api/*" element={<APIsRoute />} />
+          <Route path="/log/*" element={<UserDataRoute />} />
+          <Route path="/our_dash@board/*" element={<CompanyRoute />} />
+          <Route path="/pay_ment@u/*" element={<Payment />} />
           <Route path="/admin_sign@in" element={<AdminLogin />} />
           <Route path="/loading" element={<LoadingPage />} />
           <Route path="/Payment" element={<Payment1 />} />
