@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 export default function Form1() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [cookies, setCookie] = useCookies(["userinfo"]);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
@@ -24,17 +27,26 @@ export default function Form1() {
       });
   
       const result = await response.json();
-  
+      
       console.log("Request Data:", { email, password }); // Log the data being sent
   
       console.log(result); // Log the response
-  
+      setLoading(true);
+      await new Promise((resolve) => setTimeout(resolve, 3000));
       if (response.ok) {
         // Authentication successful, redirect to /products/settings
-        navigate("/products/settings");
+        setCookie("userinfo", result.user, { path: "/" });
+        navigate("/loading");
+        // navigate("/products/settings");
+        setTimeout(() => {
+          navigate("/products/settings");
+        }, 3000);
       } else {
-        // Handle authentication failure, show error message or perform necessary actions
-        console.error(result.message);
+        // Display an alert if credentials do not match
+        alert("Details are not matching");
+  
+        // Hide loading page
+        setLoading(false);
       }
     } catch (error) {
       console.error("Error during authentication:", error);
@@ -213,3 +225,5 @@ export default function Form1() {
   </>
   )
 }
+
+
