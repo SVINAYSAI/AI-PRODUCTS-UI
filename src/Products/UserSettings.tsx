@@ -1,4 +1,11 @@
+import React from 'react';
+import { useCookies } from 'react-cookie';
+
 export default function Dashboard() {
+
+  const [cookies] = useCookies(['userInfo']);
+  const { email, firstname, lastname, password, picture, username } = cookies.userInfo || {};
+
   return (
     <>
       <div
@@ -128,9 +135,9 @@ export default function Dashboard() {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                fill-rule="evenodd"
+                                fillRule="evenodd"
                                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                clip-rule="evenodd"
+                                clipRule="evenodd"
                               ></path>
                             </svg>
                             Upper &amp; lower case letters
@@ -144,9 +151,9 @@ export default function Dashboard() {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                fill-rule="evenodd"
+                                fillRule="evenodd"
                                 d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                clip-rule="evenodd"
+                                clipRule="evenodd"
                               ></path>
                             </svg>
                             A symbol (#$&amp;)
@@ -160,9 +167,9 @@ export default function Dashboard() {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                fill-rule="evenodd"
+                                fillRule="evenodd"
                                 d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                clip-rule="evenodd"
+                                clipRule="evenodd"
                               ></path>
                             </svg>
                             A longer password (min. 12 chars.)
@@ -207,6 +214,20 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
+
+        <div>
+      <h2>User Information Preview</h2>
+      {username && <p>Username: {username}</p>}
+      {email && <p>Email: {email}</p>}
+      {firstname && <p>First Name: {firstname}</p>}
+      {lastname && <p>Last Name: {lastname}</p>}
+      {password && <p>Password: {password}</p>}
+      {picture && <img src={picture} alt="User Picture" style={{ maxWidth: '100px' }} />}
+      {!username && !email && !firstname && !lastname && !password && !picture && (
+        <p>No user information available</p>
+      )}
+    </div>
+
 
         <div className="m-4 p-4  bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
           <h3 className="mb-4 text-xl font-semibold dark:text-black">
