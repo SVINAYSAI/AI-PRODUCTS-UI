@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import { GoogleLogin, GoogleOAuthProvider  } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
 
 export default function Form1() {
   const [showPassword, setShowPassword] = useState(false);
@@ -60,32 +62,65 @@ export default function Form1() {
     }
   };
 
+  const handleGoogleLoginSuccess = async (credentialResponse: any) => {
+    try {
+      // Assume credentialResponse is available here
+      if (credentialResponse.credential) {
+        const decoded = jwt_decode(credentialResponse.credential) as Record<string, unknown>;
+        const email = decoded.email; // Assuming email is present in the decoded JWT
+        console.log('Email being sent to Flask:', email); // Log the email
+  
+        // Send a POST request to your Flask server using fetch
+        const response = await fetch('http://127.0.0.1:5000/user_check/verify_email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email }),
+        });
+  
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+  
+        // Parse the JSON response
+        const userWithoutPicture = await response.json();
+  
+        // Save the user info in a cookie
+        setCookie("userinfo", userWithoutPicture, { path: "/" });
+  
+        navigate("/loading");
+  
+        setTimeout(() => {
+          navigate("/products/settings");
+        }, 3000);
+      } else {
+        // Display an alert if credentials do not match
+        alert("Details are not matching");
+  
+        // Hide loading page
+        setLoading(false);
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error('Error saving data:', error.message);
+      } else {
+        console.error('An unknown error occurred:', error);
+      }
+    }
+  };
+  
+
   return (
     <>
       <div className="">
-        <Link
-          to=""
-          type="button"
-          className="text-white rounded-md bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium text-sm px-3 py-2.5 text-center inline-flex items-center justify-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
-          style={{ width: "100%", height: "42px" }} // Adjust width and height as needed
-        >
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <svg
-              className="w-4 h-4 mr-2"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 18 19"
-            >
-              <path
-                fillRule="evenodd"
-                d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span>Log in with Google</span>
-          </div>
-        </Link>
+      <GoogleOAuthProvider clientId="536585599787-4a44c9aq46ifgsm66mfriea6uuvnuft2.apps.googleusercontent.com">
+                    <div className=" w-96">
+                      <GoogleLogin
+                        onSuccess={handleGoogleLoginSuccess}
+                      />
+                    </div>
+                  </GoogleOAuthProvider>
       </div>
       <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
         <div>
@@ -231,3 +266,5 @@ export default function Form1() {
     </>
   );
 }
+
+
