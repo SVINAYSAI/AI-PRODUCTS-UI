@@ -150,18 +150,19 @@ export default function Upnavbar() {
                             onClick={toggleDropdown}
                         >
                             <span className="sr-only">Open user menu</span>
-                            <img
-                                className="w-8 h-8 rounded-full"
+                           
                                 src=  {picture && (
                                     <div>
                                       {isHttpLink ? (
                                         <img
+                                        className="w-8 h-8 rounded-full"
                                           src={picture}
                                           alt="User Picture"
                                         
                                         />
                                       ) : isBase64Image ? (
                                         <img
+                                        className="w-8 h-8 rounded-full"
                                           src={`data:image/png;base64,${picture}`}
                                           alt="User Picture"
                                          
@@ -172,7 +173,7 @@ export default function Upnavbar() {
                                         </div>
                                       )}
                                 alt="user photo"
-                            />
+                           
                         </button>
                         {/* <!-- Dropdown menu --> */}
                         {isDropdownOpen && (
