@@ -26,11 +26,29 @@ export default function Dashboard() {
             <div className="p-4 mb-4 bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
               <div className=" justify-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
                 <div className="flex justify-center">
-                  <img
-                    className="mb-4 mt-3 rounded-md justify-center w-[90%] sm:mb-0 xl:mb-4 2xl:mb-0"
-                    src="https://flowbite-admin-dashboard.vercel.app/images/users/bonnie-green-2x.png"
-                    alt=""
-                  />
+                  
+                    {picture && (
+                      <div>
+                        {isHttpLink ? (
+                          <img
+                          className="mb-4 mt-3 rounded-md justify-center w-[90%] sm:mb-0 xl:mb-4 2xl:mb-0"
+                            src={picture}
+                            alt="User Picture"
+                            style={{ maxWidth: "100px" }}
+                          />
+                        ) : isBase64Image ? (
+                          <img
+                          className="mb-4 mt-3 rounded-md justify-center w-[90%] sm:mb-0 xl:mb-4 2xl:mb-0"
+                            src={`data:image/png;base64,${picture}`}
+                            alt="User Picture"
+                            style={{ maxWidth: "100px" }}
+                          />
+                        ) : (
+                          <p>Invalid picture format</p>
+                        )}
+                          </div>
+                        )}
+                
                 </div>
                 <div>
                   <h3 className="mb-1 text-xl font-bold text-gray-900 dark:text-black">
