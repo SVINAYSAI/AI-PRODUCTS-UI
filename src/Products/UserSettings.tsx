@@ -3,16 +3,16 @@ import { useCookies } from "react-cookie";
 
 export default function Dashboard() {
   const [cookies] = useCookies(["userinfo"]);
-  const { email, firstname, lastname, password, username, isBase64  } =
+  const { email, firstname, lastname, password, username, isBase64 } =
     cookies.userinfo || {};
 
-    const picture = cookies.userinfo?.picture || localStorage.getItem("userPicture");
+  const picture =
+    cookies.userinfo?.picture || localStorage.getItem("userPicture");
 
   console.log("Cookies in Dashboard:", cookies);
 
   const isHttpLink = picture && picture.startsWith("http");
   const isBase64Image = isBase64 === true;
-
 
   return (
     <>
@@ -49,15 +49,13 @@ export default function Dashboard() {
                           </div>
                         )}
                 
+
                 </div>
-                <div>
+                <div className="mt-[3%]">
                   <h3 className="mb-1 text-xl font-bold text-gray-900 dark:text-black">
                     Profile picture
                   </h3>
-                  <div className="mb-4 text-sm text-gray-500 dark:text-gray-400">
-                    JPG, GIF or PNG. Max size of 800K
-                  </div>
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-4 mt-[2%]">
                     <button
                       type="button"
                       className="inline-flex items-center border px-3 py-2 text-sm font-medium text-center text-black rounded-md bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
@@ -246,22 +244,22 @@ export default function Dashboard() {
           {lastname && <p>Last Name: {lastname}</p>}
           {password && <p>Password: {password}</p>}
           {picture && (
-        <div>
-          {isHttpLink ? (
-            <img
-              src={picture}
-              alt="User Picture"
-              style={{ maxWidth: "100px" }}
-            />
-          ) : isBase64Image ? (
-            <img
-              src={`data:image/png;base64,${picture}`}
-              alt="User Picture"
-              style={{ maxWidth: "100px" }}
-            />
-          ) : (
-            <p>Invalid picture format</p>
-          )}
+            <div>
+              {isHttpLink ? (
+                <img
+                  src={picture}
+                  alt="User Picture"
+                  style={{ maxWidth: "100px" }}
+                />
+              ) : isBase64Image ? (
+                <img
+                  src={`data:image/png;base64,${picture}`}
+                  alt="User Picture"
+                  style={{ maxWidth: "100px" }}
+                />
+              ) : (
+                <p>Invalid picture format</p>
+              )}
             </div>
           )}
           {!username &&
