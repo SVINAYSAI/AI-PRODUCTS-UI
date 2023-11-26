@@ -216,7 +216,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div>
+        <div className="m-4 p-4  bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
           <h2>User Information Preview</h2>
           {username && <p>Username: {username}</p>}
           {email && <p>Email: {email}</p>}
