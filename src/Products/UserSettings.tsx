@@ -3,12 +3,16 @@ import { useCookies } from "react-cookie";
 
 export default function Dashboard() {
   const [cookies] = useCookies(["userinfo"]);
-  const { email, firstname, lastname, password, username, isBase64 } =
+  const { email, firstname, lastname, password, username, isBase64  } =
     cookies.userinfo || {};
 
-  const picture = localStorage.getItem("userPicture");
+    const picture = cookies.userinfo?.picture || localStorage.getItem("userPicture");
 
   console.log("Cookies in Dashboard:", cookies);
+
+  const isHttpLink = picture && picture.startsWith("http");
+  const isBase64Image = isBase64 === true;
+
 
   return (
     <>
@@ -224,20 +228,22 @@ export default function Dashboard() {
           {lastname && <p>Last Name: {lastname}</p>}
           {password && <p>Password: {password}</p>}
           {picture && (
-            <div>
-              {isBase64 ? (
-                <img
-                  src={`data:image/png;base64,${picture}`}
-                  alt="User Picture"
-                  style={{ maxWidth: "100px" }}
-                />
-              ) : (
-                <img
-                  src={picture}
-                  alt="User Picture"
-                  style={{ maxWidth: "100px" }}
-                />
-              )}
+        <div>
+          {isHttpLink ? (
+            <img
+              src={picture}
+              alt="User Picture"
+              style={{ maxWidth: "100px" }}
+            />
+          ) : isBase64Image ? (
+            <img
+              src={`data:image/png;base64,${picture}`}
+              alt="User Picture"
+              style={{ maxWidth: "100px" }}
+            />
+          ) : (
+            <p>Invalid picture format</p>
+          )}
             </div>
           )}
           {!username &&
