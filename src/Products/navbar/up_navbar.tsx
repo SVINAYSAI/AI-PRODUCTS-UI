@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import img from "../../components/fats-logo/svg/logo-no-background.svg";
+import { useCookies } from "react-cookie";
 
 export default function Upnavbar() {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -56,6 +57,17 @@ export default function Upnavbar() {
             document.removeEventListener("click", closeDropdownSideNav);
         };
     }, []);
+
+    const [cookies] = useCookies(["userinfo"]);
+    const { email, firstname, lastname, password, username, isBase64  } =
+      cookies.userinfo || {};
+  
+      const picture = cookies.userinfo?.picture || localStorage.getItem("userPicture");
+  
+    console.log("Cookies in Dashboard:", cookies);
+  
+    const isHttpLink = picture && picture.startsWith("http");
+    const isBase64Image = isBase64 === true;
 
     return (
         <nav
@@ -140,7 +152,25 @@ export default function Upnavbar() {
                             <span className="sr-only">Open user menu</span>
                             <img
                                 className="w-8 h-8 rounded-full"
-                                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gough.png"
+                                src=  {picture && (
+                                    <div>
+                                      {isHttpLink ? (
+                                        <img
+                                          src={picture}
+                                          alt="User Picture"
+                                        
+                                        />
+                                      ) : isBase64Image ? (
+                                        <img
+                                          src={`data:image/png;base64,${picture}`}
+                                          alt="User Picture"
+                                         
+                                        />
+                                      ) : (
+                                        <p>Invalid picture format</p>
+                                      )}
+                                        </div>
+                                      )}
                                 alt="user photo"
                             />
                         </button>
@@ -149,10 +179,10 @@ export default function Upnavbar() {
                             <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                                 <div className="py-3 px-4">
                                     <span className="block text-sm font-semibold text-gray-900 dark:text-white">
-                                        Abhishek
+                                    {username && <p> {username}</p>}
                                     </span>
                                     <span className="block text-sm text-gray-900 truncate dark:text-white">
-                                        abhishek@aifats.com
+                                    {email && <p>{email}</p>}
                                     </span>
                                 </div>
                                 <ul className="m-[2%] border-t border-gray-200 dark:border-gray-700">
