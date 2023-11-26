@@ -1,19 +1,44 @@
-
-import React from "react";
+import React, { useState } from "react";
 import { useCookies } from "react-cookie";
 
-export default function Dashboard() {
-  const [cookies] = useCookies(["userinfo"]);
+interface DashboardProps {}
+
+const Dashboard: React.FC<DashboardProps> = () => {
+  const [cookies, setCookie] = useCookies(["userinfo"]);
   const { email, firstname, lastname, password, username, isBase64 } =
     cookies.userinfo || {};
 
+  const [newPicture, setNewPicture] = useState<string | null>(null);
+
   const picture =
-    cookies.userinfo?.picture || localStorage.getItem("userPicture");
+    newPicture ||
+    cookies.userinfo?.picture ||
+    localStorage.getItem("userPicture");
 
   console.log("Cookies in Dashboard:", cookies);
 
   const isHttpLink = picture && picture.startsWith("http");
   const isBase64Image = isBase64 === true;
+
+  const handlePictureUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+
+    if (file) {
+      // Read the new image as a data URL and convert it to base64
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const newImageBase64 = reader.result as string;
+
+        // Update the state with the new image
+        setNewPicture(newImageBase64);
+
+        // Update the cookies with the new image
+        setCookie("userinfo", { ...cookies.userinfo, picture: newImageBase64 });
+      };
+
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <>
@@ -27,36 +52,41 @@ export default function Dashboard() {
             <div className="p-4 mb-4 bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
               <div className=" justify-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
                 <div className="flex justify-center">
-                    {picture && (
-                      <div>
-                        {isHttpLink ? (
-                          <img
+                  {picture && (
+                    <div>
+                      {isHttpLink ? (
+                        <img
                           className="mb-4 mt-3 rounded-md justify-center w-[100%] sm:mb-0 xl:mb-4 2xl:mb-0"
-                            src={picture}
-                            alt="User Picture"
-                           
-                          />
-                        ) : isBase64Image ? (
-                          <img
+                          src={picture}
+                          alt="User Picture"
+                        />
+                      ) : isBase64Image ? (
+                        <img
                           className="mb-4 mt-3 rounded-md justify-center w-[100%] sm:mb-0 xl:mb-4 2xl:mb-0"
-                            src={`data:image/png;base64,${picture}`}
-                            alt="User Picture"
-                           
-                          />
-                        ) : (
-                          <p>Invalid picture format</p>
-                        )}
-                          </div>
-                        )}
+                          src={`data:image/png;base64,${picture}`}
+                          alt="User Picture"
+                        />
+                      ) : (
+                        <p>Invalid picture format</p>
+                      )}
+                    </div>
+                  )}
                 </div>
                 <div className="mt-[3%]">
                   <h3 className="mb-1 text-xl font-bold text-gray-900 dark:text-black">
                     Profile picture
                   </h3>
                   <div className="flex items-center space-x-4 mt-[2%]">
-                    <button
-                      type="button"
-                      className="inline-flex items-center border px-3 py-2 text-sm font-medium text-center text-black rounded-md bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handlePictureUpload}
+                      style={{ display: "none" }}
+                      id="pictureInput"
+                    />
+                    <label
+                      htmlFor="pictureInput"
+                      className="inline-flex items-center border px-3 py-2 text-sm font-medium text-center text-black rounded-md bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 cursor-pointer"
                     >
                       <svg
                         className="w-4 h-4 mr-2 -ml-1"
@@ -68,168 +98,10 @@ export default function Dashboard() {
                         <path d="M9 13h2v5a1 1 0 11-2 0v-5z"></path>
                       </svg>
                       Upload picture
-                    </button>
-                    <button
-                      type="button"
-                      className="py-2 px-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-black dark:hover:bg-gray-700"
-                    >
-                      Delete
-                    </button>
+                    </label>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div className="w-full">
-            <div className="p-4 mb-4 bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2">
-              <h3 className="mb-4 text-xl font-semibold dark:text-black">
-                Password information
-              </h3>
-              <form action="#">
-                <div className="grid grid-cols-6 gap-6">
-                  <div className="col-span-6 sm:col-span-3">
-                    <label
-                      htmlFor="current-password"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                    >
-                      Current password
-                    </label>
-                    <input
-                      type="text"
-                      name="current-password"
-                      id="current-password"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                      placeholder="••••••••"
-                    />
-                  </div>
-                  <div className="col-span-6 sm:col-span-3">
-                    <label
-                      htmlFor="password"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                    >
-                      New password
-                    </label>
-                    <input
-                      data-popover-target="popover-password"
-                      data-popover-placement="bottom"
-                      type="password"
-                      id="password"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="••••••••"
-                    />
-                    <div
-                      data-popover=""
-                      id="popover-password"
-                      role="tooltip"
-                      className="absolute z-10 invisible inline-block text-sm font-light text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-md shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400"
-                      data-popper-placement="bottom"
-                      data-popper-reference-hidden=""
-                      data-popper-escaped=""
-                      style={{
-                        position: "absolute",
-                        inset: "0 auto auto 0",
-                        margin: "0",
-                        transform: "translate(751px, 987px)",
-                      }}
-                    >
-                      <div className="p-3 space-y-2">
-                        <h3 className="font-semibold text-gray-900 dark:text-black">
-                          Must have at least 6 characters
-                        </h3>
-                        <div className="grid grid-cols-4 gap-2">
-                          <div className="h-1 bg-orange-300 dark:bg-orange-400"></div>
-                          <div className="h-1 bg-orange-300 dark:bg-orange-400"></div>
-                          <div className="h-1 bg-gray-200 dark:bg-gray-600"></div>
-                          <div className="h-1 bg-gray-200 dark:bg-gray-600"></div>
-                        </div>
-                        <p>It’s better to have:</p>
-                        <ul>
-                          <li className="flex items-center mb-1">
-                            <svg
-                              className="w-4 h-4 mr-2 text-green-400 dark:text-green-500"
-                              aria-hidden="true"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                clipRule="evenodd"
-                              ></path>
-                            </svg>
-                            Upper &amp; lower case letters
-                          </li>
-                          <li className="flex items-center mb-1">
-                            <svg
-                              className="w-4 h-4 mr-2 text-gray-300 dark:text-gray-400"
-                              aria-hidden="true"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                clipRule="evenodd"
-                              ></path>
-                            </svg>
-                            A symbol (#$&amp;)
-                          </li>
-                          <li className="flex items-center">
-                            <svg
-                              className="w-4 h-4 mr-2 text-gray-300 dark:text-gray-400"
-                              aria-hidden="true"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                clipRule="evenodd"
-                              ></path>
-                            </svg>
-                            A longer password (min. 12 chars.)
-                          </li>
-                        </ul>
-                      </div>
-                      <div
-                        data-popper-arrow=""
-                        style={{
-                          position: "absolute",
-                          left: "0px",
-                          transform: "translate(139px, 0px)",
-                        }}
-                      ></div>
-                    </div>
-                  </div>
-                  <div className="col-span-6 sm:col-span-3">
-                    <label
-                      htmlFor="confirm-password"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                    >
-                      Confirm password
-                    </label>
-                    <input
-                      type="text"
-                      name="confirm-password"
-                      id="confirm-password"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                      placeholder="••••••••"
-                    />
-                  </div>
-                  <div className="col-span-6 sm:col-full">
-                    <button
-                      className="text-black border bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                      type="submit"
-                    >
-                      Save all
-                    </button>
-                  </div>
-                </div>
-              </form>
             </div>
           </div>
         </div>
@@ -267,205 +139,8 @@ export default function Dashboard() {
             !password &&
             !picture && <p>No user information available</p>}
         </div>
-
-        <div className="m-4 p-4  bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-          <h3 className="mb-4 text-xl font-semibold dark:text-black">
-            General information
-          </h3>
-          <form action="#">
-            <div className="grid grid-cols-6 gap-6">
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="first-name"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  name="first-name"
-                  id="first-name"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="Bonnie"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="last-name"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  name="last-name"
-                  id="last-name"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="Green"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="country"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Country
-                </label>
-                <input
-                  type="text"
-                  name="country"
-                  id="country"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="United States"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="city"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  City
-                </label>
-                <input
-                  type="text"
-                  name="city"
-                  id="city"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="e.g. San Francisco"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="address"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Address
-                </label>
-                <input
-                  type="text"
-                  name="address"
-                  id="address"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="e.g. California"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="example@company.com"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="phone-number"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Phone Number
-                </label>
-                <input
-                  type="number"
-                  name="phone-number"
-                  id="phone-number"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="e.g. +(12)3456 789"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="birthday"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Birthday
-                </label>
-                <input
-                  type="number"
-                  name="birthday"
-                  id="birthday"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="15/08/1990"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="organization"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Organization
-                </label>
-                <input
-                  type="text"
-                  name="organization"
-                  id="organization"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="Company Name"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="role"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Role
-                </label>
-                <input
-                  type="text"
-                  name="role"
-                  id="role"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="React Developer"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="department"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Department
-                </label>
-                <input
-                  type="text"
-                  name="department"
-                  id="department"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="Development"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="zip-code"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Zip/postal code
-                </label>
-                <input
-                  type="number"
-                  name="zip-code"
-                  id="zip-code"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="123456"
-                />
-              </div>
-              <div className="col-span-6 sm:col-full">
-                <button
-                  className="text-black border bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                  type="submit"
-                >
-                  Save all
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
       </div>
     </>
   );
-}
+};
+export default Dashboard;

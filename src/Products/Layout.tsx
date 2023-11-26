@@ -63,28 +63,26 @@ export default function Layout() {
   return (
     <>
       <div className="antialiased bg-gray-50 dark:bg-gray-900">
-        <Upnavbar/>
+        <Upnavbar />
 
         {/* <!-- Sidebar --> */}
         {isDropdownOpen && (
-                            <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                                <div className="py-3 px-4">
-                                    {/* Display user information from cookies */}
-                                    {cookies.userInfo && (
-                                        <>
-                                            <span className="block text-sm font-semibold text-gray-900 dark:text-white">
-                                                {cookies.userInfo.name}
-                                            </span>
-                                            <span className="block text-sm text-gray-900 truncate dark:text-white">
-                                                {cookies.userInfo.email}
-                                            </span>
-                                        </>
-                                    )}
-                                </div>
-
-                                {/* ... rest of the code ... */}
-                            </div>
-                        )}
+          <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+            <div className="py-3 px-4">
+              {/* Display user information from cookies */}
+              {cookies.userInfo && (
+                <>
+                  <span className="block text-sm font-semibold text-gray-900 dark:text-white">
+                    {cookies.userInfo.name}
+                  </span>
+                  <span className="block text-sm text-gray-900 truncate dark:text-white">
+                    {cookies.userInfo.email}
+                  </span>
+                </>
+              )}
+            </div>
+          </div>
+        )}
 
         <aside
           ref={dropdownSideNavRef}
