@@ -1,19 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import { GoogleLogin, GoogleOAuthProvider  } from "@react-oauth/google";
+import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 
 export default function Form1() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
   const [cookies, setCookie] = useCookies(["userinfo"]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  // Check if "userinfo" cookie exists and has email and password values
+  useEffect(() => {
+    const userinfoCookie = cookies["userinfo"];
+    if (
+      userinfoCookie &&
+      userinfoCookie.email &&
+      userinfoCookie.password &&
+      userinfoCookie.rememberMe
+    ) {
+      setEmail(userinfoCookie.email);
+      setPassword(userinfoCookie.password);
+      setRememberMe(true);
+    }
+  }, [cookies]);
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleCheckboxChange = () => {
+    setRememberMe(!rememberMe);
   };
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
@@ -41,7 +61,13 @@ export default function Form1() {
         const { picture, ...userWithoutPicture } = result.user;
         setCookie(
           "userinfo",
-          { ...userWithoutPicture, isBase64: true },
+          {
+            email,
+            password,
+            rememberMe,
+            ...userWithoutPicture,
+            isBase64: true,
+          },
           { path: "/" }
         );
         localStorage.setItem("userPicture", picture);
@@ -64,61 +90,68 @@ export default function Form1() {
     try {
       // Assume credentialResponse is available here
       if (credentialResponse.credential) {
-        const decoded = jwt_decode(credentialResponse.credential) as Record<string, unknown>;
+        const decoded = jwt_decode(credentialResponse.credential) as Record<
+          string,
+          unknown
+        >;
         const email = decoded.email; // Assuming email is present in the decoded JWT
-        console.log('Email being sent to Flask:', email); // Log the email
-  
+        console.log("Email being sent to Flask:", email); // Log the email
+
         // Send a POST request to your Flask server using fetch
-        const response = await fetch('http://127.0.0.1:5000/user_check/verify_email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email }),
-        });
-  
+        const response = await fetch(
+          "http://127.0.0.1:5000/user_check/verify_email",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email }),
+          }
+        );
+
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-  
+
         // Parse the JSON response
         const userWithoutPicture = await response.json();
-  
+
         // Save the user info in a cookie
-        setCookie("userinfo", userWithoutPicture, { path: "/" });
-  
+        setCookie(
+          "userinfo",
+          { email, password, rememberMe, ...userWithoutPicture },
+          { path: "/" }
+        );
+
         navigate("/loading");
-  
+
         setTimeout(() => {
           navigate("/products/settings");
         }, 3000);
       } else {
         // Display an alert if credentials do not match
         alert("Details are not matching");
-  
+
         // Hide loading page
         setLoading(false);
       }
     } catch (error) {
       if (error instanceof Error) {
-        console.error('Error saving data:', error.message);
+        console.error("Error saving data:", error.message);
       } else {
-        console.error('An unknown error occurred:', error);
+        console.error("An unknown error occurred:", error);
       }
     }
   };
-  
 
   return (
     <>
       <div className="">
-      <GoogleOAuthProvider clientId="536585599787-4a44c9aq46ifgsm66mfriea6uuvnuft2.apps.googleusercontent.com">
-                    <div className=" w-96">
-                      <GoogleLogin
-                        onSuccess={handleGoogleLoginSuccess}
-                      />
-                    </div>
-                  </GoogleOAuthProvider>
+        <GoogleOAuthProvider clientId="536585599787-4a44c9aq46ifgsm66mfriea6uuvnuft2.apps.googleusercontent.com">
+          <div className=" w-96">
+            <GoogleLogin onSuccess={handleGoogleLoginSuccess} />
+          </div>
+        </GoogleOAuthProvider>
       </div>
       <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
         <div>
@@ -222,8 +255,9 @@ export default function Form1() {
             <div className="flex items-center h-5">
               <input
                 id="remember"
-                aria-describedby="remember"
                 type="checkbox"
+                checked={rememberMe}
+                onChange={handleCheckboxChange}
                 className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
               />
             </div>
@@ -246,7 +280,7 @@ export default function Form1() {
 
         <button
           type="submit"
-          className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+          className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2"
         >
           Sign in
         </button>
@@ -264,5 +298,3 @@ export default function Form1() {
     </>
   );
 }
-
-

@@ -37,12 +37,36 @@ const Login: React.FC = () => {
                   Sign in to your account
                 </h1>
 
-               
-
                 <div className="grid grid-cols-2 gap-4">
+                  
+                  <Link
+                    to=""
+                    onClick={handleUserLoginClick}
+                    type="button"
+                    className="text-white rounded-md bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium text-sm text-center inline-flex items-center justify-center dark:focus:ring-[#4285F4]/55"
+                    style={{ width: "100%", height: "42px" }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      <svg
+                        className="w-4 h-4 mr-2 text-white dark:text-white"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M10 19a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 11 14H9a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 10 19Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                        />
+                      </svg>
+                      <span>User login</span>
+                    </div>
+                  </Link>
 
-                
-                <Link
+                  <Link
                     to=""
                     onClick={handleCompanyLoginClick}
                     type="button"
@@ -51,42 +75,25 @@ const Login: React.FC = () => {
                   >
                     <div style={{ display: "flex", alignItems: "center" }}>
                       <svg
-                        className="w-4 h-4 mr-2"
+                        className="w-4 h-4 mr-2 text-white dark:text-white"
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 18 19"
+                        width="20"
+                        height="20"
+                        fill="none"
+                        viewBox="0 0 20 20"
                       >
                         <path
-                          fillRule="evenodd"
-                          d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z"
-                          clipRule="evenodd"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-width="2"
+                          d="M1 10c1.5 1.5 5.25 3 9 3s7.5-1.5 9-3m-9-1h.01M2 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1ZM14 5V3a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2h8Z"
                         />
                       </svg>
                       <span>company login</span>
                     </div>
                   </Link>
 
-                  <Link
-                  to=""
-                  onClick={handleUserLoginClick}
-                  type="button"
-                  className="text-white rounded-md bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium text-sm text-center inline-flex items-center justify-center dark:focus:ring-[#4285F4]/55"
-                  style={{ width: "100%", height: "42px" }}
-                >
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <svg
-                      className="w-4 h-4 mr-2"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 18 19"
-                    >
-                      {/* ... (Google icon path) */}
-                    </svg>
-                    <span>User login</span>
-                  </div>
-                </Link>
                 </div>
 
                 <div className="flex items-center justify-center space-x-4">
@@ -97,7 +104,7 @@ const Login: React.FC = () => {
                   <div className="w-full h-0.5 bg-black"></div>
                 </div>
                 {showCompanyForm ? <Form2 /> : <Form1 />}
-               {/* <Form1/>
+                {/* <Form1/>
                <Form2/> */}
               </div>
             </div>
