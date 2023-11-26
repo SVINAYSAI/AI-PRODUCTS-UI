@@ -26,7 +26,6 @@ export default function Dashboard() {
             <div className="p-4 mb-4 bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
               <div className=" justify-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
                 <div className="flex justify-center">
-                  
                     {picture && (
                       <div>
                         {isHttpLink ? (
@@ -48,8 +47,6 @@ export default function Dashboard() {
                         )}
                           </div>
                         )}
-                
-
                 </div>
                 <div className="mt-[3%]">
                   <h3 className="mb-1 text-xl font-bold text-gray-900 dark:text-black">
