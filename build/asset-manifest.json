@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d41f33e3.css",
-    "main.js": "/static/js/main.796c1ce8.js",
+    "main.css": "/static/css/main.3d51f264.css",
+    "main.js": "/static/js/main.b573fc19.js",
     "static/js/787.b256d324.chunk.js": "/static/js/787.b256d324.chunk.js",
     "static/media/4.mp4": "/static/media/4.f303480fd67a8632f508.mp4",
     "static/media/navbar_background.mp4": "/static/media/navbar_background.0ed246f92ccc42b52adb.mp4",
@@ -32,6 +32,7 @@
     "static/media/section.jpg": "/static/media/section.b9d7b466345d3b42da01.jpg",
     "static/media/artificial-intelligence-AI.jpg": "/static/media/artificial-intelligence-AI.2aec385bd862b1144165.jpg",
     "static/media/about.jpg": "/static/media/about.f346b202658a003e6edc.jpg",
+    "static/media/Snap.jpg": "/static/media/Snap.31c4fb317f6536d636de.jpg",
     "static/media/ar.jpg": "/static/media/ar.cdd89392daf08b60404a.jpg",
     "static/media/themify.eot": "/static/media/themify.9bad94440d49256265a5.eot",
     "static/media/themify.ttf?-fvbane": "/static/media/themify.eda8b94308c6f538f04a.ttf",
@@ -60,13 +61,21 @@
     "static/media/blog-cat3.jpg": "/static/media/blog-cat3.b069619ceec42fdfa349.jpg",
     "static/media/cat-larg5.jpg": "/static/media/cat-larg5.54b932bc5af981b6b659.jpg",
     "static/media/6.jpeg": "/static/media/6.d7c5a1f598f00af64121.jpeg",
+    "static/media/MasterCard.svg": "/static/media/MasterCard.c1dbb0e8e0056a0382cfe7e193a74820.svg",
+    "static/media/AmericanExpress.svg": "/static/media/AmericanExpress.522d3469847c5560b070b8723eb62f62.svg",
+    "static/media/Dicover.svg": "/static/media/Dicover.b9237a1f660e3afcbe775cd27e560555.svg",
+    "static/media/VisaCard.svg": "/static/media/VisaCard.45bbd76953af8df7fd158ba2718a98cb.svg",
+    "static/media/paytm.svg": "/static/media/paytm.1b12d9be3c23b0f1be0a291f8ba093d7.svg",
+    "static/media/GPay.svg": "/static/media/GPay.22cc2ad282e5a81308f6099663617201.svg",
+    "static/media/Card.svg": "/static/media/Card.b7967cb81a7f1da0032de2a39e4b2ac9.svg",
+    "static/media/bhim.svg": "/static/media/bhim.f05c7a42a2c4dc4cadeaa9441a345b3f.svg",
     "index.html": "/index.html",
-    "main.d41f33e3.css.map": "/static/css/main.d41f33e3.css.map",
-    "main.796c1ce8.js.map": "/static/js/main.796c1ce8.js.map",
+    "main.3d51f264.css.map": "/static/css/main.3d51f264.css.map",
+    "main.b573fc19.js.map": "/static/js/main.b573fc19.js.map",
     "787.b256d324.chunk.js.map": "/static/js/787.b256d324.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d41f33e3.css",
-    "static/js/main.796c1ce8.js"
+    "static/css/main.3d51f264.css",
+    "static/js/main.b573fc19.js"
   ]
 }
