@@ -30,17 +30,15 @@ export default function Dashboard() {
                     <div>
                       {isHttpLink ? (
                         <img
-                          className="mb-4 mt-3 rounded-md justify-center w-[90%] sm:mb-0 xl:mb-4 2xl:mb-0"
+                          className="mb-4 rounded-md justify-center sm:mb-0 xl:mb-4 2xl:mb-0"
                           src={picture}
                           alt="User Picture"
-                          style={{ maxWidth: "100px" }}
                         />
                       ) : isBase64Image ? (
                         <img
-                          className="mb-4 mt-3 rounded-md justify-center w-[90%] sm:mb-0 xl:mb-4 2xl:mb-0"
+                          className="mb-4 rounded-md justify-center sm:mb-0 xl:mb-4 2xl:mb-0"
                           src={`data:image/png;base64,${picture}`}
                           alt="User Picture"
-                          style={{ maxWidth: "100px" }}
                         />
                       ) : (
                         <p>Invalid picture format</p>
