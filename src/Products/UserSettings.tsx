@@ -3,16 +3,16 @@ import { useCookies } from "react-cookie";
 
 export default function Dashboard() {
   const [cookies] = useCookies(["userinfo"]);
-  const { email, firstname, lastname, password, username, isBase64  } =
+  const { email, firstname, lastname, password, username, isBase64 } =
     cookies.userinfo || {};
 
-    const picture = cookies.userinfo?.picture || localStorage.getItem("userPicture");
+  const picture =
+    cookies.userinfo?.picture || localStorage.getItem("userPicture");
 
   console.log("Cookies in Dashboard:", cookies);
 
   const isHttpLink = picture && picture.startsWith("http");
   const isBase64Image = isBase64 === true;
-
 
   return (
     <>
@@ -26,20 +26,29 @@ export default function Dashboard() {
             <div className="p-4 mb-4 bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
               <div className=" justify-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
                 <div className="flex justify-center">
-                  <img
-                    className="mb-4 mt-3 rounded-md justify-center w-[90%] sm:mb-0 xl:mb-4 2xl:mb-0"
-                    src="https://flowbite-admin-dashboard.vercel.app/images/users/bonnie-green-2x.png"
-                    alt=""
-                  />
+                  {picture && (
+                    <div>
+                      {isHttpLink ? (
+                        <img
+                          src={picture}
+                          alt="User Picture"
+                        />
+                      ) : isBase64Image ? (
+                        <img
+                          src={`data:image/png;base64,${picture}`}
+                          alt="User Picture"
+                        />
+                      ) : (
+                        <p>Invalid picture format</p>
+                      )}
+                    </div>
+                  )}
                 </div>
-                <div>
+                <div className="mt-[3%]">
                   <h3 className="mb-1 text-xl font-bold text-gray-900 dark:text-black">
                     Profile picture
                   </h3>
-                  <div className="mb-4 text-sm text-gray-500 dark:text-gray-400">
-                    JPG, GIF or PNG. Max size of 800K
-                  </div>
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-4 mt-[2%]">
                     <button
                       type="button"
                       className="inline-flex items-center border px-3 py-2 text-sm font-medium text-center text-black rounded-md bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
@@ -228,22 +237,22 @@ export default function Dashboard() {
           {lastname && <p>Last Name: {lastname}</p>}
           {password && <p>Password: {password}</p>}
           {picture && (
-        <div>
-          {isHttpLink ? (
-            <img
-              src={picture}
-              alt="User Picture"
-              style={{ maxWidth: "100px" }}
-            />
-          ) : isBase64Image ? (
-            <img
-              src={`data:image/png;base64,${picture}`}
-              alt="User Picture"
-              style={{ maxWidth: "100px" }}
-            />
-          ) : (
-            <p>Invalid picture format</p>
-          )}
+            <div>
+              {isHttpLink ? (
+                <img
+                  src={picture}
+                  alt="User Picture"
+                  style={{ maxWidth: "100px" }}
+                />
+              ) : isBase64Image ? (
+                <img
+                  src={`data:image/png;base64,${picture}`}
+                  alt="User Picture"
+                  style={{ maxWidth: "100px" }}
+                />
+              ) : (
+                <p>Invalid picture format</p>
+              )}
             </div>
           )}
           {!username &&
