@@ -86,60 +86,56 @@ export default function Form1() {
     }
   };
 
+  const generateRandomPassword = (length: number = 8): string => {
+    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let password = "";
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * charset.length);
+      password += charset[randomIndex];
+    }
+    return password;
+  };
+
   const handleGoogleLoginSuccess = async (credentialResponse: any) => {
     try {
       // Assume credentialResponse is available here
       if (credentialResponse.credential) {
-        const decoded = jwt_decode(credentialResponse.credential) as Record<
-          string,
-          unknown
-        >;
-        const email = decoded.email; // Assuming email is present in the decoded JWT
-        console.log("Email being sent to Flask:", email); // Log the email
-
-        // Send a POST request to your Flask server using fetch
-        const response = await fetch(
-          "http://127.0.0.1:5000/user_check/verify_email",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email }),
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
+        const decoded = jwt_decode(credentialResponse.credential) as Record<string, unknown>;
+        console.log(decoded);
+  
+        // Generate a random password
+        const randomPassword = generateRandomPassword();
+        console.log("Generated Password:", randomPassword);
+  
+        // Send the decoded data and the random password to the server using fetch
+        const response = await fetch('http://localhost:5000/google_login/insert_data', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ ...decoded, password: randomPassword }),
+        });
+  
+        const responseData = await response.json();
+  
+        console.log(responseData.message);
+        
+        // Check if the data was inserted successfully
+        if (responseData.message === 'Data inserted successfully') {
+          console.log("Data inserted successfully. Navigating to /log/otp");
+          setCookie('userinfo', responseData.user, { path: '/' });
+          navigate('/log/otp');
+        } else {
+          console.log("Submission not successful.");
         }
-
-        // Parse the JSON response
-        const userWithoutPicture = await response.json();
-
-        // Save the user info in a cookie
-        setCookie(
-          "userinfo",
-          { email, password, rememberMe, ...userWithoutPicture },
-          { path: "/" }
-        );
-
-        navigate("/loading");
-
-        setTimeout(() => {
-          navigate("/products/settings");
-        }, 3000);
       } else {
-        // Display an alert if credentials do not match
-        alert("Details are not matching");
-
-        // Hide loading page
-        setLoading(false);
+        console.error('Credential is undefined');
       }
     } catch (error) {
       if (error instanceof Error) {
-        console.error("Error saving data:", error.message);
+        console.error('Error saving data:', error.message);
       } else {
-        console.error("An unknown error occurred:", error);
+        console.error('An unknown error occurred:', error);
       }
     }
   };
