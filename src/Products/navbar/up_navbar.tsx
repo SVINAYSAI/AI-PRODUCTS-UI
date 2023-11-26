@@ -151,7 +151,7 @@ export default function Upnavbar() {
                         >
                             <span className="sr-only">Open user menu</span>
                            
-                                src=  {picture && (
+                                 {picture && (
                                     <div>
                                       {isHttpLink ? (
                                         <img
@@ -172,7 +172,7 @@ export default function Upnavbar() {
                                       )}
                                         </div>
                                       )}
-                                alt="user photo"
+                               
                            
                         </button>
                         {/* <!-- Dropdown menu --> */}
