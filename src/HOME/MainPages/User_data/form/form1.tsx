@@ -33,16 +33,17 @@ export default function Form1() {
 
       const result = await response.json();
 
-      console.log("Request Data:", { email, password }); // Log the data being sent
+      console.log("Request Data:", { email, password });
 
-      console.log("Server Response:", result); // Log the response
+      console.log("Server Response:", result);
 
       if (response.ok) {
-        // Omitting the picture data when setting the cookie
         const { picture, ...userWithoutPicture } = result.user;
-        setCookie("userinfo", userWithoutPicture, { path: "/" });
-
-        // Save picture separately (e.g., in local storage)
+        setCookie(
+          "userinfo",
+          { ...userWithoutPicture, isBase64: true },
+          { path: "/" }
+        );
         localStorage.setItem("userPicture", picture);
 
         navigate("/loading");
@@ -51,10 +52,7 @@ export default function Form1() {
           navigate("/products/settings");
         }, 3000);
       } else {
-        // Display an alert if credentials do not match
         alert("Details are not matching");
-
-        // Hide loading page
         setLoading(false);
       }
     } catch (error) {
