@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useCookies } from "react-cookie";
 
-
 interface DashboardProps {}
 
 const Dashboard: React.FC<DashboardProps> = () => {
@@ -13,7 +12,6 @@ const Dashboard: React.FC<DashboardProps> = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [userinfo, setUserinfo] = useState<any>(cookies.userinfo || {});
 
-
   const picture =
     newPicture ||
     cookies.userinfo?.picture ||
@@ -24,13 +22,15 @@ const Dashboard: React.FC<DashboardProps> = () => {
   const isHttpLink = picture && picture.startsWith("http");
   const isBase64Image = isBase64 === true;
 
-  const handlePictureUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePictureUpload = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const file = event.target.files && event.target.files[0];
 
     if (file) {
       try {
         const base64String = await convertImageToBase64(file);
-        console.log('Base64 string:', base64String);
+        console.log("Base64 string:", base64String);
 
         // Get the user's email from userinfo
         const userEmail: string | undefined = cookies.userinfo?.email;
@@ -39,16 +39,16 @@ const Dashboard: React.FC<DashboardProps> = () => {
           // Send the email and base64 string to the backend
           sendToBackend(userEmail, base64String);
 
-           // Update the userinfo cookie with the new base64 string
-           setCookies('userinfo', {
+          // Update the userinfo cookie with the new base64 string
+          setCookies("userinfo", {
             ...userinfo,
             base64String: base64String,
           });
         } else {
-          console.error('User email is undefined or null.');
+          console.error("User email is undefined or null.");
         }
       } catch (error) {
-        console.error('Error converting image to base64:', error);
+        console.error("Error converting image to base64:", error);
       }
     }
   };
@@ -58,15 +58,15 @@ const Dashboard: React.FC<DashboardProps> = () => {
       const reader = new FileReader();
 
       reader.onloadend = () => {
-        if (typeof reader.result === 'string') {
+        if (typeof reader.result === "string") {
           resolve(reader.result);
         } else {
-          reject(new Error('Failed to convert image to base64.'));
+          reject(new Error("Failed to convert image to base64."));
         }
       };
 
       reader.onerror = () => {
-        reject(new Error('Error reading image file.'));
+        reject(new Error("Error reading image file."));
       };
 
       reader.readAsDataURL(file);
@@ -79,30 +79,35 @@ const Dashboard: React.FC<DashboardProps> = () => {
         email: email,
         base64String: base64String,
       };
-  
-      console.log('Sending to backend:', payload);
-      const response = await fetch('http://127.0.0.1:5000/picture_update/update_profile_picture', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: email,
-          base64String: base64String,
-        }),
-      });
+
+      console.log("Sending to backend:", payload);
+      const response = await fetch(
+        "http://127.0.0.1:5000/picture_update/update_profile_picture",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            base64String: base64String,
+          }),
+        }
+      );
 
       if (response.ok) {
         const result = await response.json();
         console.log(result.message);
       } else {
-        console.error('Error updating profile picture:', response.statusText);
+        console.error("Error updating profile picture:", response.statusText);
       }
     } catch (error) {
-      console.error('Error updating profile picture:', error instanceof Error ? error.message : 'Unknown error');
+      console.error(
+        "Error updating profile picture:",
+        error instanceof Error ? error.message : "Unknown error"
+      );
     }
   };
-
 
   return (
     <>
@@ -168,6 +173,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
               </div>
             </div>
           </div>
+
           <div className="w-full">
             <div className="p-4 mb-4 bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2">
               <h3 className="mb-4 text-xl font-semibold dark:text-black">

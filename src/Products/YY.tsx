@@ -1,18 +1,113 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCookies } from "react-cookie";
 
-export default function Dashboard() {
-  const [cookies] = useCookies(["userinfo"]);
+interface DashboardProps {}
+
+const Dashboard: React.FC<DashboardProps> = () => {
+  const [cookies, setCookies] = useCookies(["userinfo"]);
   const { email, firstname, lastname, password, username, isBase64 } =
     cookies.userinfo || {};
 
+  const [newPicture, setNewPicture] = useState<string | null>(null);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [userinfo, setUserinfo] = useState<any>(cookies.userinfo || {});
+
   const picture =
-    cookies.userinfo?.picture || localStorage.getItem("userPicture");
+    newPicture ||
+    cookies.userinfo?.picture ||
+    localStorage.getItem("userPicture");
 
   console.log("Cookies in Dashboard:", cookies);
 
   const isHttpLink = picture && picture.startsWith("http");
   const isBase64Image = isBase64 === true;
+
+  const handlePictureUpload = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const file = event.target.files && event.target.files[0];
+
+    if (file) {
+      try {
+        const base64String = await convertImageToBase64(file);
+        console.log("Base64 string:", base64String);
+
+        // Get the user's email from userinfo
+        const userEmail: string | undefined = cookies.userinfo?.email;
+
+        if (userEmail) {
+          // Send the email and base64 string to the backend
+          sendToBackend(userEmail, base64String);
+
+          // Update the userinfo cookie with the new base64 string
+          setCookies("userinfo", {
+            ...userinfo,
+            base64String: base64String,
+          });
+        } else {
+          console.error("User email is undefined or null.");
+        }
+      } catch (error) {
+        console.error("Error converting image to base64:", error);
+      }
+    }
+  };
+
+  const convertImageToBase64 = (file: File) => {
+    return new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        if (typeof reader.result === "string") {
+          resolve(reader.result);
+        } else {
+          reject(new Error("Failed to convert image to base64."));
+        }
+      };
+
+      reader.onerror = () => {
+        reject(new Error("Error reading image file."));
+      };
+
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const sendToBackend = async (email: string, base64String: string) => {
+    try {
+      const payload = {
+        email: email,
+        base64String: base64String,
+      };
+
+      console.log("Sending to backend:", payload);
+      const response = await fetch(
+        "http://127.0.0.1:5000/picture_update/update_profile_picture",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            base64String: base64String,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log(result.message);
+      } else {
+        console.error("Error updating profile picture:", response.statusText);
+      }
+    } catch (error) {
+      console.error(
+        "Error updating profile picture:",
+        error instanceof Error ? error.message : "Unknown error"
+      );
+    }
+  };
 
   return (
     <>
@@ -25,18 +120,18 @@ export default function Dashboard() {
           <div className="w-full">
             <div className="p-4 mb-4 bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
               <div className=" justify-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
-                <div className="">
+                <div className="flex justify-center">
                   {picture && (
                     <div>
                       {isHttpLink ? (
                         <img
-                          className="mb-4 rounded-md justify-center w-full sm:mb-0 xl:mb-4 2xl:mb-0"
+                          className="mb-4 mt-3 rounded-md justify-center w-[100%] sm:mb-0 xl:mb-4 2xl:mb-0"
                           src={picture}
                           alt="User Picture"
                         />
                       ) : isBase64Image ? (
                         <img
-                          className="mb-4 rounded-md justify-center w-full sm:mb-0 xl:mb-4 2xl:mb-0"
+                          className="mb-4 mt-3 rounded-md justify-center w-[100%] sm:mb-0 xl:mb-4 2xl:mb-0"
                           src={`data:image/png;base64,${picture}`}
                           alt="User Picture"
                         />
@@ -51,9 +146,16 @@ export default function Dashboard() {
                     Profile picture
                   </h3>
                   <div className="flex items-center space-x-4 mt-[2%]">
-                    <button
-                      type="button"
-                      className="inline-flex items-center border px-3 py-2 text-sm font-medium text-center text-black rounded-md bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handlePictureUpload}
+                      style={{ display: "none" }}
+                      id="pictureInput"
+                    />
+                    <label
+                      htmlFor="pictureInput"
+                      className="inline-flex items-center border px-3 py-2 text-sm font-medium text-center text-black rounded-md bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 cursor-pointer"
                     >
                       <svg
                         className="w-4 h-4 mr-2 -ml-1"
@@ -65,19 +167,13 @@ export default function Dashboard() {
                         <path d="M9 13h2v5a1 1 0 11-2 0v-5z"></path>
                       </svg>
                       Upload picture
-                    </button>
-                    <button
-                      type="button"
-                      className="py-2 px-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-black dark:hover:bg-gray-700"
-                    >
-                      Delete
-                    </button>
+                    </label>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
+          
           <div className="w-full">
             <div className="p-4 mb-4 bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2">
               <h3 className="mb-4 text-xl font-semibold dark:text-black">
@@ -264,205 +360,8 @@ export default function Dashboard() {
             !password &&
             !picture && <p>No user information available</p>}
         </div>
-
-        <div className="m-4 p-4  bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-          <h3 className="mb-4 text-xl font-semibold dark:text-black">
-            General information
-          </h3>
-          <form action="#">
-            <div className="grid grid-cols-6 gap-6">
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="first-name"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  name="first-name"
-                  id="first-name"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="Bonnie"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="last-name"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  name="last-name"
-                  id="last-name"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="Green"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="country"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Country
-                </label>
-                <input
-                  type="text"
-                  name="country"
-                  id="country"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="United States"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="city"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  City
-                </label>
-                <input
-                  type="text"
-                  name="city"
-                  id="city"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="e.g. San Francisco"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="address"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Address
-                </label>
-                <input
-                  type="text"
-                  name="address"
-                  id="address"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="e.g. California"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="example@company.com"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="phone-number"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Phone Number
-                </label>
-                <input
-                  type="number"
-                  name="phone-number"
-                  id="phone-number"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="e.g. +(12)3456 789"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="birthday"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Birthday
-                </label>
-                <input
-                  type="number"
-                  name="birthday"
-                  id="birthday"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="15/08/1990"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="organization"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Organization
-                </label>
-                <input
-                  type="text"
-                  name="organization"
-                  id="organization"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="Company Name"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="role"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Role
-                </label>
-                <input
-                  type="text"
-                  name="role"
-                  id="role"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="React Developer"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="department"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Department
-                </label>
-                <input
-                  type="text"
-                  name="department"
-                  id="department"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="Development"
-                />
-              </div>
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="zip-code"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                >
-                  Zip/postal code
-                </label>
-                <input
-                  type="number"
-                  name="zip-code"
-                  id="zip-code"
-                  className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="123456"
-                />
-              </div>
-              <div className="col-span-6 sm:col-full">
-                <button
-                  className="text-black border bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                  type="submit"
-                >
-                  Save all
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
       </div>
     </>
   );
-}
+};
+export default Dashboard;

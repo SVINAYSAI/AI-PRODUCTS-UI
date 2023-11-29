@@ -10,14 +10,6 @@ export default function Layout() {
   const [isDropdownSideNavOpen, setDropdownSideNavOpen] = useState(false);
   const dropdownSideNavRef = useRef<HTMLDivElement>(null);
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!isDropdownOpen);
-  };
-
-  const toggleDropdownSideNav = () => {
-    setDropdownSideNavOpen(!isDropdownSideNavOpen);
-  };
-
   const closeDropdownSideNav = (event: MouseEvent) => {
     // Check if the click is outside the dropdown
     if (
@@ -64,26 +56,6 @@ export default function Layout() {
     <>
       <div className="antialiased bg-gray-50 dark:bg-gray-900">
         <Upnavbar />
-
-        {/* <!-- Sidebar --> */}
-        {isDropdownOpen && (
-          <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-            <div className="py-3 px-4">
-              {/* Display user information from cookies */}
-              {cookies.userInfo && (
-                <>
-                  <span className="block text-sm font-semibold text-gray-900 dark:text-white">
-                    {cookies.userInfo.name}
-                  </span>
-                  <span className="block text-sm text-gray-900 truncate dark:text-white">
-                    {cookies.userInfo.email}
-                  </span>
-                </>
-              )}
-            </div>
-          </div>
-        )}
-
         <aside
           ref={dropdownSideNavRef}
           className={`fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform ${
