@@ -174,13 +174,33 @@ export default function Upnavbar() {
             {/* <!-- Dropdown menu --> */}
             {isDropdownOpen && (
               <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                <div className="">
-                  <div className="py-3 px-4">
-                    <span className="block text-sm font-semibold text-gray-900 dark:text-white">
-                      {username && <p>Name : {username}</p>}
+                <div className="py-3 px-4">
+                  <div className="grid grid-cols-1 grid-rows-2">
+                    <span className="block text-sm text-gray-900 truncate dark:text-white">
+                      {username && (
+                        <p
+                          style={{
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                          }}
+                        >
+                          Name : {username}
+                        </p>
+                      )}
                     </span>
                     <span className="block text-sm text-gray-900 truncate dark:text-white">
-                      {email && <p>Mail : {email}</p>}
+                      {email && (
+                        <p
+                          style={{
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                          }}
+                        >
+                          Mail : {email}
+                        </p>
+                      )}
                     </span>
                   </div>
                 </div>
