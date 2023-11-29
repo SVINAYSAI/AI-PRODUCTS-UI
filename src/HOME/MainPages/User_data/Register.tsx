@@ -26,7 +26,7 @@ const Register: React.FC = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/save_user_data', formData);
+      const response = await axios.post('http://191.101.233.212:5000/save_user_data', formData);
       console.log(response.data.message);
 
       setCookie('user', response.data.user, { path: '/' });
@@ -73,7 +73,7 @@ const Register: React.FC = () => {
         console.log("Generated Password:", randomPassword);
   
         // Send the decoded data and the random password to the server using fetch
-        const response = await fetch('http://localhost:5000/google_login/insert_data', {
+        const response = await fetch('http://191.101.233.212:5000/google_login/insert_data', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
