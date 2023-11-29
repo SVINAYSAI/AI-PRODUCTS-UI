@@ -82,7 +82,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
 
       console.log("Sending to backend:", payload);
       const response = await fetch(
-        "https://191.101.233.212:5000/picture_update/update_profile_picture",
+        "http://127.0.0.1:5000/picture_update/update_profile_picture",
         {
           method: "POST",
           headers: {
@@ -173,7 +173,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="w-full">
             <div className="p-4 mb-4 bg-white border border-gray-200 rounded-md shadow-sm 2xl:col-span-2">
               <h3 className="mb-4 text-xl font-semibold dark:text-black">
