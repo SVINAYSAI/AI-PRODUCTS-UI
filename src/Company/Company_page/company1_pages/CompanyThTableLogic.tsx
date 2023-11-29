@@ -8,7 +8,7 @@ export default function CompanyUserPreview() {
   useEffect(() => {
     if (user) {
       // Assuming you have an endpoint to fetch user complaints
-      fetch(`http://191.101.233.212:5000/complaints_bp/get_complaints`, {
+      fetch(`https://191.101.233.212:5000/complaints_bp/get_complaints`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

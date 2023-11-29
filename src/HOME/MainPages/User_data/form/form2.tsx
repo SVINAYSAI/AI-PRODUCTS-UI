@@ -44,7 +44,7 @@ export default function Form2() {
 
     // Continue with your existing logic...
     const response = await fetch(
-      "http://191.101.233.212:5000/company_login/check_credentials",
+      "https://191.101.233.212:5000/company_login/check_credentials",
       {
         method: "POST",
         headers: {

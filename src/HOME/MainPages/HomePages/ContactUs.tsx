@@ -14,7 +14,7 @@ export default function OurServices() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://191.101.233.212:5000/submit_complaint', {
+      const response = await fetch('https://191.101.233.212:5000/submit_complaint', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
