@@ -175,34 +175,32 @@ export default function Upnavbar() {
             {isDropdownOpen && (
               <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                 <div className="py-3 px-4">
-                  <div className="grid grid-cols-1 grid-rows-2">
-                    <span className="block text-sm text-gray-900 truncate dark:text-white">
-                      {username && (
-                        <p
-                          style={{
-                            whiteSpace: "nowrap",
-                            overflow: "hidden",
-                            textOverflow: "ellipsis",
-                          }}
-                        >
-                          Name : {username}
-                        </p>
-                      )}
-                    </span>
-                    <span className="block text-sm text-gray-900 truncate dark:text-white">
-                      {email && (
-                        <p
-                          style={{
-                            whiteSpace: "nowrap",
-                            overflow: "hidden",
-                            textOverflow: "ellipsis",
-                          }}
-                        >
-                          Mail : {email}
-                        </p>
-                      )}
-                    </span>
-                  </div>
+                  <span className="block text-sm text-gray-900 truncate dark:text-white">
+                    {username && (
+                      <p
+                        style={{
+                          whiteSpace: "nowrap",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                        }}
+                      >
+                        Name : {username}
+                      </p>
+                    )}
+                  </span>
+                  <span className="block text-sm text-gray-900 truncate dark:text-white">
+                    {email && (
+                      <p
+                        style={{
+                          whiteSpace: "nowrap",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                        }}
+                      >
+                        Mail : {email}
+                      </p>
+                    )}
+                  </span>
                 </div>
 
                 <ul className="m-[2%] border-t border-gray-200 dark:border-gray-700">
@@ -282,7 +280,7 @@ export default function Upnavbar() {
                 <ul className="m-[2%] border-t border-gray-200 dark:border-gray-700">
                   <li>
                     <Link
-                      to="#"
+                      to="/"
                       className="flex items-center ml-[1%] py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       <svg
