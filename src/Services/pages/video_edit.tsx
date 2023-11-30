@@ -15,7 +15,7 @@ const VideoEdit: React.FC<VideoEditProps> = ({ videoPath}) => {
     useEffect(() => {
         if (progress < 100) {
           const interval = setInterval(async () => {
-            const response = await fetch('https://191.101.233.212:5000/progress/story');
+            const response = await fetch('http://191.101.233.212:5000/progress/story');
             const data = await response.json();
             if (data.progress) {
               setProgress(data.progress);

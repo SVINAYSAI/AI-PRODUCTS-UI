@@ -22,7 +22,7 @@ export default function CompanyTextarea() {
 
   useEffect(() => {
     // Fetch user data from the Flask API
-    fetch("https://191.101.233.212:5000/api/users")
+    fetch("http://191.101.233.212:5000/api/users")
       .then((response) => response.json())
       .then((data: User[]) => setUsers(data))
       .catch((error) => console.error("Error fetching user data:", error));
@@ -37,7 +37,7 @@ export default function CompanyTextarea() {
         textarea: textareaData,
       };
       console.log("Sending feedback for user:", formData);
-      fetch("https://191.101.233.212:5000/submit_feedback", {
+      fetch("http://191.101.233.212:5000/submit_feedback", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
