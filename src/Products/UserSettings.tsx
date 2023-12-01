@@ -20,7 +20,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
 
   console.log("Cookies in Dashboard:", cookies);
 
-  const isHttpLink = picture && picture.startsWith("http");
+  const isHttpLink = picture && picture.startsWith("https");
   const isBase64Image = isBase64 === true;
 
   const handlePictureUpload = async (
