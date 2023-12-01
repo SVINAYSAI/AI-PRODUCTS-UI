@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useCookies } from 'react-cookie';
 import React, { useEffect, useState } from 'react';
-import { GoogleLogin, GoogleOAuthProvider  } from "@react-oauth/google";
+import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import img from "../../../components/assets/imgs/christmas.jpg";
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
@@ -25,9 +25,32 @@ const Register: React.FC = () => {
       password: (event.target as any).password.value,
     };
 
+    console.log('Email Value:', formData.email);
+
     try {
-      const response = await axios.post('http://191.101.233.212:5000/save_user_data', formData);
+      const response = await axios.post('http://127.0.0.1:5000/save_user_data', formData);
       console.log(response.data.message);
+
+      if (formData.email) {
+        try {
+          const emailResponse = await axios.post('http://localhost:8000/api/mail/send', {
+            recipientEmail: formData.email,
+          });
+          console.log("Email Response:", emailResponse);
+
+          if (emailResponse.status === 200) {
+            console.log("email", emailResponse.data.message);
+          } else {
+            console.error('Email request failed with status:', emailResponse.status);
+          }
+        } catch (error: any) { // Use type assertion here
+          console.error('Error during email request:', error.message);
+        }
+      } else {
+        console.error('Email value is undefined or null.');
+      }
+
+
 
       setCookie('user', response.data.user, { path: '/' });
       // If the submission is successful, redirect to /log/otp
@@ -67,28 +90,40 @@ const Register: React.FC = () => {
       if (credentialResponse.credential) {
         const decoded = jwt_decode(credentialResponse.credential) as Record<string, unknown>;
         console.log(decoded);
-  
+
         // Generate a random password
         const randomPassword = generateRandomPassword();
         console.log("Generated Password:", randomPassword);
-  
+
         // Send the decoded data and the random password to the server using fetch
-        const response = await fetch('http://191.101.233.212:5000/google_login/insert_data', {
+        const response = await fetch('http://127.0.0.1:5000/google_login/insert_data', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ ...decoded, password: randomPassword }),
         });
-  
+
         const responseData = await response.json();
-  
+
         console.log(responseData.message);
-        
+
         // Check if the data was inserted successfully
-        if (responseData.message === 'Data inserted successfully') {
+        if (responseData.message.includes('Data inserted successfully')) {
           console.log("Data inserted successfully. Navigating to /log/otp");
-          setCookie('user', responseData.user, { path: '/' });
+
+          // Send email to the user
+          try {
+            const emailResponse = await axios.post('http://localhost:8000/api/mail/send', {
+              recipientEmail: decoded.email,
+            });
+            console.log("Email Response:", emailResponse.data.message);
+          } catch (emailError: any) {
+            console.error('Error sending email:', emailError.message);
+          }
+
+
+          setCookie('user', decoded, { path: '/' });
           navigate('/log/otp');
         } else {
           console.log("Submission not successful.");
@@ -104,15 +139,15 @@ const Register: React.FC = () => {
       }
     }
   };
-  
 
-//   useEffect(() => {
-//     // Assume credentialResponse is passed as a prop or from state
-//     handleGoogleLoginSuccess(credentialResponse);
-//   }, [credentialResponse]); // Run the effect whenever credentialResponse changes
 
-//   // Your remaining code
-// };
+  //   useEffect(() => {
+  //     // Assume credentialResponse is passed as a prop or from state
+  //     handleGoogleLoginSuccess(credentialResponse);
+  //   }, [credentialResponse]); // Run the effect whenever credentialResponse changes
+
+  //   // Your remaining code
+  // };
 
 
   return (
