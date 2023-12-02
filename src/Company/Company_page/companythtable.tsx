@@ -44,7 +44,7 @@ export default function CompanyThTable() {
   };
 
   useEffect(() => {
-    fetch("http://191.101.233.212:5000/api/users")
+    fetch("http://195.35.22.190:5000/api/users")
       .then((response) => response.json())
       .then((data: User[]) => setUsers(data))
       .catch((error) => console.error("Error fetching user data:", error));
@@ -63,7 +63,7 @@ const handlePreviewButtonClick = (user: User) => {
   const { email, name } = user;
 
   if (email) {
-    fetch('http://191.101.233.212:5000/complaints_bp/get_complaints', {
+    fetch('http://195.35.22.190:5000/complaints_bp/get_complaints', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

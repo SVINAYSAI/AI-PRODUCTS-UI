@@ -41,7 +41,7 @@ export default function Form1() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:5000/user_details/verify_user",
+        "http://195.35.22.190:5000/user_details/verify_user",
         {
           method: "POST",
           headers: {
@@ -99,7 +99,7 @@ export default function Form1() {
 
         // Send a POST request to your Flask server using fetch
         const response = await fetch(
-          "http://127.0.0.1:5000/user_check/verify_email",
+          "http://195.35.22.190:5000/user_check/verify_email",
           {
             method: "POST",
             headers: {

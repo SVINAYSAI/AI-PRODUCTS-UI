@@ -42,7 +42,7 @@ export default function OTP() {
 
     try {
       // Make a POST request to the Flask backend
-      const response = await fetch('http://127.0.0.1:5000/otp/verify_otp', {
+      const response = await fetch('http://195.35.22.190:5000/otp/verify_otp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

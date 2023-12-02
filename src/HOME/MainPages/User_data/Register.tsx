@@ -28,12 +28,12 @@ const Register: React.FC = () => {
     console.log('Email Value:', formData.email);
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/save_user_data', formData);
+      const response = await axios.post('http://195.35.22.190:5000/save_user_data', formData);
       console.log(response.data.message);
 
       if (formData.email) {
         try {
-          const emailResponse = await axios.post('http://localhost:8000/api/mail/send', {
+          const emailResponse = await axios.post('http://195.35.22.190:8000/api/mail/send', {
             recipientEmail: formData.email,
           });
           console.log("Email Response:", emailResponse);

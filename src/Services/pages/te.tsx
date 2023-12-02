@@ -44,7 +44,7 @@ export default function Services() {
     };
     console.log("Sending data to backend:", data);
     try {
-      const response = await fetch("http://localhost:5000/story", {
+      const response = await fetch("http://195.35.22.190:5000/story", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
