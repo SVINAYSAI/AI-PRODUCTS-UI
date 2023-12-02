@@ -33,6 +33,12 @@ const Dashboard: React.FC<DashboardProps> = () => {
         const base64String = await convertImageToBase64(file);
         console.log("Base64 string:", base64String);
 
+         // Remove the prefix "data:image/jpeg;base64," from the base64 string
+      const cleanBase64String = base64String.split(",")[1];
+      console.log("Clean Base64 string:", cleanBase64String);
+
+        localStorage.setItem("userPicture", cleanBase64String);
+
         // Get the user's email from userinfo
         const userEmail: string | undefined = cookies.userinfo?.email;
 
