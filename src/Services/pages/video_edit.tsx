@@ -43,4 +43,3 @@ const VideoEdit: React.FC<VideoEditProps> = ({ videoPath}) => {
 }
 
 export default VideoEdit;
-
