@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import img from "../../../components/assets/imgs/christmas.jpg";
 
 export default function Forgot() {
   return (
     <div
       className="w-full overflow-y-auto"
       style={{
-        backgroundImage: `url(${img})`,
+        backgroundImage: `url("http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/christmas.jpg")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -25,8 +24,7 @@ export default function Forgot() {
                 </h1>
 
                 <form className="space-y-4 md:space-y-6" action="">
-
-                   <div>
+                  <div>
                     <label
                       htmlFor="email"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white "

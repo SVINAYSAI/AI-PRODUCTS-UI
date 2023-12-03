@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import img from "../../../components/assets/imgs/christmas.jpg";
 
 const NewPassword: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,7 +18,7 @@ const NewPassword: React.FC = () => {
     <div
       className="w-full overflow-y-auto"
       style={{
-        backgroundImage: `url(${img})`,
+        backgroundImage: `url("http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/christmas.jpg")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -38,7 +37,6 @@ const NewPassword: React.FC = () => {
                 </h1>
 
                 <form className="space-y-4 md:space-y-6" action="">
-
                   <div className="relative">
                     <label
                       htmlFor="password"

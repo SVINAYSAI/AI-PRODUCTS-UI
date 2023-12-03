@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import img from "../../../components/assets/imgs/christmas.jpg";
 import { useState, useRef } from "react";
-import { useCookies } from 'react-cookie';
-import { useNavigate } from 'react-router-dom';
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 export default function OTP() {
   const [otpValues, setOtpValues] = useState(["", "", "", "", "", ""]);
-  const [cookies] = useCookies(['user']);
+  const [cookies] = useCookies(["user"]);
   const navigate = useNavigate();
 
   const inputRefs = [
@@ -42,10 +41,10 @@ export default function OTP() {
 
     try {
       // Make a POST request to the Flask backend
-      const response = await fetch('http://195.35.22.190:5000/otp/verify_otp', {
-        method: 'POST',
+      const response = await fetch("http://195.35.22.190:5000/otp/verify_otp", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email: userEmail,
@@ -56,17 +55,17 @@ export default function OTP() {
       // Check the response from the backend
       if (response.ok) {
         const result = await response.json();
-        console.log(result.message);  // Display success message
+        console.log(result.message); // Display success message
 
         // Redirect to the desired page after successful OTP verification
         // You can replace '/log/sign-in' with the appropriate route
-        navigate('/log/sign-in');
+        navigate("/log/sign-in");
       } else {
         const error = await response.json();
-        console.error(error.error);  // Display error message
+        console.error(error.error); // Display error message
       }
     } catch (error) {
-      console.error('An error occurred:', error);
+      console.error("An error occurred:", error);
     }
   };
 
@@ -74,7 +73,7 @@ export default function OTP() {
     <div
       className="w-full overflow-y-auto"
       style={{
-        backgroundImage: `url(${img})`,
+        backgroundImage: `url("http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/christmas.jpg")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -91,7 +90,10 @@ export default function OTP() {
                   Enter OTP
                 </h1>
 
-                <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+                <form
+                  className="space-y-4 md:space-y-6"
+                  onSubmit={handleSubmit}
+                >
                   <div className="grid grid-cols-6 gap-2">
                     {otpValues.map((value, index) => (
                       <input
@@ -107,11 +109,11 @@ export default function OTP() {
                   </div>
 
                   <button
-        className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-        onClick={handleSubmit}
-      >
-        Send
-      </button>
+                    className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                    onClick={handleSubmit}
+                  >
+                    Send
+                  </button>
                 </form>
               </div>
             </div>

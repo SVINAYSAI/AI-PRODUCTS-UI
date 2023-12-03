@@ -7,15 +7,14 @@ import "wow.js/css/libs/animate.css"; // Import WOW.js CSS
 import Light from "../../components/fats-logo/light.svg";
 import Gear from "../../components/fats-logo/Gear.svg";
 import Support from "../../components/fats-logo/support.svg";
-import Mission1 from "../../components/assets/imgs/index1.jpg";
 import Mission2 from "../../components/fats-logo/rocket.svg";
 import Vision1 from "../../components/fats-logo/telescope.svg";
-import Vision2 from "../../components/assets/imgs/vision-img.jpg";
 
 import Footer from "./HomePages/Footer";
 import AboutCounter from "./HomePages/AboutCounter";
 
 export default function About() {
+  
   useEffect(() => {
     const wow = new WOW();
     wow.init();
@@ -97,7 +96,7 @@ export default function About() {
           <div className="col-12 col-md-6">
             <div className="image-container translate-effect-right">
               <img
-                src={Mission1}
+                src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/index1.jpg"
                 alt="Fables Template"
                 className="img-fluid w-full"
               />
@@ -163,7 +162,11 @@ export default function About() {
           </div>
           <div className="col-12 col-md-6 mt-4 mt-md-0">
             <div className="image-container translate-effect-right">
-              <img src={Vision2} alt="Fables Template" className="img-fluid" />
+              <img
+                src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/vision-img.jpg"
+                alt="Fables Template"
+                className="img-fluid"
+              />
             </div>
           </div>
         </div>
@@ -184,7 +187,7 @@ export default function About() {
                   <Link to="#">
                     <img
                       className="w-100"
-                      src={Mission1}
+                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/index1.jpg"
                       alt="Card image cap"
                     />
                   </Link>
@@ -231,7 +234,7 @@ export default function About() {
                   <Link to="#">
                     <img
                       className="w-100"
-                      src={Mission1}
+                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/index1.jpg"
                       alt="Card image cap"
                     />
                   </Link>

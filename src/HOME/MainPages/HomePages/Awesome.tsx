@@ -1,10 +1,13 @@
-import img1 from "../../../components/assets/imgs/avatar.jpg";
-import img2 from "../../../components/assets/imgs/avatar-3.jpg";
-
 export default function Awesome() {
   return (
     <>
-      <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home" className="pt-[5%]">
+      <body
+        data-spy="scroll"
+        data-target=".navbar"
+        data-offset="40"
+        id="home"
+        className="pt-[5%]"
+      >
         <section className="has-bg-img bg-img-2">
           <div className="container text-center">
             <h6 className="section-subtitle">We Are Awesome</h6>
@@ -45,7 +48,7 @@ export default function Awesome() {
                 <div className="testimonial-wrapper">
                   <div className="img-holder">
                     <img
-                      src={img1}
+                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/avatar.jpg"
                       alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                     />
                   </div>
@@ -64,7 +67,7 @@ export default function Awesome() {
                 <div className="testimonial-wrapper">
                   <div className="img-holder">
                     <img
-                      src={img2}
+                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/avatar-3.jpg"
                       alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                     />
                   </div>

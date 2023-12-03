@@ -1,20 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "./HomePages/Footer";
-
-import img from "../../components/assets/imgs/artificial-intelligence-AI.jpg";
-import img1 from "../../components/assets/imgs/cat-larg2.jpg";
-import img2 from "../../components/assets/imgs/cat-larg3.jpg";
-import img3 from "../../components/assets/imgs/cat-larg4.jpg";
-import img4 from "../../components/assets/imgs/cat-larg5.jpg";
-import img5 from "../../components/assets/imgs/cat-larg6.jpg";
-import img6 from "../../components/assets/imgs/cat-larg7.jpg";
-import img7 from "../../components/assets/imgs/cat-larg8.jpg";
-import img8 from "../../components/assets/imgs/blog-cat1.jpg";
-import img9 from "../../components/assets/imgs/blog-cat2.jpg";
-import img10 from "../../components/assets/imgs/blog-cat3.jpg";
-import img11 from "../../components/assets/imgs/blog-cat4.jpg";
-
+import "animate.css"; // Import Animate.css
+import WOW from "wow.js"; // Import WOW.js
 
 const Blog = () => {
   const [isPopUpOpen, setPopUpOpen] = useState(false);
@@ -25,10 +13,16 @@ const Blog = () => {
     date: "",
   });
 
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
   const posts = [
     {
       id: 1,
-      imgSrc: img,
+      imgSrc:
+        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/artificial-intelligence-AI.jpg",
       title: "Text to Images",
       date: "09 November, 2018",
       content:
@@ -36,7 +30,8 @@ const Blog = () => {
     },
     {
       id: 2,
-      imgSrc: img1,
+      imgSrc:
+        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/cat-larg2.jpg",
       title: "Text to Charts",
       date: "09 November, 2018",
       content:
@@ -44,7 +39,8 @@ const Blog = () => {
     },
     {
       id: 3,
-      imgSrc: img2,
+      imgSrc:
+        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/cat-larg3.jpg",
       title: "Text to Voice",
       date: "09 November, 2018",
       content:
@@ -52,7 +48,8 @@ const Blog = () => {
     },
     {
       id: 4,
-      imgSrc: img3,
+      imgSrc:
+        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/cat-larg4.jpg",
       title: "Transcripts",
       date: "09 November, 2018",
       content:
@@ -60,7 +57,8 @@ const Blog = () => {
     },
     {
       id: 5,
-      imgSrc: img4,
+      imgSrc:
+        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/cat-larg5.jpg",
       title: "Music Generation",
       date: "09 November, 2018",
       content:
@@ -68,7 +66,8 @@ const Blog = () => {
     },
     {
       id: 6,
-      imgSrc: img5,
+      imgSrc:
+        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/cat-larg6.jpg",
       title: "Virtual reality for easy animation",
       date: "09 November, 2018",
       content:
@@ -76,7 +75,8 @@ const Blog = () => {
     },
     {
       id: 7,
-      imgSrc: img6,
+      imgSrc:
+        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/cat-larg7.jpg",
       title: "Argument reality for apps operation",
       date: "09 November, 2018",
       content:
@@ -84,7 +84,8 @@ const Blog = () => {
     },
     {
       id: 8,
-      imgSrc: img7,
+      imgSrc:
+        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/cat-larg8.jpg",
       title: "Digital marketing with fats",
       date: "09 November, 2018",
       content:
@@ -92,7 +93,8 @@ const Blog = () => {
     },
     {
       id: 9,
-      imgSrc: img7,
+      imgSrc:
+        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/blog-cat1.jpg",
       title: "IOT for Automate the World",
       date: "09 November, 2018",
       content:
@@ -260,7 +262,11 @@ const Blog = () => {
               <div className="row mb-4">
                 <div className="col-4">
                   <Link to="">
-                    <img src={img8} alt="" className="img-fluid" />
+                    <img
+                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/blog-cat1.jpg"
+                      alt=""
+                      className="img-fluid"
+                    />
                   </Link>
                 </div>
                 <div className="col-8 pl-0">
@@ -278,7 +284,11 @@ const Blog = () => {
               <div className="row mb-4">
                 <div className="col-4">
                   <Link to="">
-                    <img src={img9} alt="" className="img-fluid" />
+                    <img
+                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/blog-cat2.jpg"
+                      alt=""
+                      className="img-fluid"
+                    />
                   </Link>
                 </div>
                 <div className="col-8 pl-0">
@@ -296,7 +306,11 @@ const Blog = () => {
               <div className="row mb-4">
                 <div className="col-4">
                   <Link to="">
-                    <img src={img10} alt="" className="img-fluid" />
+                    <img
+                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/blog-cat3.jpg"
+                      alt=""
+                      className="img-fluid"
+                    />
                   </Link>
                 </div>
                 <div className="col-8 pl-0">
@@ -314,7 +328,11 @@ const Blog = () => {
               <div className="row mb-4">
                 <div className="col-4">
                   <Link to="">
-                    <img src={img11} alt="" className="img-fluid" />
+                    <img
+                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/blog-cat4.jpg"
+                      alt=""
+                      className="img-fluid"
+                    />
                   </Link>
                 </div>
                 <div className="col-8 pl-0">

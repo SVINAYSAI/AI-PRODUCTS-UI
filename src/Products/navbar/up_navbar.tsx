@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import img from "../../components/fats-logo/svg/logo-no-background.svg";
 import { useCookies } from "react-cookie";
 
 export default function Upnavbar() {
@@ -113,7 +112,7 @@ export default function Upnavbar() {
           </button>
 
           <Link to="/" className="flex items-center justify-between mr-4">
-            <img src={img} className="mr-3 h-8" alt="AI FATS Logo" />
+            <img src="http://195.35.22.190/virtual_directory/ui_images/components/fats-logo/svg/logo-no-background.svg" className="mr-3 h-8" alt="AI FATS Logo" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               AI FATS
             </span>

@@ -1,17 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import { useCookies } from 'react-cookie';
-import React, { useEffect, useState } from 'react';
+import { useCookies } from "react-cookie";
+import React, { useEffect, useState } from "react";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
-import img from "../../../components/assets/imgs/christmas.jpg";
 import jwt_decode from "jwt-decode";
-import axios from 'axios';
+import axios from "axios";
 
 const Register: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [, setCookie] = useCookies(['user']);
+  const [, setCookie] = useCookies(["user"]);
   const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -25,46 +24,52 @@ const Register: React.FC = () => {
       password: (event.target as any).password.value,
     };
 
-    console.log('Email Value:', formData.email);
+    console.log("Email Value:", formData.email);
 
     try {
-      const response = await axios.post('http://195.35.22.190:5000/save_user_data', formData);
+      const response = await axios.post(
+        "http://195.35.22.190:5000/save_user_data",
+        formData
+      );
       console.log(response.data.message);
 
       if (formData.email) {
         try {
-          const emailResponse = await axios.post('http://195.35.22.190:8000/api/mail/send', {
-            recipientEmail: formData.email,
-          });
+          const emailResponse = await axios.post(
+            "http://195.35.22.190:8000/api/mail/send",
+            {
+              recipientEmail: formData.email,
+            }
+          );
           console.log("Email Response:", emailResponse);
 
           if (emailResponse.status === 200) {
             console.log("email", emailResponse.data.message);
           } else {
-            console.error('Email request failed with status:', emailResponse.status);
+            console.error(
+              "Email request failed with status:",
+              emailResponse.status
+            );
           }
-        } catch (error: any) { // Use type assertion here
-          console.error('Error during email request:', error.message);
+        } catch (error: any) {
+          // Use type assertion here
+          console.error("Error during email request:", error.message);
         }
       } else {
-        console.error('Email value is undefined or null.');
+        console.error("Email value is undefined or null.");
       }
 
-
-
-      setCookie('user', response.data.user, { path: '/' });
+      setCookie("user", response.data.user, { path: "/" });
       // If the submission is successful, redirect to /log/otp
-      navigate('/log/otp');
+      navigate("/log/otp");
     } catch (error) {
       if (error instanceof Error) {
-        console.error('Error saving data:', error.message);
+        console.error("Error saving data:", error.message);
       } else {
-        console.error('An unknown error occurred:', error);
+        console.error("An unknown error occurred:", error);
       }
     }
   };
-
-
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -75,7 +80,8 @@ const Register: React.FC = () => {
   };
 
   const generateRandomPassword = (length: number = 8): string => {
-    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    const charset =
+      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     let password = "";
     for (let i = 0; i < length; i++) {
       const randomIndex = Math.floor(Math.random() * charset.length);
@@ -88,7 +94,10 @@ const Register: React.FC = () => {
     try {
       // Assume credentialResponse is available here
       if (credentialResponse.credential) {
-        const decoded = jwt_decode(credentialResponse.credential) as Record<string, unknown>;
+        const decoded = jwt_decode(credentialResponse.credential) as Record<
+          string,
+          unknown
+        >;
         console.log(decoded);
 
         // Generate a random password
@@ -96,50 +105,54 @@ const Register: React.FC = () => {
         console.log("Generated Password:", randomPassword);
 
         // Send the decoded data and the random password to the server using fetch
-        const response = await fetch('http://127.0.0.1:5000/google_login/insert_data', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ ...decoded, password: randomPassword }),
-        });
+        const response = await fetch(
+          "http://127.0.0.1:5000/google_login/insert_data",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ ...decoded, password: randomPassword }),
+          }
+        );
 
         const responseData = await response.json();
 
         console.log(responseData.message);
 
         // Check if the data was inserted successfully
-        if (responseData.message.includes('Data inserted successfully')) {
+        if (responseData.message.includes("Data inserted successfully")) {
           console.log("Data inserted successfully. Navigating to /log/otp");
 
           // Send email to the user
           try {
-            const emailResponse = await axios.post('http://localhost:8000/api/mail/send', {
-              recipientEmail: decoded.email,
-            });
+            const emailResponse = await axios.post(
+              "http://localhost:8000/api/mail/send",
+              {
+                recipientEmail: decoded.email,
+              }
+            );
             console.log("Email Response:", emailResponse.data.message);
           } catch (emailError: any) {
-            console.error('Error sending email:', emailError.message);
+            console.error("Error sending email:", emailError.message);
           }
 
-
-          setCookie('user', decoded, { path: '/' });
-          navigate('/log/otp');
+          setCookie("user", decoded, { path: "/" });
+          navigate("/log/otp");
         } else {
           console.log("Submission not successful.");
         }
       } else {
-        console.error('Credential is undefined');
+        console.error("Credential is undefined");
       }
     } catch (error) {
       if (error instanceof Error) {
-        console.error('Error saving data:', error.message);
+        console.error("Error saving data:", error.message);
       } else {
-        console.error('An unknown error occurred:', error);
+        console.error("An unknown error occurred:", error);
       }
     }
   };
-
 
   //   useEffect(() => {
   //     // Assume credentialResponse is passed as a prop or from state
@@ -149,17 +162,15 @@ const Register: React.FC = () => {
   //   // Your remaining code
   // };
 
-
   return (
     <div
       className="w-full overflow-y-auto"
       style={{
-        backgroundImage: `url(${img})`,
+        backgroundImage: `url("http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/christmas.jpg")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-
       <div className="flex flex-col-reverse md:flex-row">
         {/* Right side login container */}
         <div
@@ -175,9 +186,7 @@ const Register: React.FC = () => {
                 <div className="flex flex-col sm:flex-row sm:space-x-2">
                   <GoogleOAuthProvider clientId="536585599787-4a44c9aq46ifgsm66mfriea6uuvnuft2.apps.googleusercontent.com">
                     <div className=" w-96">
-                      <GoogleLogin
-                        onSuccess={handleGoogleLoginSuccess}
-                      />
+                      <GoogleLogin onSuccess={handleGoogleLoginSuccess} />
                     </div>
                   </GoogleOAuthProvider>
                 </div>
@@ -191,7 +200,11 @@ const Register: React.FC = () => {
                   <div className="w-full h-0.5 bg-black"></div>
                 </div>
 
-                <form className="space-y-4 md:space-y-6" action="" onSubmit={handleSubmit}>
+                <form
+                  className="space-y-4 md:space-y-6"
+                  action=""
+                  onSubmit={handleSubmit}
+                >
                   <div className="grid grid-cols-2 gap-2">
                     <div>
                       <label
@@ -433,10 +446,12 @@ const Register: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  <button type="submit"
+                  <button
+                    type="submit"
                     className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2"
-
-                  >Sign up</button>
+                  >
+                    Sign up
+                  </button>
                 </form>
               </div>
             </div>
@@ -462,4 +477,3 @@ const Register: React.FC = () => {
   );
 };
 export default Register;
-

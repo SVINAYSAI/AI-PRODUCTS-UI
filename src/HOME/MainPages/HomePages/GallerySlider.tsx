@@ -1,8 +1,4 @@
 import { Link } from "react-router-dom";
-import img6 from "../../../components/assets/imgs/team1-1.jpg";
-import img7 from "../../../components/assets/imgs/team1-2.jpg";
-import img8 from "../../../components/assets/imgs/team1-3.jpg";
-import img9 from "../../../components/assets/imgs/team1-4.jpg";
 
 export default function GallerySlider() {
   return (
@@ -29,7 +25,11 @@ export default function GallerySlider() {
         <div className="row">
           <div className="col-6 col-md-3 mb-4 mb-lg-0 wow fadeInDown">
             <div className="card fables-team-block fables-team-data-hover fables-second-border-color">
-              <img className="img-fluid" src={img6} alt="" />
+              <img
+                className="img-fluid"
+                src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/team1-1.jpg"
+                alt=""
+              />
               <div className="card-body">
                 <h5>
                   <Link
@@ -65,7 +65,11 @@ export default function GallerySlider() {
             data-wow-delay=".3s"
           >
             <div className="card fables-team-block fables-team-data-hover fables-second-border-color">
-              <img className="img-fluid" src={img7} alt="" />
+              <img
+                className="img-fluid"
+                src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/team1-2.jpg"
+                alt=""
+              />
               <div className="card-body">
                 <h5>
                   <Link
@@ -101,7 +105,11 @@ export default function GallerySlider() {
             data-wow-delay=".3s"
           >
             <div className="card fables-team-block fables-team-data-hover fables-second-border-color">
-              <img className="img-fluid" src={img8} alt="" />
+              <img
+                className="img-fluid"
+                src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/team1-3.jpg"
+                alt=""
+              />
               <div className="card-body">
                 <h5>
                   <Link
@@ -137,7 +145,11 @@ export default function GallerySlider() {
             data-wow-delay=".3s"
           >
             <div className="card fables-team-block fables-team-data-hover fables-second-border-color">
-              <img className="img-fluid" src={img9} alt="" />
+              <img
+                className="img-fluid"
+                src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/team1-4.jpg"
+                alt=""
+              />
               <div className="card-body">
                 <h5>
                   <Link

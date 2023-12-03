@@ -1,4 +1,3 @@
-
 export default function Header() {
   return (
     <>
@@ -11,12 +10,12 @@ export default function Header() {
             </h1>
             <div className="buttons text-center pt-4 pb-4">
               <button
-               onClick={() => {
-                const contactUsSection = document.getElementById("service");
-                if (contactUsSection) {
-                  contactUsSection.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
+                onClick={() => {
+                  const contactUsSection = document.getElementById("service");
+                  if (contactUsSection) {
+                    contactUsSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
                 className="btn btn-primary rounded w-lg btn-lg my-1"
               >
                 Our Service

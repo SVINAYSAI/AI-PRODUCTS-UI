@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import img from "../../../components/assets/imgs/christmas.jpg";
 import { useState } from "react";
 import Form1 from "./form/form1";
 import Form2 from "./form/form2";
@@ -19,7 +18,7 @@ const Login: React.FC = () => {
     <div
       className="w-full overflow-y-auto"
       style={{
-        backgroundImage: `url(${img})`,
+        backgroundImage: `url("http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/christmas.jpg")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -38,7 +37,6 @@ const Login: React.FC = () => {
                 </h1>
 
                 <div className="grid grid-cols-2 gap-4">
-                  
                   <Link
                     to=""
                     onClick={handleUserLoginClick}
@@ -93,7 +91,6 @@ const Login: React.FC = () => {
                       <span>company login</span>
                     </div>
                   </Link>
-
                 </div>
 
                 <div className="flex items-center justify-center space-x-4">

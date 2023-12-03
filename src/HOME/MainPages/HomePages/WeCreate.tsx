@@ -1,4 +1,3 @@
-import img from "../../../components/assets/imgs/about.jpg";
 export default function WeCreate() {
   return (
     <>
@@ -7,7 +6,7 @@ export default function WeCreate() {
           <div className="row align-items-center">
             <div className="col-md-5 col-lg-4">
               <img
-                src={img}
+                src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/about.jpg"
                 alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                 className="w-100 img-thumbnail mb-3"
               />

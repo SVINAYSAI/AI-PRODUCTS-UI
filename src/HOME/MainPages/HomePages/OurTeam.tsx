@@ -7,7 +7,6 @@ interface ImageSliderProps {
 const ImageSlider: React.FC<ImageSliderProps> = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-
   return (
     <div className="relative p-2">
       <div className=" justify-self-center grid grid-cols-3 gap-4">
@@ -49,7 +48,8 @@ const Slider: React.FC = () => {
   const data = [
     {
       id: 1,
-      imgUrl: "https://photos.google.com/photo/AF1QipMo2gRv4HKqWgopb60ve0nzL__j1TCtDltp9nt0",
+      imgUrl:
+        "https://i.postimg.cc/bw6KxhLf/pexels-eberhard-grossgasteiger-1062249.jpg",
       desc: "Some beautiful roads cannot be discovered without getting lost.",
       name: "EXPLORE NATURE",
     },

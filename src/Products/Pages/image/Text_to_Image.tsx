@@ -1,17 +1,5 @@
 import { useState } from "react";
 import Model from "./model";
-// import React from "react";
-
-
-import img from "../../../components/assets/imgs/Picture1.png"
-import img1 from "../../../components/assets/imgs/Picture2.png"
-import img2 from "../../../components/assets/imgs/Picture3.png"
-import img3 from "../../../components/assets/imgs/Picture4.png"
-import img4 from "../../../components/assets/imgs/Picture5.png"
-import img5 from "../../../components/assets/imgs/Picture6.png"
-import img6 from "../../../components/assets/imgs/Picture7.png"
-import img7 from "../../../components/assets/imgs/Picture8.png"
-import img8 from "../../../components/assets/imgs/Picture9.png"
 
 export default function TexttoImage() {
   const [selectedForm, setSelectedForm] = useState<string | null>(null);
@@ -54,11 +42,10 @@ export default function TexttoImage() {
         <div className="grid gap-4"></div>
 
         <div className="grid gap-4">
-
           <div>
             <img
               className="h-auto max-w-full rounded-md"
-              src={img}
+              src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/Picture1.png"
               alt=""
             />
             <div>
@@ -71,7 +58,7 @@ export default function TexttoImage() {
           <div>
             <img
               className="h-auto max-w-full rounded-md"
-              src={img1}
+              src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/Picture2.png"
               alt=""
             />
             <span>
@@ -82,7 +69,7 @@ export default function TexttoImage() {
           <div>
             <img
               className="h-auto max-w-full rounded-md"
-              src={img2}
+              src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/Picture3.png"
               alt=""
             />
             <span>
@@ -90,13 +77,12 @@ export default function TexttoImage() {
               reality and evoke emotions through abstract symbolism
             </span>
           </div>
-
         </div>
         <div className="grid gap-4">
           <div>
             <img
               className="h-auto max-w-full rounded-md"
-              src={img3}
+              src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/Picture4.png"
               alt=""
             />
             <span>
@@ -108,7 +94,7 @@ export default function TexttoImage() {
           <div>
             <img
               className="h-auto max-w-full rounded-md"
-              src={img4}
+              src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/Picture5.png"
               alt=""
             />
             <span>
@@ -120,7 +106,7 @@ export default function TexttoImage() {
           <div>
             <img
               className="h-auto max-w-full rounded-md"
-              src={img5}
+              src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/Picture6.png"
               alt=""
             />
             <span>Cyberpunk style city street at night, Expressionism</span>
@@ -130,7 +116,7 @@ export default function TexttoImage() {
           <div>
             <img
               className="h-auto max-w-full rounded-md"
-              src={img6}
+              src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/Picture7.png"
               alt=""
             />
             <span>Portrait of a Sci-Fi man, peaceful, digital art</span>
@@ -138,7 +124,7 @@ export default function TexttoImage() {
           <div>
             <img
               className="h-auto max-w-full rounded-md"
-              src={img7}
+              src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/Picture8.png"
               alt=""
             />
             <span>
@@ -149,7 +135,7 @@ export default function TexttoImage() {
           <div>
             <img
               className="h-auto max-w-full rounded-md"
-              src={img8}
+              src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/Picture9.png"
               alt=""
             />
             <span>

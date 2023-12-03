@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logo from "../../../components/fats-logo/svg/logo-no-background.svg";
 
 export default function OurServices() {
   return (
@@ -16,7 +15,7 @@ export default function OurServices() {
                   <li className="list-body">
                     <Link to="#" className="logo">
                       <img
-                        src={logo}
+                        src="http://195.35.22.190/virtual_directory/ui_images/components/fats-logo/svg/logo-no-background.svg"
                         alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                       />
                       <h6>FATS</h6>

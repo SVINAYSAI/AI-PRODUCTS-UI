@@ -1,10 +1,5 @@
 import { Link } from "react-router-dom";
-import img1 from "../../../components/assets/imgs/folio-1.jpg";
-import img2 from "../../../components/assets/imgs/folio-2.jpg";
-import img3 from "../../../components/assets/imgs/folio-3.jpg";
-import img4 from "../../../components/assets/imgs/folio-4.jpg";
-import img5 from "../../../components/assets/imgs/folio-5.jpg";
-import img6 from "../../../components/assets/imgs/folio-6.jpg";
+
 export default function OurServices() {
   return (
     <>
@@ -152,7 +147,7 @@ export default function OurServices() {
               <div className="col-sm-4">
                 <div className="img-wrapper">
                   <img
-                    src={img1}
+                    src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/folio-1.jpg"
                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                   />
                   <div className="overlay">
@@ -170,7 +165,7 @@ export default function OurServices() {
                 </div>
                 <div className="img-wrapper">
                   <img
-                    src={img2}
+                    src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/folio-2.jpg"
                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                   />
                   <div className="overlay">
@@ -189,7 +184,7 @@ export default function OurServices() {
               <div className="col-sm-4">
                 <div className="img-wrapper">
                   <img
-                    src={img3}
+                    src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/folio-3.jpg"
                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                   />
                   <div className="overlay">
@@ -206,7 +201,7 @@ export default function OurServices() {
                 </div>
                 <div className="img-wrapper">
                   <img
-                    src={img4}
+                    src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/folio-4.jpg"
                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                   />
                   <div className="overlay">
@@ -225,7 +220,7 @@ export default function OurServices() {
               <div className="col-sm-4">
                 <div className="img-wrapper">
                   <img
-                    src={img5}
+                    src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/folio-5.jpg"
                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                   />
                   <div className="overlay">
@@ -242,7 +237,7 @@ export default function OurServices() {
                 </div>
                 <div className="img-wrapper">
                   <img
-                    src={img6}
+                    src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/folio-6.jpg"
                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                   />
                   <div className="overlay">

@@ -1,7 +1,4 @@
 import { Link } from "react-router-dom";
-import img1 from "../../../components/assets/imgs/artificial-intelligence-AI.jpg";
-import img2 from "../../../components/assets/imgs/vr.jpg";
-import img3 from "../../../components/assets/imgs/ar.jpg";
 
 export default function OurBlog() {
   return (
@@ -17,7 +14,7 @@ export default function OurBlog() {
                 <div className="card blog-post shadow-md my-4 my-sm-5 my-md-0">
                   <Link to="/blog" className="shadow-md">
                     <img
-                      src={img1}
+                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/artificial-intelligence-AI.jpg"
                       alt=""
                       style={{ width: "90%", height: "191px" }}
                     />
@@ -47,7 +44,10 @@ export default function OurBlog() {
               <div className="w-full md:w-1/3 px-4 mb-4">
                 <div className="card blog-post shadow-md my-4 my-sm-5 my-md-0">
                   <Link to="/blog" className="shadow-md">
-                    <img src={img2} alt="" />
+                    <img
+                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/vr.jpg"
+                      alt=""
+                    />
                   </Link>
                   <div className="card-body">
                     <div className="details mb-3">
@@ -74,7 +74,10 @@ export default function OurBlog() {
               <div className="w-full md:w-1/3 px-4 mb-4">
                 <div className="card blog-post shadow-md my-4 my-sm-5 my-md-0">
                   <Link to="/blog" className="shadow-md">
-                    <img src={img3} alt="" />
+                    <img
+                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/ar.jpg"
+                      alt=""
+                    />
                   </Link>
                   <div className="card-body">
                     <div className="details mb-3">
