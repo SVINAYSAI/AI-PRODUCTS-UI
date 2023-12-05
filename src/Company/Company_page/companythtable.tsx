@@ -23,13 +23,13 @@ interface UserWithStatus extends User {
 export default function CompanyThTable() {
   const [users, setUsers] = useState<UserWithStatus[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [showPreview, setShowPreview] = useState(false);
+
   const usersPerPage = 5;
-  const [showPreviewPopup, setShowPreviewPopup] = useState<boolean>(false);
+
   const [showPreviewPopup1, setShowPreviewPopup1] = useState<boolean>(false);
-  const [selectedUser, setSelectedUser] = useState<User | null>(null);
-  const [selectedUserComplaint, setSelectedUserComplaint] = useState<string>("");
-  const [selectedUserComplaintfeedback, setSelectedUserComplaintfeedback] = useState<string>("");
+  const [, setSelectedUser] = useState<User | null>(null);
+ 
+  const [, setSelectedUserComplaintfeedback] = useState<string>("");
 
   const navigate = useNavigate();
 

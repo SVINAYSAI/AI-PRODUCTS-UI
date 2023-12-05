@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { SetStateAction, useState } from "react";
-import Selaction from "./selaction";
+import { useState } from "react";
+
 import Backgroung from "./background";
 
 export default function Services() {

@@ -2,7 +2,7 @@ import { useCookies } from "react-cookie";
 
 export default function Dashboard() {
   const [cookies, setCookies] = useCookies(["userinfo"]);
-  const { email, firstname, lastname, password, username, isBase64 } =
+  const { email, firstname, lastname, username, isBase64 } =
     cookies.userinfo || {};
   return (
     <>
