@@ -1,6 +1,31 @@
-import { Link } from "react-router-dom";
+import { useState, ChangeEvent, FormEvent } from "react";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 export default function Forgot() {
+
+  const [email, setEmail] = useState<string>("");
+  const [, setCookie] = useCookies(["email"]);
+  const navigate = useNavigate();
+
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSendClick = (e: FormEvent) => {
+    e.preventDefault();
+
+    // Set the email cookie
+    setCookie("email", email, { path: "/" });
+
+    // Navigate to the "/log/newpw" page
+    // navigate("/log/newpw");
+    navigate("/loading");
+    setTimeout(() => {
+      navigate("/log/newpw");
+    }, 3000);
+  };
+
   return (
     <div
       className="w-full overflow-y-auto"
@@ -23,7 +48,7 @@ export default function Forgot() {
                   Enter Your Mail
                 </h1>
 
-                <form className="space-y-4 md:space-y-6" action="">
+                <form className="space-y-4 md:space-y-6" action="" onSubmit={handleSendClick}>
                   <div>
                     <label
                       htmlFor="email"
@@ -48,19 +73,21 @@ export default function Forgot() {
                         type="email"
                         name="email"
                         id="email"
+                        value={email}
+                        onChange={handleEmailChange}
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="name@aifact.com"
                       />
                     </div>
                   </div>
 
-                  <Link
-                    to="/log/newpw"
+                  <button
+
                     type="submit"
-                    className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                    className="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
                   >
                     Send
-                  </Link>
+                  </button>
                 </form>
               </div>
             </div>

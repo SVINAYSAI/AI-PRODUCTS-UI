@@ -1,11 +1,15 @@
-import { Link } from "react-router-dom";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 const NewPassword: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [cookies] = useCookies(["email"]);
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -14,6 +18,49 @@ const NewPassword: React.FC = () => {
   const toggleConfirmPasswordVisibility = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Check if passwords match
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    // Make API call to /forgot/update_password using fetch
+    try {
+      const response = await fetch("http://195.35.22.190:5000/forgot/update_password", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: cookies.email,
+          password: password,
+        }),
+      });
+
+      if (!response.ok) {
+        // Handle errors (e.g., show error message)
+        const errorData = await response.json();
+        console.error("Error updating password:", errorData);
+        return;
+      }
+
+      // Handle the response as needed (e.g., show success message)
+      const responseData = await response.json();
+      console.log(responseData);
+      navigate("/loading");
+      setTimeout(() => {
+        navigate("/log/sign-in");
+      }, 3000);
+    } catch (error) {
+      // Handle other errors (e.g., network error)
+      console.error("Error updating password:", error);
+    }
+  };
+
   return (
     <div
       className="w-full overflow-y-auto"
@@ -36,7 +83,7 @@ const NewPassword: React.FC = () => {
                   Enter Your Password
                 </h1>
 
-                <form className="space-y-4 md:space-y-6" action="">
+                <form className="space-y-4 md:space-y-6" action=""  onSubmit={handleSubmit}>
                   <div className="relative">
                     <label
                       htmlFor="password"
@@ -165,13 +212,13 @@ const NewPassword: React.FC = () => {
                     </label>
                   </div>
 
-                  <Link
-                    to="/log/otp"
+                  <button
+                    
                     type="submit"
-                    className="w-full text-white bg-primary-600 rounded-md hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                    className="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
                   >
                     Send
-                  </Link>
+                  </button>
                 </form>
               </div>
             </div>
