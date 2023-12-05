@@ -1,4 +1,51 @@
+import "animate.css"; // Import Animate.css
+import { useEffect, useState } from "react";
+import "wow.js/css/libs/animate.css"; // Import WOW.js CSS
+
 export default function Awesome() {
+  const [counters, setCounters] = useState({
+    clients: 0,
+    members: 0,
+    awards: 0,
+    experience: 0,
+  });
+
+  useEffect(() => {
+    const updateCounters = () => {
+      const elements = document.querySelectorAll(".fables-counter-value");
+
+      elements.forEach((element, index) => {
+        const countValue = element.getAttribute("data-count");
+
+        // Add a null check
+        if (countValue !== null) {
+          const currentValue =
+            counters[Object.keys(counters)[index] as keyof typeof counters];
+
+          if (currentValue < parseInt(countValue)) {
+            setCounters((prevCounters) => {
+              const counterKey = Object.keys(prevCounters)[
+                index
+              ] as keyof typeof prevCounters;
+              return {
+                ...prevCounters,
+                [counterKey]: currentValue + 1,
+              };
+            });
+          }
+        }
+      });
+    };
+
+    // Set up a timer to update counters after 6 seconds
+    const timer = setTimeout(() => {
+      updateCounters();
+    }, 50);
+
+    // Cleanup the timer
+    return () => clearTimeout(timer);
+  }, [counters]); // Include counters in the dependency array
+  
   return (
     <>
       <body
@@ -13,24 +60,32 @@ export default function Awesome() {
             <h6 className="section-subtitle">We Are Awesome</h6>
             <h6 className="section-title mb-6">Some Fun Fucts</h6>
             <div className="widget-2">
-              <div className="widget-item">
+              <div className="widget-item fables-counter">
                 <i className="ti-cup"></i>
-                <h6 className="title">100+</h6>
+                <h6 className="title fables-counter-value" data-count="100">
+                {counters.clients}+
+                  </h6>
                 <div className="subtitle">Awards Won</div>
               </div>
-              <div className="widget-item">
+              <div className="widget-item fables-counter">
                 <i className="ti-face-smile"></i>
-                <h6 className="title">100+</h6>
+                <h6 className="title fables-counter-value" data-count="100">
+                {counters.members}+
+                  </h6>
                 <div className="subtitle">Happy Clients</div>
               </div>
-              <div className="widget-item">
+              <div className="widget-item fables-counter">
                 <i className="ti-blackboard"></i>
-                <h6 className="title">845+</h6>
+                <h6 className="title fables-counter-value" data-count="200">
+                {counters.awards}+
+                  </h6>
                 <div className="subtitle">Project Completed</div>
               </div>
-              <div className="widget-item">
+              <div className="widget-item fables-counter">
                 <i className="ti-comments-smiley"></i>
-                <h6 className="title">15K+</h6>
+                <h6 className="title fables-counter-value" data-count="1s">
+                {counters.experience}K+
+                  </h6>
                 <div className="subtitle">Comments</div>
               </div>
             </div>

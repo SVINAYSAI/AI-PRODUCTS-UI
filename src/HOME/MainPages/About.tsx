@@ -14,7 +14,7 @@ import Footer from "./HomePages/Footer";
 import AboutCounter from "./HomePages/AboutCounter";
 
 export default function About() {
-  
+
   useEffect(() => {
     const wow = new WOW();
     wow.init();

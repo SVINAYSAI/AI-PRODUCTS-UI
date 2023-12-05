@@ -1,15 +1,24 @@
 import { Link } from "react-router-dom";
+import "animate.css"; // Import Animate.css
+import { useEffect } from "react";
+import WOW from "wow.js"; // Import WOW.js
+import "wow.js/css/libs/animate.css"; // Import WOW.js CSS
 
 export default function OurServices() {
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
   return (
     <>
       <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
         <section id="service">
           <div className="container">
-            <h6 className="section-subtitle text-center">Makes Happen</h6>
-            <h5 className="section-title text-center mb-6">Our Service</h5>
+            <h6 className="section-subtitle text-center wow fadeInLeft" data-wow-duration="1.5s">Makes Happen</h6>
+            <h5 className="section-title text-center mb-6 wow fadeInLeft" data-wow-duration="1.5s">Our Service</h5>
             <div className="row">
-              <div className="col-sm-4 col-md-3">
+              <div className="col-sm-4 col-md-3 wow fadeInDown"
+            data-wow-delay="1.3s">
                 <div className="card mb-4">
                   <div className="card-body">
                     <h2 className="mb-4">
@@ -23,7 +32,8 @@ export default function OurServices() {
                   </div>
                 </div>
               </div>
-              <div className="col-sm-4 col-md-3">
+              <div className="col-sm-4 col-md-3 wow fadeInDown"
+            data-wow-delay="1.5s">
                 <div className="card mb-4">
                   <div className="card-body">
                     <h2 className="mb-4">
@@ -37,7 +47,8 @@ export default function OurServices() {
                   </div>
                 </div>
               </div>
-              <div className="col-sm-4 col-md-3">
+              <div className="col-sm-4 col-md-3 wow fadeInDown"
+            data-wow-delay="1.7s">
                 <div className="card mb-4">
                   <div className="card-body">
                     <h2 className="mb-4">
@@ -51,7 +62,8 @@ export default function OurServices() {
                   </div>
                 </div>
               </div>
-              <div className="col-sm-4 col-md-3">
+              <div className="col-sm-4 col-md-3 wow fadeInDown"
+            data-wow-delay="1.9s">
                 <div className="card mb-4">
                   <div className="card-body">
                     <h2 className="mb-4">
@@ -65,7 +77,8 @@ export default function OurServices() {
                   </div>
                 </div>
               </div>
-              <div className="col-sm-4 col-md-3">
+              <div className="col-sm-4 col-md-3 wow fadeInDown"
+            data-wow-delay="2.1s">
                 <div className="card mb-4">
                   <div className="card-body">
                     <h2 className="mb-4">
@@ -79,7 +92,8 @@ export default function OurServices() {
                   </div>
                 </div>
               </div>
-              <div className="col-sm-4 col-md-3">
+              <div className="col-sm-4 col-md-3 wow fadeInDown"
+            data-wow-delay="2.3s">
                 <div className="card mb-4">
                   <div className="card-body">
                     <h2 className="mb-4">
@@ -93,7 +107,8 @@ export default function OurServices() {
                   </div>
                 </div>
               </div>
-              <div className="col-sm-4 col-md-3">
+              <div className="col-sm-4 col-md-3 wow fadeInDown"
+            data-wow-delay="2.5s">
                 <div className="card mb-4">
                   <div className="card-body">
                     <h2 className="mb-4">
@@ -107,7 +122,8 @@ export default function OurServices() {
                   </div>
                 </div>
               </div>
-              <div className="col-sm-4 col-md-3">
+              <div className="col-sm-4 col-md-3 wow fadeInDown"
+            data-wow-delay="2.7s">
                 <div className="card mb-4">
                   <div className="card-body">
                     <h2 className="mb-4">
@@ -121,7 +137,8 @@ export default function OurServices() {
                   </div>
                 </div>
               </div>
-              <div className="col-sm-4 col-md-3">
+              <div className="col-sm-4 col-md-3 wow fadeInDown"
+            data-wow-delay="2.9s">
                 <div className="card mb-4">
                   <div className="card-body">
                     <h2 className="mb-4">

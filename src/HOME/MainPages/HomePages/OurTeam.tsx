@@ -1,10 +1,20 @@
 import React, { useState } from "react";
+import "animate.css"; // Import Animate.css
+import { useEffect } from "react";
+import WOW from "wow.js"; // Import WOW.js
+import "wow.js/css/libs/animate.css"; // Import WOW.js CSS
 
 interface ImageSliderProps {
-  data: Array<{ id: number; imgUrl: string; desc: string; name: string }>;
+  data: Array<{ id: number; imgUrl: string; desc: string; name: string; class: string; time: string }>;
 }
 
 const ImageSlider: React.FC<ImageSliderProps> = ({ data }) => {
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
@@ -12,11 +22,11 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ data }) => {
       <div className=" justify-self-center grid grid-cols-3 gap-4">
         {data.slice(currentIndex, currentIndex + 3).map((item, index) => (
           <div key={item.id} className="w-full">
-            <div className="border border-gray-300 shadow-md rounded-md p-4">
+            <div className={item.class} data-wow-delay={item.time}>
               <img
                 src={item.imgUrl}
                 alt={item.name}
-                className="w-full h-64 object-cover rounded-md"
+                className= "w-full h-64 object-cover rounded-md"
               />
               <p className="text-gray-600 mt-2">{item.desc}</p>
               <p className="font-bold mt-2">{item.name}</p>
@@ -52,6 +62,8 @@ const Slider: React.FC = () => {
         "https://i.postimg.cc/bw6KxhLf/pexels-eberhard-grossgasteiger-1062249.jpg",
       desc: "Some beautiful roads cannot be discovered without getting lost.",
       name: "EXPLORE NATURE",
+      class: "border border-gray-300 shadow-md rounded-md p-4 wow slideInLeft",
+      time: "0.9s"
     },
     {
       id: 2,
@@ -59,6 +71,8 @@ const Slider: React.FC = () => {
         "https://i.postimg.cc/bw6KxhLf/pexels-eberhard-grossgasteiger-1062249.jpg",
       desc: "Some beautiful roads cannot be discovered without getting lost.",
       name: "EXPLORE NATURE",
+      class: "border border-gray-300 shadow-md rounded-md p-4 wow slideInLeft",
+      time: "0.6s"
     },
     {
       id: 3,
@@ -66,6 +80,8 @@ const Slider: React.FC = () => {
         "https://i.postimg.cc/CMkTW9Mb/pexels-eberhard-grossgasteiger-572897.jpg",
       desc: "Some beautiful roads cannot be discovered without getting lost.",
       name: "EXPLORE NATURE",
+      class: "border border-gray-300 shadow-md rounded-md p-4 wow slideInLeft",
+      time: "0.3s"
     },
     // {
     //   id: 4,

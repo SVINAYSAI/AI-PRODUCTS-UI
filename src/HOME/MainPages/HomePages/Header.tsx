@@ -1,9 +1,19 @@
+import "animate.css"; // Import Animate.css
+import { useEffect } from "react";
+import WOW from "wow.js"; // Import WOW.js
+import "wow.js/css/libs/animate.css"; // Import WOW.js CSS
+
 export default function Header() {
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
   return (
     <>
       <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-        <header className="header">
-          <div className="overlay">
+        <header className="header " >
+          <div className="overlay ">
+            {/* <div className="wow bounceIn"> */}
             <h1 className="title font-italic pt-[5%]">FATS</h1>
             <h1 className="subtitle font-italic pt-4">
               FUTURE AI TECHNOLOGY'S
@@ -32,11 +42,12 @@ export default function Header() {
                 Contact Us
               </button>
             </div>
-          </div>
+            </div>
+          {/* </div> */}
         </header>
 
-        <div className="box text-center shadow-lg ">
-          <div className="box-item">
+        <div className="box text-center shadow-lg">
+          <div className="box-item wow fadeInDown" data-wow-delay=".3s">
             <i className="ti-vector"></i>
             <h6 className="box-title">AI development</h6>
             <p>
@@ -45,7 +56,7 @@ export default function Header() {
               learning and problem-solving.
             </p>
           </div>
-          <div className="box-item">
+          <div className="box-item wow fadeInDown" data-wow-delay=".3s">
             <i className="ti-filter"></i>
             <h6 className="box-title">Web Development</h6>
             <p>
@@ -54,7 +65,7 @@ export default function Header() {
               JavaScript, and backend frameworks for functionality .
             </p>
           </div>
-          <div className="box-item">
+          <div className="box-item wow fadeInDown" data-wow-delay=".3s">
             <i className="ti-mobile"></i>
             <h6 className="box-title">App Design</h6>
             <p>
