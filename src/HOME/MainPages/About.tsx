@@ -14,7 +14,6 @@ import Footer from "./HomePages/Footer";
 import AboutCounter from "./HomePages/AboutCounter";
 
 export default function About() {
-
   useEffect(() => {
     const wow = new WOW();
     wow.init();
@@ -31,18 +30,24 @@ export default function About() {
           >
             <div className="border p-4">
               <div className="row text-center text-lg-left">
-                <div className="col-12 col-lg-3 mb-3 mb-md-0 mt-[1rem]">
-                  <img src={Light} alt="we are Creative" />
-                </div>
-                <div className="col-12 col-lg-9">
-                  <h2 className="fables-second-text-color font-20 semi-font my-2 mb-lg-3 about-block-heading">
+                <div className="grid grid-cols-4 gap-4">
+                  <div className="mb-3 pt-1 mb-md-0">
+                    <img src={Light} alt="we are Creative" />
+                  </div>
+                  <h2 className="col-span-3 pt-4 fables-second-text-color semi-font my-2 mb-lg-3 about-block-heading whitespace-nowrap">
                     We’re Creative
                   </h2>
-                  <div className="font-15 fables-forth-text-color">
-                    Lorem ipsum dolor sit amet adipiscing elit. Aenean ac lorem
-                    pretium laoreet enim at.
-                  </div>
                 </div>
+
+                <p className="mt-[39px] pl-8 text-start">
+                  "We're Creative" echoes through our code, design, and
+                  strategic planning, inspiring us to craft solutions that not
+                  only meet the demands of the present but anticipate the
+                  challenges of the future. In this fast-paced industry,
+                  creativity is not just an asset—it is our competitive edge,
+                  allowing us to sculpt the future of technology with each line
+                  of code and every innovative concept.
+                </p>
               </div>
             </div>
           </div>
@@ -53,18 +58,25 @@ export default function About() {
           >
             <div className="border p-4">
               <div className="row text-center text-lg-left">
-                <div className="col-12 col-lg-3 mb-3 mb-md-0 mt-[1rem]">
-                  <img src={Gear} alt="Highly Customizable" />
-                </div>
-                <div className="col-12 col-lg-9">
-                  <h2 className="fables-second-text-color font-20 semi-font my-2 mb-lg-3 about-block-heading">
+                <div className="grid grid-cols-4 gap-4 mt-2">
+                  <div className="mb-3 mb-md-0">
+                    <img src={Gear} alt="Highly Customizable" />
+                  </div>
+                  <h2 className="col-span-2 fables-second-text-color font-20 semi-font my-2 mb-lg-3 about-block-heading">
                     Highly Customizable
                   </h2>
-                  <div className="font-15 fables-forth-text-color">
-                    Lorem ipsum dolor sit amet adipiscing elit. Aenean ac lorem
-                    pretium laoreet enim at.
-                  </div>
                 </div>
+
+                <p className="pt-2 pl-8 text-start">
+                  Organizations prioritize customizable solutions for agile
+                  systems, seamlessly integrating with unique workflows.
+                  Tailoring software and hardware enhances operational
+                  efficiency, ensuring a responsive IT infrastructure. This
+                  approach drives innovation in the ever-evolving digital
+                  landscape. Emphasizing customization empowers businesses to
+                  stay ahead in technology. It fosters a future-proof
+                  environment.
+                </p>
               </div>
             </div>
           </div>
@@ -75,18 +87,22 @@ export default function About() {
           >
             <div className="border p-4">
               <div className="row text-center text-lg-left">
-                <div className="col-12 col-lg-3 mb-3 mb-md-0 mt-[1rem]">
-                  <img src={Support} alt="Highly Customizable" />
-                </div>
-                <div className="col-12 col-lg-9">
-                  <h2 className="fables-second-text-color font-20 semi-font my-2 mb-lg-3 about-block-heading">
+                <div className="grid grid-cols-4 gap-4">
+                  <div className=" mb-3 mb-md-0">
+                    <img src={Support} alt="Highly Customizable" />
+                  </div>
+                  <h2 className="col-span-3 fables-second-text-color font-20 semi-font my-2 mb-lg-3 about-block-heading">
                     Efficient 24/7 support
                   </h2>
-                  <div className="font-15 fables-forth-text-color">
-                    Lorem ipsum dolor sit amet adipiscing elit. Aenean ac lorem
-                    pretium laoreet enim at.
-                  </div>
                 </div>
+                <p className="mt-[17px] mb-[37px]  pl-8 text-start">
+                  Establishing efficient 24/7 support involves integrating
+                  advanced ticketing systems, AI-driven chatbots, and automated
+                  monitoring tools. A team of skilled, organized strategically,
+                  ensures prompt responses and resolutions. Continuous system
+                  monitoring, proactive issue identification, and ongoing staff
+                  training are crucial for a seamless support experience.
+                </p>
               </div>
             </div>
           </div>

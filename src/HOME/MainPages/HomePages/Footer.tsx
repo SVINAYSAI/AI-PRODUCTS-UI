@@ -47,15 +47,15 @@ export default function OurServices() {
                   <li className="list-body">
                     <div className="row">
                       <div className="col">
-                        <Link to="#about">About</Link>
-                        <Link to="#service">Service</Link>
+                        <Link to="/about">About</Link>
+                        <Link to="/services">Service</Link>
                         <Link to="#portfolio">Portfolio</Link>
                         <Link to="#testmonail">Testimonial</Link>
                       </div>
                       <div className="col">
                         <Link to="#team">Team</Link>
-                        <Link to="#blog">Blog</Link>
-                        <Link to="#">Faq</Link>
+                        <Link to="/blog">Blog</Link>
+                        <Link to="/contactus">Faq</Link>
                         <Link to="#">Privacy Policy</Link>
                       </div>
                     </div>
