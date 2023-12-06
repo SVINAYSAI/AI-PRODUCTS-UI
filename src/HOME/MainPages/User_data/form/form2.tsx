@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
-
 interface FormData {
   email: string;
   name: string;
@@ -23,6 +22,56 @@ export default function Form2() {
   };
 
   const [cookies, setCookie] = useCookies(["formData"]); // Define the cookie named 'formData'
+
+  const [captcha, setCaptcha] = useState<string>("");
+  const [enteredCaptcha, setEnteredCaptcha] = useState<string>("");
+  const [status, setStatus] = useState<string>("");
+  const [captchaImage, setCaptchaImage] = useState<string | null>(null);
+
+  // Function to generate a new captcha
+  const generateCaptcha = () => {
+    const alphabets = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
+    const first = alphabets[Math.floor(Math.random() * alphabets.length)];
+    const second = Math.floor(Math.random() * 10);
+    const third = Math.floor(Math.random() * 10);
+    const fourth = alphabets[Math.floor(Math.random() * alphabets.length)];
+    const fifth = alphabets[Math.floor(Math.random() * alphabets.length)];
+    const sixth = Math.floor(Math.random() * 10);
+    const newCaptcha = `${first}${second}${third}${fourth}${fifth}${sixth}`;
+
+    // Convert captcha to base64 image
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d")!;
+    context.font = "20px Arial";
+    canvas.width = context.measureText(newCaptcha).width;
+    canvas.height = 25;
+    context.fillStyle = "#ffffff";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = "#000000";
+    context.fillText(newCaptcha, 0, 20);
+    const captchaDataURL = canvas.toDataURL();
+    setCaptchaImage(captchaDataURL);
+
+    // Update state values
+    setCaptcha(newCaptcha);
+    setEnteredCaptcha("");
+    setStatus("");
+  };
+
+  // Function to check the entered captcha
+  const checkCaptcha = () => {
+    if (enteredCaptcha === captcha) {
+      setStatus("Correct!!");
+    } else {
+      setStatus("Try Again!!");
+      setEnteredCaptcha("");
+    }
+  };
+
+  // useEffect to generate captcha when the component mounts
+  useEffect(() => {
+    generateCaptcha();
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   useEffect(() => {
     const storedFormData = cookies.formData;
@@ -213,6 +262,46 @@ export default function Form2() {
           </button>
         </label>
       </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        <div className="">
+          {captchaImage && (
+            <img className="w-full" src={captchaImage} alt="Captcha Image" />
+          )}
+        </div>
+        <div className="mt-1 ml-5" onClick={generateCaptcha}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 50 50"
+            width="30px"
+            height="18px"
+          >
+            <path d="M 25 2 A 1.0001 1.0001 0 1 0 25 4 C 36.609534 4 46 13.390466 46 25 C 46 36.609534 36.609534 46 25 46 C 13.390466 46 4 36.609534 4 25 C 4 18.307314 7.130711 12.364806 12 8.5195312 L 12 15 A 1.0001 1.0001 0 1 0 14 15 L 14 6.5507812 L 14 5 L 4 5 A 1.0001 1.0001 0 1 0 4 7 L 10.699219 7 C 5.4020866 11.214814 2 17.712204 2 25 C 2 37.690466 12.309534 48 25 48 C 37.690466 48 48 37.690466 48 25 C 48 12.309534 37.690466 2 25 2 z" />
+          </svg>
+        </div>
+      </div>
+
+      <div className="mb-3">
+        <input
+          type="text"
+          id="entered-captcha"
+          placeholder="Enter the captcha.."
+          value={enteredCaptcha}
+          onChange={(e) => setEnteredCaptcha(e.target.value)}
+          className="border-2 border-c5c7f7 font-mono outline-none rounded-md px-2 py-1"
+        />
+        <div className="grid grid-cols-2 gap-4">
+          <span style={{ color: "#ee7e6a" }}>{status}</span>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        onClick={checkCaptcha}
+        className="border px-4 py-1 rounded-md font-bold text-14px font-mono outline-none bg-64f394"
+      >
+        Check
+      </button>
 
       <div className="flex items-center justify-between">
         <div className="flex items-start">

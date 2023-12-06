@@ -9,6 +9,7 @@ import Payment from "./Company/Payment";
 import AdminLogin from "./Company/CompanyLogin/AdminLogin";
 import LoadingPage from "./HOME/MainPages/User_data/form/LoadingPage/LoadingPage"
 import Payment1 from "./MainPayment/payment1";
+import Capture from "./Company/CompanyLogin/Recapture";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/admin_sign@in" element={<AdminLogin />} />
           <Route path="/loading" element={<LoadingPage />} />
           <Route path="/Payment" element={<Payment1 />} />
+          <Route path="/re" element={<Capture />} />
         </Routes>
       </Router>
   );
