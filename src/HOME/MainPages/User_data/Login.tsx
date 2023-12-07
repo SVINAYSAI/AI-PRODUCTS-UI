@@ -16,7 +16,7 @@ const Login: React.FC = () => {
 
   return (
     <div
-      className="w-full overflow-y-auto"
+      className="w-full overflow-auto"
       style={{
         backgroundImage: `url("http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/christmas.jpg")`,
         backgroundSize: "cover",

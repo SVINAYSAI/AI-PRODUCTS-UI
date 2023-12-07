@@ -83,6 +83,12 @@ export default function Form2() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // Check if the entered captcha is correct
+  if (enteredCaptcha !== captcha) {
+    setStatus("Incorrect Captcha. Please try again.");
+    return;
+  }
+
     // Show loading page during the loading state
     setLoading(true);
 
@@ -264,9 +270,9 @@ export default function Form2() {
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-        <div className="">
+        <div className="shadow-md">
           {captchaImage && (
-            <img className="w-full" src={captchaImage} alt="Captcha Image" />
+            <img className="w-full h-14" src={captchaImage} alt="Captcha Image" />
           )}
         </div>
         <div className="mt-1 ml-5" onClick={generateCaptcha}>

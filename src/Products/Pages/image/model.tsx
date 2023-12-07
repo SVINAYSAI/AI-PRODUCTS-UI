@@ -1,23 +1,51 @@
-import { useState } from 'react';
-// import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
 
 export default function Model() {
   const [prompt, setPrompt] = useState('');
-  const [processedImage] = useState(null);
+  const [processedImage, setProcessedImage] = useState(null);
+  const [selectedPrompt, setSelectedPrompt] = useState<string>(''); // State to store selected prompt
+  const [cookies, setCookie] = useCookies(['userinfo']);
+  const promptOptions = ['midjourney', 'Stable_Diffusion'];
 
-  // const handleGenerateImage = async () => {
-  //   try {
-  //     const response = await axios.post('/api/image_generation/process_image', {
-  //       prompt: prompt,
-  //     });
+  const handleGenerateImage = async () => {
+    try {
+      // Log what is being sent to the backend
+      console.log('Sending to backend:', {
+        api_key: cookies.userinfo.api,
+        message: prompt,
+      });
 
-  //     if (response.data && response.data.image) {
-  //       setProcessedImage(response.data.image);
-  //     }
-  //   } catch (error) {
-  //     console.error('Error generating image:', error);
-  //   }
-  // };
+      const response = await fetch('http://127.0.0.1:5000/midjourney', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${cookies.userinfo.api}`,
+        },
+        body: JSON.stringify({
+          api_key: cookies.userinfo.api,
+          message: prompt,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setProcessedImage(data.image_path);
+        console.log('Image generated successfully:', data.image_path);
+      } else {
+        console.error('Failed to generate image:', data.error);
+      }
+    } catch (error) {
+      console.error('Error connecting to the backend:', error);
+    }
+  };
+
+  useEffect(() => {
+    if (cookies.userinfo) {
+      setPrompt('Enter your prompt');
+    }
+  }, [cookies.userinfo]);
 
   return (
     <>
@@ -61,29 +89,42 @@ export default function Model() {
                       />
                     </label>
                   </div>
+
                   <div
                     id="negative-prompt-text-input"
                     className="gr-block gr-box relative w-full overflow-hidden border-solid border border-l-white border-b-white !p-0 !m-0 !shadow-none !bg-transparent gr-padded"
                   >
                     <label className="block w-full">
                       <span className="text-gray-500 text-[0.855rem] mb-2 block relative z-40 sr-only h-0 !m-0">
-                        Enter your negative prompt
+                        Choose your negative prompt
                       </span>
-                      <input
-                        data-testid="textbox"
-                        type="text"
+                      <select
+                        data-testid="dropdown"
+                        value={selectedPrompt}
+                        onChange={(e) => setSelectedPrompt(e.target.value)}
                         className="scroll-hide block gr-box gr-input w-full gr-text-input h-9"
-                        placeholder="Enter a negative prompt"
-                      />
+                      >
+                        <option value="" disabled>
+                          Select a prompt
+                        </option>
+                        {promptOptions.map((prompt, index) => (
+                          <option key={index} value={prompt}>
+                            {prompt}
+                          </option>
+                        ))}
+                      </select>
                     </label>
                   </div>
+
+
                 </div>
               </div>
               <button
                 type="button"
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-4 mr-0 mb-4 mt-4 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 id="component-9"
-                // onClick={handleGenerateImage}
+                onClick={handleGenerateImage}
+              // onClick={handleGenerateImage}
               >
                 Generate image
               </button>
@@ -99,38 +140,37 @@ export default function Model() {
                 className="overflow-y-auto h-full p-2"
                 style={{ position: "relative" }}
               >
-                <div className="h-full min-h-[28rem] flex justify-center items-center">
-                  <div className="h-5 dark:text-white opacity-50">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="100%"
-                      height="100%"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="feather feather-image"
-                    >
-                      <rect
-                        x="3"
-                        y="3"
-                        width="18"
-                        height="18"
-                        rx="2"
-                        ry="2"
-                      ></rect>
-                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                      <polyline points="21 15 16 10 5 21"></polyline>
-                    </svg>
-                  </div>
+                 <div className="h-full min-h-[28rem] flex justify-center items-center">
+              {processedImage && (
+                <div>
+                  <img
+                    src={processedImage}
+                    alt="Generated Image"
+                    className="max-w-full max-h-full"
+                  />
                 </div>
-                {processedImage && (
-                  <div>
-                    <img src={processedImage} alt="Processed" />
-                  </div>
-                )}
+              )}
+              {!processedImage && (
+                <div className="h-5 dark:text-white opacity-50">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="feather feather-image"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                  </svg>
+                </div>
+              )}
+            </div>
               </div>
             </div>
           </div>
