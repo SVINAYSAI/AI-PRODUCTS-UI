@@ -4,6 +4,12 @@ import { useCookies } from "react-cookie";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 
+// Define the CredentialResponse type
+interface CredentialResponse {
+  credential: string;
+  // Add other properties if needed
+}
+
 export default function Form1() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -12,8 +18,13 @@ export default function Form1() {
   const [cookies, setCookie] = useCookies(["userinfo"]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [captcha, setCaptcha] = useState("");
+  const [enteredCaptcha, setEnteredCaptcha] = useState("");
+  const [status, setStatus] = useState("");
+  const [captchaImage, setCaptchaImage] = useState<string | null>(null);
+  const [remainingTime, setRemainingTime] = useState(0);
+  const [showGenerateCaptcha, setShowGenerateCaptcha] = useState(true);
 
-  // Check if "userinfo" cookie exists and has email and password values
   useEffect(() => {
     const userinfoCookie = cookies["userinfo"];
     if (
@@ -36,8 +47,66 @@ export default function Form1() {
     setRememberMe(!rememberMe);
   };
 
+  const generateCaptcha = () => {
+    // Captcha generation logic
+    const alphabets = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
+    const first = alphabets[Math.floor(Math.random() * alphabets.length)];
+    const second = Math.floor(Math.random() * 10);
+    const third = Math.floor(Math.random() * 10);
+    const fourth = alphabets[Math.floor(Math.random() * alphabets.length)];
+    const fifth = alphabets[Math.floor(Math.random() * alphabets.length)];
+    const sixth = Math.floor(Math.random() * 10);
+    const newCaptcha = `${first}${second}${third}${fourth}${fifth}${sixth}`;
+
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d")!;
+    context.font = "20px Arial";
+    canvas.width = context.measureText(newCaptcha).width;
+    canvas.height = 25;
+    context.fillStyle = "#ffffff";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = "#000000";
+    context.fillText(newCaptcha, 0, 20);
+    const captchaDataURL = canvas.toDataURL();
+    setCaptchaImage(captchaDataURL);
+
+    setCaptcha(newCaptcha);
+    setEnteredCaptcha("");
+    setStatus("");
+
+    setShowGenerateCaptcha(false);
+
+    setRemainingTime(99);
+  };
+
+  useEffect(() => {
+    generateCaptcha();
+  }, []);
+
+  useEffect(() => {
+    let timer: string | number | NodeJS.Timeout | undefined;
+
+    if (!showGenerateCaptcha && remainingTime > 0) {
+      timer = setInterval(() => {
+        setRemainingTime((prevTime) => prevTime - 1);
+      }, 1000);
+    }
+
+    if (remainingTime === 0) {
+      clearInterval(timer);
+      setShowGenerateCaptcha(true);
+    }
+
+    return () => clearInterval(timer);
+  }, [remainingTime, showGenerateCaptcha]);
+
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
+
+    if (enteredCaptcha !== captcha) {
+      setStatus("Incorrect Captcha. Please try again!!");
+      return;
+    }
 
     try {
       const response = await fetch(
@@ -54,7 +123,6 @@ export default function Form1() {
       const result = await response.json();
 
       console.log("Request Data:", { email, password });
-
       console.log("Server Response:", result);
 
       if (response.ok) {
@@ -248,6 +316,48 @@ export default function Form1() {
               )}
             </button>
           </label>
+        </div>
+
+        <div className="flex items-center">
+          <div className="w-[54%] border">
+            {captchaImage && (
+              <img
+                className="w-full h-11"
+                src={captchaImage}
+                alt="Captcha Image"
+              />
+            )}
+          </div>
+          {showGenerateCaptcha ? (
+            <div className="mt-1 ml-1" onClick={generateCaptcha}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 50 50"
+                width="30px"
+                height="18px"
+              >
+                <path d="M 25 2 A 1.0001 1.0001 0 1 0 25 4 C 36.609534 4 46 13.390466 46 25 C 46 36.609534 36.609534 46 25 46 C 13.390466 46 4 36.609534 4 25 C 4 18.307314 7.130711 12.364806 12 8.5195312 L 12 15 A 1.0001 1.0001 0 1 0 14 15 L 14 6.5507812 L 14 5 L 4 5 A 1.0001 1.0001 0 1 0 4 7 L 10.699219 7 C 5.4020866 11.214814 2 17.712204 2 25 C 2 37.690466 12.309534 48 25 48 C 37.690466 48 48 37.690466 48 25 C 48 12.309534 37.690466 2 25 2 z" />
+              </svg>
+            </div>
+          ) : (
+            <div className="mt-1 ml-1">
+              {`Please wait ${remainingTime} seconds`}
+            </div>
+          )}
+        </div>
+
+        <div className="mb-3">
+          <input
+            type="text"
+            id="entered-captcha"
+            placeholder="Enter the captcha.."
+            value={enteredCaptcha}
+            onChange={(e) => setEnteredCaptcha(e.target.value)}
+            className="border-2 border-c5c7f7 font-mono outline-none rounded-md px-2 py-1"
+          />
+          <div className="grid grid-cols-1 gap-4">
+            <span style={{ color: "#ee7e6a" }}>{status}</span>
+          </div>
         </div>
 
         <div className="flex items-center justify-between">

@@ -3,9 +3,9 @@ import { useState, useRef } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 
-export default function OTP() {
+export default function OTP_Verify() {
   const [otpValues, setOtpValues] = useState(["", "", "", "", "", ""]);
-  const [cookies] = useCookies(["user"]);
+  const [cookies] = useCookies(["email"]);
   const navigate = useNavigate();
 
   const inputRefs = [
@@ -37,7 +37,7 @@ export default function OTP() {
     const completeOtp = otpValues.join("");
 
     // Read email from cookies
-    const userEmail = cookies.user?.email;
+    const userEmail = cookies.email?.email;
 
     try {
       // Make a POST request to the Flask backend
@@ -56,7 +56,7 @@ export default function OTP() {
       if (response.ok) {
         const result = await response.json();
         console.log(result.message); // Display success message
-        navigate("/log/sign-in");
+        navigate("/log/newpw");
       } else {
         const error = await response.json();
         console.error(error.error); // Display error message

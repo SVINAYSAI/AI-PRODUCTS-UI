@@ -27,6 +27,8 @@ export default function Form2() {
   const [enteredCaptcha, setEnteredCaptcha] = useState<string>("");
   const [status, setStatus] = useState<string>("");
   const [captchaImage, setCaptchaImage] = useState<string | null>(null);
+  const [remainingTime, setRemainingTime] = useState(0);
+  const [showGenerateCaptcha, setShowGenerateCaptcha] = useState(true);
 
   // Function to generate a new captcha
   const generateCaptcha = () => {
@@ -56,22 +58,36 @@ export default function Form2() {
     setCaptcha(newCaptcha);
     setEnteredCaptcha("");
     setStatus("");
-  };
 
-  // Function to check the entered captcha
-  const checkCaptcha = () => {
-    if (enteredCaptcha === captcha) {
-      setStatus("Correct!!");
-    } else {
-      setStatus("Try Again!!");
-      setEnteredCaptcha("");
-    }
+    // Disable the generateCaptcha button
+    setShowGenerateCaptcha(false);
+
+    // Start the timer
+    setRemainingTime(99);
   };
 
   // useEffect to generate captcha when the component mounts
   useEffect(() => {
     generateCaptcha();
   }, []); // Empty dependency array ensures this runs only once on mount
+
+  useEffect(() => {
+    let timer: string | number | NodeJS.Timeout | undefined;
+
+    if (!showGenerateCaptcha && remainingTime > 0) {
+      timer = setInterval(() => {
+        setRemainingTime((prevTime) => prevTime - 1);
+      }, 1000);
+    }
+
+    if (remainingTime === 0) {
+      clearInterval(timer);
+      setShowGenerateCaptcha(true);
+    }
+
+    // Cleanup the timer on component unmount
+    return () => clearInterval(timer);
+  }, [remainingTime, showGenerateCaptcha]);
 
   useEffect(() => {
     const storedFormData = cookies.formData;
@@ -84,10 +100,10 @@ export default function Form2() {
     e.preventDefault();
 
     // Check if the entered captcha is correct
-  if (enteredCaptcha !== captcha) {
-    setStatus("Incorrect Captcha. Please try again.");
-    return;
-  }
+    if (enteredCaptcha !== captcha) {
+      setStatus("Incorrect Captcha. Please try again.!!");
+      return;
+    }
 
     // Show loading page during the loading state
     setLoading(true);
@@ -269,22 +285,32 @@ export default function Form2() {
         </label>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
-        <div className="shadow-md">
+      <div className="flex items-center">
+        <div className="w-[54%] border">
           {captchaImage && (
-            <img className="w-full h-14" src={captchaImage} alt="Captcha Image" />
+            <img
+              className="w-full h-11"
+              src={captchaImage}
+              alt="Captcha Image"
+            />
           )}
         </div>
-        <div className="mt-1 ml-5" onClick={generateCaptcha}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 50 50"
-            width="30px"
-            height="18px"
-          >
-            <path d="M 25 2 A 1.0001 1.0001 0 1 0 25 4 C 36.609534 4 46 13.390466 46 25 C 46 36.609534 36.609534 46 25 46 C 13.390466 46 4 36.609534 4 25 C 4 18.307314 7.130711 12.364806 12 8.5195312 L 12 15 A 1.0001 1.0001 0 1 0 14 15 L 14 6.5507812 L 14 5 L 4 5 A 1.0001 1.0001 0 1 0 4 7 L 10.699219 7 C 5.4020866 11.214814 2 17.712204 2 25 C 2 37.690466 12.309534 48 25 48 C 37.690466 48 48 37.690466 48 25 C 48 12.309534 37.690466 2 25 2 z" />
-          </svg>
-        </div>
+        {showGenerateCaptcha ? (
+          <div className="mt-1 ml-1" onClick={generateCaptcha}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 50 50"
+              width="30px"
+              height="18px"
+            >
+              <path d="M 25 2 A 1.0001 1.0001 0 1 0 25 4 C 36.609534 4 46 13.390466 46 25 C 46 36.609534 36.609534 46 25 46 C 13.390466 46 4 36.609534 4 25 C 4 18.307314 7.130711 12.364806 12 8.5195312 L 12 15 A 1.0001 1.0001 0 1 0 14 15 L 14 6.5507812 L 14 5 L 4 5 A 1.0001 1.0001 0 1 0 4 7 L 10.699219 7 C 5.4020866 11.214814 2 17.712204 2 25 C 2 37.690466 12.309534 48 25 48 C 37.690466 48 48 37.690466 48 25 C 48 12.309534 37.690466 2 25 2 z" />
+            </svg>
+          </div>
+        ) : (
+          <div className="mt-1 ml-1">
+            {`Please wait ${remainingTime} seconds`}
+          </div>
+        )}
       </div>
 
       <div className="mb-3">
@@ -296,18 +322,10 @@ export default function Form2() {
           onChange={(e) => setEnteredCaptcha(e.target.value)}
           className="border-2 border-c5c7f7 font-mono outline-none rounded-md px-2 py-1"
         />
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4">
           <span style={{ color: "#ee7e6a" }}>{status}</span>
         </div>
       </div>
-
-      <button
-        type="button"
-        onClick={checkCaptcha}
-        className="border px-4 py-1 rounded-md font-bold text-14px font-mono outline-none bg-64f394"
-      >
-        Check
-      </button>
 
       <div className="flex items-center justify-between">
         <div className="flex items-start">

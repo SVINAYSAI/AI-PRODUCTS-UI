@@ -29,8 +29,8 @@ const Login: React.FC = () => {
           className="w-full md:w-1/2"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
         >
-          <div className="flex flex-col items-center justify-center mx-auto md:h-screen lg:py-0">
-            <div className="w-full bg-gray-50  rounded-md dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 opacity-80">
+          <div className="flex flex-col mt-[1rem] items-center justify-center mx-auto md:h-screen lg:py-0">
+            <div className="w-full overflow-auto mb-[2rem] bg-gray-50  rounded-md dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 opacity-80">
               <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl ">
                   Sign in to your account
