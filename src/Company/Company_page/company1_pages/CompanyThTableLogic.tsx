@@ -17,6 +17,7 @@ export default function CompanyUserPreview() {
       })
         .then((response) => response.json())
         .then((data) => {
+          console.log("Complaints data:", data);
           // Set the complaints in the state
         })
         .catch((error) => console.error("Error fetching complaints:", error));

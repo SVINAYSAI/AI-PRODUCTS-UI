@@ -92,7 +92,7 @@ export default function Mail() {
                   </svg>
                   <span className="sr-only">Attach file</span>
                 </label>
-                
+
                 <input type="file" id="fileInput" className="hidden" onChange={handleFileChange} multiple />
 
                 <button
