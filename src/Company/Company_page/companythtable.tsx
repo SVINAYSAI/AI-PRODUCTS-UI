@@ -22,16 +22,11 @@ interface UserWithStatus extends User {
 export default function CompanyThTable() {
   const [users, setUsers] = useState<UserWithStatus[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-
   const usersPerPage = 5;
-
   const [showPreviewPopup1, setShowPreviewPopup1] = useState<boolean>(false);
   const [, setSelectedUser] = useState<User | null>(null);
-
   const [, setSelectedUserComplaintfeedback] = useState<string>("");
-
   const navigate = useNavigate();
-
   const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>, username: string) => {
     const updatedUsers = users.map((user) => {
       if (user.username === username) {

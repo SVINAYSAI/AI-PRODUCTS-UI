@@ -4,6 +4,7 @@ import EmojiPicker, { EmojiClickData } from "emoji-picker-react";
 interface MailProps {
   complaintNumber: string | null;
   userEmail: string | null;
+  feedback?: string;
 }
 
 const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
@@ -12,6 +13,7 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [editorContent, setEditorContent] = useState<string>("");
   const [base64Files, setBase64Files] = useState<string[]>([]);
+  const [matchingFeedback, setMatchingFeedback] = useState('');
   console.log("Selected Complaint Email:", userEmail);
   console.log("Selected Complaint number:", complaintNumber);
 
@@ -20,10 +22,8 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
     if (files) {
       const newFiles = Array.from(files);
       setSelectedFiles([...selectedFiles, ...newFiles]);
-
       const newPreviews = newFiles.map((file) => {
         const reader = new FileReader();
-
         if (file.type.startsWith("image/")) {
           reader.readAsDataURL(file);
         } else if (file.type.startsWith("video/")) {
@@ -32,7 +32,6 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
           setFilePreviews((prevPreviews) => [...prevPreviews, null]);
           return "";
         }
-
         reader.onload = () => {
           setFilePreviews((prevPreviews) => [...prevPreviews, reader.result]);
         };
@@ -67,7 +66,6 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
 
   useEffect(() => {
     document.addEventListener("click", handleDocumentClick);
-
     return () => {
       document.removeEventListener("click", handleDocumentClick);
     };
@@ -77,39 +75,31 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
     const files = e.target.files;
     if (files && files.length > 0) {
       const filesArray = Array.from(files);
-
       // Convert selected files to base64
       const base64Promises = filesArray.map((file) => {
         return new Promise<string | null>((resolve) => {
           const reader = new FileReader();
-
           reader.onloadend = () => {
             const base64String = typeof reader.result === "string" ? reader.result : "";
             resolve(base64String.split(",")[1]); // Extract base64 data
           };
-
           reader.onerror = (error) => {
             console.error("File reading error:", error);
             resolve(null);
           };
-
           reader.readAsDataURL(file);
         });
       });
-
       const base64Results = await Promise.all(base64Promises);
       const filteredBase64Results = base64Results.filter((result) => result !== null) as string[];
-
       // Update state with selected files and corresponding base64 data
       setSelectedFiles([...selectedFiles, ...filesArray]);
       setBase64Files([...base64Files, ...filteredBase64Results]);
-
       // Clear the file input value
       e.target.value = "";
       console.log("Converted base64:", filteredBase64Results);
     }
   };
-
 
   const submitFeedback = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -119,11 +109,9 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
       files: base64Files,
       feedback: editorContent,
     };
-
     try {
       // Log the data before sending
       console.log('Sending data to backend:', feedbackData);
-
       const response = await fetch('http://127.0.0.1:5000/feedback_replay/submit_feedback', {
         method: 'POST',
         headers: {
@@ -131,7 +119,6 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
         },
         body: JSON.stringify(feedbackData),
       });
-
       if (response.ok) {
         console.log('Feedback submitted successfully');
         // You can add further logic or UI updates here
@@ -145,6 +132,32 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
     }
   };
 
+  const handleFeedbackView = async () => {
+    try {
+      // Make a POST request to the Flask backend
+      const response = await fetch('/feedback_view', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: userEmail,
+          complaint_number: complaintNumber,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setMatchingFeedback(data);
+      } else {
+        console.error('Error fetching matching feedback:', response.statusText);
+        // Handle error appropriately, e.g., show an error message to the user
+      }
+    } catch (error: any) { // Specify the type as 'any'
+      console.error('Error:', error.message);
+      // Handle error appropriately, e.g., show an error message to the user
+    }
+  };
 
   return (
     <>
@@ -175,10 +188,7 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
                   />
                 </svg>
                 <span className="sr-only">Attach file</span>
-
-
                 <input type="file" id="fileInput" className="hidden" onChange={handleFileChangepriview} multiple />
-
                 <button
                   type="button"
                   className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
@@ -194,7 +204,6 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
                   </svg>
                   <span className="sr-only">Embed map</span>
                 </button>
-
                 <button
                   type="button"
                   className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
@@ -211,7 +220,6 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
                   </svg>
                   <span className="sr-only">Upload image</span>
                 </button>
-
                 <button
                   type="button"
                   className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
@@ -228,7 +236,6 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
                   </svg>
                   <span className="sr-only">Format code</span>
                 </button>
-
                 <button
                   type="button"
                   className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
@@ -246,7 +253,6 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
                   <span className="sr-only">Add emoji</span>
                 </button>
               </div>
-
               <div className="flex flex-wrap items-center space-x-1 rtl:space-x-reverse sm:ps-4">
                 <button
                   type="button"
@@ -269,7 +275,6 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
                   </svg>
                   <span className="sr-only">Add list</span>
                 </button>
-
                 <button
                   type="button"
                   className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
@@ -285,7 +290,6 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
                   </svg>
                   <span className="sr-only">Settings</span>
                 </button>
-
                 <button
                   type="button"
                   className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
@@ -302,7 +306,6 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
                   </svg>
                   <span className="sr-only">Timeline</span>
                 </button>
-
                 <button
                   type="button"
                   className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
@@ -321,7 +324,6 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
                 </button>
               </div>
             </div>
-
             <button
               type="button"
               data-tooltip-target="tooltip-fullscreen"
@@ -344,7 +346,6 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
               </svg>
               <span className="sr-only">Full screen</span>
             </button>
-
             <div
               id="tooltip-fullscreen"
               role="tooltip"
@@ -354,7 +355,6 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
               <div className="tooltip-arrow" data-popper-arrow></div>
             </div>
           </div>
-
           <div className="p-4 bg-white rounded-b-lg dark:bg-gray-800">
             <label htmlFor="editor" className="sr-only">
               Publish post
@@ -401,7 +401,6 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
               )}
             </div>
           </div>
-
           {filePreviews.length > 0 && (
             <div className="mt-2">
               <p>Selected file previews:</p>
@@ -449,7 +448,6 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
             </div>
           )}
         </div>
-
         <button
           type="submit"
           onClick={submitFeedback}
@@ -461,6 +459,5 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
     </>
   );
 }
-
 export default Mail;
 export type { MailProps };
