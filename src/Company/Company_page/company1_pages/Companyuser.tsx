@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Mail from "./Mail";
+import Mail, {MailProps} from "./Mail";
 
 interface Complaint {
   complaint: string;
@@ -11,6 +11,7 @@ export default function CompanyUserPreview() {
   const location = useLocation();
   const user = location.state?.user;
   const complaints: Complaint[] = location.state?.complaints || [];
+  const [mailProps, setMailProps] = useState<MailProps | null>(null);
 
   const [selectedComplaint, setSelectedComplaint] = useState<Complaint | null>(
     null
@@ -19,85 +20,88 @@ export default function CompanyUserPreview() {
   useEffect(() => {
     // Reset selected complaint when user changes
     setSelectedComplaint(null);
+    setMailProps(null);
+    console.log("userinfo", user)
   }, [user]);
 
-  const handleComplaintClick = (complaint: Complaint) => {
+  const handleComplaintClick = (complaint: Complaint, complaintKey: string) => {
     // Set the selected complaint when clicked
     setSelectedComplaint(complaint);
+
+    // Extract complaint number using regular expression
+  const match = complaintKey.match(/\d+/);
+  const complaintNumber = match ? match[0] : null;
+
+    console.log("complaint", complaint)
+    console.log("Clicked Complaint Number:", complaintNumber);
+    console.log("User Email:", user?.email || "Email not available");
+    
+    if (complaintNumber && user?.email) {
+      // Set the Mail component props here
+      const newMailProps: MailProps = {
+        complaintNumber: complaintNumber,
+        userEmail: user.email,
+      };
+
+      // Update the state with mailProps
+      setMailProps(newMailProps);
+    }
   };
+
 
   return (
     <>
       <main className="p-4 md:ml-64 h-auto mt-14">
-        <div className="container mx-auto mt-8">
-          <h2 className="text-2xl font-bold mb-4">
-            Complaints for {user?.name || "User"}
-          </h2>
-          <table className="w-full text-sm text-left text-gray-500">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
-              <tr className="bg-gray-200 border-b">
-                <th scope="col" className="px-6 py-3">
-                  Complaint
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Datetime
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Name
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Email
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {complaints.map((complaint, index) => (
-                <tr
-                  key={index}
-                  className={index % 2 === 0 ? "bg-white" : "bg-gray-100"}
-                >
-                  <td className="px-6 py-4">{complaint.complaint}</td>
-                  <td className="px-6 py-4">{complaint.datetime}</td>
-                  <td className="px-6 py-4">{user?.name || "User"}</td>
-                  <td className="px-6 py-4">
-                    {user?.email || "Email not available"}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-
+        <div className="container mx-auto mt-8"> 
           <main
             className="p-4 h-auto mt-14 flex w-full shadow-lg rounded-3xl"
             style={{ maxHeight: "50%", maxWidth: "100%" }}
           >
-            <section className="overflow-y-auto overflow-x-hidden border-r-2 w-[30%] pt-3 bg-gray-50 h-full">
+            <div className="grid-rows-2 ">
+             <h2 className="text-2xl font-bold mb-4">
+            Complaints for {user?.name || "User"}
+          </h2>
+       
+          <div className="grid grid-cols-2 gap-4">
+          <div className="...">
+            <section className="overflow-y-auto overflow-x-hidden border-r-2 pt-3 bg-gray-50 h-full">
+              
               <ul className="mt-6">
-                {complaints.map((complaint, index) => (
-                  <li
-                    key={index}
-                    className="border-b p-3 transition hover:bg-indigo-100"
-                    onClick={() => handleComplaintClick(complaint)}
-                  >
-                    <div className="flex justify-between items-center">
-                      <div className="grid grid-rows-2">
-                        <h3 className="text-lg font-semibold">
-                          {user?.name || "User"}
-                        </h3>
-                        <p className="text-md text-gray-400">
-                          {complaint.datetime}
-                        </p>
+                {complaints.map((complaint, index) => {
+                  // Check if any of the required fields is empty
+                  if (!user?.name || !complaint.datetime || !complaint.complaint) {
+                    return null; // Skip rendering this list item
+                  }
+                  const complaintKey = `COMPLAINT${index + 1}`;
+
+                  return (
+                    <li
+                      key={index}
+                      className="border-b p-3 transition hover:bg-indigo-100"
+                      onClick={() => handleComplaintClick(complaint, complaintKey)}
+                    >
+                      <div className="flex justify-between items-center">
+                        <div className="grid grid-rows-2">
+                          <h3 className="text-lg font-semibold">
+                            {user?.name || "User"}
+                          </h3>
+                          <p className="text-md text-gray-400">
+                            {complaint.datetime}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="text-md italic text-gray-400">
-                      New Complaint
-                    </div>
-                  </li>
-                ))}
+                      <div className="text-md italic text-gray-400">
+                        New Complaint
+                      </div>
+                    </li>
+                  );
+                })}
+
               </ul>
             </section>
-
-            <section className="px-4 flex flex-col w-[70%] bg-gray-50 rounded-r-3xl">
+            </div>
+            <div className="">
+            <section className="px-4 flex flex-col bg-gray-50 rounded-r-3xl">
               <div className="flex justify-between items-center h-48 border-b-2 mb-8">
                 <div className="flex space-x-4 items-center">
                   <div className="h-12 w-12 rounded-full overflow-hidden">
@@ -217,9 +221,14 @@ export default function CompanyUserPreview() {
                 className="mt-6 border rounded-xl bg-gray-50 mb-3"
                 style={{ maxHeight: "100%", maxWidth: "100%" }}
               >
-                <Mail />
-              </section>
+              {selectedComplaint && mailProps && (
+        <Mail {...mailProps} />
+      )}
+    </section>
             </section>
+            </div>
+            </div>
+           </div>
           </main>
         </div>
       </main>

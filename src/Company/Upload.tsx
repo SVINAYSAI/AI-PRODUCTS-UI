@@ -7,7 +7,7 @@ const Upload: React.FC<UploadProps> = () => {
   const [base64Files, setBase64Files] = useState<string[]>([]);
 
   const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
+    const files = e.target.files; 
     if (files) {
       const filesArray = Array.from(files);
 

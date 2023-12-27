@@ -8,7 +8,7 @@ export default function CompanyUserPreview() {
   useEffect(() => {
     if (user) {
       // Assuming you have an endpoint to fetch user complaints
-      fetch(`http://195.35.22.190:5000/complaints_bp/get_complaints`, {
+      fetch(`http://127.0.0.1:5000/complaints_bp/get_complaints`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -21,6 +21,7 @@ export default function CompanyUserPreview() {
           // Set the complaints in the state
         })
         .catch((error) => console.error("Error fetching complaints:", error));
+      console.log("userinfo",user)
     }
   }, [user]);
 

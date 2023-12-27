@@ -1,4 +1,3 @@
-import CompanyTextarea from "./company1_pages/textarea";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -28,7 +27,7 @@ export default function CompanyThTable() {
 
   const [showPreviewPopup1, setShowPreviewPopup1] = useState<boolean>(false);
   const [, setSelectedUser] = useState<User | null>(null);
- 
+
   const [, setSelectedUserComplaintfeedback] = useState<string>("");
 
   const navigate = useNavigate();
@@ -44,7 +43,7 @@ export default function CompanyThTable() {
   };
 
   useEffect(() => {
-    fetch("http://195.35.22.190:5000/api/users")
+    fetch("http://127.0.0.1:5000/api/users")
       .then((response) => response.json())
       .then((data: User[]) => setUsers(data))
       .catch((error) => console.error("Error fetching user data:", error));
@@ -59,36 +58,36 @@ export default function CompanyThTable() {
   };
 
 
-const handlePreviewButtonClick = (user: User) => {
-  const { email, name } = user;
+  const handlePreviewButtonClick = (user: User) => {
+    const { email, name } = user;
 
-  if (email) {
-    fetch('http://195.35.22.190:5000/complaints_bp/get_complaints', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email }),
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data && typeof data.complaints === 'object') {
-          const complaintsArray = Object.values(data.complaints);
-
-          // Pass user data along with complaints
-          navigate('/our_dash@board/companyuser', { state: { user, complaints: complaintsArray } });
-        } else {
-          console.error('Invalid data format: complaints is not an object', data);
-        }
+    if (email) {
+      fetch('http://127.0.0.1:5000/complaints_bp/get_complaints', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
       })
-      .catch(error => console.error('Error sending email to backend:', error));
-  } else {
-    console.error('Email not available');
-  }
-};
+        .then(response => response.json())
+        .then(data => {
+          if (data && typeof data.complaints === 'object') {
+            const complaintsArray = Object.values(data.complaints);
 
-  
-  
+            // Pass user data along with complaints
+            navigate('/our_dash@board/companyuser', { state: { user, complaints: complaintsArray } });
+          } else {
+            console.error('Invalid data format: complaints is not an object', data);
+          }
+        })
+        .catch(error => console.error('Error sending email to backend:', error));
+    } else {
+      console.error('Email not available');
+    }
+  };
+
+
+
 
 
   const handleComplaintfeedbackButtonClick1 = (user: User) => {
@@ -97,7 +96,7 @@ const handlePreviewButtonClick = (user: User) => {
     // Check if user.complaints is defined
     if (user.complaints) {
       const complaintKeys = Object.keys(user.complaints);
-      
+
       // Check if there are any complaint keys before accessing the last one
       if (complaintKeys.length > 0) {
         const lastComplaintKey = complaintKeys[complaintKeys.length - 1];
@@ -244,7 +243,7 @@ const handlePreviewButtonClick = (user: User) => {
                   </button>
                 </div>
                 <h2 className="text-2xl font-bold mb-4">Complaint Preview</h2>
-                <CompanyTextarea />
+               
               </div>
             </div>
           )}

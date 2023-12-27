@@ -1,13 +1,21 @@
 import React, { useState, ChangeEvent, useEffect } from "react";
 import EmojiPicker, { EmojiClickData } from "emoji-picker-react";
 
-export default function Mail() {
+interface MailProps {
+  complaintNumber: string | null;
+  userEmail: string | null;
+}
+
+const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [filePreviews, setFilePreviews] = useState<(string | ArrayBuffer | null)[]>([]);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [editorContent, setEditorContent] = useState<string>("");
+  const [base64Files, setBase64Files] = useState<string[]>([]);
+  console.log("Selected Complaint Email:", userEmail);
+  console.log("Selected Complaint number:", complaintNumber);
 
-  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleFileChangepriview = (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files) {
       const newFiles = Array.from(files);
@@ -65,6 +73,79 @@ export default function Mail() {
     };
   }, []);
 
+  const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      const filesArray = Array.from(files);
+
+      // Convert selected files to base64
+      const base64Promises = filesArray.map((file) => {
+        return new Promise<string | null>((resolve) => {
+          const reader = new FileReader();
+
+          reader.onloadend = () => {
+            const base64String = typeof reader.result === "string" ? reader.result : "";
+            resolve(base64String.split(",")[1]); // Extract base64 data
+          };
+
+          reader.onerror = (error) => {
+            console.error("File reading error:", error);
+            resolve(null);
+          };
+
+          reader.readAsDataURL(file);
+        });
+      });
+
+      const base64Results = await Promise.all(base64Promises);
+      const filteredBase64Results = base64Results.filter((result) => result !== null) as string[];
+
+      // Update state with selected files and corresponding base64 data
+      setSelectedFiles([...selectedFiles, ...filesArray]);
+      setBase64Files([...base64Files, ...filteredBase64Results]);
+
+      // Clear the file input value
+      e.target.value = "";
+      console.log("Converted base64:", filteredBase64Results);
+    }
+  };
+
+
+  const submitFeedback = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    const feedbackData = {
+      email: userEmail,
+      complaint_number: "COMPLAINT" + complaintNumber,
+      files: base64Files,
+      feedback: editorContent,
+    };
+
+    try {
+      // Log the data before sending
+      console.log('Sending data to backend:', feedbackData);
+
+      const response = await fetch('http://127.0.0.1:5000/feedback_replay/submit_feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(feedbackData),
+      });
+
+      if (response.ok) {
+        console.log('Feedback submitted successfully');
+        // You can add further logic or UI updates here
+      } else {
+        console.error('Failed to submit feedback');
+        // Handle error scenarios
+      }
+    } catch (error) {
+      console.error('Error submitting feedback:', error);
+      // Handle error scenarios
+    }
+  };
+
+
   return (
     <>
       <form>
@@ -72,28 +153,31 @@ export default function Mail() {
           <div className="flex items-center justify-between px-3 py-2 border-b dark:border-gray-600">
             <div className="flex flex-wrap items-center divide-gray-200 sm:divide-x sm:rtl:divide-x-reverse dark:divide-gray-600">
               <div className="flex items-center space-x-1 rtl:space-x-reverse sm:pe-4">
-                <label
-                  htmlFor="fileInput"
+                <input
                   className="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+                  onChange={handleFileChange}
+                  id="multiple_files"
+                  type="file"
+                  multiple
+                />
+                <svg
+                  className="w-4 h-4"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 12 20"
                 >
-                  <svg
-                    className="w-4 h-4"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 12 20"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M1 6v8a5 5 0 1 0 10 0V4.5a3.5 3.5 0 1 0-7 0V13a2 2 0 0 0 4 0V6"
-                    />
-                  </svg>
-                  <span className="sr-only">Attach file</span>
-                </label>
+                  <path
+                    stroke="currentColor"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M1 6v8a5 5 0 1 0 10 0V4.5a3.5 3.5 0 1 0-7 0V13a2 2 0 0 0 4 0V6"
+                  />
+                </svg>
+                <span className="sr-only">Attach file</span>
 
-                <input type="file" id="fileInput" className="hidden" onChange={handleFileChange} multiple />
+
+                <input type="file" id="fileInput" className="hidden" onChange={handleFileChangepriview} multiple />
 
                 <button
                   type="button"
@@ -368,6 +452,7 @@ export default function Mail() {
 
         <button
           type="submit"
+          onClick={submitFeedback}
           className="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
         >
           Publish post
@@ -376,3 +461,6 @@ export default function Mail() {
     </>
   );
 }
+
+export default Mail;
+export type { MailProps };
