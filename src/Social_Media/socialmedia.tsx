@@ -1,4 +1,12 @@
 import React, { useState } from "react";
+import Facebook from "./pages/Facebook";
+import Instagram from "./pages/Instagram";
+import Linkdin from "./pages/Linkdin";
+import Pinterest from "./pages/Pinterest";
+import Thread from "./pages/Thread";
+import Twitter from "./pages/Twitter";
+import Whatsapp from "./pages/Whatsapp";
+import Youtube from "./pages/Youtube";
 
 type SocialMediaType =
   | "facebook"
@@ -10,19 +18,19 @@ type SocialMediaType =
   | "youtube"
   | "pinterest";
 
-export default function SocialMedia() {
+export default function Socialmedia() {
   const [selectedSocialMedia, setSelectedSocialMedia] = useState<
     SocialMediaType[]
   >([]);
 
   const handleCheckboxChange = (socialMedia: SocialMediaType) => {
-    setSelectedSocialMedia((prevSelected) => {
-      if (prevSelected.includes(socialMedia)) {
-        return prevSelected.filter((item) => item !== socialMedia);
-      } else {
-        return [...prevSelected, socialMedia];
-      }
-    });
+    if (selectedSocialMedia.includes(socialMedia)) {
+      setSelectedSocialMedia(
+        selectedSocialMedia.filter((item) => item !== socialMedia)
+      );
+    } else {
+      setSelectedSocialMedia([...selectedSocialMedia, socialMedia]);
+    }
   };
 
   return (
@@ -30,9 +38,12 @@ export default function SocialMedia() {
       <section className="py-6">
         <div className="container mt-4">
           <div className="rounded-md border border-gray-200 bg-white p-6">
-            <h3 className="mb-4 text-gray-600 dark:text-white">
+            <h3 className="mb-3 text-gray-600 dark:text-white">
               Identification
             </h3>
+            <span className="text-gray-600 font-sans dark:text-white">
+              You can select one or multiple checkbox
+            </span>
             <ul className="items-center w-full text-sm max-md:overflow-x-scroll font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
               {/* Facebook */}
               <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
@@ -40,9 +51,9 @@ export default function SocialMedia() {
                   <input
                     id="facebook-checkbox-list"
                     type="checkbox"
-                    value=""
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                    checked={selectedSocialMedia.includes("facebook")}
                     onChange={() => handleCheckboxChange("facebook")}
+                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
                   <label
                     htmlFor="facebook-checkbox-list"
@@ -59,9 +70,9 @@ export default function SocialMedia() {
                   <input
                     id="instagram-checkbox-list"
                     type="checkbox"
-                    value=""
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                    checked={selectedSocialMedia.includes("instagram")}
                     onChange={() => handleCheckboxChange("instagram")}
+                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
                   <label
                     htmlFor="instagram-checkbox-list"
@@ -78,9 +89,9 @@ export default function SocialMedia() {
                   <input
                     id="thread-checkbox-list"
                     type="checkbox"
-                    value=""
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                    checked={selectedSocialMedia.includes("thread")}
                     onChange={() => handleCheckboxChange("thread")}
+                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
                   <label
                     htmlFor="thread-checkbox-list"
@@ -97,7 +108,7 @@ export default function SocialMedia() {
                   <input
                     id="twitter-checkbox-list"
                     type="checkbox"
-                    value=""
+                    checked={selectedSocialMedia.includes("twitter")}
                     onChange={() => handleCheckboxChange("twitter")}
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
@@ -116,7 +127,7 @@ export default function SocialMedia() {
                   <input
                     id="linkdin-checkbox-list"
                     type="checkbox"
-                    value=""
+                    checked={selectedSocialMedia.includes("linkdin")}
                     onChange={() => handleCheckboxChange("linkdin")}
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
@@ -135,7 +146,7 @@ export default function SocialMedia() {
                   <input
                     id="whatsapp-checkbox-list"
                     type="checkbox"
-                    value=""
+                    checked={selectedSocialMedia.includes("whatsapp")}
                     onChange={() => handleCheckboxChange("whatsapp")}
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
@@ -154,7 +165,7 @@ export default function SocialMedia() {
                   <input
                     id="youtube-checkbox-list"
                     type="checkbox"
-                    value=""
+                    checked={selectedSocialMedia.includes("youtube")}
                     onChange={() => handleCheckboxChange("youtube")}
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
@@ -173,7 +184,7 @@ export default function SocialMedia() {
                   <input
                     id="pinterest-checkbox-list"
                     type="checkbox"
-                    value=""
+                    checked={selectedSocialMedia.includes("pinterest")}
                     onChange={() => handleCheckboxChange("pinterest")}
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                   />
@@ -193,24 +204,15 @@ export default function SocialMedia() {
               <h3 className="mb-4 text-gray-600 dark:text-white">
                 Put Your Tokens here...
               </h3>
-              {selectedSocialMedia.map((socialMedia) => (
-                <div key={socialMedia} className="mt-2">
-                  <label
-                    htmlFor={socialMedia}
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    {socialMedia.charAt(0).toUpperCase() + socialMedia.slice(1)}
-                  </label>
-                  <input
-                    type="text"
-                    id={socialMedia}
-                    placeholder={`${
-                      socialMedia.charAt(0).toUpperCase() + socialMedia.slice(1)
-                    } Token`}
-                    className="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  />
-                </div>
-              ))}
+
+              {selectedSocialMedia.includes("facebook") && <Facebook />}
+              {selectedSocialMedia.includes("instagram") && <Instagram />}
+              {selectedSocialMedia.includes("thread") && <Thread />}
+              {selectedSocialMedia.includes("twitter") && <Twitter />}
+              {selectedSocialMedia.includes("linkdin") && <Linkdin />}
+              {selectedSocialMedia.includes("whatsapp") && <Whatsapp />}
+              {selectedSocialMedia.includes("youtube") && <Youtube />}
+              {selectedSocialMedia.includes("pinterest") && <Pinterest />}
             </div>
           )}
         </div>
