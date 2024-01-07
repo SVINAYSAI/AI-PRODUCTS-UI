@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
+import img1  from "../components/logo512.png"
 
 export default function Layout() {
   // State to manage whether the menu is open or closed
@@ -27,7 +28,7 @@ export default function Layout() {
         >
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
             <Link to="/" className="flex items-center">
-              <img className="w-[5rem]" src="http://195.35.22.190/virtual_directory/ui_images/components/fats-logo/svg/logo-no-background.svg" alt="logo"></img>
+              <img className="w-[5rem]" src={img1} alt="logo"></img>
             </Link>
             <div className="flex md:order-2 pl-[20px]">
               <Link

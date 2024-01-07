@@ -36,7 +36,7 @@ const Register: React.FC = () => {
       if (formData.email) {
         try {
           const emailResponse = await axios.post(
-            "http://195.35.22.190:8000/api/mail/send",
+            "http://127.0.0.1:5000/mail/send",
             {
               recipientEmail: formData.email,
             }

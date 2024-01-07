@@ -11,6 +11,9 @@ interface BackendResponse {
   feedback: string;
 }
 
+interface BackendResponse {
+  feedback: string;
+}
 
 export default function CompanyUserPreview() {
   const location = useLocation();
@@ -65,14 +68,19 @@ export default function CompanyUserPreview() {
   
       if (response.ok) {
         const feedbackData: BackendResponse = await response.json();
-        console.log("Feedback Data:", feedbackData); // Log the response
+        console.log("Feedback Data:", feedbackData);
+  
+        // Use a type assertion to access the dynamic property
+        const selectedFeedback = (feedbackData as any)[`feedback${complaintNumber}`];
+  
         // Update the state with mailProps
-        setMailProps((prevMailProps) => ({
-          ...prevMailProps,
-          feedback: feedbackData.feedback,
+        setMailProps({
+          feedback: selectedFeedback?.feedback || "No feedback available",
           complaintNumber: complaintNumber || null,
           userEmail: email || null,
-        }));
+          feedbackDatetime: selectedFeedback?.feedback_datetime || "N/A",
+          files: selectedFeedback?.files || {},
+        });
       } else {
         console.error("Failed to fetch feedback");
       }
@@ -81,9 +89,7 @@ export default function CompanyUserPreview() {
     }
   };
   
-
-
-
+  
   return (
     <>
       <main className="p-4 md:ml-64 h-auto mt-14">
@@ -251,7 +257,33 @@ export default function CompanyUserPreview() {
                         <p>Select a complaint to view details</p>
                       )}
                     </div>
-
+                    <section
+              className="mt-6 border rounded-xl bg-gray-50 mb-3"
+              style={{ maxHeight: "100%", maxWidth: "100%" }}
+            >
+              {selectedComplaint && mailProps && (
+                <>
+                  <div>
+                    <h3 className="font-semibold text-lg">
+                      Feedback Details
+                    </h3>
+                    <p>
+                      Feedback: {mailProps.feedback}
+                    </p>
+                    <p>
+                      Complaint Number: {mailProps.complaintNumber}
+                    </p>
+                    <p>
+                      User Email: {mailProps.userEmail}
+                    </p>
+                    <p>
+                      Feedback Datetime: {mailProps.feedbackDatetime}
+                    </p>
+                  </div>
+                  {/* Add logic to display files as needed */}
+                </>
+              )}
+            </section>
                     <section
                       className="mt-6 border rounded-xl bg-gray-50 mb-3"
                       style={{ maxHeight: "100%", maxWidth: "100%" }}

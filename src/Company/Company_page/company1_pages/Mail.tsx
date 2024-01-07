@@ -4,7 +4,9 @@ import EmojiPicker, { EmojiClickData } from "emoji-picker-react";
 interface MailProps {
   complaintNumber: string | null;
   userEmail: string | null;
-  feedback?: string;
+  feedback: string;
+  feedbackDatetime: string; // Add this line
+  files: Record<string, string>;
 }
 
 const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
@@ -109,22 +111,44 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
       files: base64Files,
       feedback: editorContent,
     };
+    const feedbackDataMail = {
+      email: userEmail,
+      complaint_number: complaintNumber,
+      files: base64Files,
+      feedback: editorContent,
+    };
     try {
       // Log the data before sending
       console.log('Sending data to backend:', feedbackData);
-      const response = await fetch('http://127.0.0.1:5000/feedback_replay/submit_feedback', {
+      const response1 = await fetch('http://127.0.0.1:5000/feedback_replay/submit_feedback', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(feedbackData),
       });
-      if (response.ok) {
-        console.log('Feedback submitted successfully');
-        // You can add further logic or UI updates here
+      if (response1.ok) {
+        console.log('Feedback submitted successfully to the first API');
+  
+        // Now, send the same data to the second API
+        const response2 = await fetch('http://127.0.0.1:5000/sending_feedback/send_feedback', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(feedbackDataMail),
+        });
+  
+        if (response2.ok) {
+          console.log('Feedback submitted successfully to the second API');
+          // You can add further logic or UI updates here
+        } else {
+          console.error('Failed to submit feedback to the second API');
+          // Handle error scenarios for the second API
+        }
       } else {
-        console.error('Failed to submit feedback');
-        // Handle error scenarios
+        console.error('Failed to submit feedback to the first API');
+        // Handle error scenarios for the first API
       }
     } catch (error) {
       console.error('Error submitting feedback:', error);
@@ -132,32 +156,7 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
     }
   };
 
-  const handleFeedbackView = async () => {
-    try {
-      // Make a POST request to the Flask backend
-      const response = await fetch('/feedback_view', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: userEmail,
-          complaint_number: complaintNumber,
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setMatchingFeedback(data);
-      } else {
-        console.error('Error fetching matching feedback:', response.statusText);
-        // Handle error appropriately, e.g., show an error message to the user
-      }
-    } catch (error: any) { // Specify the type as 'any'
-      console.error('Error:', error.message);
-      // Handle error appropriately, e.g., show an error message to the user
-    }
-  };
+  
 
   return (
     <>
