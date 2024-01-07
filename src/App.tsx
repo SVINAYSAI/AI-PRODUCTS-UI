@@ -10,6 +10,7 @@ import AdminLogin from "./Company/CompanyLogin/AdminLogin";
 import LoadingPage from "./HOME/MainPages/User_data/form/LoadingPage/LoadingPage";
 import Payment1 from "./MainPayment/payment1";
 import Upload from "./Company/Upload";
+import Socialmedia from "./Marketing/socialmedia";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/loading" element={<LoadingPage />} />
         <Route path="/Payment" element={<Payment1 />} />
         <Route path="/re" element={<Upload />} />
+        <Route path="/social" element={<Socialmedia />} />
       </Routes>
     </Router>
   );
