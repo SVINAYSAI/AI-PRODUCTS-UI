@@ -10,7 +10,7 @@ import AdminLogin from "./Company/CompanyLogin/AdminLogin";
 import LoadingPage from "./HOME/MainPages/User_data/form/LoadingPage/LoadingPage";
 import Payment1 from "./MainPayment/payment1";
 import Upload from "./Company/Upload";
-import Socialmedia from "./Marketing/socialmedia";
+import Socialmedia from "./Social_Media/socialmedia";
 
 const App = () => {
   return (
