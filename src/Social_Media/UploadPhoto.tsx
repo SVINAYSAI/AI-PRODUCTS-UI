@@ -1,4 +1,17 @@
+import { useLogic } from "./Logic";
+
 export default function UploadPhoto() {
+  const {
+    handleFileChangepriview,
+    handleEmojiClick,
+    handleEmojiButtonClick,
+  } = useLogic({   
+    selectedFiles: [], 
+    setSelectedFiles: () => {}, 
+    setFilePreviews: () => {}, 
+    setShowEmojiPicker: () => {}, 
+    setEditorContent: () => {}, 
+  });
   return (
     <>
       <form>
@@ -61,6 +74,7 @@ export default function UploadPhoto() {
                 </button>
                 <button
                   type="button"
+                  onClick={handleEmojiButtonClick}
                   className="inline-flex justify-center items-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
                 >
                   <svg
