@@ -1,62 +1,20 @@
-import React, { useState, useRef, useEffect } from "react";
 import EmojiPicker, { EmojiClickData } from "emoji-picker-react";
+import { useUploadPhotoLogic } from "./UploadPhotoLogic";
 
 export default function UploadPhoto() {
-  const [comment, setComment] = useState<string>("");
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [chosenEmojis, setChosenEmojis] = useState<EmojiClickData | null>(null);
-  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
-
-  const emojiContainerRef = useRef<HTMLDivElement | null>(null);
-
-  const handleCommentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setComment(e.target.value);
-  };
-
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files && e.target.files[0];
-
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setSelectedImage(reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleEmojiClick = (emojiObject: EmojiClickData) => {
-    setComment((prevComment) => prevComment + emojiObject.emoji);
-  };
-
-  const handleEmojiContainerClick = () => {
-    setShowEmojiPicker(true);
-  };
-
-  const handleOutsideClick = (e: MouseEvent) => {
-    const emojiContainer = emojiContainerRef.current;
-
-    if (emojiContainer && !emojiContainer.contains(e.target as Node)) {
-      setShowEmojiPicker(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Comment:", comment);
-    console.log("Selected Image:", selectedImage);
-    setComment("");
-    setSelectedImage(null);
-  };
-
+  const {
+    comment,
+    selectedImage,
+    showEmojiPicker,
+    emojiContainerRef,
+    handleCommentChange,
+    handleImageChange,
+    handleEmojiClick,
+    handleEmojiContainerClick,
+    handleSubmit,
+    setShowEmojiPicker,
+  } = useUploadPhotoLogic();
+  
   return (
     <>
       <form onSubmit={handleSubmit}>
