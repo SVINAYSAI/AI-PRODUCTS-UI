@@ -11,6 +11,7 @@ import LoadingPage from "./HOME/MainPages/User_data/form/LoadingPage/LoadingPage
 import Payment1 from "./MainPayment/payment1";
 import Upload from "./Company/Upload";
 import Socialmedia from "./Social_Media/socialmedia";
+import UploadPhoto from "./Social_Media/UploadPhoto";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/Payment" element={<Payment1 />} />
         <Route path="/re" element={<Upload />} />
         <Route path="/social" element={<Socialmedia />} />
+        <Route path="/photo_upload" element={<UploadPhoto />} />
       </Routes>
     </Router>
   );
