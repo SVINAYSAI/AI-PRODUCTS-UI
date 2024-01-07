@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
+import { FacebookLoginButton, GithubLoginButton, GoogleLoginButton } from "react-social-login-buttons";
+import { IResolveParams, LoginSocialFacebook, LoginSocialGithub, LoginSocialGoogle, objectType } from "reactjs-social-login";
 
 // Define the CredentialResponse type
 interface CredentialResponse {
@@ -110,7 +112,7 @@ export default function Form1() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:5000/user_details/verify_user",
+        "http://195.35.22.190:5000/user_details/verify_user",
         {
           method: "POST",
           headers: {
@@ -167,7 +169,7 @@ export default function Form1() {
 
         // Send a POST request to your Flask server using fetch
         const response = await fetch(
-          "http://127.0.0.1:5000/user_check/verify_email",
+          "http://195.35.22.190:5000/user_check/verify_email",
           {
             method: "POST",
             headers: {
@@ -214,12 +216,55 @@ export default function Form1() {
 
   return (
     <>
-      <div className="">
+      {/* <div className="">
         <GoogleOAuthProvider clientId="536585599787-4a44c9aq46ifgsm66mfriea6uuvnuft2.apps.googleusercontent.com">
           <div className=" w-96">
             <GoogleLogin onSuccess={handleGoogleLoginSuccess} />
           </div>
         </GoogleOAuthProvider>
+      </div> */}
+      <div className="">
+       <LoginSocialGoogle 
+       client_id={"536585599787-4a44c9aq46ifgsm66mfriea6uuvnuft2.apps.googleusercontent.com"} 
+       onResolve={(response) =>{
+        console.log(response);
+       }}
+       onReject={(error)=>{
+        console.log(error)
+       }}         
+       >
+       
+        <GoogleLoginButton onSuccess={handleGoogleLoginSuccess} />
+       </LoginSocialGoogle>
+      </div>
+      <div className="">
+       <LoginSocialFacebook
+       appId="204887442619008"
+       onResolve={(response) =>{
+        console.log(response);
+       }}
+       onReject={(error)=>{
+        console.log(error)
+       }}
+       >
+        <FacebookLoginButton onSuccess={handleGoogleLoginSuccess} />
+       </LoginSocialFacebook>
+      </div>
+      <div className="">
+       <LoginSocialGithub 
+       client_id={"499d7ed1d6524d2fab16"} 
+       redirect_uri={"http://localhost:3000/log/sign-in"} 
+       client_secret={"7c28e522fcbef5f889ec7a2567249b9ef29902f6"} 
+       scope = { 'user:email' }
+       onResolve={(response) =>{
+        console.log(response);
+       }}
+       onReject={(error)=>{
+        console.log(error)
+       }}    
+       >
+        <GithubLoginButton onSuccess={handleGoogleLoginSuccess} />
+       </LoginSocialGithub>
       </div>
       <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
         <div>
