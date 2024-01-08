@@ -12,6 +12,7 @@ import Payment1 from "./MainPayment/payment1";
 import Upload from "./Company/Upload";
 import Socialmedia from "./Social_Media/socialmedia";
 import UploadPhoto from "./Social_Media/UploadPhoto";
+import Serviceroute from "./Routes/Serviceroute"
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/re" element={<Upload />} />
         <Route path="/social" element={<Socialmedia />} />
         <Route path="/photo_upload" element={<UploadPhoto />} />
+        <Route path="/service" element={<Serviceroute />} />
       </Routes>
     </Router>
   );

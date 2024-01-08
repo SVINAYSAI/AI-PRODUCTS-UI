@@ -5,7 +5,7 @@ import Home from "../HOME/MainPages/Home";
 import Blog from "../HOME/MainPages/Blog";
 import ContactUs from "../HOME/MainPages/ContactUs";
 import Pricing from "../HOME/MainPages/Pricing";
-import Service from "../Service/Layout";
+import Service from "../Service/Service";
 
 const FrontendRoute = () => {
   return (
