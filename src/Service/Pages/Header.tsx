@@ -1,4 +1,3 @@
-
 import b1 from "../assets/img/hero-carousel/1.jpg";
 import b2 from "../assets/img/hero-carousel/2.jpg";
 import b3 from "../assets/img/hero-carousel/3.jpg";
@@ -20,13 +19,8 @@ export default function Header() {
             ></ol>
 
             <div className="carousel-inner" role="listbox">
-              <div
-                className="carousel-item active"
-                // style={{
-                //   backgroundImage: `url(${b1})`,
-                // }}
-              >
-                <img className="" src={b1} />
+              <div className="carousel-item active">
+                <img className="" src={b1} alt="Carousel Image 1" />
                 <div className="carousel-container">
                   <div className="container">
                     <h2 className="animate__animated animate__fadeInDown">
@@ -45,12 +39,8 @@ export default function Header() {
                 </div>
               </div>
 
-              <div
-                className="carousel-item"
-                style={{
-                  backgroundImage: `url(${b2})`,
-                }}
-              >
+              <div className="carousel-item">
+                <img className="" src={b2} alt="Carousel Image 2" />
                 <div className="carousel-container">
                   <div className="container">
                     <h2 className="animate__animated animate__fadeInDown">
@@ -69,12 +59,8 @@ export default function Header() {
                 </div>
               </div>
 
-              <div
-                className="carousel-item"
-                style={{
-                  backgroundImage: `url(${b3})`,
-                }}
-              >
+              <div className="carousel-item">
+                <img className="" src={b3} alt="Carousel Image 3" />
                 <div className="carousel-container">
                   <div className="container">
                     <h2 className="animate__animated animate__fadeInDown">
