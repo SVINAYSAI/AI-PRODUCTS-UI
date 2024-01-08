@@ -156,7 +156,6 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
     }
   };
 
-  
 
   return (
     <>
