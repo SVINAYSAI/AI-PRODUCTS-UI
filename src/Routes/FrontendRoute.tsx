@@ -5,6 +5,7 @@ import Home from "../HOME/MainPages/Home";
 import Blog from "../HOME/MainPages/Blog";
 import ContactUs from "../HOME/MainPages/ContactUs";
 import Pricing from "../HOME/MainPages/Pricing";
+import Service from "../Service/Layout";
 
 const FrontendRoute = () => {
   return (
@@ -15,6 +16,7 @@ const FrontendRoute = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contactUS" element={<ContactUs />} />
+        <Route path="/service" element={<Service />} />
         {/* <Route path="/test" element={<OurTeam />} />
         <Route path="/chatbot" element={<Chatbot1 />} /> */}
       </Route>
