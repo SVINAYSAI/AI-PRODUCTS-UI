@@ -1,5 +1,5 @@
 import Header from "./Pages/Header";
-
+import "./assets/css/style.css"
 import 'animate.css/animate.css'
 // import 'bootstrap/dist/css/bootstrap.css';
 import 'boxicons';
