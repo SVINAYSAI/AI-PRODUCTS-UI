@@ -1,5 +1,8 @@
 import EmojiPicker, { EmojiClickData } from "emoji-picker-react";
 import { useUploadPhotoLogic } from "./UploadPhotoLogic";
+//import FacebookPostComponent from "./Socialmedialogics/logicfile"
+//import InstagramPostComponent from "./Socialmedialogics/intagramlogic"
+import TwitterPostComponent from "./Socialmedialogics/twitterlogic"
 
 export default function UploadPhoto() {
   const {
@@ -121,6 +124,7 @@ export default function UploadPhoto() {
         </a>
         .
       </p>
+      <TwitterPostComponent/>
     </>
   );
 }
