@@ -11,7 +11,7 @@ import ContactUS from "./Pages/ContactUS";
 
 import "./assets/css/style.css";
 import "animate.css/animate.css";
-// import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "boxicons";
 import "glightbox/dist/js/glightbox.min.js";
