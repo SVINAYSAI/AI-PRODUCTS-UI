@@ -2,10 +2,15 @@
 import React, { useRef, useState, useEffect } from "react";
 import EmojiPicker, { EmojiClickData } from "emoji-picker-react";
 
+interface ApiResponse {
+  message: string;
+}
+
 export const useUploadPhotoLogic = () => {
   const [comment, setComment] = useState<string>("");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [responseMessage, setResponseMessage] = useState<string | null>(null);
 
   const emojiContainerRef = useRef<HTMLDivElement | null>(null);
 
@@ -57,6 +62,89 @@ export const useUploadPhotoLogic = () => {
     };
   }, []);
 
+  const createFacebookPost = async (postMessage: string, apiKey: number) => {
+    try {
+      const response = await fetch('http://127.0.0.1:5000/facebook', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          postmessage: postMessage,
+          api: apiKey,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const responseData: ApiResponse = await response.json();
+      setResponseMessage(responseData.message);
+
+      // Log the response to the console
+      console.log(responseData);
+    } catch (error: any) {
+      setResponseMessage(`Error: ${error.message}`);
+      console.error(error);
+    }
+  };
+
+  const createInstagramPost = async (imageUrl: string, apiKey: number, igUserId: string, caption: string) => {
+    try {
+      const response = await fetch('http://127.0.0.1:5000/instagram', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          image_url: imageUrl,
+          api: apiKey,
+          ig_user_id: igUserId,
+          caption: caption,
+        }),
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const responseData: ApiResponse = await response.json();
+      setResponseMessage(responseData.message);
+      // Log the response to the console
+      console.log(responseData);
+    } catch (error: any) {
+      setResponseMessage(`Error: ${error.message}`);
+      console.error(error);
+    }
+  };
+
+  const createTwitterPost = async (tweetText: string, apiKey: number) => {
+    try {
+      const response = await fetch('http://127.0.0.1:5000/twitter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          tweet: tweetText,
+          api: apiKey,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const responseData: ApiResponse = await response.json();
+      setResponseMessage(responseData.message);
+
+      // Log the response to the console
+      console.log(responseData);
+    } catch (error: any) {
+      setResponseMessage(`Error: ${error.message}`);
+      console.error(error);
+    }
+  };
+
   return {
     comment,
     selectedImage,
@@ -68,5 +156,9 @@ export const useUploadPhotoLogic = () => {
     handleEmojiContainerClick,
     handleSubmit,
     setShowEmojiPicker, // Include setShowEmojiPicker in the returned object
+    responseMessage,
+    createFacebookPost,
+    createInstagramPost,
+    createTwitterPost,
   };
 };
