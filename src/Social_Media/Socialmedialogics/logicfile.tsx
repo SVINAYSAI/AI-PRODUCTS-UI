@@ -11,7 +11,7 @@ const FacebookPostComponent: React.FC = () => {
   const apiKey = 789;
 
   const handleCreateFacebookPost = () => {
-    createFacebookPost(customMessage, apiKey);
+    createFacebookPost( apiKey);
   };
 
   return (

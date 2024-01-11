@@ -62,7 +62,7 @@ export const useUploadPhotoLogic = () => {
     };
   }, []);
 
-  const createFacebookPost = async (postMessage: string, apiKey: number) => {
+  const createFacebookPost = async ( apiKey: number) => {
     try {
       const response = await fetch('http://127.0.0.1:5000/facebook', {
         method: 'POST',
@@ -70,7 +70,7 @@ export const useUploadPhotoLogic = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          postmessage: postMessage,
+          text: comment,
           api: apiKey,
         }),
       });
@@ -117,7 +117,7 @@ export const useUploadPhotoLogic = () => {
     }
   };
 
-  const createTwitterPost = async (tweetText: string, apiKey: number) => {
+  const createTwitterPost = async ( apiKey: number) => {
     try {
       const response = await fetch('http://127.0.0.1:5000/twitter', {
         method: 'POST',
@@ -125,7 +125,7 @@ export const useUploadPhotoLogic = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          tweet: tweetText,
+          text: comment,
           api: apiKey,
         }),
       });

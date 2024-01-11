@@ -14,7 +14,7 @@ const TwitterPostComponent: React.FC = () => {
 
   const handleCreateTwitterPost = async () => {
     try {
-      await createTwitterPost(tweet_text, user_api_key);
+      await createTwitterPost( user_api_key);
     } catch (error) {
       console.error("Error creating Twitter post:", error);
     }

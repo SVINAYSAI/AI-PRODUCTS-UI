@@ -14,6 +14,8 @@ export default function UploadPhoto() {
     handleEmojiContainerClick,
     handleSubmit,
     setShowEmojiPicker,
+    createFacebookPost,
+    createTwitterPost,
   } = useUploadPhotoLogic();
 
   type SocialMediaType = "facebook" | "twitter";
@@ -23,27 +25,26 @@ export default function UploadPhoto() {
 
   const handleCheckboxChange = (socialMedia: SocialMediaType) => {
     if (selectedSocialMedia.includes(socialMedia)) {
+      console.log(`Removing ${socialMedia} from selected social media types`);
       setSelectedSocialMedia(
         selectedSocialMedia.filter((item) => item !== socialMedia)
       );
     } else {
+      console.log(`Adding ${socialMedia} to selected social media types`);
       setSelectedSocialMedia([...selectedSocialMedia, socialMedia]);
     }
   };
 
-  const { createFacebookPost, responseMessage } = useUploadPhotoLogic();
-  const { createTwitterPost } = useUploadPhotoLogic();
-
-  const text = "";
+  const text = "svs";
   const apiKey = 123456;
 
   const handleCreateFacebookPost = () => {
-    createFacebookPost(text, apiKey);
+    createFacebookPost( apiKey);
   };
 
   const handleCreateTwitterPost = async () => {
     try {
-      await createTwitterPost(text, apiKey);
+      await createTwitterPost( apiKey);
     } catch (error) {
       console.error("Error creating Twitter post:", error);
     }
