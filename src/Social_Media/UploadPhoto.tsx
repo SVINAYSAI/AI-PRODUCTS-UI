@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import EmojiPicker, { EmojiClickData } from "emoji-picker-react";
 import { useUploadPhotoLogic } from "./UploadPhotoLogic";
 
 export default function UploadPhoto() {
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
   const {
     comment,
     selectedImage,
@@ -39,16 +42,44 @@ export default function UploadPhoto() {
   const apiKey = 123456;
 
   const handleCreateFacebookPost = () => {
-    createFacebookPost( apiKey);
+    createFacebookPost(apiKey);
   };
 
   const handleCreateTwitterPost = async () => {
     try {
-      await createTwitterPost( apiKey);
+      await createTwitterPost(apiKey);
     } catch (error) {
       console.error("Error creating Twitter post:", error);
     }
   };
+
+  const handleVideoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+
+    if (file) {
+      // Check if the selected file is a video
+      if (file.type.startsWith("video/")) {
+        try {
+          const videoURL = URL.createObjectURL(file);
+          setSelectedVideo(videoURL); // Update state with the video URL
+        } catch (error) {
+          console.error("Error creating video URL:", error);
+          setSelectedVideo(null);
+        }
+      } else {
+        // Handle other file types (e.g., images)
+        setSelectedVideo(null);
+        // ... (your existing logic for handling images)
+      }
+    }
+  };
+
+  useEffect(() => {
+    // Update video element source when selectedVideo changes
+    if (videoRef.current) {
+      videoRef.current.src = selectedVideo || "";
+    }
+  }, [selectedVideo]);
 
   return (
     <>
@@ -115,6 +146,24 @@ export default function UploadPhoto() {
                   </div>
                 )}
               </div>
+
+              <div className="flex justify-center items-center">
+                {selectedVideo && (
+                  <div className="mt-2 mb-4 ml-[12%]">
+                    <video
+                      ref={videoRef}
+                      controls
+                      width="400"
+                      height="300"
+                      className="max-w-[60%] h-auto rounded-md"
+                    >
+                      <source src={selectedVideo} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                )}
+              </div>
+
               <div className="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
                 <div className="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
                   <label htmlFor="comment" className="sr-only">
@@ -167,6 +216,35 @@ export default function UploadPhoto() {
                         <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
                       </svg>
                       <span className="sr-only">Upload image</span>
+                    </label>
+
+                    <input
+                      type="file"
+                      id="uploadVideo"
+                      accept="video/*"
+                      onChange={handleVideoChange}
+                      className="hidden"
+                    />
+                    <label
+                      htmlFor="uploadVideo"
+                      className="inline-flex justify-center items-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+                    >
+                      <svg
+                        className="w-[12px] h-[17px] text-gray-800 dark:text-white"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 16 20"
+                      >
+                        <path
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.7"
+                          d="M6 1v4a1 1 0 0 1-1 1H1m14 12a.97.97 0 0 1-.933 1H1.933A.97.97 0 0 1 1 18V5.828a2 2 0 0 1 .586-1.414l2.828-2.828A2 2 0 0 1 5.828 1h8.239A.97.97 0 0 1 15 2v16ZM5 10h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Zm5.697 2.395v-.733l1.268-1.219v2.984l-1.268-1.032Z"
+                        />
+                      </svg>
+                      <span className="sr-only">Upload Video</span>
                     </label>
 
                     <div
