@@ -1,18 +1,19 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import EmojiPicker, { EmojiClickData } from "emoji-picker-react";
 import { useUploadPhotoLogic } from "./UploadPhotoLogic";
 
 export default function UploadPhoto() {
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const {
     comment,
     selectedImage,
+    selectedVideo,
+    videoRef,
     showEmojiPicker,
     emojiContainerRef,
     handleCommentChange,
     handleImageChange,
+    handleVideoChange,
     handleEmojiClick,
     handleEmojiContainerClick,
     handleSubmit,
@@ -52,34 +53,7 @@ export default function UploadPhoto() {
       console.error("Error creating Twitter post:", error);
     }
   };
-
-  const handleVideoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-
-    if (file) {
-      // Check if the selected file is a video
-      if (file.type.startsWith("video/")) {
-        try {
-          const videoURL = URL.createObjectURL(file);
-          setSelectedVideo(videoURL); // Update state with the video URL
-        } catch (error) {
-          console.error("Error creating video URL:", error);
-          setSelectedVideo(null);
-        }
-      } else {
-        // Handle other file types (e.g., images)
-        setSelectedVideo(null);
-        // ... (your existing logic for handling images)
-      }
-    }
-  };
-
-  useEffect(() => {
-    // Update video element source when selectedVideo changes
-    if (videoRef.current) {
-      videoRef.current.src = selectedVideo || "";
-    }
-  }, [selectedVideo]);
+  
 
   return (
     <>

@@ -145,13 +145,46 @@ export const useUploadPhotoLogic = () => {
     }
   };
 
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const handleVideoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+
+    if (file) {
+      // Check if the selected file is a video
+      if (file.type.startsWith("video/")) {
+        try {
+          const videoURL = URL.createObjectURL(file);
+          setSelectedVideo(videoURL); // Update state with the video URL
+        } catch (error) {
+          console.error("Error creating video URL:", error);
+          setSelectedVideo(null);
+        }
+      } else {
+        // Handle other file types (e.g., images)
+        setSelectedVideo(null);
+        // ... (your existing logic for handling images)
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.src = selectedVideo || "";
+    }
+  }, [selectedVideo]);
+
   return {
     comment,
     selectedImage,
+    selectedVideo,
+    videoRef,
     showEmojiPicker,
     emojiContainerRef,
     handleCommentChange,
     handleImageChange,
+    handleVideoChange,
     handleEmojiClick,
     handleEmojiContainerClick,
     handleSubmit,
