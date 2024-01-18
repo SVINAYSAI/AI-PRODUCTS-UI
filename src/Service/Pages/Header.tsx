@@ -7,20 +7,20 @@ import b3 from "../assets/img/hero-carousel/3.jpg";
 export default function Header() {
   return (
     <>
-      <section id="hero">
-        <div className="hero-container">
+      <section id="hero1">
+        <div className="hero1-container">
           <div
-            id="heroCarousel"
+            id="hero1Carousel"
             className="carousel slide carousel-fade"
             data-bs-ride="carousel"
             data-bs-interval="5000"
           >
             <ol
-              id="hero-carousel-indicators"
+              id="hero1-carousel-indicators"
               className="carousel-indicators"
             ></ol>
 
-            <div className="carousel-inner" role="listbox">
+            <div className="carousel-inner1" role="listbox">
               <div className="carousel-item active" style={{"backgroundImage": `url(${b1})`}}
               >
                 {/* <img className="" src={b1} alt="Carousel Image 1" /> */}
@@ -86,7 +86,7 @@ export default function Header() {
 
             <a
               className="carousel-control-prev"
-              href="#heroCarousel"
+              href="#hero1Carousel"
               role="button"
               data-bs-slide="prev"
             >
@@ -98,7 +98,7 @@ export default function Header() {
 
             <a
               className="carousel-control-next"
-              href="#heroCarousel"
+              href="#hero1Carousel"
               role="button"
               data-bs-slide="next"
             >

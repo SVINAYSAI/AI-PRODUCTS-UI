@@ -16,7 +16,7 @@ export default function OurServices() {
                     <Link to="#" className="logo">
                       <img
                         src="http://195.35.22.190/virtual_directory/ui_images/components/fats-logo/svg/logo-no-background.svg"
-                        alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
+                        alt=""
                       />
                       <h6>FATS</h6>
                     </Link>

@@ -46,99 +46,114 @@ export default function ContactUS() {
   return (
     <>
       <div className="border mt-5 mb-5">
-        <div className="contact-card border">
-          <div className="infos">
-            <h6 className="section-subtitle mb-4">Get Here</h6>
-            <h6 className="section-title mb-4">Contact Us</h6>
-
-            <div className="item">
-              <i className="ti-location-pin"></i>
-              <div className="">
-                <h5 className="mb-2">Location</h5>
-                <p>1-5-460/2, OLD ALWAL, SECUNDERABAD,</p>
-                <p>TELANGANA, INDIA</p>
-              </div>
-            </div>
-            <div className="item">
-              <i className="ti-mobile"></i>
-              <div>
-                <h5 className="mb-2">Phone Number</h5>
-                <a href="tel:+918106465916">+91 8106465916</a>
-              </div>
-            </div>
-            <div className="item">
-              <i className="ti-email"></i>
-              <div className="mb-0">
-                <h5 className="mb-2">Email Address</h5>
-                <a href="mailto:info@aifats.com?subject=Feedback%20to%20Contact&body=Hello%20World!">
-                  info@aifats.com
-                </a>
-              </div>
-            </div>
-            <div className="item">
-              <i className="ti-world"></i>
-              <div className="mb-0">
-                <h5 className="mb-2">example.com</h5>
-                <a
-                  href="https://www.aifats.com"
-                  target="_https://www.aifats.com"
-                >
-                  www.aifats.com
-                </a>
+        <div className="container mb-4">
+          <div className="row">
+            <div className="col-md-12 col-sm-12 col-xs-12">
+              <div className="section-headline services1-head text-center">
+                <h2 className="mt-6">Our services</h2>
               </div>
             </div>
           </div>
+          <div className="contact-card border">
+            <div className="infos">
+              <h6 className="section-subtitle mb-4">Get Here</h6>
+              <h6 className="section-title mb-4">Contact Us</h6>
 
-          <div className="form">
-            <h6 className="section-subtitle mb-4">Available 24/7</h6>
-            <h6 className="section-title mb-4">Get In Touch</h6>
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <input
-                  type="email"
-                  className="form-control form-control-lg"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+              <div className="item">
+                <i className="ti-location-pin"></i>
+                <div className="">
+                  <h5 className="mb-2">Location</h5>
+                  <p>1-5-460/2, OLD ALWAL, SECUNDERABAD,</p>
+                  <p>TELANGANA, INDIA</p>
+                </div>
               </div>
-              <div className="form-group">
-                <input
-                  type="name"
-                  className="form-control form-control-lg"
-                  id="exampleInputname"
-                  placeholder="name"
-                  required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
+              <div className="item">
+                <i className="ti-mobile"></i>
+                <div>
+                  <h5 className="mb-2">Phone Number</h5>
+                  <a href="tel:+918106465916">+91 8106465916</a>
+                </div>
               </div>
-              <div className="form-group">
-                <textarea
-                  name="contact-message"
-                  id=""
-                  className="form-control form-control-lg"
-                  placeholder="Message"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                ></textarea>
+              <div className="item">
+                <i className="ti-email"></i>
+                <div className="mb-0">
+                  <h5 className="mb-2">Email Address</h5>
+                  <a href="mailto:info@aifats.com?subject=Feedback%20to%20Contact&body=Hello%20World!">
+                    info@aifats.com
+                  </a>
+                </div>
               </div>
-              <button
-                type="submit"
-                className={`text-white bg-blue-400 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 w-full ${
-                  loading && "disabled"
-                }`}
-                disabled={loading}
-              >
-                {loading ? <div className="loading-spinner" /> : "Send Message"}
-              </button>
-            </form>
-            {success && (
-              <div className="success-message">Message sent successfully!</div>
-            )}
+              <div className="item">
+                <i className="ti-world"></i>
+                <div className="mb-0">
+                  <h5 className="mb-2">example.com</h5>
+                  <a
+                    href="https://www.aifats.com"
+                    target="_https://www.aifats.com"
+                  >
+                    www.aifats.com
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="form">
+              <h6 className="section-subtitle mb-4">Available 24/7</h6>
+              <h6 className="section-title mb-4">Get In Touch</h6>
+              <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <input
+                    type="email"
+                    className="form-control form-control-lg"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="name"
+                    className="form-control form-control-lg"
+                    id="exampleInputname"
+                    placeholder="name"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+                <div className="form-group">
+                  <textarea
+                    name="contact-message"
+                    id=""
+                    className="form-control form-control-lg"
+                    placeholder="Message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  className={`text-white bg-blue-400 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 w-full ${
+                    loading && "disabled"
+                  }`}
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <div className="loading-spinner" />
+                  ) : (
+                    "Send Message"
+                  )}
+                </button>
+              </form>
+              {success && (
+                <div className="success-message">
+                  Message sent successfully!
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

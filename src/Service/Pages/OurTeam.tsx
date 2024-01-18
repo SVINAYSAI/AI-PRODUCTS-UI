@@ -3,26 +3,26 @@ import Img2 from "../assets/img/team/2.jpg";
 import Img3 from "../assets/img/team/3.jpg";
 import Img4 from "../assets/img/team/4.jpg";
 
-export default function OurTeam() {
+export default function Ourteam() {
   return (
     <>
-      <div id="team" className="our-team-area area-padding">
-        <div className="container">
+      <div id="team1" className="our-team1-area area-padding">
+        <div className="container mt-3 mb-6">
           <div className="row">
             <div className="col-md-12 col-sm-12 col-xs-12">
               <div className="section-headline text-center">
-                <h2>Our special Team</h2>
+                <h2 className="mb-4">Our special team</h2>
               </div>
             </div>
           </div>
           <div className="row">
             <div className="col-md-3 col-sm-3 col-xs-12">
-              <div className="single-team-member">
-                <div className="team-img">
+              <div className="single-team1-member1">
+                <div className="team1-img">
                   <a href="#">
                     <img src={Img1} alt="" />
                   </a>
-                  <div className="team-social-icon text-center">
+                  <div className="team1-social-icon text-center">
                     <ul>
                       <li>
                         <a href="https://www.facebook.com/abhisheksing.mandal?mibextid=hIlR13">
@@ -42,19 +42,19 @@ export default function OurTeam() {
                     </ul>
                   </div>
                 </div>
-                <div className="team-content text-center">
+                <div className="team1-content text-center">
                   <h4>Jhon Mickel</h4>
                   <p>Seo</p>
                 </div>
               </div>
             </div>
             <div className="col-md-3 col-sm-3 col-xs-12">
-              <div className="single-team-member">
-                <div className="team-img">
+              <div className="single-team1-member1">
+                <div className="team1-img">
                   <a href="#">
                     <img src={Img2} alt="" />
                   </a>
-                  <div className="team-social-icon text-center">
+                  <div className="team1-social-icon text-center">
                     <ul>
                       <li>
                         <a href="https://www.facebook.com/abhisheksing.mandal?mibextid=hIlR13">
@@ -74,19 +74,19 @@ export default function OurTeam() {
                     </ul>
                   </div>
                 </div>
-                <div className="team-content text-center">
+                <div className="team1-content text-center">
                   <h4>Andrew Arnold</h4>
                   <p>Web Developer</p>
                 </div>
               </div>
             </div>
             <div className="col-md-3 col-sm-3 col-xs-12">
-              <div className="single-team-member">
-                <div className="team-img">
+              <div className="single-team1-member1">
+                <div className="team1-img">
                   <a href="#">
                     <img src={Img3} alt="" />
                   </a>
-                  <div className="team-social-icon text-center">
+                  <div className="team1-social-icon text-center">
                     <ul>
                       <li>
                         <a href="https://www.facebook.com/abhisheksing.mandal?mibextid=hIlR13">
@@ -106,19 +106,19 @@ export default function OurTeam() {
                     </ul>
                   </div>
                 </div>
-                <div className="team-content text-center">
+                <div className="team1-content text-center">
                   <h4>Lellien Linda</h4>
                   <p>Web Design</p>
                 </div>
               </div>
             </div>
             <div className="col-md-3 col-sm-3 col-xs-12">
-              <div className="single-team-member">
-                <div className="team-img">
+              <div className="single-team1-member1">
+                <div className="team1-img">
                   <a href="#">
                     <img src={Img4} alt="" />
                   </a>
-                  <div className="team-social-icon text-center">
+                  <div className="team1-social-icon text-center">
                     <ul>
                       <li>
                         <a href="https://www.facebook.com/abhisheksing.mandal?mibextid=hIlR13">
@@ -138,7 +138,7 @@ export default function OurTeam() {
                     </ul>
                   </div>
                 </div>
-                <div className="team-content text-center">
+                <div className="team1-content text-center">
                   <h4>Jhon Powel</h4>
                   <p>Seo Expert</p>
                 </div>

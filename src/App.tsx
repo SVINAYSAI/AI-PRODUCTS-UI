@@ -13,6 +13,7 @@ import Socialmedia from "./Social_Media/socialmedia";
 import UploadPhoto from "./Social_Media/UploadPhoto";
 // import Serviceroute from "./Routes/Serviceroute";
 import UploadText from "./Social_Media/UploadText";
+import MicroPhone from "./Test/microphone";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/photo_upload" element={<UploadPhoto />} />
         {/* <Route path="/service" element={<Serviceroute />} /> */}
         <Route path="/upload_text" element={<UploadText />} />
+        <Route path="/phone" element={<MicroPhone />} />
       </Routes>
     </Router>
   );
