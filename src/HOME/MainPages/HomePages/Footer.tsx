@@ -15,7 +15,7 @@ export default function OurServices() {
                   <li className="list-body">
                     <Link to="#" className="logo">
                       <img
-                        src="http://195.35.22.190/virtual_directory/ui_images/components/fats-logo/svg/logo-no-background.svg"
+                        src="https://www.aifats.com/virtual_directory/ui_images/components/fats-logo/svg/logo-no-background.svg"
                         alt=""
                       />
                       <h6>FATS</h6>

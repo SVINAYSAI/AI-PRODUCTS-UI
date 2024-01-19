@@ -14,7 +14,7 @@ export default function OurBlog() {
                 <div className="card blog-post shadow-md my-4 my-sm-5 my-md-0">
                   <Link to="/blog" className="shadow-md">
                     <img
-                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/artificial-intelligence-AI.jpg"
+                      src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/artificial-intelligence-AI.jpg"
                       alt=""
                       style={{ width: "90%", height: "191px" }}
                     />
@@ -45,7 +45,7 @@ export default function OurBlog() {
                 <div className="card blog-post shadow-md my-4 my-sm-5 my-md-0">
                   <Link to="/blog" className="shadow-md">
                     <img
-                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/vr.jpg"
+                      src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/vr.jpg"
                       alt=""
                     />
                   </Link>
@@ -75,7 +75,7 @@ export default function OurBlog() {
                 <div className="card blog-post shadow-md my-4 my-sm-5 my-md-0">
                   <Link to="/blog" className="shadow-md">
                     <img
-                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/ar.jpg"
+                      src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/ar.jpg"
                       alt=""
                     />
                   </Link>
