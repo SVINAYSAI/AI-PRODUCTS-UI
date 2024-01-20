@@ -14,7 +14,8 @@ import UploadPhoto from "./Social_Media/UploadPhoto";
 import Serviceroute from "./Routes/Serviceroute";
 import UploadText from "./Social_Media/UploadText";
 import MicroPhone from "./Test/microphone";
-import PayButton from "./MainPayment/Pages/PayButton";
+// import PayButton from "./MainPayment/Pages/PayButton";
+import PayButton from "./MainPayment/Pages/PayButton"
 
 const App = () => {
   return (

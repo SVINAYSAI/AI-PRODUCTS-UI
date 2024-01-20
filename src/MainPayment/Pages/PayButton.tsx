@@ -1,52 +1,62 @@
 import { useCallback, useEffect } from "react";
 import useRazorpay, { RazorpayOptions } from "react-razorpay";
 
-// Assume you have a function to create the order asynchronously
-const createOrder = async (params: any) => {
-  // Your implementation to create and return an order
-  // This is just a placeholder, replace it with your actual logic
-  return { id: "someOrderId" };
-};
+interface Order {
+  id: string;
+  // Define other properties of the order as needed
+}
 
 export default function App() {
   const [Razorpay, isLoaded] = useRazorpay();
 
+  const createOrder = async (params: any): Promise<Order> => {
+    // Implement your createOrder logic here
+    // For example, you might make an API call to create an order and return it
+    const order: Order = {
+      id: "order_NQS7xPI52kzbDg",
+    };
+    return order;
+  };
+
   const handlePayment = useCallback(async () => {
     try {
-      // Replace 'params' with your actual parameters for creating the order
-      const params = {/* actual parameters */};
+      const params = {}; // Define your params object or fetch it as needed
       const order = await createOrder(params);
 
       const options: RazorpayOptions = {
         key: "rzp_test_dIEAmku2P7C3UW",
-        amount: "3000",
+        amount: String(3000),
         currency: "INR",
         name: "Acme Corp",
-        description: "Test Transaction",
-        image: "https://example.com/your_logo",
+        // description: "Test Transaction",
+        // image: "https://example.com/your_logo",
         order_id: order.id,
-        handler: (res) => {
-          console.log(res);
-        },
-        prefill: {
-          name: "Piyush Garg",
-          email: "youremail@example.com",
-          contact: "9999999999",
-        },
-        notes: {
-          address: "Razorpay Corporate Office",
-        },
-        theme: {
-          color: "#3399cc",
-        },
+        // customer_id:"",
+        // send_sms_hash: true,
+        // handler: (res) => {
+        //   console.log(res);
+        // },
+        // prefill: {
+        //   name: "Piyush Garg",
+        //   email: "youremail@example.com",
+        //   contact: "9999999999",
+        // },
+        // notes: {
+        //   address: "Razorpay Corporate Office",
+        // },
+        // theme: {
+        //   color: "#3399cc",
+        // },
+        
       };
 
+      console.log("options", options)
       const rzpay = new Razorpay(options);
       rzpay.open();
     } catch (error) {
-      console.error("Error creating order:", error);
+      console.error("Error handling payment:", error);
     }
-  }, [Razorpay]);
+  }, [Razorpay, createOrder]);
 
   useEffect(() => {
     if (isLoaded) {
