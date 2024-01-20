@@ -30,7 +30,7 @@ const NewPassword: React.FC = () => {
 
     // Make API call to /forgot/update_password using fetch
     try {
-      const response = await fetch("http://195.35.22.190:5000/forgot/update_password", {
+      const response = await fetch("https://www.aifats.com/api/forgot/update_password", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -65,7 +65,7 @@ const NewPassword: React.FC = () => {
     <div
       className="w-full overflow-y-auto"
       style={{
-        backgroundImage: `url("http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/christmas.jpg")`,
+        backgroundImage: `url("https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/christmas.jpg")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

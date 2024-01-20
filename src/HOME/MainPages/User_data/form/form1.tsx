@@ -112,7 +112,7 @@ export default function Form1() {
 
     try {
       const response = await fetch(
-        "http://195.35.22.190:5000/user_details/verify_user",
+        "https://www.aifats.com/api/user_details/verify_user",
         {
           method: "POST",
           headers: {
@@ -169,7 +169,7 @@ export default function Form1() {
 
         // Send a POST request to your Flask server using fetch
         const response = await fetch(
-          "http://195.35.22.190:5000/user_check/verify_email",
+          "https://www.aifats.com/api/user_check/verify_email",
           {
             method: "POST",
             headers: {

@@ -1,61 +1,62 @@
-import React, { useEffect } from 'react';
+import { useCallback, useEffect } from "react";
+import useRazorpay, { RazorpayOptions } from "react-razorpay";
 
-declare global {
-  interface Window {
-    Razorpay?: any;
-  }
-}
-
-const PayButton: React.FC = () => {
-  useEffect(() => {
-    const options = {
-      key: "YOUR_KEY_ID",
-      amount: "50000",
-      currency: "INR",
-      name: "Acme Corp",
-      description: "Test Transaction",
-      image: "https://example.com/your_logo",
-      order_id: "order_9A33XWu170gUtm",
-      callback_url: "https://eneqd3r9zrjok.x.pipedream.net/",
-      prefill: {
-        name: "Gaurav Kumar",
-        email: "gaurav.kumar@example.com",
-        contact: "9000090000",
-      },
-      notes: {
-        address: "Razorpay Corporate Office",
-      },
-      theme: {
-        color: "#3399cc",
-      },
-    };
-
-    // Check if Razorpay is available
-    if (window.Razorpay) {
-      const rzp1 = new window.Razorpay(options);
-
-      const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        rzp1.open();
-        e.preventDefault();
-      };
-
-      const buttonElement = document.getElementById('rzp-button1') as HTMLButtonElement | null;
-      if (buttonElement) {
-        buttonElement.addEventListener('click', handleClick);
-      }
-
-      // Cleanup event listener when the component unmounts
-      return () => {
-        if (buttonElement) {
-          buttonElement.removeEventListener('click', handleClick);
-        }
-      };
-    } else {
-      console.error("Razorpay script not loaded. Make sure the script is included in your HTML file.");
-    }
-  }, []);
-
-  return <button id="rzp-button1">Pay</button>;
+// Assume you have a function to create the order asynchronously
+const createOrder = async (params: any) => {
+  // Your implementation to create and return an order
+  // This is just a placeholder, replace it with your actual logic
+  return { id: "someOrderId" };
 };
 
-export default PayButton;
+export default function App() {
+  const [Razorpay, isLoaded] = useRazorpay();
+
+  const handlePayment = useCallback(async () => {
+    try {
+      // Replace 'params' with your actual parameters for creating the order
+      const params = {/* actual parameters */};
+      const order = await createOrder(params);
+
+      const options: RazorpayOptions = {
+        key: "rzp_test_dIEAmku2P7C3UW",
+        amount: "3000",
+        currency: "INR",
+        name: "Acme Corp",
+        description: "Test Transaction",
+        image: "https://example.com/your_logo",
+        order_id: order.id,
+        handler: (res) => {
+          console.log(res);
+        },
+        prefill: {
+          name: "Piyush Garg",
+          email: "youremail@example.com",
+          contact: "9999999999",
+        },
+        notes: {
+          address: "Razorpay Corporate Office",
+        },
+        theme: {
+          color: "#3399cc",
+        },
+      };
+
+      const rzpay = new Razorpay(options);
+      rzpay.open();
+    } catch (error) {
+      console.error("Error creating order:", error);
+    }
+  }, [Razorpay]);
+
+  useEffect(() => {
+    if (isLoaded) {
+      handlePayment();
+    }
+  }, [isLoaded, handlePayment]);
+
+  return (
+    <div className="App">
+      <button onClick={handlePayment}>Click</button>
+    </div>
+  );
+}

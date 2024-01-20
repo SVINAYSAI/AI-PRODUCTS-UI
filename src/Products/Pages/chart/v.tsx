@@ -38,7 +38,7 @@ export default function Chart_model() {
       return;
     }
 
-    const url = "http://127.0.0.1:5000/generate_chart";
+    const url = "https://www.aifats.com/api/generate_chart";
     const headers = { "Content-Type": "application/json" };
     const instruction = `Generate Mermaid Markdown text for ${selectedChartType} ${prompt}`;
     console.log(instruction)

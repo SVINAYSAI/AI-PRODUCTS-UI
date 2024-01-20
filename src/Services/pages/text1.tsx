@@ -10,7 +10,7 @@ const Test1: React.FC = () => {
     formData.append('video', videoRef.current.files[0]);
 
     try {
-      const response = await fetch('http://195.35.22.190/video-overlay/', {
+      const response = await fetch('https://www.aifats.com/api/video-overlay/', {
         method: 'POST',
         body: formData,
       });

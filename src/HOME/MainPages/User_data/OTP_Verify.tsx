@@ -41,7 +41,7 @@ export default function OTP_Verify() {
 
     try {
       // Make a POST request to the Flask backend
-      const response = await fetch("http://195.35.22.190:5000/otp/verify_otp", {
+      const response = await fetch("https://www.aifats.com/api/otp/verify_otp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -70,7 +70,7 @@ export default function OTP_Verify() {
     <div
       className="w-full overflow-y-auto"
       style={{
-        backgroundImage: `url("http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/christmas.jpg")`,
+        backgroundImage: `url("https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/christmas.jpg")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

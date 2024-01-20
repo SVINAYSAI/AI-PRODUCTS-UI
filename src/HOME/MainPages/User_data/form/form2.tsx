@@ -116,7 +116,7 @@ export default function Form2() {
 
     // Continue with your existing logic...
     const response = await fetch(
-      "http://127.0.0.1:5000/company_login/check_credentials",
+      "https://www.aifats.com/api/company_login/check_credentials",
       {
         method: "POST",
         headers: {

@@ -64,7 +64,7 @@ export const useUploadPhotoLogic = () => {
 
   const createFacebookPost = async ( apiKey: number) => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/facebook', {
+      const response = await fetch('https://www.aifats.com/api/facebook', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ export const useUploadPhotoLogic = () => {
 
   const createInstagramPost = async (imageUrl: string, apiKey: number, igUserId: string, caption: string) => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/instagram', {
+      const response = await fetch('https://www.aifats.com/api/instagram', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -119,7 +119,7 @@ export const useUploadPhotoLogic = () => {
 
   const createTwitterPost = async ( apiKey: number) => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/twitter', {
+      const response = await fetch('https://www.aifats.com/api/twitter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

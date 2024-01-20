@@ -12,7 +12,7 @@ const Chart: React.FC<AppProps> = () => {
   }, []);
 
   const generateDiagram = () => {
-    const url = "http://127.0.0.1:5000/generate_pie_chart";
+    const url = "https://www.aifats.com/api/generate_pie_chart";
     const headers = { 'Content-Type': 'application/json' };
     const instruction = 'Generate Mermaid Markdown text for Pie chart Title: Pets Adopted by Volunteers "Dogs": 386 "Cats": 85 "Rats": 15';
     const data = { instruction };

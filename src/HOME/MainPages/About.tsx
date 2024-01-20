@@ -112,7 +112,7 @@ export default function About() {
           <div className="col-12 col-md-6">
             <div className="image-container translate-effect-right">
               <img
-                src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/index1.jpg"
+                src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/index1.jpg"
                 alt="Fables Template"
                 className="img-fluid w-full"
               />
@@ -179,7 +179,7 @@ export default function About() {
           <div className="col-12 col-md-6 mt-4 mt-md-0">
             <div className="image-container translate-effect-right">
               <img
-                src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/vision-img.jpg"
+                src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/vision-img.jpg"
                 alt="Fables Template"
                 className="img-fluid"
               />
@@ -203,7 +203,7 @@ export default function About() {
                   <Link to="#">
                     <img
                       className="w-100"
-                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/index1.jpg"
+                      src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/index1.jpg"
                       alt="Card image cap"
                     />
                   </Link>
@@ -250,7 +250,7 @@ export default function About() {
                   <Link to="#">
                     <img
                       className="w-100"
-                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/index1.jpg"
+                      src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/index1.jpg"
                       alt="Card image cap"
                     />
                   </Link>

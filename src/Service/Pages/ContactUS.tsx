@@ -15,7 +15,7 @@ export default function ContactUS() {
 
     try {
       const response = await fetch(
-        "http://195.35.22.190:5000/submit_complaint",
+        "https://www.aifats.com/api/submit_complaint",
         {
           method: "POST",
           headers: {

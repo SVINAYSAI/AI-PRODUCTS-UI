@@ -55,7 +55,7 @@ function Usersetting1() {
 
     try {
       const response = await fetch(
-        "http://195.35.22.190:5000/password/change_password",
+        "https://www.aifats.com/api/password/change_password",
         {
           method: "POST",
           headers: {

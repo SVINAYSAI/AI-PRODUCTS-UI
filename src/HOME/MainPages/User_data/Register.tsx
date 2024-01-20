@@ -28,7 +28,7 @@ const Register: React.FC = () => {
 
     try {
       const response = await axios.post(
-        "http://195.35.22.190:5000/save_user_data",
+        "https://www.aifats.com/api/save_user_data",
         formData
       );
       console.log(response.data.message);
@@ -36,7 +36,7 @@ const Register: React.FC = () => {
       if (formData.email) {
         try {
           const emailResponse = await axios.post(
-            "http://127.0.0.1:5000/mail/send",
+            "https://www.aifats.com/api/mail/send",
             {
               recipientEmail: formData.email,
             }
@@ -106,7 +106,7 @@ const Register: React.FC = () => {
 
         // Send the decoded data and the random password to the server using fetch
         const response = await fetch(
-          "http://127.0.0.1:5000/google_login/insert_data",
+          "https://www.aifats.com/api/google_login/insert_data",
           {
             method: "POST",
             headers: {
@@ -166,7 +166,7 @@ const Register: React.FC = () => {
     <div
       className="w-full overflow-y-auto"
       style={{
-        backgroundImage: `url("http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/christmas.jpg")`,
+        backgroundImage: `url("https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/christmas.jpg")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

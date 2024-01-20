@@ -58,7 +58,7 @@ export default function CompanyUserPreview() {
   
       console.log("Sending request data to backend:", requestData);
   
-      const response = await fetch("http://127.0.0.1:5000/feedback_view", {
+      const response = await fetch("https://www.aifats.com/api/feedback_view", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
