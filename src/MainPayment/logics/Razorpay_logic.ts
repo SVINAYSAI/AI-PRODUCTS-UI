@@ -1,32 +1,36 @@
 // razorpay.ts
 import { RazorpayOptions } from "react-razorpay";
 
-export const initiateRazorpay = (Razorpay: any) => {
+interface RazorpayData {
+  key: string;
+  amount: string;
+  currency: string;
+  name: string;
+  description: string;
+  image: string;
+  order_id: string;
+  customer_id?: string;
+  send_sms_hash: boolean;
+  prefill: {
+    name: string;
+    email: string;
+    contact: string;
+  };
+  notes: {
+    address: string;
+  };
+  theme: {
+    color: string;
+  };
+}
+
+export const initiateRazorpay = (Razorpay: any, razorpayData: RazorpayData) => {
   const handlePayment = () => {
     try {
       const options: RazorpayOptions = {
-        key: "your_api_key", // Replace with your actual API key
-        amount: "3000",
-        currency: "INR",
-        name: "Acme Corp",
-        description: "Test Transaction",
-        image: "https://example.com/your_logo",
-        order_id: "order_NQm6aqL38cRvkM", // Replace with your actual order ID
-        customer_id: "", // Optional: Add customer ID if available
-        send_sms_hash: true,
+        ...razorpayData,
         handler: (res) => {
           console.log(res);
-        },
-        prefill: {
-          name: "Piyush Garg",
-          email: "youremail@example.com",
-          contact: "9999999999",
-        },
-        notes: {
-          address: "Razorpay Corporate Office",
-        },
-        theme: {
-          color: "#3399cc",
         },
       };
 

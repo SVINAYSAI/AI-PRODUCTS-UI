@@ -14,7 +14,7 @@ export default function Creat_Custumer() {
     handleDropdownClick,
     handleChange,
     handleSubmit,
-    handlePayment,
+    payButton,
     setSearchQuery,
   } = useCustomerLogic();
   
