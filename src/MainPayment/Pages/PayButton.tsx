@@ -9,12 +9,8 @@ interface Order {
 export default function App() {
   const [Razorpay, isLoaded] = useRazorpay();
 
-
   const handlePayment = useCallback(async () => {
     try {
-      
-      
-
       const options: RazorpayOptions = {
         key: "rzp_test_dIEAmku2P7C3UW",
         amount: "3000",
@@ -23,7 +19,7 @@ export default function App() {
         description: "Test Transaction",
         image: "https://example.com/your_logo",
         order_id: "order_NQm6aqL38cRvkM",
-        customer_id:"",
+        customer_id: "",
         send_sms_hash: true,
         handler: (res) => {
           console.log(res);
@@ -39,10 +35,9 @@ export default function App() {
         theme: {
           color: "#3399cc",
         },
-        
       };
 
-      console.log("options", options)
+      console.log("options", options);
       const rzpay = new Razorpay(options);
       rzpay.open();
     } catch (error) {
