@@ -13,7 +13,7 @@ export default function CreateCustomer() {
     toggleDropdownVisibility1,
     handleChange,
     handleSubmit,
-    handlePayment,
+    payButton,
     setSearchQuery,
   } = useCustomerLogic();
 

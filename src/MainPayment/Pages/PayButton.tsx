@@ -1,13 +1,11 @@
 import { useCallback, useEffect } from "react";
 import useRazorpay, { RazorpayOptions } from "react-razorpay";
 
-interface Order {
-  id: string;
-  // Define other properties of the order as needed
-}
 
 export default function App() {
   const [Razorpay, isLoaded] = useRazorpay();
+
+  
 
   const handlePayment = useCallback(async () => {
     try {
