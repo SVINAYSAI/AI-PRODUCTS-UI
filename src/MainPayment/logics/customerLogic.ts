@@ -1,4 +1,3 @@
-// customerLogic.ts
 import { useCallback, useEffect, useState } from 'react';
 import { initiateRazorpay } from "./Razorpay_logic";
 import useRazorpay from "react-razorpay";
@@ -13,8 +12,19 @@ export function useCustomerLogic() {
   const [selectedCurrencies, setSelectedCurrencies] = useState<Currency[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
+  const [dropdownVisible1, setDropdownVisible1] = useState<boolean>(false);
   const [Razorpay, isLoaded] = useRazorpay();
   const handlePayment = useCallback(initiateRazorpay(Razorpay), [Razorpay]);
+
+  useEffect(() => {
+    if (dropdownVisible && dropdownVisible1) {
+      // Close dropdownVisible1 if it's open when opening dropdownVisible
+      setDropdownVisible1(false);
+    } else if (dropdownVisible1 && dropdownVisible) {
+      // Close dropdownVisible if it's open when opening dropdownVisible1
+      setDropdownVisible(false);
+    }
+  }, [dropdownVisible, dropdownVisible1]);
 
   useEffect(() => {
     if (isLoaded) {
@@ -72,7 +82,7 @@ export function useCustomerLogic() {
       currency_data: selectedCurrency,
     }));
     // Log the data
-  console.log('Selected Currency Data:', selectedCurrency);
+    console.log('Selected Currency Data:', selectedCurrency);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -119,9 +129,9 @@ export function useCustomerLogic() {
         currency: formData.currency_data?.['ISO Code'],
         email: formData.Email,
       };
-  
+
       console.log('Sending to backend:', requestData);
-  
+
       const response = await fetch('http://your-flask-app-url/razorpay', {
         method: 'POST',
         headers: {
@@ -129,22 +139,33 @@ export function useCustomerLogic() {
         },
         body: JSON.stringify(requestData),
       });
-  
+
       // Handle the response as needed
       const data = await response.json();
       console.log('Response from server:', data);
-  
+
       // You can perform additional actions based on the server response here
     } catch (error) {
       console.error('Error:', error);
     }
-  };  
+  };
+
+  const toggleDropdownVisibility = () => {
+    setDropdownVisible((prevVisible) => !prevVisible);
+    setDropdownVisible1(false);
+  };
+
+  const toggleDropdownVisibility1 = () => {
+    setDropdownVisible1((prevVisible1) => !prevVisible1);
+    setDropdownVisible(false);
+  };
 
   return {
     currencies,
     selectedCurrencies,
     searchQuery,
     dropdownVisible,
+    dropdownVisible1,
     formData,
     handleSearch,
     handleDropdownClick,
@@ -152,6 +173,8 @@ export function useCustomerLogic() {
     handleSubmit,
     handlePayment,
     handleOrder,
-    setSearchQuery, // Add setSearchQuery to the returned object
+    toggleDropdownVisibility,
+    toggleDropdownVisibility1,
+    setSearchQuery,
   };
 }
