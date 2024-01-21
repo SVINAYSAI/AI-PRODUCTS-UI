@@ -10,10 +10,12 @@ export default function CreateCustomer() {
     formData,
     handleSearch,
     handleDropdownClick,
-    toggleDropdownVisibility1,
     handleChange,
     handleSubmit,
+    handleOrder,
     payButton,
+    toggleDropdownVisibility,
+    toggleDropdownVisibility1,
     setSearchQuery,
   } = useCustomerLogic();
 
