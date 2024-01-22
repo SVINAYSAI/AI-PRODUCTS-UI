@@ -9,7 +9,7 @@ import { useUploadPhotoLogic } from '../UploadPhotoLogic';
 const TwitterPostComponent: React.FC = () => {
   const { responseMessage, createTwitterPost } = useUploadPhotoLogic();
 
-  const tweet_text = "This is me, I am the god";
+  const tweet_text = "This is me hii, I am the god";
   const user_api_key = 123456;
 
   const handleCreateTwitterPost = async () => {
