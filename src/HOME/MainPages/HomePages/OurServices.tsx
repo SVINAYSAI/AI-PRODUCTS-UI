@@ -164,7 +164,7 @@ export default function OurServices() {
               <div className="col-sm-4">
                 <div className="img-wrapper">
                   <img
-                    src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/folio-1.jpg"
+                    src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/folio-1.jpg"
                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                   />
                   <div className="overlay">
@@ -182,7 +182,7 @@ export default function OurServices() {
                 </div>
                 <div className="img-wrapper">
                   <img
-                    src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/folio-2.jpg"
+                    src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/folio-2.jpg"
                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                   />
                   <div className="overlay">
@@ -201,7 +201,7 @@ export default function OurServices() {
               <div className="col-sm-4">
                 <div className="img-wrapper">
                   <img
-                    src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/folio-3.jpg"
+                    src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/folio-3.jpg"
                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                   />
                   <div className="overlay">
@@ -218,7 +218,7 @@ export default function OurServices() {
                 </div>
                 <div className="img-wrapper">
                   <img
-                    src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/folio-4.jpg"
+                    src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/folio-4.jpg"
                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                   />
                   <div className="overlay">
@@ -237,7 +237,7 @@ export default function OurServices() {
               <div className="col-sm-4">
                 <div className="img-wrapper">
                   <img
-                    src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/folio-5.jpg"
+                    src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/folio-5.jpg"
                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                   />
                   <div className="overlay">
@@ -254,7 +254,7 @@ export default function OurServices() {
                 </div>
                 <div className="img-wrapper">
                   <img
-                    src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/folio-6.jpg"
+                    src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/folio-6.jpg"
                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                   />
                   <div className="overlay">

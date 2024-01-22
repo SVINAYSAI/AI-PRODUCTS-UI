@@ -27,7 +27,7 @@ export default function GallerySlider() {
             <div className="card fables-team-block fables-team-data-hover fables-second-border-color">
               <img
                 className="img-fluid"
-                src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/team1-1.jpg"
+                src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/team1-1.jpg"
                 alt=""
               />
               <div className="card-body">
@@ -67,7 +67,7 @@ export default function GallerySlider() {
             <div className="card fables-team-block fables-team-data-hover fables-second-border-color">
               <img
                 className="img-fluid"
-                src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/team1-2.jpg"
+                src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/team1-2.jpg"
                 alt=""
               />
               <div className="card-body">
@@ -107,7 +107,7 @@ export default function GallerySlider() {
             <div className="card fables-team-block fables-team-data-hover fables-second-border-color">
               <img
                 className="img-fluid"
-                src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/team1-3.jpg"
+                src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/team1-3.jpg"
                 alt=""
               />
               <div className="card-body">
@@ -147,7 +147,7 @@ export default function GallerySlider() {
             <div className="card fables-team-block fables-team-data-hover fables-second-border-color">
               <img
                 className="img-fluid"
-                src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/team1-4.jpg"
+                src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/team1-4.jpg"
                 alt=""
               />
               <div className="card-body">

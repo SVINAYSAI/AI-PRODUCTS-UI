@@ -4,12 +4,12 @@ import Img3 from "../assets/img/testimonials/testimonials-1.jpg";
 import Img4 from "../assets/img/testimonials/testimonials-1.jpg";
 import Img5 from "../assets/img/testimonials/testimonials-1.jpg";
 
-export default function Testimonials() {
+export default function testimonials() {
   return (
     <>
-      <div id="testimonials" className="testimonials">
-        <div className="container">
-          <div className="testimonials-slider swiper">
+      <div id="testimonials1" className="testimonials1">
+        <div className="container mt-6 mb-4">
+          <div className="testimonials1-slider swiper">
             <div className="swiper-wrapper">
               <div className="swiper-slide">
                 <div className="testimonial-item">

@@ -97,7 +97,7 @@ export default function Forgot() {
     <div
       className="w-full overflow-y-auto"
       style={{
-        backgroundImage: `url("http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/christmas.jpg")`,
+        backgroundImage: `url("https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/christmas.jpg")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

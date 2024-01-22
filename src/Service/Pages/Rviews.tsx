@@ -3,12 +3,12 @@ import Img from "../assets/img/about/2.jpg";
 export default function Rviews() {
   return (
     <>
-      <div className="reviews-area">
+      <div className="reviews1-area">
         <div className="row g-0">
           <div className="col-lg-6">
             <img src={Img} alt="" className="img-fluid" />
           </div>
-          <div className="col-lg-6 work-right-text d-flex align-items-center">
+          <div className="col-lg-6 work1-right-text d-flex align-items-center">
             <div className="px-5 py-5 py-lg-0">
               <h2>working with us</h2>
               <h5>

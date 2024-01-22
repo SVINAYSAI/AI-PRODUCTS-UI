@@ -38,7 +38,7 @@ export default function CompanyThTable() {
   };
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/users")
+    fetch("https://www.aifats.com/api/api/users")
       .then((response) => response.json())
       .then((data: User[]) => setUsers(data))
       .catch((error) => console.error("Error fetching user data:", error));
@@ -57,7 +57,7 @@ export default function CompanyThTable() {
     const { email, name } = user;
 
     if (email) {
-      fetch('http://127.0.0.1:5000/complaints_bp/get_complaints', {
+      fetch('https://www.aifats.com/api/complaints_bp/get_complaints', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -15,7 +15,7 @@ const Blog = () => {
     {
       id: 1,
       imgSrc:
-        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/artificial-intelligence-AI.jpg",
+        "https://www.aifats.com/api/virtual_directory/ui_images/components/assets/imgs/artificial-intelligence-AI.jpg",
       title: "AI Products",
       date: "09 November, 2018",
       content:
@@ -24,7 +24,7 @@ const Blog = () => {
     {
       id: 2,
       imgSrc:
-        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/cat-larg2.jpg",
+        "https://www.aifats.com/api/virtual_directory/ui_images/components/assets/imgs/cat-larg2.jpg",
       title: "Getting to Another Level of Design",
       date: "09 November, 2018",
       content:

@@ -22,7 +22,7 @@ const Blog = () => {
     {
       id: 1,
       imgSrc:
-        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/artificial-intelligence-AI.jpg",
+        "https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/artificial-intelligence-AI.jpg",
       title: "Text to Images",
       date: "09 November, 2018",
       content:
@@ -31,7 +31,7 @@ const Blog = () => {
     {
       id: 2,
       imgSrc:
-        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/cat-larg2.jpg",
+        "https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/cat-larg2.jpg",
       title: "Text to Charts",
       date: "09 November, 2018",
       content:
@@ -40,7 +40,7 @@ const Blog = () => {
     {
       id: 3,
       imgSrc:
-        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/cat-larg3.jpg",
+        "https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/cat-larg3.jpg",
       title: "Text to Voice",
       date: "09 November, 2018",
       content:
@@ -49,7 +49,7 @@ const Blog = () => {
     {
       id: 4,
       imgSrc:
-        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/cat-larg4.jpg",
+        "https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/cat-larg4.jpg",
       title: "Transcripts",
       date: "09 November, 2018",
       content:
@@ -58,7 +58,7 @@ const Blog = () => {
     {
       id: 5,
       imgSrc:
-        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/cat-larg5.jpg",
+        "https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/cat-larg5.jpg",
       title: "Music Generation",
       date: "09 November, 2018",
       content:
@@ -67,7 +67,7 @@ const Blog = () => {
     {
       id: 6,
       imgSrc:
-        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/cat-larg6.jpg",
+        "https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/cat-larg6.jpg",
       title: "Virtual reality for easy animation",
       date: "09 November, 2018",
       content:
@@ -76,7 +76,7 @@ const Blog = () => {
     {
       id: 7,
       imgSrc:
-        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/cat-larg7.jpg",
+        "https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/cat-larg7.jpg",
       title: "Argument reality for apps operation",
       date: "09 November, 2018",
       content:
@@ -85,7 +85,7 @@ const Blog = () => {
     {
       id: 8,
       imgSrc:
-        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/cat-larg8.jpg",
+        "https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/cat-larg8.jpg",
       title: "Digital marketing with fats",
       date: "09 November, 2018",
       content:
@@ -94,7 +94,7 @@ const Blog = () => {
     {
       id: 9,
       imgSrc:
-        "http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/blog-cat1.jpg",
+        "https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/blog-cat1.jpg",
       title: "IOT for Automate the World",
       date: "09 November, 2018",
       content:
@@ -263,7 +263,7 @@ const Blog = () => {
                 <div className="col-4">
                   <Link to="">
                     <img
-                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/blog-cat1.jpg"
+                      src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/blog-cat1.jpg"
                       alt=""
                       className="img-fluid"
                     />
@@ -285,7 +285,7 @@ const Blog = () => {
                 <div className="col-4">
                   <Link to="">
                     <img
-                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/blog-cat2.jpg"
+                      src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/blog-cat2.jpg"
                       alt=""
                       className="img-fluid"
                     />
@@ -307,7 +307,7 @@ const Blog = () => {
                 <div className="col-4">
                   <Link to="">
                     <img
-                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/blog-cat3.jpg"
+                      src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/blog-cat3.jpg"
                       alt=""
                       className="img-fluid"
                     />
@@ -329,7 +329,7 @@ const Blog = () => {
                 <div className="col-4">
                   <Link to="">
                     <img
-                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/blog-cat4.jpg"
+                      src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/blog-cat4.jpg"
                       alt=""
                       className="img-fluid"
                     />

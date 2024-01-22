@@ -62,15 +62,15 @@ export const useUploadPhotoLogic = () => {
     };
   }, []);
 
-  const createFacebookPost = async (postMessage: string, apiKey: number) => {
+  const createFacebookPost = async ( apiKey: number) => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/facebook', {
+      const response = await fetch('https://www.aifats.com/api/facebook', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          postmessage: postMessage,
+          text: comment,
           api: apiKey,
         }),
       });
@@ -92,7 +92,7 @@ export const useUploadPhotoLogic = () => {
 
   const createInstagramPost = async (imageUrl: string, apiKey: number, igUserId: string, caption: string) => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/instagram', {
+      const response = await fetch('https://www.aifats.com/api/instagram', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -117,15 +117,15 @@ export const useUploadPhotoLogic = () => {
     }
   };
 
-  const createTwitterPost = async (tweetText: string, apiKey: number) => {
+  const createTwitterPost = async ( apiKey: number) => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/twitter', {
+      const response = await fetch('https://www.aifats.com/api/twitter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          tweet: tweetText,
+          text: comment,
           api: apiKey,
         }),
       });
@@ -145,13 +145,46 @@ export const useUploadPhotoLogic = () => {
     }
   };
 
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const handleVideoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+
+    if (file) {
+      // Check if the selected file is a video
+      if (file.type.startsWith("video/")) {
+        try {
+          const videoURL = URL.createObjectURL(file);
+          setSelectedVideo(videoURL); // Update state with the video URL
+        } catch (error) {
+          console.error("Error creating video URL:", error);
+          setSelectedVideo(null);
+        }
+      } else {
+        // Handle other file types (e.g., images)
+        setSelectedVideo(null);
+        // ... (your existing logic for handling images)
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.src = selectedVideo || "";
+    }
+  }, [selectedVideo]);
+
   return {
     comment,
     selectedImage,
+    selectedVideo,
+    videoRef,
     showEmojiPicker,
     emojiContainerRef,
     handleCommentChange,
     handleImageChange,
+    handleVideoChange,
     handleEmojiClick,
     handleEmojiContainerClick,
     handleSubmit,

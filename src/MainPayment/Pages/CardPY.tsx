@@ -49,7 +49,7 @@ const CardPayment: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mb-4 bg-white">
+    <div className="max-w-md mx-auto mb-4 bg-gray-50">
       <form>
         <div className="mb-4">
           <label

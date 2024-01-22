@@ -10,14 +10,14 @@ const FacebookPostComponent: React.FC = () => {
   const customMessage = "Custom message";
   const apiKey = 789;
 
-  const handleCreatePost = () => {
-    createFacebookPost(customMessage, apiKey);
+  const handleCreateFacebookPost = () => {
+    createFacebookPost( apiKey);
   };
 
   return (
     <div>
       <h1>Create Facebook Post</h1>
-      <button onClick={handleCreatePost}>Create Post</button>
+      <button onClick={handleCreateFacebookPost}>Create Post</button>
       {responseMessage && <p>{responseMessage}</p>}
     </div>
   );

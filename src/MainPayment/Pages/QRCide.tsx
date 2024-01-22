@@ -20,7 +20,7 @@ export default function QRCode() {
 
   return (
     <>
-      <div className="max-w-md mx-auto mb-4 bg-white">
+      <div className="max-w-md mx-auto mb-4 bg-gray-50">
         <form>
           <div className="grid grid-cols-2 gap-6 w-[35%]">
             <div>

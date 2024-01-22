@@ -2,13 +2,13 @@ import Img1 from "../assets/img/blog/1.jpg";
 import Img2 from "../assets/img/blog/2.jpg";
 import Img3 from "../assets/img/blog/3.jpg";
 
-export default function Blog() {
+export default function blog() {
   return (
     <>
-      <div id="blog" className="blog-area">
-        <div className="blog-inner area-padding">
-          <div className="blog-overly"></div>
-          <div className="container ">
+      <div id="blog1" className="blog1-area">
+        <div className="blog1-inner area-padding">
+          <div className="blog1-overly"></div>
+          <div className="container mt-6 mb-4">
             <div className="row">
               <div className="col-md-12 col-sm-12 col-xs-12">
                 <div className="section-headline text-center">
@@ -18,13 +18,13 @@ export default function Blog() {
             </div>
             <div className="row">
               <div className="col-md-4 col-sm-4 col-xs-12">
-                <div className="single-blog">
-                  <div className="single-blog-img">
-                    <a href="blog.html">
+                <div className="single-blog1">
+                  <div className="single-blog1-img">
+                    <a href="blog1.html">
                       <img src={Img1} alt="" />
                     </a>
                   </div>
-                  <div className="blog-meta">
+                  <div className="blog1-meta">
                     <span className="comments-type">
                       <i className="fa fa-comment-o"></i>
                       <a href="#">13 comments</a>
@@ -33,9 +33,9 @@ export default function Blog() {
                       <i className="fa fa-calendar"></i>2016-03-05 / 09:10:16
                     </span>
                   </div>
-                  <div className="blog-text">
+                  <div className="blog1-text">
                     <h4>
-                      <a href="blog.html">Assumenda repud eum veniam</a>
+                      <a href="blog1.html">Assumenda repud eum veniam</a>
                     </h4>
                     <p>
                       Lorem ipsum dolor sit amet conse adipis elit Assumenda
@@ -45,20 +45,20 @@ export default function Blog() {
                     </p>
                   </div>
                   <span>
-                    <a href="blog.html" className="ready-btn">
+                    <a href="blog1.html" className="ready-btn">
                       Read more
                     </a>
                   </span>
                 </div>
               </div>
               <div className="col-md-4 col-sm-4 col-xs-12">
-                <div className="single-blog">
-                  <div className="single-blog-img">
-                    <a href="blog.html">
+                <div className="single-blog1">
+                  <div className="single-blog1-img">
+                    <a href="blog1.html">
                       <img src={Img2} alt="" />
                     </a>
                   </div>
-                  <div className="blog-meta">
+                  <div className="blog1-meta">
                     <span className="comments-type">
                       <i className="fa fa-comment-o"></i>
                       <a href="#">130 comments</a>
@@ -67,9 +67,9 @@ export default function Blog() {
                       <i className="fa fa-calendar"></i>2016-03-05 / 09:10:16
                     </span>
                   </div>
-                  <div className="blog-text">
+                  <div className="blog1-text">
                     <h4>
-                      <a href="blog.html">Explicabo magnam quibusdam.</a>
+                      <a href="blog1.html">Explicabo magnam quibusdam.</a>
                     </h4>
                     <p>
                       Lorem ipsum dolor sit amet conse adipis elit Assumenda
@@ -79,20 +79,20 @@ export default function Blog() {
                     </p>
                   </div>
                   <span>
-                    <a href="blog.html" className="ready-btn">
+                    <a href="blog1.html" className="ready-btn">
                       Read more
                     </a>
                   </span>
                 </div>
               </div>
               <div className="col-md-4 col-sm-4 col-xs-12">
-                <div className="single-blog">
-                  <div className="single-blog-img">
-                    <a href="blog.html">
+                <div className="single-blog1">
+                  <div className="single-blog1-img">
+                    <a href="blog1.html">
                       <img src={Img3} alt="" />
                     </a>
                   </div>
-                  <div className="blog-meta">
+                  <div className="blog1-meta">
                     <span className="comments-type">
                       <i className="fa fa-comment-o"></i>
                       <a href="#">10 comments</a>
@@ -101,9 +101,9 @@ export default function Blog() {
                       <i className="fa fa-calendar"></i>2016-03-05 / 09:10:16
                     </span>
                   </div>
-                  <div className="blog-text">
+                  <div className="blog1-text">
                     <h4>
-                      <a href="blog.html">Lorem ipsum dolor sit amet</a>
+                      <a href="blog1.html">Lorem ipsum dolor sit amet</a>
                     </h4>
                     <p>
                       Lorem ipsum dolor sit amet conse adipis elit Assumenda
@@ -113,7 +113,7 @@ export default function Blog() {
                     </p>
                   </div>
                   <span>
-                    <a href="blog.html" className="ready-btn">
+                    <a href="blog1.html" className="ready-btn">
                       Read more
                     </a>
                   </span>

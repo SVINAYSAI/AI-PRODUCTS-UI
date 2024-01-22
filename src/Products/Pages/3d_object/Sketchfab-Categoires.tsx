@@ -9,7 +9,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:5000/categories")
+      .get("https://www.aifats.com/api/categories")
       .then((response) => {
         setData(response.data);
         setLoading(false);

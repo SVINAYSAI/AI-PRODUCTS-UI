@@ -33,7 +33,7 @@ const SketchfabSearch: React.FC = () => {
   useEffect(() => {
     if (triggerFetch) {
       console.log("Triggering fetch with:", { searchQuery, count, cursor });
-      const url = `http://localhost:5000/get_next_sketchfab_data?q=${searchQuery}&count=${count}&cursor=${cursor}`;
+      const url = `https://www.aifats.com/api/get_next_sketchfab_data?q=${searchQuery}&count=${count}&cursor=${cursor}`;
       console.log("URL:", url);
       setLoading(true);
       fetch(url)
@@ -86,7 +86,7 @@ const SketchfabSearch: React.FC = () => {
   };
 
   const handleThumbnailClick = (modelUid: string) => {
-    fetch(`http://localhost:5000/get_download_info?uid=${modelUid}`)
+    fetch(`https://www.aifats.com/api/get_download_info?uid=${modelUid}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP Error ${response.status}`);
@@ -120,7 +120,7 @@ const SketchfabSearch: React.FC = () => {
 
     // Send a request to fetch the model description
     fetch(
-      `http://localhost:5000/sketchfab/get_model_description?uid=${modelUid}`
+      `https://www.aifats.com/api/sketchfab/get_model_description?uid=${modelUid}`
     )
       .then((response) => {
         if (!response.ok) {

@@ -1,21 +1,21 @@
 import Img from "../assets/img/about/1.jpg";
 
-export default function About() {
+export default function about() {
   return (
     <>
-      <div id="about" className="about-area area-padding">
-        <div className="container">
+      <div id="about1" className="about1-area area-padding">
+        <div className="container mb-4">
           <div className="row">
             <div className="col-md-12 col-sm-12 col-xs-12">
               <div className="section-headline text-center">
-                <h2>About eBusiness</h2>
+                <h2 className="mb-4 mt-8">about eBusiness</h2>
               </div>
             </div>
           </div>
           <div className="row">
             <div className="col-md-6 col-sm-6 col-xs-12">
               <div className="well-left">
-                <div className="single-well">
+                <div className="single-well1">
                   <a href="#">
                     <img src={Img} alt="" />
                   </a>
@@ -24,7 +24,7 @@ export default function About() {
             </div>
             <div className="col-md-6 col-sm-6 col-xs-12">
               <div className="well-middle">
-                <div className="single-well">
+                <div className="single-well1">
                   <a href="#">
                     <h4 className="sec-head">project Maintenance</h4>
                   </a>

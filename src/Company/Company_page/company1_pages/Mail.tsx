@@ -120,7 +120,7 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
     try {
       // Log the data before sending
       console.log('Sending data to backend:', feedbackData);
-      const response1 = await fetch('http://127.0.0.1:5000/feedback_replay/submit_feedback', {
+      const response1 = await fetch('https://www.aifats.com/api/feedback_replay/submit_feedback', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -131,7 +131,7 @@ const Mail: React.FC<MailProps> = ({ complaintNumber, userEmail }) => {
         console.log('Feedback submitted successfully to the first API');
   
         // Now, send the same data to the second API
-        const response2 = await fetch('http://127.0.0.1:5000/sending_feedback/send_feedback', {
+        const response2 = await fetch('https://www.aifats.com/api/sending_feedback/send_feedback', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

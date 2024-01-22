@@ -16,7 +16,7 @@ export default function Model() {
         message: prompt,
       });
 
-      const response = await fetch('http://127.0.0.1:5000/midjourney', {
+      const response = await fetch('https://www.aifats.com/api/midjourney', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

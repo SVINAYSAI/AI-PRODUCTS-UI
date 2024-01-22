@@ -8,6 +8,7 @@ import Testimonials from "./Pages/Testimonials";
 import Blog from "./Pages/Blog";
 import Suscribe from "./Pages/Suscribe";
 import ContactUS from "./Pages/ContactUS";
+import Footer from "../HOME/MainPages/HomePages/Footer";
 
 import "./assets/css/style.css";
 import "animate.css/animate.css";
@@ -34,6 +35,7 @@ export default function Service() {
       <Blog />
       <Suscribe />
       <ContactUS />
+      <Footer />
     </>
   );
 }

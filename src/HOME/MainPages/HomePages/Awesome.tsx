@@ -103,7 +103,7 @@ export default function Awesome() {
                 <div className="testimonial-wrapper">
                   <div className="img-holder">
                     <img
-                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/avatar.jpg"
+                      src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/avatar.jpg"
                       alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                     />
                   </div>
@@ -122,7 +122,7 @@ export default function Awesome() {
                 <div className="testimonial-wrapper">
                   <div className="img-holder">
                     <img
-                      src="http://195.35.22.190/virtual_directory/ui_images/components/assets/imgs/avatar-3.jpg"
+                      src="https://www.aifats.com/virtual_directory/ui_images/components/assets/imgs/avatar-3.jpg"
                       alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Creative studio Landing page"
                     />
                   </div>

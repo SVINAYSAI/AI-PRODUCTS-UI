@@ -14,7 +14,7 @@ export default function OurServices() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://195.35.22.190:5000/submit_complaint', {
+      const response = await fetch('https://www.aifats.com/api/submit_complaint', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
