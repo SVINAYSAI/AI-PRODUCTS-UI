@@ -9,12 +9,16 @@ export default function Creat_Custumer() {
     selectedCurrencies,
     searchQuery,
     dropdownVisible,
+    dropdownVisible1,
     formData,
     handleSearch,
     handleDropdownClick,
     handleChange,
     handleSubmit,
+    handleOrder,
     payButton,
+    toggleDropdownVisibility,
+    toggleDropdownVisibility1,
     setSearchQuery,
   } = useCustomerLogic();
   
