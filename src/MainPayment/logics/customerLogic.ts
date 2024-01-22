@@ -16,6 +16,7 @@ interface ApiResponse {
     iso_code: string;
     name: string;
     notes_key_1: string;
+    CUSTOMER_id: string;
   }
 
 export function useCustomerLogic() {
@@ -146,7 +147,7 @@ export function useCustomerLogic() {
             console.log('Response from server:', data);
             setTimeout(() => {
                 payButton();
-            }, 5000);
+            }, 7000);
 
             // You can perform additional actions based on the server response here
         } catch (error) {
@@ -155,17 +156,19 @@ export function useCustomerLogic() {
     };
 
     const payButton = async () => {
+        console.log('payButton function called');
         try {
           const requestData = {
-            Email: formData.Email,
+            email: formData.Email,
           };
-      
+          console.log('Sending request to API:', JSON.stringify(requestData));
+
           const response = await fetch('http://127.0.0.1:5000/razorpay/get_api_id', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ requestData }),
+            body: JSON.stringify( requestData ),
           });
       
           if (!response.ok) {
@@ -173,6 +176,8 @@ export function useCustomerLogic() {
           }
       
           const data: ApiResponse = await response.json();
+          console.log('Response from API:', JSON.stringify(data));
+
           setResponseData(data);
           setError(null);
       
@@ -184,8 +189,8 @@ export function useCustomerLogic() {
             name: data.name,
             description: "Test Transaction",
             image: "https://example.com/your_logo",
-            order_id: "order_NQm6aqL38cRvkM", // Replace with the actual order ID
-            customer_id: data.Present_Order_ID, // Optional: Add customer ID if available
+            order_id: data.Present_Order_ID, // Replace with the actual order ID
+            customer_id: data.CUSTOMER_id, // Optional: Add customer ID if available
             send_sms_hash: true,
             prefill: {
               name: data.name,
@@ -199,6 +204,7 @@ export function useCustomerLogic() {
               color: "#3399cc",
             },
           };
+          console.log('Sending data to initiateRazorpay:', JSON.stringify(razorpayData));
       
           // Now call the initiateRazorpay function with the received data
           initiateRazorpay(Razorpay, razorpayData)();
