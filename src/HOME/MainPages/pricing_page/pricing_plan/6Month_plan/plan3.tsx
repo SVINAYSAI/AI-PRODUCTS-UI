@@ -1,7 +1,84 @@
 import { Link } from "react-router-dom";
 import p from "../../../../../components/assets/imgs/half3.jpeg";
+import { useState, useEffect } from "react";
+import PricingLogic from "../../pricing_logic/pricinglogic";
+
+interface PricingPlan {
+  price: string;
+  plainid: string;
+}
+
+interface Pricing {
+  currency_symbol: string;
+  data: { plainid: string; price: string }[];
+}
 
 export default function Plan3() {
+  const { countryPricing } = PricingLogic();
+  const [priceInfo, setPriceInfo] = useState<{
+    price: string;
+    currency_symbol: string;
+  } | null>(null);
+
+  const findPriceById = (idToFind: string) => {
+    if (
+      countryPricing &&
+      countryPricing.data &&
+      countryPricing.currency_symbol
+    ) {
+      try {
+        const dataArray = JSON.parse(countryPricing.data);
+
+        if (Array.isArray(dataArray)) {
+          console.log("Parsed Data Array:", dataArray);
+
+          for (const item of dataArray) {
+            const pricing = item.pricing;
+
+            for (const plainKey in pricing) {
+              const plainItem = pricing[plainKey];
+
+              if (plainItem.plainid === idToFind) {
+                console.log("Found Item:", plainItem);
+
+                return {
+                  price: plainItem.price,
+                  currency_symbol: countryPricing.currency_symbol,
+                };
+              }
+            }
+          }
+
+          console.log("Item not found for id:", idToFind);
+          return "Not found";
+        } else {
+          console.error("Invalid data format. Expected an array.");
+          return "Invalid data format";
+        }
+      } catch (error) {
+        console.error("Error parsing data:", error);
+        return "Error parsing data";
+      }
+    }
+
+    console.error("Data not available.");
+    return "Data not available";
+  };
+
+  useEffect(() => {
+    const specificId = "158406102";
+    const priceInfoResult = findPriceById(specificId);
+
+    if (typeof priceInfoResult === "object" && "price" in priceInfoResult) {
+      setPriceInfo(priceInfoResult);
+      console.log(
+        `Price for id ${specificId}: ${priceInfoResult.price} ${priceInfoResult.currency_symbol}`
+      );
+    } else {
+      console.error(`Failed to get price for id ${specificId}`);
+    }
+  }, [countryPricing]);
+
   return (
     <div className="flex flex-col w-full mx-auto max-w-lg text-gray-900 bg-white rounded-md border border-gray-300 shadow dark:border-gray-600 p-4 dark:bg-gray-800 dark:text-white">
       <div
@@ -22,7 +99,9 @@ export default function Plan3() {
           >
             16000
           </span>
-          <span className="ml-3"> 5599₹ </span>
+          <span className="ml-4">
+            {priceInfo && `${priceInfo.price} ${priceInfo.currency_symbol}`}
+          </span>
         </h3>
 
         <div className="text-xs text-white">Billed 1/2 Year</div>

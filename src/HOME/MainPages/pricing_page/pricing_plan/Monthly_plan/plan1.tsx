@@ -1,7 +1,8 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import p from "../../../../../components/assets/imgs/pr.jpg";
-import PricingLogic from "../../pricing_logic/pricinglogic"
-import { useEffect } from "react";
+import PricingLogic from "../../pricing_logic/pricinglogic";
+
 interface PricingPlan {
   price: string;
   plainid: string;
@@ -14,78 +15,32 @@ interface Pricing {
 
 export default function Plan1() {
   const { countryPricing } = PricingLogic();
+  const [priceInfo, setPriceInfo] = useState<{
+    price: string;
+    currency_symbol: string;
+  } | null>(null);
 
-  const pricingPlans = [
-    {
-      PlanId: "789552312",
-      Amount: "500",
-      Currency: "$",
-    },
-    {
-      PlanId: "749463201",
-      Amount: "500",
-      Currency: "$",
-    },
-    {
-      PlanId: "385536748",
-      Amount: "500",
-      Currency: "$",
-    },
-    {
-      PlanId: "645644228",
-      Amount: "500",
-      Currency: "$",
-    },
-    {
-      PlanId: "211809878",
-      Amount: "500",
-      Currency: "$",
-    },
-    {
-      PlanId: "158406102",
-      Amount: "500",
-      Currency: "$",
-    },
-    {
-      PlanId: "134681180",
-      Amount: "500",
-      Currency: "$",
-    },
-    {
-      PlanId: "799033885",
-      Amount: "500",
-      Currency: "$",
-    },
-    {
-      PlanId: "907181013",
-      Amount: "500",
-      Currency: "$",
-    },
-  ];
-
-  
   const findPriceById = (idToFind: string) => {
-    if (countryPricing && countryPricing.data && countryPricing.currency_symbol) {
+    if (
+      countryPricing &&
+      countryPricing.data &&
+      countryPricing.currency_symbol
+    ) {
       try {
         const dataArray = JSON.parse(countryPricing.data);
 
-    
         if (Array.isArray(dataArray)) {
           console.log("Parsed Data Array:", dataArray);
 
-         
           for (const item of dataArray) {
             const pricing = item.pricing;
 
-           
             for (const plainKey in pricing) {
               const plainItem = pricing[plainKey];
 
-              
               if (plainItem.plainid === idToFind) {
                 console.log("Found Item:", plainItem);
 
-             
                 return {
                   price: plainItem.price,
                   currency_symbol: countryPricing.currency_symbol,
@@ -111,18 +66,19 @@ export default function Plan1() {
   };
 
   useEffect(() => {
-    const specificId = "907181013";
-    const priceInfo = findPriceById(specificId);
+    const specificId = "789552312";
+    const priceInfoResult = findPriceById(specificId);
 
-    if (typeof priceInfo === "object" && "price" in priceInfo) {
-      console.log(`Price for id ${specificId}: ${priceInfo.price} ${priceInfo.currency_symbol}`);
+    if (typeof priceInfoResult === "object" && "price" in priceInfoResult) {
+      setPriceInfo(priceInfoResult);
+      console.log(
+        `Price for id ${specificId}: ${priceInfoResult.price} ${priceInfoResult.currency_symbol}`
+      );
     } else {
       console.error(`Failed to get price for id ${specificId}`);
     }
   }, [countryPricing]);
 
-
-  
   return (
     <div className="flex flex-col w-full mx-auto max-w-lg text-gray-900 bg-white rounded-md border border-gray-300 shadow dark:border-gray-600 p-4 dark:bg-gray-800 dark:text-white">
       <div
@@ -143,7 +99,9 @@ export default function Plan1() {
           >
             499
           </span>
-          <span className="ml-3"> 249₹ </span>
+          <span className="ml-4">
+            {priceInfo && `${priceInfo.price} ${priceInfo.currency_symbol}`}
+          </span>
         </h3>
 
         <div className="text-xs text-white">Billed Monthly</div>
