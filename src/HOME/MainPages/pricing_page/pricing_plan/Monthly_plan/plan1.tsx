@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import p from "../../../../../components/assets/imgs/pr.jpg";
 import PricingLogic from "../../pricing_logic/pricinglogic"
+import { useEffect } from "react";
+interface PricingPlan {
+  price: string;
+  plainid: string;
+}
+
 interface Pricing {
   currency_symbol: string;
-  data: string; // Assuming 'data' is a string containing a JSON array
+  data: { plainid: string; price: string }[];
 }
 
 export default function Plan1() {
@@ -57,33 +63,65 @@ export default function Plan1() {
     },
   ];
 
-  // Function to find the price based on PlanId
-  const findPriceByPlanId = (countryPricing: Pricing | undefined, planId: string) => {
-    const pricingData = countryPricing?.data || '[]';
   
-    try {
-      const parsedData = JSON.parse(pricingData);
-  
-      if (Array.isArray(parsedData)) {
-        // Find the item with the matching plainid
-        const matchingItem = parsedData.find(item => item.pricing && item.pricing[planId]);
-  
-        // If found, return the price
-        if (matchingItem) {
-          const price = matchingItem.pricing[planId].price;
-          return price || null;
+  const findPriceById = (idToFind: string) => {
+    if (countryPricing && countryPricing.data && countryPricing.currency_symbol) {
+      try {
+        const dataArray = JSON.parse(countryPricing.data);
+
+    
+        if (Array.isArray(dataArray)) {
+          console.log("Parsed Data Array:", dataArray);
+
+         
+          for (const item of dataArray) {
+            const pricing = item.pricing;
+
+           
+            for (const plainKey in pricing) {
+              const plainItem = pricing[plainKey];
+
+              
+              if (plainItem.plainid === idToFind) {
+                console.log("Found Item:", plainItem);
+
+             
+                return {
+                  price: plainItem.price,
+                  currency_symbol: countryPricing.currency_symbol,
+                };
+              }
+            }
+          }
+
+          console.log("Item not found for id:", idToFind);
+          return "Not found";
+        } else {
+          console.error("Invalid data format. Expected an array.");
+          return "Invalid data format";
         }
+      } catch (error) {
+        console.error("Error parsing data:", error);
+        return "Error parsing data";
       }
-    } catch (error) {
-      console.error('Error parsing pricing data:', error);
     }
-  
-    return null;
+
+    console.error("Data not available.");
+    return "Data not available";
   };
-  
-  // Example usage:
-  const planIdToMatch = "907181013";
-  console.log(`Matching price for PlanId '${planIdToMatch}':`, findPriceByPlanId(countryPricing, planIdToMatch));
+
+  useEffect(() => {
+    const specificId = "907181013";
+    const priceInfo = findPriceById(specificId);
+
+    if (typeof priceInfo === "object" && "price" in priceInfo) {
+      console.log(`Price for id ${specificId}: ${priceInfo.price} ${priceInfo.currency_symbol}`);
+    } else {
+      console.error(`Failed to get price for id ${specificId}`);
+    }
+  }, [countryPricing]);
+
+
   
   return (
     <div className="flex flex-col w-full mx-auto max-w-lg text-gray-900 bg-white rounded-md border border-gray-300 shadow dark:border-gray-600 p-4 dark:bg-gray-800 dark:text-white">
