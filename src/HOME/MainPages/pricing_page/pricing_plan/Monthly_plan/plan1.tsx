@@ -1,7 +1,90 @@
 import { Link } from "react-router-dom";
 import p from "../../../../../components/assets/imgs/pr.jpg";
+import PricingLogic from "../../pricing_logic/pricinglogic"
+interface Pricing {
+  currency_symbol: string;
+  data: string; // Assuming 'data' is a string containing a JSON array
+}
 
 export default function Plan1() {
+  const { countryPricing } = PricingLogic();
+
+  const pricingPlans = [
+    {
+      PlanId: "789552312",
+      Amount: "500",
+      Currency: "$",
+    },
+    {
+      PlanId: "749463201",
+      Amount: "500",
+      Currency: "$",
+    },
+    {
+      PlanId: "385536748",
+      Amount: "500",
+      Currency: "$",
+    },
+    {
+      PlanId: "645644228",
+      Amount: "500",
+      Currency: "$",
+    },
+    {
+      PlanId: "211809878",
+      Amount: "500",
+      Currency: "$",
+    },
+    {
+      PlanId: "158406102",
+      Amount: "500",
+      Currency: "$",
+    },
+    {
+      PlanId: "134681180",
+      Amount: "500",
+      Currency: "$",
+    },
+    {
+      PlanId: "799033885",
+      Amount: "500",
+      Currency: "$",
+    },
+    {
+      PlanId: "907181013",
+      Amount: "500",
+      Currency: "$",
+    },
+  ];
+
+  // Function to find the price based on PlanId
+  const findPriceByPlanId = (countryPricing: Pricing | undefined, planId: string) => {
+    const pricingData = countryPricing?.data || '[]';
+  
+    try {
+      const parsedData = JSON.parse(pricingData);
+  
+      if (Array.isArray(parsedData)) {
+        // Find the item with the matching plainid
+        const matchingItem = parsedData.find(item => item.pricing && item.pricing[planId]);
+  
+        // If found, return the price
+        if (matchingItem) {
+          const price = matchingItem.pricing[planId].price;
+          return price || null;
+        }
+      }
+    } catch (error) {
+      console.error('Error parsing pricing data:', error);
+    }
+  
+    return null;
+  };
+  
+  // Example usage:
+  const planIdToMatch = "907181013";
+  console.log(`Matching price for PlanId '${planIdToMatch}':`, findPriceByPlanId(countryPricing, planIdToMatch));
+  
   return (
     <div className="flex flex-col w-full mx-auto max-w-lg text-gray-900 bg-white rounded-md border border-gray-300 shadow dark:border-gray-600 p-4 dark:bg-gray-800 dark:text-white">
       <div

@@ -1,10 +1,16 @@
-import { useState } from "react";
-
-export default function IPLogic(){
-
+import { useEffect, useState } from "react";
+interface Pricing {
+    currency_symbol: string;
+    data: string; // Assuming 'data' is a string containing a JSON array
+  }
+export default function PricingLogic(){
   const [ipInfo, setIpInfo] = useState<any>(null);
   const [countryPricing, setCountryPricing] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    handleGetIpInfo();
+  }, []);
 
   const handleGetIpInfo = async () => {
     try {
@@ -19,7 +25,6 @@ export default function IPLogic(){
         const data = await response.json();
         setIpInfo(data);
         setError(null);
-
         // Fetch country pricing using the country from the IP information
         setTimeout(() => {
             if (data && data.country) {
@@ -69,9 +74,36 @@ export default function IPLogic(){
       setCountryPricing(null);
     }
   };
+  const findPriceByPlanId = (countryPricing: Pricing | undefined, planId: string) => {
+    const pricingData = countryPricing?.data || '[]';
+  
+    try {
+      const parsedData = JSON.parse(pricingData);
+  
+      if (Array.isArray(parsedData)) {
+        // Find the item with the matching plainid
+        const matchingItem = parsedData.find(item => item.pricing && item.pricing[planId]);
+  
+        // If found, return the price
+        if (matchingItem) {
+          const price = matchingItem.pricing[planId].price;
+          return price || null;
+        }
+      }
+    } catch (error) {
+      console.error('Error parsing pricing data:', error);
+    }
+  
+    return null;
+  };
+  
+  // Example usage:
+  const planIdToMatch = "907181013";
+  console.log(`Matching price for PlanId '${planIdToMatch}':`, findPriceByPlanId(countryPricing, planIdToMatch));
   
 
-
+  
+  
   return{
     ipInfo,
     error,

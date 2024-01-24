@@ -15,6 +15,7 @@ import YearPlan3 from "./pricing_page/pricing_plan/yearly_plan/plan3";
 import YearPlan4 from "./pricing_page/pricing_plan/yearly_plan/plan4";
 import Plaindetails1 from "./pricing_page/plain_details/plain_details1";
 
+
 type AccordionType = "Monthly" | "6Month" | "Yearly";
 
 export default function Pricing() {
@@ -96,6 +97,7 @@ export default function Pricing() {
           </div>
 
           <Plaindetails1 />
+          
         </div>
       </section>
 
