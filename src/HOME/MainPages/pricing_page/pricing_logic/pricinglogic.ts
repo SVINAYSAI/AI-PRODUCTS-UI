@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 
-interface Pricing {
-  currency_symbol: string;
-  data: string; // Assuming 'data' is a string containing a JSON array
-}
+
 
 export default function PricingLogic() {
   const [ipInfo, setIpInfo] = useState<any>(null);

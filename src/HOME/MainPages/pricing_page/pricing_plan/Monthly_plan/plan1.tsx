@@ -3,16 +3,6 @@ import { Link } from "react-router-dom";
 import p from "../../../../../components/assets/imgs/pr.jpg";
 import PricingLogic from "../../pricing_logic/pricinglogic";
 
-interface PricingPlan {
-  price: string;
-  plainid: string;
-}
-
-interface Pricing {
-  currency_symbol: string;
-  data: { plainid: string; price: string }[];
-}
-
 export default function Plan1() {
   const { countryPricing } = PricingLogic();
   const [priceInfo, setPriceInfo] = useState<{

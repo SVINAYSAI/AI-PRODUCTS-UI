@@ -17,7 +17,6 @@ interface ApiResponse {
     name: string;
     notes_key_1: string;
     CUSTOMER_id: string;
-    razorpay_payment_id: string; // Add this line
   }
 
 export function useCustomerLogic() {
@@ -28,11 +27,6 @@ export function useCustomerLogic() {
     const [Razorpay, isLoaded] = useRazorpay();
     const [responseData, setResponseData] = useState<ApiResponse | null>(null);
     const [error, setError] = useState<string | null>(null);
-    const [responseMessage, setResponseMessage] = useState<string>('');
-    const [razorpayPaymentId, setRazorpayPaymentId] = useState<string | null>(null);
-
-  
-  
 
     const [formData, setFormData] = useState<{
         Name: string;
@@ -208,56 +202,14 @@ export function useCustomerLogic() {
       
           // Now call the initiateRazorpay function with the received data
           initiateRazorpay(Razorpay, razorpayData)();
-
-          setResponseData(data);
-          setError(null);
-
-           // Assuming razorpay_payment_id is part of the data received from the API
-          const razorpayPaymentId = data.razorpay_payment_id;
-          setRazorpayPaymentId(razorpayPaymentId);
-        
-          if (!response.ok){
-            throw new Error('Request failed')
-          }
-          else{
-            setTimeout(() => {
-                handleSavePayment();
-                }, 7000); 
-          }
+          
         } catch (error) {
           console.error('Error fetching data:', error);
           setError('Error fetching data. Please try again.');
         }
       };
 
-      const handleSavePayment = async () => {
-        console.log('starting_api')
-        try {
-          if (!razorpayPaymentId) {
-            throw new Error('Razorpay payment ID is missing.');
-          }
-      
-          const email = formData.Email;
-          const pay ={
-            payment_id : razorpayPaymentId,
-            email : email
-          }
-      
-          const response = await fetch('http://127.0.0.1:5000/paymentid', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(pay),
-          });
-          console.log('sending to backend',pay)
-      
-          const data = await response.json();
-          setResponseMessage(JSON.stringify(data, null, 2));
-        } catch (error: any) {
-          setResponseMessage(`Error: ${error.message}`);
-        }
-      };
+  
       
       
     return {
