@@ -18,6 +18,7 @@ import MicroPhone from "./Test/microphone";
 import PayButton from "./MainPayment/Pages/PayButton";
 import IpInfoComponent from "./Test/IP";
 import Pricing_Plan from "./HOME/MainPages/pricing_page/plain_details/Pricing_plan";
+import OrderSummary from "./HOME/MainPages/pricing_page/pricing_plan/OrderSummary";
 
 const App = () => {
   return (
@@ -41,6 +42,7 @@ const App = () => {
         <Route path="/pay" element={<PayButton />} />
         <Route path="/IP" element={<IpInfoComponent />} />
         <Route path="/PricingPlan" element={<Pricing_Plan />} />
+        <Route path="/ordersummary" element={<OrderSummary />} /> 
       </Routes>
     </Router>
   );
