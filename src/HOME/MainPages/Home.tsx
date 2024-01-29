@@ -14,6 +14,7 @@ function App() {
  
   return (
     <>
+    
       <Header />
       <main>
         <WeCreate />
@@ -25,6 +26,7 @@ function App() {
         {/* <Chatbot/> */}
       </main>
       <Footer />
+    
     </>
   );
 }
