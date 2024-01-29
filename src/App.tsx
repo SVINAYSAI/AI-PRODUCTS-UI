@@ -19,12 +19,13 @@ import PayButton from "./MainPayment/Pages/PayButton";
 import IpInfoComponent from "./Test/IP";
 import Pricing_Plan from "./HOME/MainPages/pricing_page/plain_details/Pricing_plan";
 import OrderSummary from "./HOME/MainPages/pricing_page/pricing_plan/OrderSummary";
+import DashboardRoute from "./Routes/user_dashboard_routes"
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/*" element={<HOME />} />
+        {/* <Route path="/*" element={<HOME />} />
         <Route path="/products/*" element={<ProductsRoute />} />
         <Route path="/services/*" element={<ServicesRoute />} />
         <Route path="/api/*" element={<APIsRoute />} />
@@ -42,7 +43,8 @@ const App = () => {
         <Route path="/pay" element={<PayButton />} />
         <Route path="/IP" element={<IpInfoComponent />} />
         <Route path="/PricingPlan" element={<Pricing_Plan />} />
-        <Route path="/ordersummary" element={<OrderSummary />} /> 
+        <Route path="/ordersummary" element={<OrderSummary />} />  */}
+        <Route path="/Dashboard" element={<DashboardRoute />} /> 
       </Routes>
     </Router>
   );
