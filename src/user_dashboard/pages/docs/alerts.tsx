@@ -1,3 +1,4 @@
+import React from "react"
 import DocNavbar from "../doc-navbar"
 import DocSidenav from "../doc-sidenav"
 
