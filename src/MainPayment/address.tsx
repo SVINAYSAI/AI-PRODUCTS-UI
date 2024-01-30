@@ -1,6 +1,15 @@
+import React, { useState } from 'react'
+
 
 
 export default function Address() {
+    const [value, setValue] = useState<string | undefined>();
+
+    const handlePhoneChange = (newValue: string | undefined) => {
+        setValue(newValue); // Update the phone number state with the new value
+    };
+
+
     return (
         <div className="max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
             <div className="bg-white rounded-xl shadow p-4 sm:p-7 dark:bg-slate-900">
@@ -48,22 +57,45 @@ export default function Address() {
                             <div className="inline-block">
                                 <label htmlFor="af-account-phone" className="inline-block text-sm text-gray-800 mt-2.5 dark:text-gray-200">
                                     Phone
-                                </label>                              
+                                </label>
                             </div>
                         </div>
+
+
+
+
                         <div className="sm:col-span-9">
                             <div className="sm:flex">
-                            <select className="py-2 px-3 pe-9 block w-full sm:w-auto border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
-                                    <option selected>Mobile</option>
-                                    <option>Home</option>
-                                    <option>Work</option>
-                                    <option>Fax</option>
-                                </select>
-                                <input id="af-account-phone" type="text" className="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" placeholder="+91 8106465916" />
-                               
+
+                                <input id="af-account-phone"
+                                    type="text"
+                                    className="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                                    placeholder="+91 8106465916"
+                                    value={value || ''}
+                                    onChange={(e) => handlePhoneChange(e.target.value)}
+                                />
+
                             </div>
-                            
+
                         </div>
+
+                        <div className="sm:col-span-3">
+                            <div className="inline-block">
+                                <label htmlFor="af-account-phone" className="inline-block text-sm text-gray-800 mt-2.5 dark:text-gray-200">
+                                Country/Region *
+                                </label>
+                            </div>
+                            <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <option selected>Choose a country</option>
+  <option value="US">United States</option>
+  <option value="CA">Canada</option>
+  <option value="FR">France</option>
+  <option value="DE">Germany</option>
+</select>
+                        </div>
+
+                    
+
                         <div className="sm:col-span-3">
                             <label htmlFor="af-account-gender-checkbox" className="inline-block text-sm text-gray-800 mt-2.5 dark:text-gray-200">
                                 Gender
@@ -85,8 +117,8 @@ export default function Address() {
                                 </label>
                             </div>
                         </div>
-                      
-                       
+
+
                     </div>
                     <div className="mt-5 flex justify-end gap-x-2">
                         <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
