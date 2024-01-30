@@ -21,7 +21,7 @@ export default function OrderSummary() {
     <>
       <div
         className="mt-4 container rounded-md p-6"
-        style={{ width: "40%", backgroundColor: "rgb(249 249 249)" }}
+        style={{ width: "28%", backgroundColor: "rgb(249 249 249)" }}
       >
         <div>
           <h5 className="text-black">Order Summary</h5>

@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { initiateRazorpay } from "./logics/Razorpay_logic"
 import useRazorpay from "react-razorpay";
 import { useCustomerLogic } from './logics/customerLogic';
+import OrderSummary from '../HOME/MainPages/pricing_page/pricing_plan/OrderSummary';
 
 export default function Creat_Custumer() {
   const {
@@ -20,7 +21,8 @@ export default function Creat_Custumer() {
   
   return (
     <>
-      <section className="container m-4 rounded-md">
+    <div className='flex grid-cols-2 gap-4'>
+      <section className="container m-4 rounded-md" style={{width:"60rem"}}>
         <form onSubmit={handleSubmit}>
           <div className="grid gap-6 md:grid-cols-2">
             <div>
@@ -122,6 +124,8 @@ export default function Creat_Custumer() {
           </button>
         </form>
       </section>
+      <OrderSummary/>
+      </div>
     </>
   );
 }

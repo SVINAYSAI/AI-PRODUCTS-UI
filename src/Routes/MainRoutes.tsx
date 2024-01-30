@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "../MainUserDashBoard/UserDashBoard/Navbar";
 import Test from "../MainUserDashBoard/UserDashBoard/test";
+import "../components/CSS/userdash.css"
 
 const FrontendRoute = () => {
   return (
