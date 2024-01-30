@@ -39,9 +39,10 @@ export default function UserMiniProfile() {
 
         <li>
           <a
-            className="flex px-5 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white dropdown-item d-flex align-items-center"
+            className="flex py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white dropdown-item d-flex align-items-center"
             href="#!"
           >
+            <p className="pl-[2px]"></p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -56,15 +57,16 @@ export default function UserMiniProfile() {
             >
               <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
             </svg>
-            Activity Log
+            <p className="pl-[4px]">Activity Log</p>
           </a>
         </li>
 
         <li>
           <a
-            className="flex px-5 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white dropdown-item d-flex align-items-center"
+            className="flex px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white dropdown-item d-flex align-items-center"
             href="#!"
           >
+            <p className="pl-[2px]"></p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="15"
@@ -80,15 +82,16 @@ export default function UserMiniProfile() {
               <circle cx="12" cy="12" r="3"></circle>
               <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
             </svg>
-            Settings
+            <p className="pl-[5px]"></p>Settings
           </a>
         </li>
 
         <li>
           <a
-            className="flex px-5 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white dropdown-item d-flex align-items-center"
-            href="../index.html"
+            className="flex px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white dropdown-item d-flex align-items-center"
+            href="#!"
           >
+            <p className="pl-[2px]"></p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -104,7 +107,7 @@ export default function UserMiniProfile() {
               <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
               <line x1="12" y1="2" x2="12" y2="12"></line>
             </svg>
-            Sign Out
+            <p className="pl-[5px]"></p>Sign Out
           </a>
         </li>
       </ul>

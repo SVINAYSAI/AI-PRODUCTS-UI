@@ -22,7 +22,7 @@ export default function Address() {
           <div className="grid sm:grid-cols-12 gap-2 sm:gap-6">
             <div className="sm:col-span-3">
               <label
-                htmlFor="af-account-full-name"
+                htmlFor="af-account-first-name"
                 className="inline-block text-sm text-gray-800 mt-2.5 dark:text-gray-200"
               >
                 Frist name*
@@ -53,7 +53,7 @@ export default function Address() {
             <div className="sm:col-span-9">
               <div className="sm:flex">
                 <input
-                  id="af-account-full-name"
+                  id="af-account-first-name"
                   type="text"
                   className="py-2 px-3 border pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
                   placeholder="Maria"
@@ -63,7 +63,7 @@ export default function Address() {
 
             <div className="sm:col-span-3">
               <label
-                htmlFor="af-account-full-name"
+                htmlFor="af-account-last-name"
                 className="inline-block text-sm text-gray-800 mt-2.5 dark:text-gray-200"
               >
                 Last name*
@@ -144,6 +144,101 @@ export default function Address() {
                 <option value="FR">France</option>
                 <option value="DE">Germany</option>
               </select>
+            </div>
+
+            <div className="sm:col-span-3">
+              <label
+                htmlFor="af-account-address1"
+                className="inline-block text-sm text-gray-800 mt-2.5 dark:text-gray-200"
+              >
+                Address*
+              </label>
+            </div>
+
+            <div className="sm:col-span-9">
+              <div className="sm:flex">
+                <input
+                  type="text"
+                  className="py-2 px-3 border pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                  placeholder="Address"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-3">
+              <label
+                htmlFor="af-account-address2"
+                className="inline-block text-sm text-gray-800 mt-2.5 dark:text-gray-200"
+              >
+                Address 2
+              </label>
+            </div>
+
+            <div className="sm:col-span-9">
+              <div className="sm:flex">
+                <input
+                  type="text"
+                  className="py-2 px-3 border pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                  placeholder="Address 2"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-3">
+              <label
+                htmlFor="af-account-city"
+                className="inline-block text-sm text-gray-800 mt-2.5 dark:text-gray-200"
+              >
+                City*
+              </label>
+            </div>
+
+            <div className="sm:col-span-9">
+              <div className="sm:flex">
+                <input
+                  type="text"
+                  className="py-2 px-3 border pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                  placeholder="City"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-3">
+              <label
+                htmlFor="af-account-province"
+                className="inline-block text-sm text-gray-800 mt-2.5 dark:text-gray-200"
+              >
+                Province*
+              </label>
+            </div>
+
+            <div className="sm:col-span-9">
+              <div className="sm:flex">
+                <input
+                  type="text"
+                  className="py-2 px-3 border pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                  placeholder="Province"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-3">
+              <label
+                htmlFor="af-account-postal-code"
+                className="inline-block text-sm text-gray-800 mt-2.5 dark:text-gray-200"
+              >
+                Post Code*
+              </label>
+            </div>
+
+            <div className="sm:col-span-9">
+              <div className="sm:flex">
+                <input
+                  type="number"
+                  className="py-2 px-3 border pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                  placeholder="Post Code"
+                />
+              </div>
             </div>
 
             <div className="sm:col-span-3">
