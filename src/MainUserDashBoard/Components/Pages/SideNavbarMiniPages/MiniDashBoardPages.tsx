@@ -1,7 +1,7 @@
 export default function MiniDashBoardPages() {
   return (
     <>
-      <ul className="nav flex-column">
+      <ul className="space-y-0 font-medium mt-2">
         <li>
           <a
             href="#"
