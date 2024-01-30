@@ -3,6 +3,7 @@ import { initiateRazorpay } from "./logics/Razorpay_logic"
 import useRazorpay from "react-razorpay";
 import { useCustomerLogic } from './logics/customerLogic';
 import OrderSummary from '../HOME/MainPages/pricing_page/pricing_plan/OrderSummary';
+import Address from './address';
 
 export default function Creat_Custumer() {
   const {
@@ -126,6 +127,7 @@ export default function Creat_Custumer() {
       </section>
       <OrderSummary/>
       </div>
+      <Address/>
     </>
   );
 }
