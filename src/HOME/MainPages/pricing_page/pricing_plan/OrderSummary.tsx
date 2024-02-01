@@ -4,6 +4,7 @@ import VisaCard from "../../../../MainPayment/PaymentComponents/VisaCard.svg";
 import MasterCard from "../../../../MainPayment/PaymentComponents/MasterCard.svg";
 import American from "../../../../MainPayment/PaymentComponents/AmericanExpress.svg";
 import Dicover from "../../../../MainPayment/PaymentComponents/Dicover.svg";
+import "../../../../components/CSS/userdash.css"
 
 export default function OrderSummary() {
   const [promoCodeVisible, setPromoCodeVisible] = useState(false);
@@ -20,8 +21,8 @@ export default function OrderSummary() {
   return (
     <>
       <div
-        className="mt-4 container rounded-md p-6"
-        style={{ width: "28%", backgroundColor: "rgb(249 249 249)" }}
+        className=" container rounded-md"
+        style={{ width: "28%", backgroundColor: "rgb(249 249 249)", marginTop:"3.6rem", height:"50%" }}
       >
         <div>
           <h5 className="text-black">Order Summary</h5>

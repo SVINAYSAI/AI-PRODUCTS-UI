@@ -23,7 +23,8 @@ export default function Creat_Custumer() {
   return (
     <>
     <div className='flex grid-cols-2 gap-4'>
-      <section className="container m-4 rounded-md" style={{width:"60rem"}}>
+    <Address/>
+      {/* <section className="container m-4 rounded-md" style={{width:"60rem"}}>
         <form onSubmit={handleSubmit}>
           <div className="grid gap-6 md:grid-cols-2">
             <div>
@@ -124,10 +125,10 @@ export default function Creat_Custumer() {
             Submit
           </button>
         </form>
-      </section>
+      </section> */}
       <OrderSummary/>
       </div>
-      <Address/>
+      {/* <Address/> */}
     </>
   );
 }
