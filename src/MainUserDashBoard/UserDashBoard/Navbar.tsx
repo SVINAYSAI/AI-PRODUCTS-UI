@@ -54,7 +54,11 @@ export default function Navbar() {
         }`}
       >
         <div className="px-3 border py-3 lg:px-5 lg:pl-3">
-          <div className="flex items-center justify-between">
+          <div
+            className={`flex items-center justify-between ${
+              isSidebarOpen ? " mr-64" : ""
+            }`}
+          >
             <div className="flex items-center justify-start rtl:justify-end">
               <div>
                 <svg
@@ -70,20 +74,7 @@ export default function Navbar() {
                 </svg>
               </div>
 
-              <div className="ml-3">
-                <a href="https://flowbite.com" className="flex ms-2 md:me-24">
-                  <img
-                    src="https://flowbite.com/docs/images/logo.svg"
-                    className="h-8 me-3"
-                    alt="FlowBite Logo"
-                  />
-                  <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
-                    Flowbite
-                  </span>
-                </a>
-              </div>
-
-              <form className="flex items-center ml-20">
+              <form className="flex items-center ml-3">
                 <label htmlFor="voice-search" className="sr-only">
                   Search
                 </label>
@@ -146,7 +137,9 @@ export default function Navbar() {
                 {isNotificationOpen && (
                   <div
                     ref={notificationRef}
-                    className="z-50 absolute border right-20 mt-64 py-2 w-1/3 bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+                    className={`z-50 absolute border mt-64 py-2 w-1/3 bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600 ${
+                      isSidebarOpen ? "right-[21rem]" : "right-[5rem]"
+                    }`}
                   >
                     <ComponentNotification />
                   </div>
@@ -171,7 +164,9 @@ export default function Navbar() {
                 {isDropdownOpen && (
                   <div
                     ref={dropdownRef}
-                    className="z-50 absolute border right-7 mt-72 py-2 w-48 bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+                    className={`z-50 absolute border mt-72 py-2 w-48 bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600 ${
+                      isSidebarOpen ? "right-[18rem]" : "right-[2rem]"
+                    }`}
                   >
                     <UserMiniProfile />
                   </div>
