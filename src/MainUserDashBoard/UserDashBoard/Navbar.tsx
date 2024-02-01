@@ -2,11 +2,13 @@ import { useState, useRef, useEffect } from "react";
 import ComponentNotification from "../Components/Pages/Notification";
 import UserMiniProfile from "../Components/Pages/UserMiniProfile";
 import SideNavbarComponents from "../Components/Pages/SideNavbarComponents";
+import Body from "../Components/Body";
 
 export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const notificationRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -22,6 +24,7 @@ export default function Navbar() {
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
+    setIsSidebarOpen(!isSidebarOpen); // Toggle sidebar state
   };
 
   useEffect(() => {
@@ -45,8 +48,12 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-        <div className="px-3 py-3 lg:px-5 lg:pl-3">
+      <nav
+        className={`fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 ${
+          isSidebarOpen ? "ml-[16rem]" : ""
+        }`}
+      >
+        <div className="px-3 border py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start rtl:justify-end">
               <div>
@@ -81,36 +88,19 @@ export default function Navbar() {
                   Search
                 </label>
                 <div className="relative w-full">
-                  <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                    <svg
-                      className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 21 21"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M11.15 5.6h.01m3.337 1.913h.01m-6.979 0h.01M5.541 11h.01M15 15h2.706a1.957 1.957 0 0 0 1.883-1.325A9 9 0 1 0 2.043 11.89 9.1 9.1 0 0 0 7.2 19.1a8.62 8.62 0 0 0 3.769.9A2.013 2.013 0 0 0 13 18v-.857A2.034 2.034 0 0 1 15 15Z"
-                      />
-                    </svg>
-                  </div>
                   <input
                     type="text"
                     id="voice-search"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full pr-12 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Search Mockups, Logos, Design Templates..."
                     required
                   />
                   <button
                     type="button"
-                    className="absolute inset-y-0 end-0 flex items-center pe-3"
+                    className="absolute border border-gray-300 border-l-gray-400 p-2 inset-y-0 end-0 flex items-center "
                   >
                     <svg
-                      className="w-4 h-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                      className="w-4 h-4 text-gray-500 dark:text-gray-400"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -118,9 +108,9 @@ export default function Navbar() {
                     >
                       <path
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M15 7v3a5.006 5.006 0 0 1-5 5H6a5.006 5.006 0 0 1-5-5V7m7 9v3m-3 0h6M7 1h2a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3Z"
                       />
                     </svg>
@@ -145,9 +135,9 @@ export default function Navbar() {
                   >
                     <path
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.2"
                       d="M12 5.4V3m0 2.4a5.3 5.3 0 0 1 5.1 5.3v1.8c0 2.4 1.9 3 1.9 4.2 0 .6 0 1.3-.5 1.3h-13c-.5 0-.5-.7-.5-1.3 0-1.2 1.9-1.8 1.9-4.2v-1.8A5.3 5.3 0 0 1 12 5.4ZM8.7 18c.1.9.3 1.5 1 2.1a3.5 3.5 0 0 0 4.6 0c.7-.6 1.3-1.2 1.4-2.1h-7Z"
                     />
                   </svg>
@@ -194,13 +184,17 @@ export default function Navbar() {
 
       <div
         id="drawer-navigation"
-        className={`fixed top-0 left-0 z-40 w-64 mt-12 border h-screen p-4 overflow-y-auto transition-transform ${
+        className={`fixed top-0 left-0 z-40 w-64 border h-screen p-4 overflow-y-auto transition-transform ${
           isDrawerOpen ? "translate-x-0" : "-translate-x-full"
-        } bg-white dark:bg-gray-800`}
+        } bg-gray-50 dark:bg-gray-800`}
         tabIndex={-1}
         aria-labelledby="drawer-navigation-label"
       >
         <SideNavbarComponents />
+      </div>
+
+      <div className={`p-4 mt-16 ${isSidebarOpen ? "ml-[16rem]" : ""}`}>
+        <Body />
       </div>
     </>
   );

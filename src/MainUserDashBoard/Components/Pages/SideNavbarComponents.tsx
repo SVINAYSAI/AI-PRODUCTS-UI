@@ -1,6 +1,7 @@
 import { useState } from "react";
 import MiniDashBoardPages from "./SideNavbarMiniPages/MiniDashBoardPages";
 import MiniEcommercePages from "./SideNavbarMiniPages/MiniEcommercePages";
+import { Link } from "react-router-dom";
 
 export default function SideNavbarComponents() {
   const [isDropdownDashOpen, setIsDropdownDashOpen] = useState(false);
@@ -16,15 +17,15 @@ export default function SideNavbarComponents() {
 
   return (
     <>
-      <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+      <div className="mt-4 bg-gray-50">
         <ul className="space-y-2 font-medium">
           <li>
             <div>
-              <a
-                className={`flex px-4 py-2 text-sm rounded-lg text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white dropdown-item d-flex align-items-center ${
+              <Link
+                className={`flex px-4 py-2 text-sm bg-gray-100 rounded-md text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white dropdown-item d-flex align-items-center ${
                   isDropdownDashOpen ? "open" : ""
                 }`}
-                href="#!"
+                to="#!"
                 onClick={toggleDropdownDash}
               >
                 <svg
@@ -78,7 +79,7 @@ export default function SideNavbarComponents() {
                     </svg>
                   )}
                 </div>
-              </a>
+              </Link>
             </div>
             {isDropdownDashOpen && <MiniDashBoardPages />}
           </li>
